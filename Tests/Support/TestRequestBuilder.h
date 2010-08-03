@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TestRequestSpecification : NSObject
+@interface TestRequestSpecificationBuilder : NSObject
 {
   NSString *path;
   NSString *method;
+  NSMutableDictionary *headers;
 }
 - (id)initWithPath:(NSString *)aPath method:(NSString *)theMethod;
 - (void)writeToFile:(NSString *)filePath object:(id)resultObject;
+- (id)withHeader:(NSString *)header value:(NSString *)headerValue;
 @end
 
-TestRequestSpecification *forGetRequestTo(NSString *path);
+TestRequestSpecificationBuilder *forGetRequestTo(NSString *path);
 
-void serviceStubWillServe(id object, TestRequestSpecification *requestSpec);
-void serviceStubWillServeWithHeaders(id object, NSDictionary *headers, TestRequestSpecification *requestSpec);
+void serviceStubWillServe(id object, TestRequestSpecificationBuilder *requestSpec);
+void serviceStubWillServeWithHeaders(id object, NSDictionary *headers, TestRequestSpecificationBuilder *requestSpec);

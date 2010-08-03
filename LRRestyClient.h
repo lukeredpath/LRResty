@@ -14,5 +14,6 @@
 }
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 @end

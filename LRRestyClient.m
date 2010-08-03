@@ -16,6 +16,7 @@
   NSURL *requestURL;
   NSString *requestMethod;
   LRRestyClient *client;
+  NSDictionary *requestHeaders;
   id<LRRestyClientDelegate> delegate;
   BOOL _isExecuting;
   BOOL _isFinished;
@@ -32,6 +33,7 @@
 - (void)setFinished:(BOOL)isFinished;
 - (void)finish;
 - (void)setQueryParameters:(NSDictionary *)parameters;
+- (void)setHeaders:(NSDictionary *)headers;
 @end
 
 @implementation LRRestyClient
@@ -57,13 +59,19 @@
 
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  [self getURL:[NSURL URLWithString:urlString] parameters:parameters delegate:delegate];
+  [self get:urlString parameters:parameters headers:nil delegate:delegate];
 }
 
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:delegate];
+}
+
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:@"GET" client:self delegate:delegate];
   [request setQueryParameters:parameters];
+  [request setHeaders:headers];
   [operationQueue addOperation:request];
   [request release];
 }
@@ -104,6 +112,14 @@
   requestURL = [URLWithParameters retain];
 }
 
+- (void)setHeaders:(NSDictionary *)headers
+{
+  if (headers == nil) return;
+  
+  [requestHeaders release];
+  requestHeaders = [headers copy];
+}
+
 - (BOOL)isConcurrent
 {
   return YES;
@@ -131,8 +147,13 @@
   }
   [self setExecuting:YES];
   
+  NSMutableURLRequest *URLRequest = [NSMutableURLRequest requestWithURL:requestURL];
+  [requestHeaders enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+    [URLRequest addValue:value forHTTPHeaderField:key];
+  }];
+  
   NSURLConnection *connection = [NSURLConnection 
-      connectionWithRequest:[NSURLRequest requestWithURL:requestURL] 
+      connectionWithRequest:URLRequest
                    delegate:self];
     
   if (connection == nil) {

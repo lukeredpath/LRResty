@@ -62,6 +62,19 @@ NSString *resourceWithPath(NSString *path)
   assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
 }
 
+- (void)testCanPerformGetRequestWithCustomHeaders
+{
+  serviceStubWillServe(anyResponse(), [forGetRequestTo(@"/simple/resource") withHeader:@"X-Test-Header" value:@"Resty"]);
+  
+  [client get:resourceWithPath(@"/simple/resource") 
+   parameters:nil
+      headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
+     delegate:self];
+  
+  assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
+  
+}
+
 #pragma mark -
 
 - (void)restClient:(LRRestyClient *)client receivedResponse:(id)response;
