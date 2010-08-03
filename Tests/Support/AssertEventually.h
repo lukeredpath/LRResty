@@ -12,52 +12,52 @@
 #define kDEFAULT_PROBE_TIMEOUT 1
 #define kDEFAULT_PROBE_DELAY   0.1
 
-@protocol Probe <NSObject>
+@protocol LRProbe <NSObject>
 - (BOOL)isSatisfied;
 - (void)sample;
-- (NSString *)describeTo:(NSString *)description;
+- (NSString *)describeToString:(NSString *)description;
 @end
 
-extern NSString *const ProbePollerTimedOutException;
+extern NSString *const LRProbePollerTimedOutException;
 
-@interface ProbePoller : NSObject
+@interface LRProbePoller : NSObject
 {
   NSTimeInterval timeoutInterval;
   NSTimeInterval delayInterval;
 }
 - (id)initWithTimeout:(NSInteger)theTimeout delay:(NSInteger)theDelay;
-- (BOOL)check:(id<Probe>)probe;
+- (BOOL)check:(id<LRProbe>)probe;
 @end
 
 @class SenTestCase;
 
-void assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char* fileName, int lineNumber, id<Probe>probe, NSTimeInterval timeout);
-void assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName, int lineNumber, id<Probe>probe);
+void LR_assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe, NSTimeInterval timeout);
+void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe);
 
 #define assertEventuallyWithTimeout(probe, timeout) \
-        assertEventuallyWithLocationAndTimeout(self, __FILE__, __LINE__, probe, timeout)
+        LR_assertEventuallyWithLocationAndTimeout(self, __FILE__, __LINE__, probe, timeout)
 
 #define assertEventually(probe) \
-        assertEventuallyWithLocation(self, __FILE__, __LINE__, probe)
+        LR_assertEventuallyWithLocation(self, __FILE__, __LINE__, probe)
 
-typedef BOOL (^BlockProbeBlock)();
+typedef BOOL (^LRBlockProbeBlock)();
 
-@interface BlockProbe : NSObject <Probe>
+@interface LRBlockProbe : NSObject <LRProbe>
 {
-  BlockProbeBlock block;
+  LRBlockProbeBlock block;
   BOOL isSatisfied;
 }
-+ (id)probeWithBlock:(BlockProbeBlock)block;
-- (id)initWithBlock:(BlockProbeBlock)aBlock;
++ (id)probeWithBlock:(LRBlockProbeBlock)block;
+- (id)initWithBlock:(LRBlockProbeBlock)aBlock;
 @end
 
 #define assertEventuallyWithBlockAndTimeout(block,timeout) \
-        assertEventuallyWithTimeout([BlockProbe probeWithBlock:block], timeout)
+        assertEventuallyWithTimeout([LRBlockProbe probeWithBlock:block], timeout)
 
 #define assertEventuallyWithBlock(block) \
-        assertEventually([BlockProbe probeWithBlock:block])
+        assertEventually([LRBlockProbe probeWithBlock:block])
 
-@interface HamcrestProbe : NSObject <Probe>
+@interface LRHamcrestProbe : NSObject <LRProbe>
 {
   id objectToMatch;
   id<HCMatcher> matcher;
@@ -68,7 +68,7 @@ typedef BOOL (^BlockProbeBlock)();
 @end
 
 #define assertEventuallyThatWithTimeout(object, aMatcher, timeout) \
-        assertEventuallyWithTimeout([HamcrestProbe probeWithObject:object matcher:aMatcher], timeout)
+        assertEventuallyWithTimeout([LRHamcrestProbe probeWithObject:object matcher:aMatcher], timeout)
 
 #define assertEventuallyThat(object, aMatcher) \
-        assertEventually([HamcrestProbe probeWithObject:object matcher:aMatcher])
+        assertEventually([LRHamcrestProbe probeWithObject:object matcher:aMatcher])

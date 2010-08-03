@@ -10,7 +10,7 @@
 #import <SenTestingKit/SenTestCase.h>
 #import "HCStringDescription.h"
 
-@interface Timeout : NSObject
+@interface LRTimeout : NSObject
 {
   NSDate *timeoutDate;
 }
@@ -18,7 +18,7 @@
 - (BOOL)hasTimedOut;
 @end
 
-@implementation Timeout
+@implementation LRTimeout
 
 - (id)initWithTimeout:(NSTimeInterval)timeout
 {
@@ -44,9 +44,9 @@
 #pragma mark -
 #pragma mark Core
 
-NSString *const ProbePollerTimedOutException = @"ProbePollerTimedOutException";
+NSString *const LRProbePollerTimedOutException = @"ProbePollerTimedOutException";
 
-@implementation ProbePoller
+@implementation LRProbePoller
 
 - (id)initWithTimeout:(NSInteger)theTimeout delay:(NSInteger)theDelay;
 {
@@ -57,9 +57,9 @@ NSString *const ProbePollerTimedOutException = @"ProbePollerTimedOutException";
   return self;
 }
 
-- (BOOL)check:(id<Probe>)probe;
+- (BOOL)check:(id<LRProbe>)probe;
 {
-  Timeout *timeout = [[Timeout alloc] initWithTimeout:timeoutInterval];
+  LRTimeout *timeout = [[LRTimeout alloc] initWithTimeout:timeoutInterval];
   
   while (![probe isSatisfied]) {
     if ([timeout hasTimedOut]) {
@@ -73,11 +73,11 @@ NSString *const ProbePollerTimedOutException = @"ProbePollerTimedOutException";
 
 @end
 
-void assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char* fileName, int lineNumber, id<Probe>probe, NSTimeInterval timeout)
+void LR_assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe, NSTimeInterval timeout)
 {
-  ProbePoller *poller = [[ProbePoller alloc] initWithTimeout:timeout delay:kDEFAULT_PROBE_DELAY];
+  LRProbePoller *poller = [[LRProbePoller alloc] initWithTimeout:timeout delay:kDEFAULT_PROBE_DELAY];
   if (![poller check:probe]) {
-    NSString *failureMessage = [probe describeTo:[NSString stringWithFormat:@"Probe failed after %d second(s). ", (int)timeout]];
+    NSString *failureMessage = [probe describeToString:[NSString stringWithFormat:@"Probe failed after %d second(s). ", (int)timeout]];
     
     [testCase failWithException:
       [NSException failureInFile:[NSString stringWithUTF8String:fileName] 
@@ -87,22 +87,22 @@ void assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char* f
   [poller release];
 }
 
-void assertEventuallyWithLocation(SenTestCase * testCase, const char* fileName, int lineNumber, id<Probe>probe)
+void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe)
 {
-  assertEventuallyWithLocationAndTimeout(testCase, fileName, lineNumber, probe, kDEFAULT_PROBE_TIMEOUT);
+  LR_assertEventuallyWithLocationAndTimeout(testCase, fileName, lineNumber, probe, kDEFAULT_PROBE_TIMEOUT);
 }
 
 #pragma mark -
 #pragma mark Block support
 
-@implementation BlockProbe
+@implementation LRBlockProbe
 
-+ (id)probeWithBlock:(BlockProbeBlock)block;
++ (id)probeWithBlock:(LRBlockProbeBlock)block;
 {
   return [[[self alloc] initWithBlock:block] autorelease];
 }
 
-- (id)initWithBlock:(BlockProbeBlock)aBlock;
+- (id)initWithBlock:(LRBlockProbeBlock)aBlock;
 {
   if (self = [super init]) {
     block = Block_copy(aBlock);
@@ -128,7 +128,7 @@ void assertEventuallyWithLocation(SenTestCase * testCase, const char* fileName, 
   isSatisfied = block();
 }
             
-- (NSString *)describeTo:(NSString *)description;
+- (NSString *)describeToString:(NSString *)description;
 {
   // FIXME: this is a bit shit and non-descriptive
   return [description stringByAppendingString:@"Block call did not return positive value."];
@@ -139,7 +139,7 @@ void assertEventuallyWithLocation(SenTestCase * testCase, const char* fileName, 
 #pragma mark -
 #pragma mark Hamcrest support
 
-@implementation HamcrestProbe
+@implementation LRHamcrestProbe
 
 + (id)probeWithObject:(id)object matcher:(id<HCMatcher>)matcher;
 {
@@ -173,7 +173,7 @@ void assertEventuallyWithLocation(SenTestCase * testCase, const char* fileName, 
   didMatch = [matcher matches:objectToMatch];
 }
 
-- (NSString *)describeTo:(NSString *)description;
+- (NSString *)describeToString:(NSString *)description;
 {
   HCStringDescription* stringDescription = [HCStringDescription stringDescription];
   [[[[stringDescription appendText:@"Expected "]
