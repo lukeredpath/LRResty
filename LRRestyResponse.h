@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface LRRestyResponse : NSObject {
 
 }
-
+- (NSUInteger)status;
+- (NSString *)asString;
 @end

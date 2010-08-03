@@ -34,6 +34,8 @@ NSString *resourceWithPath(NSString *path)
   [[LRResty client] get:resourceWithPath(@"/simple/resource") delegate:self];
   
   assertEventuallyThat(lastResponse, instanceOf([LRRestyResponse class]));
+  assertThatInt([lastResponse status], equalToInt(200));
+  assertThat([lastResponse asString], equalTo(@"plain text response"));
 }
 
 #pragma mark -

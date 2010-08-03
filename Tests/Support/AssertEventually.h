@@ -18,14 +18,12 @@
 - (NSString *)describeToString:(NSString *)description;
 @end
 
-extern NSString *const LRProbePollerTimedOutException;
-
 @interface LRProbePoller : NSObject
 {
   NSTimeInterval timeoutInterval;
   NSTimeInterval delayInterval;
 }
-- (id)initWithTimeout:(NSInteger)theTimeout delay:(NSInteger)theDelay;
+- (id)initWithTimeout:(NSTimeInterval)theTimeout delay:(NSTimeInterval)theDelay;
 - (BOOL)check:(id<LRProbe>)probe;
 @end
 

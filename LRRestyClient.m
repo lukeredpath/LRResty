@@ -7,7 +7,7 @@
 //
 
 #import "LRRestyClient.h"
-
+#import "LRRestyResponse.h"
 
 @implementation LRRestyClient
 
@@ -18,7 +18,8 @@
 
 - (void)getURL:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  
+  [delegate restClient:self receivedResponse:[[LRRestyResponse new] autorelease]];
 }
 
 @end
+

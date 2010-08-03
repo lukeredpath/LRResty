@@ -44,11 +44,9 @@
 #pragma mark -
 #pragma mark Core
 
-NSString *const LRProbePollerTimedOutException = @"ProbePollerTimedOutException";
-
 @implementation LRProbePoller
 
-- (id)initWithTimeout:(NSInteger)theTimeout delay:(NSInteger)theDelay;
+- (id)initWithTimeout:(NSTimeInterval)theTimeout delay:(NSTimeInterval)theDelay;
 {
   if (self = [super init]) {
     timeoutInterval = theTimeout;
@@ -63,11 +61,14 @@ NSString *const LRProbePollerTimedOutException = @"ProbePollerTimedOutException"
   
   while (![probe isSatisfied]) {
     if ([timeout hasTimedOut]) {
+      [timeout release];
       return NO;
     }
     [NSThread sleepForTimeInterval:delayInterval];
     [probe sample];
   }
+  [timeout release];
+  
   return YES;
 }
 

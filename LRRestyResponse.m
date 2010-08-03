@@ -11,4 +11,14 @@
 
 @implementation LRRestyResponse
 
+- (NSUInteger)status;
+{
+  return 200;
+}
+
+- (NSString *)asString;
+{
+  return @"plain text response";
+}
+
 @end
