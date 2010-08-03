@@ -9,16 +9,6 @@
 #import "TestHelper.h"
 #import "LRResty.h"
 
-NSString *anyResponse()
-{
-  return @"";
-}
-
-NSString *resourceWithPath(NSString *path)
-{
-  return [NSString stringWithFormat:@"http://%@:%d%@", TEST_HOST, TEST_PORT, path];
-}
-
 @interface GetResourceTests : SenTestCase <LRRestyClientDelegate>
 {
   id lastResponse;
@@ -79,6 +69,7 @@ NSString *resourceWithPath(NSString *path)
 
 - (void)restClient:(LRRestyClient *)client receivedResponse:(id)response;
 {
+  // NSLog(@"received %@", [response asString]);
   lastResponse = [response retain];
 }
 

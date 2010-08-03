@@ -57,6 +57,7 @@
 		A3F81D4012088A0700E60B0B /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81D3A12088A0700E60B0B /* NSString+QueryString.m */; };
 		A3F81D4112088A0700E60B0B /* NSURL+QueryInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F81D3B12088A0700E60B0B /* NSURL+QueryInspector.h */; };
 		A3F81D4212088A0700E60B0B /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81D3C12088A0700E60B0B /* NSURL+QueryInspector.m */; };
+		A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DBE120892DA00E60B0B /* TestHelper.m */; };
 		AA747D9F0F9514B9006C5449 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -174,6 +175,7 @@
 		A3F81D3A12088A0700E60B0B /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
 		A3F81D3B12088A0700E60B0B /* NSURL+QueryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+QueryInspector.h"; sourceTree = "<group>"; };
 		A3F81D3C12088A0700E60B0B /* NSURL+QueryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+QueryInspector.m"; sourceTree = "<group>"; };
+		A3F81DBE120892DA00E60B0B /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRResty_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				A3F81B401208577500E60B0B /* TestHelper.h */,
+				A3F81DBE120892DA00E60B0B /* TestHelper.m */,
 				A3F81970120837FC00E60B0B /* AssertEventually.h */,
 				A3F81971120837FC00E60B0B /* AssertEventually.m */,
 				A3F81B371208567800E60B0B /* HCPassesBlock.h */,
@@ -639,6 +642,7 @@
 				A3F81B391208567800E60B0B /* HCPassesBlock.m in Sources */,
 				A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */,
 				A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */,
+				A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

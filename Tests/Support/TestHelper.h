@@ -16,3 +16,6 @@
 
 #define TEST_HOST @"localhost"
 #define TEST_PORT 10090
+
+NSString *anyResponse();
+NSString *resourceWithPath(NSString *path);
