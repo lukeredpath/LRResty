@@ -48,6 +48,9 @@
 		A3F81AC212084D7700E60B0B /* LRRestyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8194A1208363B00E60B0B /* LRRestyClient.m */; };
 		A3F81AC312084D7700E60B0B /* LRResty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F819571208369300E60B0B /* LRResty.m */; };
 		A3F81ACA12084DCF00E60B0B /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
+		A3F81B391208567800E60B0B /* HCPassesBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B381208567800E60B0B /* HCPassesBlock.m */; };
+		A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */; };
+		A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6912085B0B00E60B0B /* DomainMatchers.m */; };
 		AA747D9F0F9514B9006C5449 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -152,6 +155,13 @@
 		A3F81A221208451C00E60B0B /* OCHamcrest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCHamcrest.h; path = Vendor/OCHamcrest/Source/OCHamcrest.h; sourceTree = "<group>"; };
 		A3F81ABC12084D6900E60B0B /* LRRestyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResponse.h; sourceTree = "<group>"; };
 		A3F81ABD12084D6900E60B0B /* LRRestyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResponse.m; sourceTree = "<group>"; };
+		A3F81B371208567800E60B0B /* HCPassesBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPassesBlock.h; sourceTree = "<group>"; };
+		A3F81B381208567800E60B0B /* HCPassesBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCPassesBlock.m; sourceTree = "<group>"; };
+		A3F81B401208577500E60B0B /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		A3F81B6512085AC400E60B0B /* TestRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRequestBuilder.h; sourceTree = "<group>"; };
+		A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRequestBuilder.m; sourceTree = "<group>"; };
+		A3F81B6812085B0B00E60B0B /* DomainMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainMatchers.h; sourceTree = "<group>"; };
+		A3F81B6912085B0B00E60B0B /* DomainMatchers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainMatchers.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRResty_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,8 +268,15 @@
 		A3F8196F1208374400E60B0B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A3F81B401208577500E60B0B /* TestHelper.h */,
 				A3F81970120837FC00E60B0B /* AssertEventually.h */,
 				A3F81971120837FC00E60B0B /* AssertEventually.m */,
+				A3F81B371208567800E60B0B /* HCPassesBlock.h */,
+				A3F81B381208567800E60B0B /* HCPassesBlock.m */,
+				A3F81B6512085AC400E60B0B /* TestRequestBuilder.h */,
+				A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */,
+				A3F81B6812085B0B00E60B0B /* DomainMatchers.h */,
+				A3F81B6912085B0B00E60B0B /* DomainMatchers.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -590,6 +607,9 @@
 				A3F81A0D1208419300E60B0B /* HCStringEndsWith.mm in Sources */,
 				A3F81A0E1208419300E60B0B /* HCStringStartsWith.mm in Sources */,
 				A3F81A0F1208419300E60B0B /* HCSubstringMatcher.mm in Sources */,
+				A3F81B391208567800E60B0B /* HCPassesBlock.m in Sources */,
+				A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */,
+				A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,4 +21,9 @@
   return @"plain text response";
 }
 
+- (NSString *)description
+{
+  return [NSString stringWithFormat:@"%d Response", [self status]];
+}
+
 @end

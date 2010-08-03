@@ -6,15 +6,9 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <SenTestingKit/SenTestingKit.h>
-#define HC_SHORTHAND
-#import "OCHamcrest.h"
-#import "AssertEventually.h"
+#import "TestHelper.h"
 #import "LRResty.h"
 
-#define TEST_HOST @"localhost"
-#define TEST_PORT 10090
 
 NSString *resourceWithPath(NSString *path)
 {
@@ -31,11 +25,11 @@ NSString *resourceWithPath(NSString *path)
 
 - (void)testCanPerformGetRequestToResourceAndReceiveAResponse
 {
+  serviceStubWillServe(@"a plain text response", forGetRequestTo(@"/simple/resource"));
+  
   [[LRResty client] get:resourceWithPath(@"/simple/resource") delegate:self];
   
-  assertEventuallyThat(lastResponse, instanceOf([LRRestyResponse class]));
-  assertThatInt([lastResponse status], equalToInt(200));
-  assertThat([lastResponse asString], equalTo(@"plain text response"));
+  assertEventuallyThat(lastResponse, is(responseWithStatusAndBody(200, @"a plain text response")));
 }
 
 #pragma mark -
