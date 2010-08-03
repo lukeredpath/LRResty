@@ -10,8 +10,8 @@
 #import "LRRestyClientDelegate.h"
 
 @interface LRRestyClient : NSObject {
-
+  NSOperationQueue *operationQueue;
 }
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
-- (void)getURL:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)getURL:(NSURL *)url delegate:(id<LRRestyClientDelegate>)delegate;
 @end

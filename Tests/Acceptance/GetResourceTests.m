@@ -18,18 +18,24 @@ NSString *resourceWithPath(NSString *path)
 @interface GetResourceTests : SenTestCase <LRRestyClientDelegate>
 {
   id lastResponse;
+  LRRestyClient *client;
 }
 @end
 
 @implementation GetResourceTests
 
+- (void)setUp
+{
+  client = [[LRResty client] retain];
+}
+
 - (void)testCanPerformGetRequestToResourceAndReceiveAResponse
 {
   serviceStubWillServe(@"a plain text response", forGetRequestTo(@"/simple/resource"));
   
-  [[LRResty client] get:resourceWithPath(@"/simple/resource") delegate:self];
+  [client get:resourceWithPath(@"/simple/resource") delegate:self];
   
-  assertEventuallyThat(lastResponse, is(responseWithStatusAndBody(200, @"a plain text response")));
+  assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"a plain text response")));
 }
 
 #pragma mark -

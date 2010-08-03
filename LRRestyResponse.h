@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface LRRestyResponse : NSObject {
-
+  NSUInteger status;
+  NSData *responseData;
 }
+- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data;
 - (NSUInteger)status;
 - (NSString *)asString;
 @end

@@ -11,19 +11,34 @@
 
 @implementation LRRestyResponse
 
+- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data;
+{
+  if (self = [super init]) {
+    status = statusCode;
+    responseData = [data retain];
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+  [responseData release];
+  [super dealloc];
+}
+
 - (NSUInteger)status;
 {
-  return 200;
+  return status;
 }
 
 - (NSString *)asString;
 {
-  return @"plain text response";
+  return [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"%d Response", [self status]];
+  return [NSString stringWithFormat:@"%d Response | text/plain (%d bytes)", [self status], [responseData length]];
 }
 
 @end

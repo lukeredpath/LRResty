@@ -57,16 +57,17 @@ typedef BOOL (^LRBlockProbeBlock)();
 
 @interface LRHamcrestProbe : NSObject <LRProbe>
 {
-  id objectToMatch;
+  id *pointerToActualObject;
   id<HCMatcher> matcher;
   BOOL didMatch;
 }
-+ (id)probeWithObject:(id)object matcher:(id<HCMatcher>)matcher;
-- (id)initWithObject:(id)object matcher:(id<HCMatcher>)aMatcher;
++ (id)probeWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)matcher;
+- (id)initWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
+- (id)actualObject;
 @end
 
-#define assertEventuallyThatWithTimeout(object, aMatcher, timeout) \
-        assertEventuallyWithTimeout([LRHamcrestProbe probeWithObject:object matcher:aMatcher], timeout)
+#define assertEventuallyThatWithTimeout(objectPtr, aMatcher, timeout) \
+        assertEventuallyWithTimeout([LRHamcrestProbe probeWithObjectPointer:objectPtr matcher:aMatcher], timeout)
 
-#define assertEventuallyThat(object, aMatcher) \
-        assertEventually([LRHamcrestProbe probeWithObject:object matcher:aMatcher])
+#define assertEventuallyThat(objectPtr, aMatcher) \
+        assertEventually([LRHamcrestProbe probeWithObjectPointer:objectPtr matcher:aMatcher])

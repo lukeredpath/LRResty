@@ -64,7 +64,7 @@
       [timeout release];
       return NO;
     }
-    [NSThread sleepForTimeInterval:delayInterval];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:delayInterval]];
     [probe sample];
   }
   [timeout release];
@@ -142,15 +142,15 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 @implementation LRHamcrestProbe
 
-+ (id)probeWithObject:(id)object matcher:(id<HCMatcher>)matcher;
++ (id)probeWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)matcher;
 {
-  return [[[self alloc] initWithObject:object matcher:matcher] autorelease];
+  return [[[self alloc] initWithObjectPointer:objectPtr matcher:matcher] autorelease];
 }
 
-- (id)initWithObject:(id)object matcher:(id<HCMatcher>)aMatcher;
+- (id)initWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
 {
   if (self = [super init]) {
-    objectToMatch = [object retain];
+    pointerToActualObject = objectPtr;
     matcher = [aMatcher retain];
     [self sample];
   }
@@ -159,7 +159,6 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 - (void)dealloc
 {
-  [objectToMatch release];
   [matcher release];
   [super dealloc];
 }
@@ -171,7 +170,7 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 - (void)sample;
 {
-  didMatch = [matcher matches:objectToMatch];
+  didMatch = [matcher matches:[self actualObject]];
 }
 
 - (NSString *)describeToString:(NSString *)description;
@@ -180,9 +179,14 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
   [[[[stringDescription appendText:@"Expected "]
                appendDescriptionOf:matcher]
                         appendText:@", got "]
-                       appendValue:objectToMatch];
+                       appendValue:[self actualObject]];
   
   return [description stringByAppendingString:[stringDescription description]];
+}
+
+- (id)actualObject
+{
+  return *pointerToActualObject;
 }
 
 @end
