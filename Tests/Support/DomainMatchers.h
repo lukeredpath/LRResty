@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HCMatcher.h"
 
-id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *stringBody);
+id<HCMatcher> responseWithStatus(NSUInteger status);
+id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *body);
+id<HCMatcher> responseWithStatusAndBodyMatching(NSUInteger status, id<HCMatcher>bodyMatcher);
 id<HCMatcher> hasHeader(NSString *header, NSString *value);

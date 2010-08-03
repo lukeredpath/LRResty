@@ -9,6 +9,7 @@
 #import "LRRestyClient.h"
 #import "LRRestyResponse.h"
 #import "LRRestyClientDelegate.h"
+#import "NSDictionary+QueryString.h"
 
 @interface LRRestyRequest : NSOperation
 {
@@ -30,6 +31,7 @@
 - (void)setExecuting:(BOOL)isExecuting;
 - (void)setFinished:(BOOL)isFinished;
 - (void)finish;
+- (void)setQueryParameters:(NSDictionary *)parameters;
 @end
 
 @implementation LRRestyClient
@@ -50,12 +52,18 @@
 
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  [self getURL:[NSURL URLWithString:urlString] delegate:delegate];
+  [self get:urlString parameters:nil delegate:delegate];
 }
 
-- (void)getURL:(NSURL *)url delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  [self getURL:[NSURL URLWithString:urlString] parameters:parameters delegate:delegate];
+}
+
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:@"GET" client:self delegate:delegate];
+  [request setQueryParameters:parameters];
   [operationQueue addOperation:request];
   [request release];
 }
@@ -71,7 +79,7 @@
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientDelegate>)theDelegate;
 {
   if (self = [super init]) {
-    requestURL = [aURL copy];
+    requestURL = [aURL retain];
     requestMethod = [httpMethod copy];
     delegate = [theDelegate retain];
     client = theClient;
@@ -85,6 +93,15 @@
   [requestMethod release];
   [delegate release];
   [super dealloc];
+}
+
+- (void)setQueryParameters:(NSDictionary *)parameters;
+{
+  if (parameters == nil) return;
+  
+  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [requestURL absoluteString], [parameters stringWithFormEncodedComponents]]];
+  [requestURL release];
+  requestURL = [URLWithParameters retain];
 }
 
 - (BOOL)isConcurrent

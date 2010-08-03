@@ -9,17 +9,36 @@
 #import "DomainMatchers.h"
 #import "HCPassesBlock.h"
 #import "LRRestyResponse.h"
+#import "OCHamcrest.h"
+#import "HCStringDescription.h"
 
-id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *stringBody)
+NSString *describeMatcher(id<HCMatcher> matcher)
+{
+  HCStringDescription *description = [[[HCStringDescription alloc] init] autorelease];
+  [description appendDescriptionOf:matcher];
+  return [description description];
+}
+
+id<HCMatcher> responseWithStatus(NSUInteger status)
+{
+  return responseWithStatusAndBodyMatching(status, HC_anythingWithDescription(@"matching anything"));
+}
+
+id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *body)
+{
+  return responseWithStatusAndBodyMatching(status, HC_equalTo(body));
+}
+
+id<HCMatcher> responseWithStatusAndBodyMatching(NSUInteger status, id<HCMatcher>bodyMatcher)
 {
   return HC_passesBlock(^(id object) {
     if (![object isKindOfClass:[LRRestyResponse class]]) {
       return NO;
     }
     LRRestyResponse *response = object;
-    return (BOOL)(response.status == status && [[response asString] isEqualToString:stringBody]);
+    return (BOOL)(response.status == status && [bodyMatcher matches:[response asString]]);
     
-  }, [NSString stringWithFormat:@"a %d response with body \"%@\"", status, stringBody]);
+  }, [NSString stringWithFormat:@"a %d response with body that is %@", status, describeMatcher(bodyMatcher)]);
 }
 
 id<HCMatcher> hasHeader(NSString *header, NSString *value)

@@ -9,6 +9,10 @@
 #import "TestHelper.h"
 #import "LRResty.h"
 
+NSString *anyResponse()
+{
+  return @"";
+}
 
 NSString *resourceWithPath(NSString *path)
 {
@@ -29,22 +33,33 @@ NSString *resourceWithPath(NSString *path)
   client = [[LRResty client] retain];
 }
 
-- (void)testCanPerformGetRequestToResourceAndReceiveAResponse
+- (void)testCanPerformGetRequestToResourceExtractTheResponseAsAString
 {
-  serviceStubWillServe(@"a plain text response", forGetRequestTo(@"/simple/resource"));
+  serviceStubWillServe(@"plain text response", forGetRequestTo(@"/simple/resource"));
 
   [client get:resourceWithPath(@"/simple/resource") delegate:self];
   
-  assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"a plain text response")));
+  assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"plain text response")));
 }
 
 - (void)testCanExtractHeadersFromResponse
 {
-  serviceStubWillServe(@"a plain text response", forGetRequestTo(@"/simple/resource"));
+  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource"));
   
   [client get:resourceWithPath(@"/simple/resource") delegate:self];
   
   assertEventuallyThat(&lastResponse, hasHeader(@"Content-Type", @"text/plain"));
+}
+
+- (void)testCanPerformGetRequestWithQueryParameters
+{
+  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource?foo=bar"));
+  
+  [client get:resourceWithPath(@"/simple/resource") 
+   parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] 
+     delegate:self];
+  
+  assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
 }
 
 #pragma mark -
