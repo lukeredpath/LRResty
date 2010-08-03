@@ -32,7 +32,8 @@
   [serializable setObject:method forKey:@"method"];
   [serializable setObject:path forKey:@"path"];
   [serializable setObject:[resultObject description] forKey:@"body"];
-  [[NSArray arrayWithObject:serializable] writeToFile:filePath atomically:NO];
+  [[NSArray arrayWithObject:serializable] writeToFile:filePath atomically:YES];
+  [NSThread sleepForTimeInterval:0.1]; // allow time for the file to be written
 }
 
 @end
