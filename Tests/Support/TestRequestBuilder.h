@@ -20,3 +20,4 @@
 TestRequestSpecification *forGetRequestTo(NSString *path);
 
 void serviceStubWillServe(id object, TestRequestSpecification *requestSpec);
+void serviceStubWillServeWithHeaders(id object, NSDictionary *headers, TestRequestSpecification *requestSpec);

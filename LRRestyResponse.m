@@ -8,20 +8,25 @@
 
 #import "LRRestyResponse.h"
 
+@interface LRRestyResponse ()
+- (NSDictionary *)headers;
+@end
 
 @implementation LRRestyResponse
 
-- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data;
+- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders;
 {
   if (self = [super init]) {
     status = statusCode;
     responseData = [data retain];
+    headers = [theHeaders copy];
   }
   return self;
 }
 
 - (void)dealloc
 {
+  [headers release];
   [responseData release];
   [super dealloc];
 }
@@ -41,4 +46,8 @@
   return [NSString stringWithFormat:@"%d Response | text/plain (%d bytes)", [self status], [responseData length]];
 }
 
+- (NSString *)valueForHeader:(NSString *)header;
+{
+  return [headers objectForKey:header];
+}
 @end

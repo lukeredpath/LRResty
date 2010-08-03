@@ -21,3 +21,16 @@ id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *stringBody)
     
   }, [NSString stringWithFormat:@"a %d response with body \"%@\"", status, stringBody]);
 }
+
+id<HCMatcher> hasHeader(NSString *header, NSString *value)
+{
+  return HC_passesBlock(^(id object) {
+    if (![object isKindOfClass:[LRRestyResponse class]]) {
+      return NO;
+    }
+    LRRestyResponse *response = object;
+    
+    return (BOOL)[[response valueForHeader:header] isEqualToString:value];
+    
+  }, [NSString stringWithFormat:@"a response containing header {%@ => %@}", header, value]);
+}

@@ -32,10 +32,19 @@ NSString *resourceWithPath(NSString *path)
 - (void)testCanPerformGetRequestToResourceAndReceiveAResponse
 {
   serviceStubWillServe(@"a plain text response", forGetRequestTo(@"/simple/resource"));
-  
+
   [client get:resourceWithPath(@"/simple/resource") delegate:self];
   
   assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"a plain text response")));
+}
+
+- (void)testCanExtractHeadersFromResponse
+{
+  serviceStubWillServe(@"a plain text response", forGetRequestTo(@"/simple/resource"));
+  
+  [client get:resourceWithPath(@"/simple/resource") delegate:self];
+  
+  assertEventuallyThat(&lastResponse, hasHeader(@"Content-Type", @"text/plain"));
 }
 
 #pragma mark -

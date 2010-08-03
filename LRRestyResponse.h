@@ -11,8 +11,10 @@
 @interface LRRestyResponse : NSObject {
   NSUInteger status;
   NSData *responseData;
+  NSDictionary *headers;
 }
-- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data;
+- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders;
 - (NSUInteger)status;
 - (NSString *)asString;
+- (NSString *)valueForHeader:(NSString *)header;
 @end

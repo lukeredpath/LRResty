@@ -162,8 +162,13 @@
 
 - (void)finish;
 {
-  LRRestyResponse *restResponse = [[LRRestyResponse alloc] initWithStatus:self.response.statusCode responseData:self.responseData];
+  LRRestyResponse *restResponse = [[LRRestyResponse alloc] 
+          initWithStatus:self.response.statusCode 
+            responseData:self.responseData 
+                 headers:[self.response allHeaderFields]];
+  
   [delegate restClient:client receivedResponse:restResponse];
+  
   [restResponse release];
   [self setFinished:YES];
 }

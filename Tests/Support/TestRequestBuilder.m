@@ -44,5 +44,10 @@ TestRequestSpecification *forGetRequestTo(NSString *path)
 
 void serviceStubWillServe(id object, TestRequestSpecification *requestSpec)
 {
+  serviceStubWillServeWithHeaders(object, nil, requestSpec);
+}
+
+void serviceStubWillServeWithHeaders(id object, NSDictionary *headers, TestRequestSpecification *requestSpec)
+{
   [requestSpec writeToFile:@"/tmp/resty_request_spec.plist" object:object];
 }

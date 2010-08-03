@@ -10,3 +10,4 @@
 #import "HCMatcher.h"
 
 id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *stringBody);
+id<HCMatcher> hasHeader(NSString *header, NSString *value);
