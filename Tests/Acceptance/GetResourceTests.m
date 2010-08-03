@@ -11,7 +11,7 @@
 
 @interface GetResourceTests : SenTestCase <LRRestyClientDelegate>
 {
-  id lastResponse;
+  LRRestyResponse *lastResponse;
   LRRestyClient *client;
 }
 @end
@@ -62,14 +62,26 @@
      delegate:self];
   
   assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
+}
+
+- (void)testCanPerformGetRequestAndPassResponseToABlock
+{
+  __block LRRestyResponse *testLocalResponse = nil;
   
+  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource"));
+  
+  [client get:resourceWithPath(@"/simple/resource") withBlock:^(LRRestyResponse *response) {
+    testLocalResponse = [response retain];
+  }];
+  assertEventuallyThat(&testLocalResponse, is(responseWithStatus(200)));
+  
+  [testLocalResponse release];
 }
 
 #pragma mark -
 
-- (void)restClient:(LRRestyClient *)client receivedResponse:(id)response;
+- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;
 {
-  // NSLog(@"received %@", [response asString]);
   lastResponse = [response retain];
 }
 

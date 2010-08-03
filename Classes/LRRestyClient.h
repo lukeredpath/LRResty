@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "LRRestyClientDelegate.h"
 
+@class LRRestyResponse;
+
+typedef void (^LRRestyResponseBlock)(LRRestyResponse *response);
+
 @interface LRRestyClient : NSObject {
   NSOperationQueue *operationQueue;
 }
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;

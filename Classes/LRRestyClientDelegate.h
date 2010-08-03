@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @class LRRestyClient;
+@class LRRestyResponse;
 
 @protocol LRRestyClientDelegate <NSObject>
 
-- (void)restClient:(LRRestyClient *)client receivedResponse:(id)response;
+- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;
 
 @end

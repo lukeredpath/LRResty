@@ -36,6 +36,17 @@
 - (void)setHeaders:(NSDictionary *)headers;
 @end
 
+@interface LRRestyClientBlockDelegate : NSObject <LRRestyClientDelegate>
+{
+  LRRestyResponseBlock block;
+}
++ (id)delegateWithBlock:(LRRestyResponseBlock)block;
+- (id)initWithBlock:(LRRestyResponseBlock)theBlock;
+@end
+
+
+#pragma mark -
+
 @implementation LRRestyClient
 
 - (id)init
@@ -55,6 +66,11 @@
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
 {
   [self get:urlString parameters:nil delegate:delegate];
+}
+
+- (void)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
+{
+  [self get:urlString delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
@@ -230,3 +246,30 @@
 
 @end
 
+@implementation LRRestyClientBlockDelegate
+
++ (id)delegateWithBlock:(LRRestyResponseBlock)block;
+{
+  return [[[self alloc] initWithBlock:block] autorelease];
+}
+
+- (id)initWithBlock:(LRRestyResponseBlock)theBlock;
+{
+  if (self = [super init]) {
+    block = Block_copy(theBlock);
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+  Block_release(block);
+  [super dealloc];
+}
+
+- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response
+{
+  block(response);
+}
+
+@end

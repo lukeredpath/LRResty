@@ -8,10 +8,6 @@
 
 #import "LRRestyResponse.h"
 
-@interface LRRestyResponse ()
-- (NSDictionary *)headers;
-@end
-
 @implementation LRRestyResponse
 
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders;
