@@ -8,6 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
+		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
+		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
+		A3F819EE1208419300E60B0B /* HCAnyOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199E1208419300E60B0B /* HCAnyOf.mm */; };
+		A3F819EF1208419300E60B0B /* HCDescribedAs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A01208419300E60B0B /* HCDescribedAs.mm */; };
+		A3F819F01208419300E60B0B /* HCIs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A21208419300E60B0B /* HCIs.mm */; };
+		A3F819F11208419300E60B0B /* HCIsAnything.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A41208419300E60B0B /* HCIsAnything.mm */; };
+		A3F819F21208419300E60B0B /* HCIsEqual.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A61208419300E60B0B /* HCIsEqual.mm */; };
+		A3F819F31208419300E60B0B /* HCIsInstanceOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A81208419300E60B0B /* HCIsInstanceOf.mm */; };
+		A3F819F41208419300E60B0B /* HCIsNil.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AA1208419300E60B0B /* HCIsNil.mm */; };
+		A3F819F51208419300E60B0B /* HCIsNot.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AC1208419300E60B0B /* HCIsNot.mm */; };
+		A3F819F61208419300E60B0B /* HCIsSame.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AE1208419300E60B0B /* HCIsSame.mm */; };
+		A3F819F71208419300E60B0B /* HCBaseDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B01208419300E60B0B /* HCBaseDescription.mm */; };
+		A3F819F81208419300E60B0B /* HCBaseMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B21208419300E60B0B /* HCBaseMatcher.mm */; };
+		A3F819F91208419300E60B0B /* HCInvocationMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B51208419300E60B0B /* HCInvocationMatcher.mm */; };
+		A3F819FA1208419300E60B0B /* HCMatcherAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B81208419300E60B0B /* HCMatcherAssert.mm */; };
+		A3F819FB1208419300E60B0B /* HCStringDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BB1208419300E60B0B /* HCStringDescription.mm */; };
+		A3F819FC1208419300E60B0B /* HCWrapInMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */; };
+		A3F819FD1208419300E60B0B /* HCCollectMatchers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C01208419300E60B0B /* HCCollectMatchers.mm */; };
+		A3F819FE1208419300E60B0B /* NSObject_HCSelfDescribingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */; };
+		A3F819FF1208419300E60B0B /* HCIsCollectionContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C71208419300E60B0B /* HCIsCollectionContaining.mm */; };
+		A3F81A001208419300E60B0B /* HCIsCollectionOnlyContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C91208419300E60B0B /* HCIsCollectionOnlyContaining.mm */; };
+		A3F81A011208419300E60B0B /* HCIsDictionaryContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CB1208419300E60B0B /* HCIsDictionaryContaining.mm */; };
+		A3F81A021208419300E60B0B /* HCIsDictionaryContainingKey.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CD1208419300E60B0B /* HCIsDictionaryContainingKey.mm */; };
+		A3F81A031208419300E60B0B /* HCIsDictionaryContainingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CF1208419300E60B0B /* HCIsDictionaryContainingValue.mm */; };
+		A3F81A041208419300E60B0B /* HCIsIn.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D11208419300E60B0B /* HCIsIn.mm */; };
+		A3F81A051208419300E60B0B /* HCIsCloseTo.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D51208419300E60B0B /* HCIsCloseTo.mm */; };
+		A3F81A061208419300E60B0B /* HCIsEqualToNumber.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D71208419300E60B0B /* HCIsEqualToNumber.mm */; };
+		A3F81A071208419300E60B0B /* HCNumberAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D91208419300E60B0B /* HCNumberAssert.mm */; };
+		A3F81A081208419300E60B0B /* HCOrderingComparison.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819DB1208419300E60B0B /* HCOrderingComparison.mm */; };
+		A3F81A091208419300E60B0B /* HCHasDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819DE1208419300E60B0B /* HCHasDescription.mm */; };
+		A3F81A0A1208419300E60B0B /* HCIsEqualIgnoringCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E11208419300E60B0B /* HCIsEqualIgnoringCase.mm */; };
+		A3F81A0B1208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E31208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm */; };
+		A3F81A0C1208419300E60B0B /* HCStringContains.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E61208419300E60B0B /* HCStringContains.mm */; };
+		A3F81A0D1208419300E60B0B /* HCStringEndsWith.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E81208419300E60B0B /* HCStringEndsWith.mm */; };
+		A3F81A0E1208419300E60B0B /* HCStringStartsWith.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EA1208419300E60B0B /* HCStringStartsWith.mm */; };
+		A3F81A0F1208419300E60B0B /* HCSubstringMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EC1208419300E60B0B /* HCSubstringMatcher.mm */; };
+		A3F81AC112084D7300E60B0B /* LRRestyResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81ABD12084D6900E60B0B /* LRRestyResponse.m */; };
+		A3F81AC212084D7700E60B0B /* LRRestyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8194A1208363B00E60B0B /* LRRestyClient.m */; };
+		A3F81AC312084D7700E60B0B /* LRResty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F819571208369300E60B0B /* LRResty.m */; };
+		A3F81ACA12084DCF00E60B0B /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
 		AA747D9F0F9514B9006C5449 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +66,92 @@
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
+		A3F819481208361D00E60B0B /* LRRestyClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClientDelegate.h; sourceTree = "<group>"; };
+		A3F819491208363B00E60B0B /* LRRestyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClient.h; sourceTree = "<group>"; };
+		A3F8194A1208363B00E60B0B /* LRRestyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClient.m; sourceTree = "<group>"; };
+		A3F819561208369300E60B0B /* LRResty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRResty.h; sourceTree = "<group>"; };
+		A3F819571208369300E60B0B /* LRResty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRResty.m; sourceTree = "<group>"; };
+		A3F81970120837FC00E60B0B /* AssertEventually.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssertEventually.h; sourceTree = "<group>"; };
+		A3F81971120837FC00E60B0B /* AssertEventually.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssertEventually.m; sourceTree = "<group>"; };
+		A3F8199B1208419300E60B0B /* HCAllOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAllOf.h; sourceTree = "<group>"; };
+		A3F8199C1208419300E60B0B /* HCAllOf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCAllOf.mm; sourceTree = "<group>"; };
+		A3F8199D1208419300E60B0B /* HCAnyOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAnyOf.h; sourceTree = "<group>"; };
+		A3F8199E1208419300E60B0B /* HCAnyOf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCAnyOf.mm; sourceTree = "<group>"; };
+		A3F8199F1208419300E60B0B /* HCDescribedAs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDescribedAs.h; sourceTree = "<group>"; };
+		A3F819A01208419300E60B0B /* HCDescribedAs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCDescribedAs.mm; sourceTree = "<group>"; };
+		A3F819A11208419300E60B0B /* HCIs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIs.h; sourceTree = "<group>"; };
+		A3F819A21208419300E60B0B /* HCIs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIs.mm; sourceTree = "<group>"; };
+		A3F819A31208419300E60B0B /* HCIsAnything.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsAnything.h; sourceTree = "<group>"; };
+		A3F819A41208419300E60B0B /* HCIsAnything.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsAnything.mm; sourceTree = "<group>"; };
+		A3F819A51208419300E60B0B /* HCIsEqual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsEqual.h; sourceTree = "<group>"; };
+		A3F819A61208419300E60B0B /* HCIsEqual.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsEqual.mm; sourceTree = "<group>"; };
+		A3F819A71208419300E60B0B /* HCIsInstanceOf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsInstanceOf.h; sourceTree = "<group>"; };
+		A3F819A81208419300E60B0B /* HCIsInstanceOf.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsInstanceOf.mm; sourceTree = "<group>"; };
+		A3F819A91208419300E60B0B /* HCIsNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsNil.h; sourceTree = "<group>"; };
+		A3F819AA1208419300E60B0B /* HCIsNil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsNil.mm; sourceTree = "<group>"; };
+		A3F819AB1208419300E60B0B /* HCIsNot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsNot.h; sourceTree = "<group>"; };
+		A3F819AC1208419300E60B0B /* HCIsNot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsNot.mm; sourceTree = "<group>"; };
+		A3F819AD1208419300E60B0B /* HCIsSame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsSame.h; sourceTree = "<group>"; };
+		A3F819AE1208419300E60B0B /* HCIsSame.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsSame.mm; sourceTree = "<group>"; };
+		A3F819AF1208419300E60B0B /* HCBaseDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseDescription.h; sourceTree = "<group>"; };
+		A3F819B01208419300E60B0B /* HCBaseDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCBaseDescription.mm; sourceTree = "<group>"; };
+		A3F819B11208419300E60B0B /* HCBaseMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBaseMatcher.h; sourceTree = "<group>"; };
+		A3F819B21208419300E60B0B /* HCBaseMatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCBaseMatcher.mm; sourceTree = "<group>"; };
+		A3F819B31208419300E60B0B /* HCDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDescription.h; sourceTree = "<group>"; };
+		A3F819B41208419300E60B0B /* HCInvocationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCInvocationMatcher.h; sourceTree = "<group>"; };
+		A3F819B51208419300E60B0B /* HCInvocationMatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCInvocationMatcher.mm; sourceTree = "<group>"; };
+		A3F819B61208419300E60B0B /* HCMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMatcher.h; sourceTree = "<group>"; };
+		A3F819B71208419300E60B0B /* HCMatcherAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMatcherAssert.h; sourceTree = "<group>"; };
+		A3F819B81208419300E60B0B /* HCMatcherAssert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCMatcherAssert.mm; sourceTree = "<group>"; };
+		A3F819B91208419300E60B0B /* HCSelfDescribing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSelfDescribing.h; sourceTree = "<group>"; };
+		A3F819BA1208419300E60B0B /* HCStringDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStringDescription.h; sourceTree = "<group>"; };
+		A3F819BB1208419300E60B0B /* HCStringDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCStringDescription.mm; sourceTree = "<group>"; };
+		A3F819BC1208419300E60B0B /* HCWrapInMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCWrapInMatcher.h; sourceTree = "<group>"; };
+		A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCWrapInMatcher.mm; sourceTree = "<group>"; };
+		A3F819BF1208419300E60B0B /* HCCollectMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCollectMatchers.h; sourceTree = "<group>"; };
+		A3F819C01208419300E60B0B /* HCCollectMatchers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCCollectMatchers.mm; sourceTree = "<group>"; };
+		A3F819C11208419300E60B0B /* HCIntegerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIntegerTypes.h; sourceTree = "<group>"; };
+		A3F819C21208419300E60B0B /* NSObject_HCSelfDescribingValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_HCSelfDescribingValue.h; sourceTree = "<group>"; };
+		A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NSObject_HCSelfDescribingValue.mm; sourceTree = "<group>"; };
+		A3F819C61208419300E60B0B /* HCIsCollectionContaining.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsCollectionContaining.h; sourceTree = "<group>"; };
+		A3F819C71208419300E60B0B /* HCIsCollectionContaining.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsCollectionContaining.mm; sourceTree = "<group>"; };
+		A3F819C81208419300E60B0B /* HCIsCollectionOnlyContaining.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsCollectionOnlyContaining.h; sourceTree = "<group>"; };
+		A3F819C91208419300E60B0B /* HCIsCollectionOnlyContaining.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsCollectionOnlyContaining.mm; sourceTree = "<group>"; };
+		A3F819CA1208419300E60B0B /* HCIsDictionaryContaining.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsDictionaryContaining.h; sourceTree = "<group>"; };
+		A3F819CB1208419300E60B0B /* HCIsDictionaryContaining.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsDictionaryContaining.mm; sourceTree = "<group>"; };
+		A3F819CC1208419300E60B0B /* HCIsDictionaryContainingKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsDictionaryContainingKey.h; sourceTree = "<group>"; };
+		A3F819CD1208419300E60B0B /* HCIsDictionaryContainingKey.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsDictionaryContainingKey.mm; sourceTree = "<group>"; };
+		A3F819CE1208419300E60B0B /* HCIsDictionaryContainingValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsDictionaryContainingValue.h; sourceTree = "<group>"; };
+		A3F819CF1208419300E60B0B /* HCIsDictionaryContainingValue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsDictionaryContainingValue.mm; sourceTree = "<group>"; };
+		A3F819D01208419300E60B0B /* HCIsIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsIn.h; sourceTree = "<group>"; };
+		A3F819D11208419300E60B0B /* HCIsIn.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsIn.mm; sourceTree = "<group>"; };
+		A3F819D31208419300E60B0B /* HCBoxNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBoxNumber.h; sourceTree = "<group>"; };
+		A3F819D41208419300E60B0B /* HCIsCloseTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsCloseTo.h; sourceTree = "<group>"; };
+		A3F819D51208419300E60B0B /* HCIsCloseTo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsCloseTo.mm; sourceTree = "<group>"; };
+		A3F819D61208419300E60B0B /* HCIsEqualToNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsEqualToNumber.h; sourceTree = "<group>"; };
+		A3F819D71208419300E60B0B /* HCIsEqualToNumber.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsEqualToNumber.mm; sourceTree = "<group>"; };
+		A3F819D81208419300E60B0B /* HCNumberAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCNumberAssert.h; sourceTree = "<group>"; };
+		A3F819D91208419300E60B0B /* HCNumberAssert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCNumberAssert.mm; sourceTree = "<group>"; };
+		A3F819DA1208419300E60B0B /* HCOrderingComparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCOrderingComparison.h; sourceTree = "<group>"; };
+		A3F819DB1208419300E60B0B /* HCOrderingComparison.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCOrderingComparison.mm; sourceTree = "<group>"; };
+		A3F819DD1208419300E60B0B /* HCHasDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHasDescription.h; sourceTree = "<group>"; };
+		A3F819DE1208419300E60B0B /* HCHasDescription.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCHasDescription.mm; sourceTree = "<group>"; };
+		A3F819E01208419300E60B0B /* HCIsEqualIgnoringCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsEqualIgnoringCase.h; sourceTree = "<group>"; };
+		A3F819E11208419300E60B0B /* HCIsEqualIgnoringCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsEqualIgnoringCase.mm; sourceTree = "<group>"; };
+		A3F819E21208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIsEqualIgnoringWhiteSpace.h; sourceTree = "<group>"; };
+		A3F819E31208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCIsEqualIgnoringWhiteSpace.mm; sourceTree = "<group>"; };
+		A3F819E41208419300E60B0B /* HCRequireNonNilString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRequireNonNilString.h; sourceTree = "<group>"; };
+		A3F819E51208419300E60B0B /* HCStringContains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStringContains.h; sourceTree = "<group>"; };
+		A3F819E61208419300E60B0B /* HCStringContains.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCStringContains.mm; sourceTree = "<group>"; };
+		A3F819E71208419300E60B0B /* HCStringEndsWith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStringEndsWith.h; sourceTree = "<group>"; };
+		A3F819E81208419300E60B0B /* HCStringEndsWith.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCStringEndsWith.mm; sourceTree = "<group>"; };
+		A3F819E91208419300E60B0B /* HCStringStartsWith.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCStringStartsWith.h; sourceTree = "<group>"; };
+		A3F819EA1208419300E60B0B /* HCStringStartsWith.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCStringStartsWith.mm; sourceTree = "<group>"; };
+		A3F819EB1208419300E60B0B /* HCSubstringMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSubstringMatcher.h; sourceTree = "<group>"; };
+		A3F819EC1208419300E60B0B /* HCSubstringMatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HCSubstringMatcher.mm; sourceTree = "<group>"; };
+		A3F81A221208451C00E60B0B /* OCHamcrest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCHamcrest.h; path = Vendor/OCHamcrest/Source/OCHamcrest.h; sourceTree = "<group>"; };
+		A3F81ABC12084D6900E60B0B /* LRRestyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResponse.h; sourceTree = "<group>"; };
+		A3F81ABD12084D6900E60B0B /* LRRestyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResponse.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRResty_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F81ACA12084DCF00E60B0B /* libLRResty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +189,7 @@
 		0867D691FE84028FC02AAC07 /* LRResty */ = {
 			isa = PBXGroup;
 			children = (
+				A3F819941208418200E60B0B /* Vendor */,
 				A3F8190B1208254900E60B0B /* Tests */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -83,6 +211,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A3F819441208360800E60B0B /* LRResty */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -98,6 +227,7 @@
 		A3F8190B1208254900E60B0B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A3F8196F1208374400E60B0B /* Support */,
 				A3F8190C1208254900E60B0B /* Acceptance */,
 			);
 			path = Tests;
@@ -109,6 +239,187 @@
 				A3F8190D1208255F00E60B0B /* GetResourceTests.m */,
 			);
 			path = Acceptance;
+			sourceTree = "<group>";
+		};
+		A3F819441208360800E60B0B /* LRResty */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819481208361D00E60B0B /* LRRestyClientDelegate.h */,
+				A3F819491208363B00E60B0B /* LRRestyClient.h */,
+				A3F8194A1208363B00E60B0B /* LRRestyClient.m */,
+				A3F819561208369300E60B0B /* LRResty.h */,
+				A3F819571208369300E60B0B /* LRResty.m */,
+				A3F81ABC12084D6900E60B0B /* LRRestyResponse.h */,
+				A3F81ABD12084D6900E60B0B /* LRRestyResponse.m */,
+			);
+			name = LRResty;
+			sourceTree = "<group>";
+		};
+		A3F8196F1208374400E60B0B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A3F81970120837FC00E60B0B /* AssertEventually.h */,
+				A3F81971120837FC00E60B0B /* AssertEventually.m */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A3F819941208418200E60B0B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819951208418800E60B0B /* OCHamcrest */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		A3F819951208418800E60B0B /* OCHamcrest */ = {
+			isa = PBXGroup;
+			children = (
+				A3F81A221208451C00E60B0B /* OCHamcrest.h */,
+				A3F819991208419300E60B0B /* Core */,
+				A3F819C41208419300E60B0B /* Library */,
+			);
+			name = OCHamcrest;
+			sourceTree = "<group>";
+		};
+		A3F819991208419300E60B0B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8199A1208419300E60B0B /* Core */,
+				A3F819AF1208419300E60B0B /* HCBaseDescription.h */,
+				A3F819B01208419300E60B0B /* HCBaseDescription.mm */,
+				A3F819B11208419300E60B0B /* HCBaseMatcher.h */,
+				A3F819B21208419300E60B0B /* HCBaseMatcher.mm */,
+				A3F819B31208419300E60B0B /* HCDescription.h */,
+				A3F819B41208419300E60B0B /* HCInvocationMatcher.h */,
+				A3F819B51208419300E60B0B /* HCInvocationMatcher.mm */,
+				A3F819B61208419300E60B0B /* HCMatcher.h */,
+				A3F819B71208419300E60B0B /* HCMatcherAssert.h */,
+				A3F819B81208419300E60B0B /* HCMatcherAssert.mm */,
+				A3F819B91208419300E60B0B /* HCSelfDescribing.h */,
+				A3F819BA1208419300E60B0B /* HCStringDescription.h */,
+				A3F819BB1208419300E60B0B /* HCStringDescription.mm */,
+				A3F819BC1208419300E60B0B /* HCWrapInMatcher.h */,
+				A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */,
+				A3F819BE1208419300E60B0B /* Internal */,
+			);
+			name = Core;
+			path = Vendor/OCHamcrest/Source/Core;
+			sourceTree = "<group>";
+		};
+		A3F8199A1208419300E60B0B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8199B1208419300E60B0B /* HCAllOf.h */,
+				A3F8199C1208419300E60B0B /* HCAllOf.mm */,
+				A3F8199D1208419300E60B0B /* HCAnyOf.h */,
+				A3F8199E1208419300E60B0B /* HCAnyOf.mm */,
+				A3F8199F1208419300E60B0B /* HCDescribedAs.h */,
+				A3F819A01208419300E60B0B /* HCDescribedAs.mm */,
+				A3F819A11208419300E60B0B /* HCIs.h */,
+				A3F819A21208419300E60B0B /* HCIs.mm */,
+				A3F819A31208419300E60B0B /* HCIsAnything.h */,
+				A3F819A41208419300E60B0B /* HCIsAnything.mm */,
+				A3F819A51208419300E60B0B /* HCIsEqual.h */,
+				A3F819A61208419300E60B0B /* HCIsEqual.mm */,
+				A3F819A71208419300E60B0B /* HCIsInstanceOf.h */,
+				A3F819A81208419300E60B0B /* HCIsInstanceOf.mm */,
+				A3F819A91208419300E60B0B /* HCIsNil.h */,
+				A3F819AA1208419300E60B0B /* HCIsNil.mm */,
+				A3F819AB1208419300E60B0B /* HCIsNot.h */,
+				A3F819AC1208419300E60B0B /* HCIsNot.mm */,
+				A3F819AD1208419300E60B0B /* HCIsSame.h */,
+				A3F819AE1208419300E60B0B /* HCIsSame.mm */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A3F819BE1208419300E60B0B /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819BF1208419300E60B0B /* HCCollectMatchers.h */,
+				A3F819C01208419300E60B0B /* HCCollectMatchers.mm */,
+				A3F819C11208419300E60B0B /* HCIntegerTypes.h */,
+				A3F819C21208419300E60B0B /* NSObject_HCSelfDescribingValue.h */,
+				A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		A3F819C41208419300E60B0B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819C51208419300E60B0B /* Collection */,
+				A3F819D21208419300E60B0B /* Number */,
+				A3F819DC1208419300E60B0B /* Object */,
+				A3F819DF1208419300E60B0B /* Text */,
+			);
+			name = Library;
+			path = Vendor/OCHamcrest/Source/Library;
+			sourceTree = "<group>";
+		};
+		A3F819C51208419300E60B0B /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819C61208419300E60B0B /* HCIsCollectionContaining.h */,
+				A3F819C71208419300E60B0B /* HCIsCollectionContaining.mm */,
+				A3F819C81208419300E60B0B /* HCIsCollectionOnlyContaining.h */,
+				A3F819C91208419300E60B0B /* HCIsCollectionOnlyContaining.mm */,
+				A3F819CA1208419300E60B0B /* HCIsDictionaryContaining.h */,
+				A3F819CB1208419300E60B0B /* HCIsDictionaryContaining.mm */,
+				A3F819CC1208419300E60B0B /* HCIsDictionaryContainingKey.h */,
+				A3F819CD1208419300E60B0B /* HCIsDictionaryContainingKey.mm */,
+				A3F819CE1208419300E60B0B /* HCIsDictionaryContainingValue.h */,
+				A3F819CF1208419300E60B0B /* HCIsDictionaryContainingValue.mm */,
+				A3F819D01208419300E60B0B /* HCIsIn.h */,
+				A3F819D11208419300E60B0B /* HCIsIn.mm */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		A3F819D21208419300E60B0B /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819D31208419300E60B0B /* HCBoxNumber.h */,
+				A3F819D41208419300E60B0B /* HCIsCloseTo.h */,
+				A3F819D51208419300E60B0B /* HCIsCloseTo.mm */,
+				A3F819D61208419300E60B0B /* HCIsEqualToNumber.h */,
+				A3F819D71208419300E60B0B /* HCIsEqualToNumber.mm */,
+				A3F819D81208419300E60B0B /* HCNumberAssert.h */,
+				A3F819D91208419300E60B0B /* HCNumberAssert.mm */,
+				A3F819DA1208419300E60B0B /* HCOrderingComparison.h */,
+				A3F819DB1208419300E60B0B /* HCOrderingComparison.mm */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		A3F819DC1208419300E60B0B /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819DD1208419300E60B0B /* HCHasDescription.h */,
+				A3F819DE1208419300E60B0B /* HCHasDescription.mm */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		A3F819DF1208419300E60B0B /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				A3F819E01208419300E60B0B /* HCIsEqualIgnoringCase.h */,
+				A3F819E11208419300E60B0B /* HCIsEqualIgnoringCase.mm */,
+				A3F819E21208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.h */,
+				A3F819E31208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm */,
+				A3F819E41208419300E60B0B /* HCRequireNonNilString.h */,
+				A3F819E51208419300E60B0B /* HCStringContains.h */,
+				A3F819E61208419300E60B0B /* HCStringContains.mm */,
+				A3F819E71208419300E60B0B /* HCStringEndsWith.h */,
+				A3F819E81208419300E60B0B /* HCStringEndsWith.mm */,
+				A3F819E91208419300E60B0B /* HCStringStartsWith.h */,
+				A3F819EA1208419300E60B0B /* HCStringStartsWith.mm */,
+				A3F819EB1208419300E60B0B /* HCSubstringMatcher.h */,
+				A3F819EC1208419300E60B0B /* HCSubstringMatcher.mm */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +554,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */,
+				A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */,
+				A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */,
+				A3F819EE1208419300E60B0B /* HCAnyOf.mm in Sources */,
+				A3F819EF1208419300E60B0B /* HCDescribedAs.mm in Sources */,
+				A3F819F01208419300E60B0B /* HCIs.mm in Sources */,
+				A3F819F11208419300E60B0B /* HCIsAnything.mm in Sources */,
+				A3F819F21208419300E60B0B /* HCIsEqual.mm in Sources */,
+				A3F819F31208419300E60B0B /* HCIsInstanceOf.mm in Sources */,
+				A3F819F41208419300E60B0B /* HCIsNil.mm in Sources */,
+				A3F819F51208419300E60B0B /* HCIsNot.mm in Sources */,
+				A3F819F61208419300E60B0B /* HCIsSame.mm in Sources */,
+				A3F819F71208419300E60B0B /* HCBaseDescription.mm in Sources */,
+				A3F819F81208419300E60B0B /* HCBaseMatcher.mm in Sources */,
+				A3F819F91208419300E60B0B /* HCInvocationMatcher.mm in Sources */,
+				A3F819FA1208419300E60B0B /* HCMatcherAssert.mm in Sources */,
+				A3F819FB1208419300E60B0B /* HCStringDescription.mm in Sources */,
+				A3F819FC1208419300E60B0B /* HCWrapInMatcher.mm in Sources */,
+				A3F819FD1208419300E60B0B /* HCCollectMatchers.mm in Sources */,
+				A3F819FE1208419300E60B0B /* NSObject_HCSelfDescribingValue.mm in Sources */,
+				A3F819FF1208419300E60B0B /* HCIsCollectionContaining.mm in Sources */,
+				A3F81A001208419300E60B0B /* HCIsCollectionOnlyContaining.mm in Sources */,
+				A3F81A011208419300E60B0B /* HCIsDictionaryContaining.mm in Sources */,
+				A3F81A021208419300E60B0B /* HCIsDictionaryContainingKey.mm in Sources */,
+				A3F81A031208419300E60B0B /* HCIsDictionaryContainingValue.mm in Sources */,
+				A3F81A041208419300E60B0B /* HCIsIn.mm in Sources */,
+				A3F81A051208419300E60B0B /* HCIsCloseTo.mm in Sources */,
+				A3F81A061208419300E60B0B /* HCIsEqualToNumber.mm in Sources */,
+				A3F81A071208419300E60B0B /* HCNumberAssert.mm in Sources */,
+				A3F81A081208419300E60B0B /* HCOrderingComparison.mm in Sources */,
+				A3F81A091208419300E60B0B /* HCHasDescription.mm in Sources */,
+				A3F81A0A1208419300E60B0B /* HCIsEqualIgnoringCase.mm in Sources */,
+				A3F81A0B1208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm in Sources */,
+				A3F81A0C1208419300E60B0B /* HCStringContains.mm in Sources */,
+				A3F81A0D1208419300E60B0B /* HCStringEndsWith.mm in Sources */,
+				A3F81A0E1208419300E60B0B /* HCStringStartsWith.mm in Sources */,
+				A3F81A0F1208419300E60B0B /* HCSubstringMatcher.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +597,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F81AC112084D7300E60B0B /* LRRestyResponse.m in Sources */,
+				A3F81AC212084D7700E60B0B /* LRRestyClient.m in Sources */,
+				A3F81AC312084D7700E60B0B /* LRResty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

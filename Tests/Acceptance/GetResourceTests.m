@@ -8,17 +8,44 @@
 
 #import <Foundation/Foundation.h>
 #import <SenTestingKit/SenTestingKit.h>
+#define HC_SHORTHAND
+#import "OCHamcrest.h"
+#import "AssertEventually.h"
+#import "LRResty.h"
 
-@interface GetResourceTests : SenTestCase
-{}
+#define TEST_HOST @"localhost"
+#define TEST_PORT 10090
+
+NSString *resourceWithPath(NSString *path)
+{
+  return [NSString stringWithFormat:@"http://%@:%d%@", TEST_HOST, TEST_PORT, path];
+}
+
+@interface GetResourceTests : SenTestCase <LRRestyClientDelegate>
+{
+  id lastResponse;
+}
 @end
-
 
 @implementation GetResourceTests
 
-- (void)testSomething
+- (void)testCanPerformGetRequestToResourceAndReceiveAResponse
 {
-  STAssertNil(nil, nil);
+  [[LRResty client] get:resourceWithPath(@"/simple/resource") delegate:self];
+  
+  assertEventuallyThat(lastResponse, instanceOf([LRRestyResponse class]));
+}
+
+#pragma mark -
+
+- (void)restClient:(LRRestyClient *)client receivedResponse:(id)response;
+{
+  lastResponse = [response retain];
+}
+
+- (void)tearDown
+{
+  [lastResponse release]; lastResponse = nil;
 }
 
 @end
