@@ -34,4 +34,32 @@
   assertThat(encodedString, equalTo(@"nested[qux]=baz"));
 }
 
+- (void)testCanEncodeNestedKeyPairsMoreThanOneLevelDeep
+{
+  NSDictionary *bottom = [NSDictionary dictionaryWithObject:@"baz" forKey:@"qux"];
+  NSDictionary *nested = [NSDictionary dictionaryWithObject:bottom forKey:@"bottom"];
+  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested"] stringWithFormEncodedComponents];
+
+  assertThat(encodedString, equalTo(@"nested[bottom][qux]=baz"));
+}
+
+- (void)testURLEncodesSpecialCharactersInValues
+{
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar baz" forKey:@"foo"] stringWithFormEncodedComponents];
+  assertThat(encodedString, equalTo(@"foo=bar+baz"));
+}
+
+- (void)testURLEncodesSpecialCharactersInKeys
+{
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo qux"] stringWithFormEncodedComponents];
+  assertThat(encodedString, equalTo(@"foo+qux=bar"));
+}
+
+- (void)testURLEncodesSpecialCharactersWithNestedKeyPairs
+{
+  NSDictionary *nested = [NSDictionary dictionaryWithObject:@"baz foo" forKey:@"qux baz"];
+  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested object"] stringWithFormEncodedComponents];
+  assertThat(encodedString, equalTo(@"nested+object[qux+baz]=baz+foo"));
+}
+
 @end

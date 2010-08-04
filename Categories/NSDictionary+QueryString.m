@@ -9,6 +9,10 @@
 #import "NSDictionary+QueryString.h"
 #import "NSString+QueryString.h"
 
+@interface NSDictionary ()
+- (void)formEncodeObject:(id)object usingKey:(NSString *)key subKey:(NSString *)subKey intoArray:(NSArray *)array;
+@end
+
 @implementation NSDictionary (QueryString)
 
 + (NSDictionary *)dictionaryWithFormEncodedString:(NSString *)encodedString
@@ -46,25 +50,32 @@
 
 - (NSString *)stringWithFormEncodedComponents
 {
-  NSMutableArray* arguments = [NSMutableArray array];
-  for (NSString* key in self)
+  NSMutableArray *arguments = [NSMutableArray array];
+  for (NSString *key in self)
   {
-    id object = [self objectForKey:key];
-    if ([object respondsToSelector:@selector(stringByEscapingForURLQuery)]) {
-      [arguments addObject:[NSString stringWithFormat:@"%@=%@",
-        [key stringByEscapingForURLQuery],
-        [[[self objectForKey:key] description] stringByEscapingForURLQuery]]]; 
-    } 
-    else if ([object isKindOfClass:[self class]]) {
-      for (NSString *subKey in object) {
-        [arguments addObject:[NSString stringWithFormat:@"%@[%@]=%@",
-          [key stringByEscapingForURLQuery],
-          [subKey stringByEscapingForURLQuery],
-          [[[object objectForKey:subKey] description] stringByEscapingForURLQuery]]];
-      } 
-    }
+    [self formEncodeObject:[self objectForKey:key] usingKey:key subKey:nil intoArray:arguments];
   }
   return [arguments componentsJoinedByString:@"&"];
+}
+
+- (void)formEncodeObject:(id)object usingKey:(NSString *)key subKey:(NSString *)subKey intoArray:(NSMutableArray *)array
+{
+  NSString *objectKey = nil;
+  
+  if (subKey) {
+    objectKey = [NSString stringWithFormat:@"%@[%@]", [key description], [[subKey description] stringByEscapingForURLQuery]];
+  } else {
+    objectKey = [[key description] stringByEscapingForURLQuery];
+  }
+  
+  if ([object respondsToSelector:@selector(stringByEscapingForURLQuery)]) {
+    [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [object stringByEscapingForURLQuery]]];
+  } 
+  else if ([object isKindOfClass:[self class]]) {
+    for (NSString *nestedKey in object) {
+      [self formEncodeObject:[object objectForKey:nestedKey] usingKey:objectKey subKey:nestedKey intoArray:array];
+    } 
+  }
 }
 
 @end

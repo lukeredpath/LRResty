@@ -101,8 +101,6 @@ NSData *anyData()
      }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
-  
-  NSLog(@"%@", [receivedResponse asString]);
 }
 
 @end
