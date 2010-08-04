@@ -132,6 +132,41 @@
   [request release];  
 }
 
+#pragma mark -
+#pragma mark PUT requests
+
+- (void)put:(NSString *)urlString data:(NSData *)postData delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  [self putURL:[NSURL URLWithString:urlString] data:postData headers:nil delegate:delegate];
+}
+
+- (void)put:(NSString *)urlString data:(NSData *)postData withBlock:(LRRestyResponseBlock)block;
+{
+  [self put:urlString data:postData delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+- (void)put:(NSString *)urlString data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+{
+  [self putURL:[NSURL URLWithString:urlString] data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]]; 
+}
+
+- (void)put:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
+{
+  [self put:urlString 
+        data:[[parameters stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding] 
+     headers:[NSDictionary dictionaryWithObject:@"application/x-www-form-urlencoded" forKey:@"Content-Type"]
+   withBlock:block];
+}
+
+- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:@"PUT" client:self delegate:delegate];
+  [request setPostData:postData];
+  [request setHeaders:headers];
+  [operationQueue addOperation:request];
+  [request release];  
+}
+
 @end
 
 @implementation LRRestyRequest

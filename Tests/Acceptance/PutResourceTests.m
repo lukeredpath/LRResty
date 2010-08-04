@@ -1,5 +1,5 @@
 //
-//  PostResourceTests.m
+//  PutResourceTests.m
 //  LRResty
 //
 //  Created by Luke Redpath on 04/08/2010.
@@ -9,88 +9,88 @@
 #import "TestHelper.h"
 #import "LRResty.h"
 
-@interface PostResourceTests : SenTestCase 
+@interface PutResourceTests : SenTestCase 
 {
   LRRestyResponse *lastResponse;
   LRRestyClient *client;
 }
 @end
 
-@implementation PostResourceTests
+@implementation PutResourceTests
 
 - (void)setUp
 {
   client = [[LRResty client] retain];
 }
 
-- (void)testCanPostStringToResourceAndHaveThatValueEchoedBack
+- (void)testCanPutStringToResourceAndHaveThatValueEchoedBack
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/echo") data:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
+  [client put:resourceWithPath(@"/simple/echo") data:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said hello world")));
   
-  [client post:resourceWithPath(@"/simple/echo") data:encodedString(@"Resty rocks!") withBlock:^(LRRestyResponse *response) {
+  [client put:resourceWithPath(@"/simple/echo") data:encodedString(@"Resty rocks!") withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said Resty rocks!")));
 }
 
-- (void)testCanPostToResourceWithCustomHeaders
+- (void)testCanPutToResourceWithCustomHeaders
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/accepts_only_json") 
+  [client put:resourceWithPath(@"/simple/accepts_only_json") 
           data:anyData() 
        headers:[NSDictionary dictionaryWithObject:@"application/xml" forKey:@"Accept"] 
      withBlock:^(LRRestyResponse *response) {
        
-     receivedResponse = [response retain];
-   }];
+       receivedResponse = [response retain];
+     }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(406)));
   
-  [client post:resourceWithPath(@"/simple/accepts_only_json") 
+  [client put:resourceWithPath(@"/simple/accepts_only_json") 
           data:anyData() 
        headers:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Accept"] 
      withBlock:^(LRRestyResponse *response) {
        
-    receivedResponse = [response retain];
-  }];
+       receivedResponse = [response retain];
+     }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
 }
 
-- (void)testCanPostToResourceWithFormEncodedData
+- (void)testCanPutToResourceWithFormEncodedData
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/form_handler") 
+  [client put:resourceWithPath(@"/simple/form_handler") 
     parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
      withBlock:^(LRRestyResponse *response) {
        
-    receivedResponse = [response retain];
-  }];
+       receivedResponse = [response retain];
+     }];
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"foo\"=>\"bar\"}")));
+  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"PUT params {\"foo\"=>\"bar\"}")));
 }
 
-- (void)testCanPostToResourceWithFormEncodedDataWithNestedParameters
+- (void)testCanPutToResourceWithFormEncodedDataWithNestedParameters
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/form_handler") 
+  [client put:resourceWithPath(@"/simple/form_handler") 
     parameters:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
      withBlock:^(LRRestyResponse *response) {
        
-     receivedResponse = [response retain];
-   }];
+       receivedResponse = [response retain];
+     }];
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
+  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"PUT params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
 }
 
 @end

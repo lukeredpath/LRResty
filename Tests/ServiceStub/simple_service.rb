@@ -31,6 +31,28 @@ class SimpleService < Sinatra::Base
     end
   end
   
+  put '/echo' do
+    with_error_handling do
+      [200, {'Content-Type' => "text/plain"}, "you said #{request.body.read}"]
+    end
+  end
+  
+  put "/accepts_only_json" do
+    with_error_handling do
+      if request.env["HTTP_ACCEPT"] =~ /application\/json/
+        [200, {'Content-Type' => 'application/json'}, {'it' => 'worked'}.to_json]
+      else
+        [406, {'Content-Type' => 'application/json'}, {'error' => 'Not Acceptable'}.to_json]
+      end
+    end
+  end
+  
+  put "/form_handler" do
+    with_error_handling do
+      [200, {'Content-Type' => 'application/json'}, "PUT params #{params.inspect}"]
+    end
+  end
+  
   private
   
   def response_for(method)

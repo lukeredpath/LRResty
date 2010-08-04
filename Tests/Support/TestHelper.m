@@ -17,3 +17,13 @@ NSString *resourceWithPath(NSString *path)
 {
   return [NSString stringWithFormat:@"http://%@:%d%@", TEST_HOST, TEST_PORT, path];
 }
+
+NSData *encodedString(NSString *aString)
+{
+  return [aString dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+NSData *anyData()
+{
+  return encodedString(@"");
+}
