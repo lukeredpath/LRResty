@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30874BC1209CCA5003859AC /* PostResourceTests.m */; };
-		A308755D1209E0BE003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A30875591209E057003859AC /* FormEncodedStringTest.m */; };
+		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -80,7 +80,7 @@
 
 /* Begin PBXFileReference section */
 		A30874BC1209CCA5003859AC /* PostResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostResourceTests.m; sourceTree = "<group>"; };
-		A30875591209E057003859AC /* FormEncodedStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEncodedStringTest.m; sourceTree = "<group>"; };
+		A308758D1209E37B003859AC /* FormEncodedStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEncodedStringTest.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -263,18 +263,18 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		A30875581209E042003859AC /* Unit Tests */ = {
+		A308758C1209E37B003859AC /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A30875591209E057003859AC /* FormEncodedStringTest.m */,
+				A308758D1209E37B003859AC /* FormEncodedStringTest.m */,
 			);
-			name = "Unit Tests";
+			path = "Unit Tests";
 			sourceTree = "<group>";
 		};
 		A3F8190B1208254900E60B0B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A30875581209E042003859AC /* Unit Tests */,
+				A308758C1209E37B003859AC /* Unit Tests */,
 				A3F8196F1208374400E60B0B /* Support */,
 				A3F8190C1208254900E60B0B /* Acceptance */,
 			);
@@ -499,9 +499,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A3F818E71208248F00E60B0B /* Acceptance Tests */ = {
+		A3F818E71208248F00E60B0B /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3F818EC1208249000E60B0B /* Build configuration list for PBXNativeTarget "Acceptance Tests" */;
+			buildConfigurationList = A3F818EC1208249000E60B0B /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				A3F8191012082A0000E60B0B /* Start Service Stub */,
 				A3F818E31208248F00E60B0B /* Resources */,
@@ -515,7 +515,7 @@
 			dependencies = (
 				A3F818F01208249B00E60B0B /* PBXTargetDependency */,
 			);
-			name = "Acceptance Tests";
+			name = Tests;
 			productName = "Acceptance Tests";
 			productReference = A3F818E81208248F00E60B0B /* Acceptance Tests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -551,7 +551,7 @@
 			projectRoot = "";
 			targets = (
 				D2AAC07D0554694100DB518D /* LRResty */,
-				A3F818E71208248F00E60B0B /* Acceptance Tests */,
+				A3F818E71208248F00E60B0B /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -658,7 +658,7 @@
 				A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */,
 				A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */,
 				A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */,
-				A308755D1209E0BE003859AC /* FormEncodedStringTest.m in Sources */,
+				A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,7 +825,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3F818EC1208249000E60B0B /* Build configuration list for PBXNativeTarget "Acceptance Tests" */ = {
+		A3F818EC1208249000E60B0B /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3F818EA1208249000E60B0B /* Debug */,
