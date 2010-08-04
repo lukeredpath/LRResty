@@ -10,6 +10,8 @@
 		A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30874BC1209CCA5003859AC /* PostResourceTests.m */; };
 		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A30875D2120A2640003859AC /* PutResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30875D1120A2640003859AC /* PutResourceTests.m */; };
+		A3087623120A2EF0003859AC /* LRRestyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087622120A2EF0003859AC /* LRRestyRequest.m */; };
+		A308762A120A2F36003859AC /* LRRestyClientBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -83,6 +85,10 @@
 		A30874BC1209CCA5003859AC /* PostResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostResourceTests.m; sourceTree = "<group>"; };
 		A308758D1209E37B003859AC /* FormEncodedStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEncodedStringTest.m; sourceTree = "<group>"; };
 		A30875D1120A2640003859AC /* PutResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PutResourceTests.m; sourceTree = "<group>"; };
+		A3087621120A2EF0003859AC /* LRRestyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequest.h; sourceTree = "<group>"; };
+		A3087622120A2EF0003859AC /* LRRestyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyRequest.m; sourceTree = "<group>"; };
+		A3087628120A2F36003859AC /* LRRestyClientBlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClientBlockDelegate.h; sourceTree = "<group>"; };
+		A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClientBlockDelegate.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -246,6 +252,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A308761D120A2EDD003859AC /* Internal */,
 				A3F81DC91208934600E60B0B /* LRResty.h */,
 				A3F81DCA1208934600E60B0B /* LRResty.m */,
 				A3F81DCB1208934600E60B0B /* LRRestyClient.h */,
@@ -271,6 +278,17 @@
 				A308758D1209E37B003859AC /* FormEncodedStringTest.m */,
 			);
 			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		A308761D120A2EDD003859AC /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A3087621120A2EF0003859AC /* LRRestyRequest.h */,
+				A3087622120A2EF0003859AC /* LRRestyRequest.m */,
+				A3087628120A2F36003859AC /* LRRestyClientBlockDelegate.h */,
+				A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */,
+			);
+			name = Internal;
 			sourceTree = "<group>";
 		};
 		A3F8190B1208254900E60B0B /* Tests */ = {
@@ -663,6 +681,8 @@
 				A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */,
 				A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */,
 				A30875D2120A2640003859AC /* PutResourceTests.m in Sources */,
+				A3087623120A2EF0003859AC /* LRRestyRequest.m in Sources */,
+				A308762A120A2F36003859AC /* LRRestyClientBlockDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
