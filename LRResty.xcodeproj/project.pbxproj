@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30874BC1209CCA5003859AC /* PostResourceTests.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -71,12 +72,13 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* LRResty */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = LRResty;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30874BC1209CCA5003859AC /* PostResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostResourceTests.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				A3F8190D1208255F00E60B0B /* GetResourceTests.m */,
+				A30874BC1209CCA5003859AC /* PostResourceTests.m */,
 			);
 			path = Acceptance;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */,
 				A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */,
 				A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */,
+				A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

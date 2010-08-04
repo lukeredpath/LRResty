@@ -23,6 +23,7 @@
   NSError *connectionError;
   NSMutableData *responseData;
   NSHTTPURLResponse *response;
+  NSData *postData;
 }
 @property (nonatomic, retain) NSHTTPURLResponse *response;
 @property (nonatomic, retain) NSData *responseData;
@@ -34,6 +35,7 @@
 - (void)finish;
 - (void)setQueryParameters:(NSDictionary *)parameters;
 - (void)setHeaders:(NSDictionary *)headers;
+- (void)setPostData:(NSData *)data;
 @end
 
 @interface LRRestyClientBlockDelegate : NSObject <LRRestyClientDelegate>
@@ -62,6 +64,9 @@
   [operationQueue release];
   [super dealloc];
 }
+
+#pragma mark -
+#pragma mark GET requests
 
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
 {
@@ -92,6 +97,28 @@
   [request release];
 }
 
+#pragma mark -
+#pragma mark POST requests
+
+- (void)post:(NSString *)urlString data:(NSData *)postData delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  [self postURL:[NSURL URLWithString:urlString] data:postData headers:nil delegate:delegate];
+}
+
+- (void)post:(NSString *)urlString data:(NSData *)postData withBlock:(LRRestyResponseBlock)block;
+{
+  [self post:urlString data:postData delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:@"POST" client:self delegate:delegate];
+  [request setPostData:postData];
+  [request setHeaders:headers];
+  [operationQueue addOperation:request];
+  [request release];  
+}
+
 @end
 
 @implementation LRRestyRequest
@@ -113,6 +140,8 @@
 
 - (void)dealloc
 {
+  [postData release];
+  [requestHeaders release];
   [requestURL release];
   [requestMethod release];
   [delegate release];
@@ -134,6 +163,11 @@
   
   [requestHeaders release];
   requestHeaders = [headers copy];
+}
+
+- (void)setPostData:(NSData *)data;
+{
+  postData = [data retain];
 }
 
 - (BOOL)isConcurrent
@@ -167,6 +201,9 @@
   [requestHeaders enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
     [URLRequest addValue:value forHTTPHeaderField:key];
   }];
+  
+  [URLRequest setHTTPBody:postData];
+  [URLRequest setHTTPMethod:requestMethod];
   
   NSURLConnection *connection = [NSURLConnection 
       connectionWithRequest:URLRequest
