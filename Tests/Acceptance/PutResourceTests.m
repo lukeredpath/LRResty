@@ -77,6 +77,8 @@
      }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"PUT params {\"foo\"=>\"bar\"}")));
+  
+  NSLog(@"response %@", [receivedResponse asString]);
 }
 
 - (void)testCanPutToResourceWithFormEncodedDataWithNestedParameters
