@@ -14,6 +14,11 @@ NSData *encodedString(NSString *aString)
   return [aString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+NSData *anyData()
+{
+  return encodedString(@"");
+}
+
 @interface PostResourceTests : SenTestCase 
 {
   LRRestyResponse *lastResponse;
@@ -43,6 +48,31 @@ NSData *encodedString(NSString *aString)
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said Resty rocks!")));
+}
+
+- (void)testCanPostToResourceWithCustomHeaders
+{
+  __block LRRestyResponse *receivedResponse = nil;
+  
+  [client post:resourceWithPath(@"/simple/accepts_only_json") 
+          data:anyData() 
+       headers:[NSDictionary dictionaryWithObject:@"application/xml" forKey:@"Accept"] 
+     withBlock:^(LRRestyResponse *response) {
+       
+     receivedResponse = [response retain];
+   }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatus(406)));
+  
+  [client post:resourceWithPath(@"/simple/accepts_only_json") 
+          data:anyData() 
+       headers:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Accept"] 
+     withBlock:^(LRRestyResponse *response) {
+       
+    receivedResponse = [response retain];
+  }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
 }
 
 @end

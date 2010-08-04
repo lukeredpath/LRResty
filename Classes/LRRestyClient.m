@@ -110,6 +110,11 @@
   [self post:urlString data:postData delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
+- (void)post:(NSString *)urlString data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+{
+  [self postURL:[NSURL URLWithString:urlString] data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]]; 
+}
+
 - (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:@"POST" client:self delegate:delegate];

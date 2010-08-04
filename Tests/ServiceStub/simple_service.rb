@@ -1,4 +1,5 @@
 require 'service_stub'
+require 'json'
 
 class SimpleService < Sinatra::Base
   
@@ -11,6 +12,16 @@ class SimpleService < Sinatra::Base
   post '/echo' do
     with_error_handling do
       [200, {'Content-Type' => "text/plain"}, "you said #{request.body.read}"]
+    end
+  end
+  
+  post "/accepts_only_json" do
+    with_error_handling do
+      if request.env["HTTP_ACCEPT"] =~ /application\/json/
+        [200, {'Content-Type' => 'application/json'}, {'it' => 'worked'}.to_json]
+      else
+        [406, {'Content-Type' => 'application/json'}, {'error' => 'Not Acceptable'}.to_json]
+      end
     end
   end
   
