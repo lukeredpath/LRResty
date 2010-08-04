@@ -46,14 +46,24 @@
 
 - (NSString *)stringWithFormEncodedComponents
 {
-  NSMutableArray* arguments = [NSMutableArray arrayWithCapacity:[self count]];
+  NSMutableArray* arguments = [NSMutableArray array];
   for (NSString* key in self)
   {
-    [arguments addObject:[NSString stringWithFormat:@"%@=%@",
-                          [key stringByEscapingForURLQuery],
-                          [[[self objectForKey:key] description] stringByEscapingForURLQuery]]];
+    id object = [self objectForKey:key];
+    if ([object respondsToSelector:@selector(stringByEscapingForURLQuery)]) {
+      [arguments addObject:[NSString stringWithFormat:@"%@=%@",
+        [key stringByEscapingForURLQuery],
+        [[[self objectForKey:key] description] stringByEscapingForURLQuery]]]; 
+    } 
+    else if ([object isKindOfClass:[self class]]) {
+      for (NSString *subKey in object) {
+        [arguments addObject:[NSString stringWithFormat:@"%@[%@]=%@",
+          [key stringByEscapingForURLQuery],
+          [subKey stringByEscapingForURLQuery],
+          [[[object objectForKey:subKey] description] stringByEscapingForURLQuery]]];
+      } 
+    }
   }
-
   return [arguments componentsJoinedByString:@"&"];
 }
 

@@ -75,4 +75,34 @@ NSData *anyData()
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
 }
 
+- (void)testCanPostToResourceWithFormEncodedData
+{
+  __block LRRestyResponse *receivedResponse = nil;
+  
+  [client post:resourceWithPath(@"/simple/form_handler") 
+    parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
+     withBlock:^(LRRestyResponse *response) {
+       
+    receivedResponse = [response retain];
+  }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"foo\"=>\"bar\"}")));
+}
+
+- (void)testCanPostToResourceWithFormEncodedDataWithNestedParameters
+{
+  __block LRRestyResponse *receivedResponse = nil;
+  
+  [client post:resourceWithPath(@"/simple/form_handler") 
+    parameters:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
+     withBlock:^(LRRestyResponse *response) {
+       
+       receivedResponse = [response retain];
+     }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
+  
+  NSLog(@"%@", [receivedResponse asString]);
+}
+
 @end

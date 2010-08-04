@@ -115,6 +115,14 @@
   [self postURL:[NSURL URLWithString:urlString] data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]]; 
 }
 
+- (void)post:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
+{
+  [self post:urlString 
+        data:[[parameters stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding] 
+     headers:[NSDictionary dictionaryWithObject:@"application/x-www-form-urlencoded" forKey:@"Content-Type"]
+   withBlock:block];
+}
+
 - (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:@"POST" client:self delegate:delegate];

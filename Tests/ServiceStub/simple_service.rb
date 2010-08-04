@@ -25,6 +25,12 @@ class SimpleService < Sinatra::Base
     end
   end
   
+  post "/form_handler" do
+    with_error_handling do
+      [200, {'Content-Type' => 'application/json'}, "posted params #{params.inspect}"]
+    end
+  end
+  
   private
   
   def response_for(method)
