@@ -7,7 +7,6 @@
 //
 
 #import "LRResty.h"
-#import "LRRestyClient.h"
 
 @implementation LRResty
 

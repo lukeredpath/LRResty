@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "LRRestyClient.h"
+#import "LRRestyClient+GET.h"
+#import "LRRestyClient+POST.h"
+#import "LRRestyClient+PUT.h"
 #import "LRRestyResponse.h"
-
 
 @interface LRResty : NSObject {
 
