@@ -8,6 +8,7 @@
 
 #import "LRRestyClient+PUT.h"
 #import "LRRestyClientBlockDelegate.h"
+#import "LRRestyClient+Internal.h"
 
 @implementation LRRestyClient (PUT)
 
@@ -18,15 +19,9 @@
 
 - (void)put:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  NSMutableDictionary *mergedHeaders = [headers mutableCopy];
-  if (mergedHeaders == nil) {
-    mergedHeaders = [NSMutableDictionary dictionary];
-  }
-  [mergedHeaders setObject:@"application/x-www-form-urlencoded" forKey:@"Content-Type"];
-  
   [self put:urlString 
-       data:[[parameters stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding] 
-    headers:mergedHeaders
+       data:[self dataFromFormEncodedParameters:parameters]
+    headers:[self headersForFormEncodedParameters:headers]
    delegate:delegate];
 }
 
