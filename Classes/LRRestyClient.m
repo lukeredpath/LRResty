@@ -13,7 +13,6 @@
 #import "LRRestyClientBlockDelegate.h"
 #import "NSDictionary+QueryString.h"
 
-
 @interface LRRestyClient ()
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 @end
@@ -36,6 +35,33 @@
   [super dealloc];
 }
 
+#pragma mark -
+#pragma mark Core API
+
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  LRRestyRequest *request = [self requestForURL:url method:@"GET" headers:headers delegate:delegate];
+  [request setQueryParameters:parameters];
+  [operationQueue addOperation:request];
+}
+
+- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  LRRestyRequest *request = [self requestForURL:url method:@"POST" headers:headers delegate:delegate];
+  [request setPostData:postData];
+  [operationQueue addOperation:request];
+}
+
+- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  LRRestyRequest *request = [self requestForURL:url method:@"PUT" headers:headers delegate:delegate];
+  [request setPostData:postData];
+  [operationQueue addOperation:request];
+}
+
+#pragma mark -
+#pragma mark Private
+
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod client:self delegate:delegate];
@@ -43,8 +69,28 @@
   return [request autorelease];
 }
 
-#pragma mark -
-#pragma mark GET requests
+@end
+
+@implementation LRRestyClient (Blocks)
+
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+{
+  [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+{
+  [self postURL:url data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+{
+  [self putURL:url data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+@end
+
+@implementation LRRestyClient (GET)
 
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
 {
@@ -61,15 +107,6 @@
   [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:delegate];
 }
 
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
-{
-  LRRestyRequest *request = [self requestForURL:url method:@"GET" headers:headers delegate:delegate];
-  [request setQueryParameters:parameters];
-  [operationQueue addOperation:request];
-}
-
-#pragma mark withBlock
-
 - (void)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
 {
   [self get:urlString parameters:nil withBlock:block];
@@ -85,13 +122,9 @@
   [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers withBlock:block];
 }
 
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-{
-  [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
-}
+@end
 
-#pragma mark -
-#pragma mark POST requests
+@implementation LRRestyClient (POST)
 
 - (void)post:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
 {
@@ -122,15 +155,6 @@
   [self postURL:[NSURL URLWithString:urlString] data:postData headers:headers delegate:delegate];
 }
 
-- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
-{
-  LRRestyRequest *request = [self requestForURL:url method:@"POST" headers:headers delegate:delegate];
-  [request setPostData:postData];
-  [operationQueue addOperation:request];
-}
-
-#pragma mark withBlock
-
 - (void)post:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
 {
   [self post:urlString parameters:parameters headers:nil withBlock:block];
@@ -151,13 +175,9 @@
   [self postURL:[NSURL URLWithString:urlString] data:postData headers:headers withBlock:block];
 }
 
-- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-{
-  [self postURL:url data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
-}
+@end
 
-#pragma mark -
-#pragma mark PUT requests
+@implementation LRRestyClient (PUT)
 
 - (void)put:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
 {
@@ -188,15 +208,6 @@
   [self putURL:[NSURL URLWithString:urlString] data:postData headers:headers delegate:delegate];
 }
 
-- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
-{
-  LRRestyRequest *request = [self requestForURL:url method:@"PUT" headers:headers delegate:delegate];
-  [request setPostData:postData];
-  [operationQueue addOperation:request];
-}
-
-#pragma mark withBlock
-
 - (void)put:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
 {
   [self put:urlString parameters:parameters headers:nil withBlock:block];
@@ -215,11 +226,6 @@
 - (void)put:(NSString *)urlString data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
   [self putURL:[NSURL URLWithString:urlString] data:postData headers:headers withBlock:block];
-}
-
-- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-{
-  [self putURL:url data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "LRRestyRequest.h"
 #import "LRRestyResponse.h"
 #import "LRRestyClient.h"
+#import "NSDictionary+QueryString.h"
 
 @implementation LRRestyRequest
 
