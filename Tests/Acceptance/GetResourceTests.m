@@ -64,11 +64,11 @@
   assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
 }
 
-- (void)testCanGloballyModifyRequestsBeforeTheyAreSentUsingBlock
+- (void)testCanModifyRequestsBeforeTheyAreSentUsingBlock
 {
   serviceStubWillServe(anyResponse(), [forGetRequestTo(@"/simple/resource") withHeader:@"X-Test-Header" value:@"Resty"]);
   
-  [client setBeforeExecutionBlock:^(LRRestyRequest *request) {
+  [client attachRequestModifier:^(LRRestyRequest *request) {
     [request addHeader:@"X-Test-Header" value:@"Resty"];
   }];  
   [client get:resourceWithPath(@"/simple/resource") delegate:self];

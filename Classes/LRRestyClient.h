@@ -18,13 +18,13 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 @interface LRRestyClient : NSObject {
   NSOperationQueue *operationQueue;
   BOOL handlesCookiesAutomatically;
-  LRRestyRequestBlock beforeExecutionBlock;
+  NSMutableArray *requestModifiers;
 }
 - (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
-- (void)setBeforeExecutionBlock:(LRRestyRequestBlock)block;
+- (void)attachRequestModifier:(LRRestyRequestBlock)block;
 @end
 
 @interface LRRestyClient (Blocks)

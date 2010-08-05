@@ -28,13 +28,14 @@
   if (self = [super init]) {
     operationQueue = [[NSOperationQueue alloc] init];
     handlesCookiesAutomatically = YES;
+    requestModifiers = [[NSMutableArray alloc] init];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  Block_release(beforeExecutionBlock);
+  [requestModifiers release];
   [operationQueue release];
   [super dealloc];
 }
@@ -66,9 +67,9 @@
   handlesCookiesAutomatically = shouldHandleCookies;
 }
 
-- (void)setBeforeExecutionBlock:(LRRestyRequestBlock)block;
+- (void)attachRequestModifier:(LRRestyRequestBlock)block;
 {
-  beforeExecutionBlock = Block_copy(block);
+  [requestModifiers addObject:block];
 }
 
 #pragma mark -
@@ -85,8 +86,8 @@
 
 - (void)performRequest:(LRRestyRequest *)request;
 {
-  if (beforeExecutionBlock) {
-    beforeExecutionBlock(request);
+  for (LRRestyRequestBlock requestModifier in requestModifiers) {
+    requestModifier(request);
   }
   [operationQueue addOperation:request];
 }
