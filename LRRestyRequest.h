@@ -22,6 +22,7 @@
   NSError *connectionError;
   NSMutableData *responseData;
   NSHTTPURLResponse *response;
+  NSURLCredential *credential;
 }
 @property (nonatomic, retain) NSHTTPURLResponse *response;
 @property (nonatomic, retain) NSData *responseData;
@@ -38,4 +39,5 @@
 - (void)setPostData:(NSData *)data;
 - (void)setPayload:(id<LRRestyRequestPayload>)thePayload;
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
+- (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password;
 @end

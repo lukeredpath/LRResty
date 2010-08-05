@@ -31,6 +31,7 @@
 
 - (void)dealloc
 {
+  [credential release];
   [URLRequest release];
   [delegate release];
   [super dealloc];
@@ -82,6 +83,11 @@
   [URLRequest setHTTPShouldHandleCookies:shouldHandleCookies];
 }
 
+- (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password;
+{
+  credential = [[NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone] retain];
+}
+
 #pragma mark -
 #pragma mark NSOperation methods
 
@@ -130,6 +136,15 @@
 
 #pragma mark -
 #pragma mark NSURLConnection delegate methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+  if (credential && [challenge previousFailureCount] < 1) {
+    [[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+  } else {
+    [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+  }
+}
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)theResponse
 {

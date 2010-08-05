@@ -69,7 +69,14 @@
 
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
 {
-  [requestModifiers addObject:block];
+  [requestModifiers addObject:Block_copy(block)];
+}
+
+- (void)setUsername:(NSString *)username password:(NSString *)password;
+{
+  [self attachRequestModifier:^(LRRestyRequest *request) {
+    [request setBasicAuthUsername:username password:password];
+  }];
 }
 
 #pragma mark -

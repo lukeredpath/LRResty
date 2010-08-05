@@ -25,6 +25,7 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
+- (void)setUsername:(NSString *)username password:(NSString *)password;
 @end
 
 @interface LRRestyClient (Blocks)

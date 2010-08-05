@@ -2,6 +2,8 @@ require 'service_stub'
 require 'json'
 
 class SimpleService < Sinatra::Base
+  TEST_USER = 'testuser'
+  TEST_PASS = 'testpass'
   
   get '/resource' do
     with_error_handling do
@@ -17,6 +19,13 @@ class SimpleService < Sinatra::Base
       else
         [403, {'Content-Type' => "text/plain"}, "Missing cookie"]
       end
+    end
+  end
+
+  get '/requires_auth' do
+    with_error_handling do
+      protected!
+      response_for("GET")
     end
   end
   
@@ -78,6 +87,18 @@ class SimpleService < Sinatra::Base
       return yield
     rescue StandardError => e # html error pages don't help me here
       return [500, {"Content-Type" => "text/plain"}, e.message]
+    end
+  end
+  
+  helpers do
+    def protected!
+      response['WWW-Authenticate'] = %(Basic realm="Testing HTTP Auth")
+      throw(:halt, [401, "Not authorized\n"]) and return unless authorized?
+    end
+
+    def authorized?
+      auth ||=  Rack::Auth::Basic::Request.new(request.env)
+      auth.provided? && auth.basic? && auth.credentials && auth.credentials == [TEST_USER, TEST_PASS]
     end
   end
   
