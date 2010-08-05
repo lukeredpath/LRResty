@@ -8,6 +8,7 @@
 
 #import "LRRestyRequestPayload.h"
 #import "LRRestyRequest.h"
+#import "NSDictionary+QueryString.h"
 
 @implementation LRRestyRequestPayloadFactory
 
@@ -15,6 +16,9 @@
 {
   if ([object respondsToSelector:@selector(dataUsingEncoding:)]) {
     return [[[LRRestyRequestEncodablePayload alloc] initWithEncodableObject:object] autorelease];
+  }
+  if ([object isKindOfClass:[NSDictionary class]]) {
+    return [[[LRRestyRequestFormEncodedData alloc] initWithDictionary:object] autorelease];
   }
   return nil;
 }
@@ -47,4 +51,29 @@
 }
 
 @end
+
+@implementation LRRestyRequestFormEncodedData
+
+- (id)initWithDictionary:(NSDictionary *)aDictionary;
+{
+  if (self = [super init]) {
+    dictionary = [aDictionary copy];
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+  [dictionary release];
+  [super dealloc];
+}
+
+- (void)modifyRequest:(LRRestyRequest *)request
+{
+  [request setPostData:[[dictionary stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
+  [request addHeader:@"Content-Type" value:@"application/x-www-form-urlencoded"];
+}
+
+@end
+
 

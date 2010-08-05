@@ -17,7 +17,7 @@
   NSURL *requestURL;
   NSString *requestMethod;
   LRRestyClient *client;
-  NSDictionary *requestHeaders;
+  NSMutableDictionary *requestHeaders;
   id<LRRestyClientDelegate> delegate;
   BOOL _isExecuting;
   BOOL _isFinished;
@@ -36,6 +36,7 @@
 - (void)finish;
 - (void)setQueryParameters:(NSDictionary *)parameters;
 - (void)setHeaders:(NSDictionary *)headers;
+- (void)addHeader:(NSString *)header value:(NSString *)value;
 - (void)setPostData:(NSData *)data;
 - (void)setPayload:(id<LRRestyRequestPayload>)thePayload;
 @end

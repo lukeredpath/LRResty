@@ -45,7 +45,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   [client post:resourceWithPath(@"/simple/accepts_only_json") 
-          data:anyData() 
+       payload:anyPayload()
        headers:[NSDictionary dictionaryWithObject:@"application/xml" forKey:@"Accept"] 
      withBlock:^(LRRestyResponse *response) {
        
@@ -55,7 +55,7 @@
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(406)));
   
   [client post:resourceWithPath(@"/simple/accepts_only_json") 
-          data:anyData() 
+       payload:anyPayload() 
        headers:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Accept"] 
      withBlock:^(LRRestyResponse *response) {
        
@@ -70,7 +70,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   [client post:resourceWithPath(@"/simple/form_handler") 
-    parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
+       payload:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
      withBlock:^(LRRestyResponse *response) {
        
     receivedResponse = [response retain];
@@ -84,7 +84,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   [client post:resourceWithPath(@"/simple/form_handler") 
-    parameters:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
+       payload:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
      withBlock:^(LRRestyResponse *response) {
        
      receivedResponse = [response retain];

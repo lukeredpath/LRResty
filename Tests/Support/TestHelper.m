@@ -27,3 +27,8 @@ NSData *anyData()
 {
   return encodedString(@"");
 }
+
+id anyPayload()
+{
+  return nil;
+}

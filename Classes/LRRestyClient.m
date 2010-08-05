@@ -53,18 +53,10 @@
     [self requestForURL:url method:@"POST" payload:payload headers:headers delegate:delegate]];
 }
 
-- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  LRRestyRequest *request = [self requestForURL:url method:@"POST" headers:headers delegate:delegate];
-  [request setPostData:postData];
-  [operationQueue addOperation:request];
-}
-
-- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
-{
-  LRRestyRequest *request = [self requestForURL:url method:@"PUT" headers:headers delegate:delegate];
-  [request setPostData:postData];
-  [operationQueue addOperation:request];
+  [operationQueue addOperation:
+   [self requestForURL:url method:@"PUT" payload:payload headers:headers delegate:delegate]];
 }
 
 #pragma mark -
@@ -94,14 +86,14 @@
   [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
-- (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self postURL:url data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  [self postURL:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
-- (void)putURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self putURL:url data:postData headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  [self putURL:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 @end

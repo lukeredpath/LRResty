@@ -24,6 +24,7 @@
     requestMethod = [httpMethod copy];
     delegate = [theDelegate retain];
     client = theClient;
+    requestHeaders = [[NSMutableDictionary alloc] init];
   }
   return self;
 }
@@ -51,8 +52,14 @@
 {
   if (headers == nil) return;
   
-  [requestHeaders release];
-  requestHeaders = [headers copy];
+  for (NSString *header in [headers allKeys]) {
+    [self addHeader:header value:[headers objectForKey:header]];
+  }
+}
+
+- (void)addHeader:(NSString *)header value:(NSString *)value;
+{
+  [requestHeaders setObject:value forKey:header];
 }
 
 - (void)setPostData:(NSData *)data;

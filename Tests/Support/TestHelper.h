@@ -21,3 +21,4 @@ NSString *anyResponse();
 NSString *resourceWithPath(NSString *path);
 NSData *encodedString(NSString *aString);
 NSData *anyData();
+id anyPayload();

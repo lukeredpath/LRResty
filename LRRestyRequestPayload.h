@@ -27,3 +27,9 @@
 - (id)initWithEncodableObject:(id)object;
 @end
 
+@interface LRRestyRequestFormEncodedData : NSObject <LRRestyRequestPayload>
+{
+  NSDictionary *dictionary;
+}
+- (id)initWithDictionary:(NSDictionary *)aDictionary;
+@end
