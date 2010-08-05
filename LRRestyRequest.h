@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LRRestyClientDelegate.h"
+#import "LRRestyRequestPayload.h"
 
 @class LRRestyClient;
 
@@ -36,4 +37,5 @@
 - (void)setQueryParameters:(NSDictionary *)parameters;
 - (void)setHeaders:(NSDictionary *)headers;
 - (void)setPostData:(NSData *)data;
+- (void)setPayload:(id<LRRestyRequestPayload>)thePayload;
 @end

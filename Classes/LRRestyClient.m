@@ -12,9 +12,11 @@
 #import "LRRestyRequest.h"
 #import "NSDictionary+QueryString.h"
 #import "LRRestyClientBlockDelegate.h"
+#import "LRRestyRequestPayload.h"
 
 @interface LRRestyClient ()
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 @end
 
 #pragma mark -
@@ -45,6 +47,12 @@
   [operationQueue addOperation:request];
 }
 
+- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  [operationQueue addOperation:
+    [self requestForURL:url method:@"POST" payload:payload headers:headers delegate:delegate]];
+}
+
 - (void)postURL:(NSURL *)url data:(NSData *)postData headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [self requestForURL:url method:@"POST" headers:headers delegate:delegate];
@@ -65,6 +73,14 @@
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod client:self delegate:delegate];
+  [request setHeaders:headers];
+  return [request autorelease];
+}
+
+- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+{
+  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod client:self delegate:delegate];
+  [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
   [request setHeaders:headers];
   return [request autorelease];
 }

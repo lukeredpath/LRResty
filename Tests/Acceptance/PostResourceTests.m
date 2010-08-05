@@ -27,13 +27,13 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/echo") data:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
+  [client post:resourceWithPath(@"/simple/echo") payload:@"hello world" withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said hello world")));
   
-  [client post:resourceWithPath(@"/simple/echo") data:encodedString(@"Resty rocks!") withBlock:^(LRRestyResponse *response) {
+  [client post:resourceWithPath(@"/simple/echo") payload:@"Resty rocks!" withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   

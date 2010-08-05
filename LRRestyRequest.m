@@ -60,6 +60,11 @@
   postData = [data retain];
 }
 
+- (void)setPayload:(id<LRRestyRequestPayload>)payload;
+{
+  [payload modifyRequest:self];
+}
+
 - (BOOL)isConcurrent
 {
   return YES;

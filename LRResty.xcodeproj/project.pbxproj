@@ -16,6 +16,7 @@
 		A308764E120A31F5003859AC /* LRRestyClient+POST.m in Sources */ = {isa = PBXBuildFile; fileRef = A308764D120A31F5003859AC /* LRRestyClient+POST.m */; };
 		A3087651120A31FC003859AC /* LRRestyClient+PUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087650120A31FC003859AC /* LRRestyClient+PUT.m */; };
 		A308766C120A32F9003859AC /* LRRestyClient+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = A308766B120A32F9003859AC /* LRRestyClient+Internal.m */; };
+		A3087699120A390C003859AC /* LRRestyRequestPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087698120A390C003859AC /* LRRestyRequestPayload.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -101,6 +102,8 @@
 		A3087650120A31FC003859AC /* LRRestyClient+PUT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyClient+PUT.m"; sourceTree = "<group>"; };
 		A308766A120A32F9003859AC /* LRRestyClient+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyClient+Internal.h"; sourceTree = "<group>"; };
 		A308766B120A32F9003859AC /* LRRestyClient+Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyClient+Internal.m"; sourceTree = "<group>"; };
+		A3087697120A390C003859AC /* LRRestyRequestPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestPayload.h; sourceTree = "<group>"; };
+		A3087698120A390C003859AC /* LRRestyRequestPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyRequestPayload.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */,
 				A308766A120A32F9003859AC /* LRRestyClient+Internal.h */,
 				A308766B120A32F9003859AC /* LRRestyClient+Internal.m */,
+				A3087697120A390C003859AC /* LRRestyRequestPayload.h */,
+				A3087698120A390C003859AC /* LRRestyRequestPayload.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				A308764E120A31F5003859AC /* LRRestyClient+POST.m in Sources */,
 				A3087651120A31FC003859AC /* LRRestyClient+PUT.m in Sources */,
 				A308766C120A32F9003859AC /* LRRestyClient+Internal.m in Sources */,
+				A3087699120A390C003859AC /* LRRestyRequestPayload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

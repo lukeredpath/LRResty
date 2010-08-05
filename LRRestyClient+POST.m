@@ -50,6 +50,11 @@
   [self post:urlString data:postData headers:nil withBlock:block];
 }
 
+- (void)post:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
+{
+  [self postURL:[NSURL URLWithString:urlString] payload:payload headers:nil delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
 - (void)post:(NSString *)urlString data:(NSData *)postData headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
   [self postURL:[NSURL URLWithString:urlString] data:postData headers:headers withBlock:block];
