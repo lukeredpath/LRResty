@@ -1,0 +1,6 @@
+* DELETE and HEAD requests
+* Handle redirections 
+* Resource-style API
+* Rack-style components
+* Proxy support
+* Logging support

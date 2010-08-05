@@ -33,6 +33,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 
 - (void)dealloc
 {
+  [cookies release];
   [headers release];
   [responseData release];
   [super dealloc];
