@@ -10,14 +10,20 @@
 		A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30874BC1209CCA5003859AC /* PostResourceTests.m */; };
 		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A30875D2120A2640003859AC /* PutResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30875D1120A2640003859AC /* PutResourceTests.m */; };
-		A3087623120A2EF0003859AC /* LRRestyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087622120A2EF0003859AC /* LRRestyRequest.m */; };
-		A308762A120A2F36003859AC /* LRRestyClientBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */; };
-		A3087649120A31C9003859AC /* LRRestyClient+GET.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087648120A31C9003859AC /* LRRestyClient+GET.m */; };
-		A308764E120A31F5003859AC /* LRRestyClient+POST.m in Sources */ = {isa = PBXBuildFile; fileRef = A308764D120A31F5003859AC /* LRRestyClient+POST.m */; };
-		A3087651120A31FC003859AC /* LRRestyClient+PUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087650120A31FC003859AC /* LRRestyClient+PUT.m */; };
-		A3087699120A390C003859AC /* LRRestyRequestPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087698120A390C003859AC /* LRRestyRequestPayload.m */; };
 		A308776C120A48F0003859AC /* CookieHandlingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A308776B120A48F0003859AC /* CookieHandlingTests.m */; };
 		A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30877E2120A522D003859AC /* AuthenticationTests.m */; };
+		A308783B120A58B1003859AC /* LRRestyClient+GET.h in Headers */ = {isa = PBXBuildFile; fileRef = A3087835120A58B1003859AC /* LRRestyClient+GET.h */; };
+		A308783C120A58B1003859AC /* LRRestyClient+GET.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087836120A58B1003859AC /* LRRestyClient+GET.m */; };
+		A308783D120A58B1003859AC /* LRRestyClient+POST.h in Headers */ = {isa = PBXBuildFile; fileRef = A3087837120A58B1003859AC /* LRRestyClient+POST.h */; };
+		A308783E120A58B1003859AC /* LRRestyClient+POST.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087838120A58B1003859AC /* LRRestyClient+POST.m */; };
+		A308783F120A58B1003859AC /* LRRestyClient+PUT.h in Headers */ = {isa = PBXBuildFile; fileRef = A3087839120A58B1003859AC /* LRRestyClient+PUT.h */; };
+		A3087840120A58B1003859AC /* LRRestyClient+PUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A308783A120A58B1003859AC /* LRRestyClient+PUT.m */; };
+		A3087843120A58B8003859AC /* LRRestyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A3087841120A58B8003859AC /* LRRestyRequest.h */; };
+		A3087844120A58B8003859AC /* LRRestyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087842120A58B8003859AC /* LRRestyRequest.m */; };
+		A308784B120A58C8003859AC /* LRRestyRequestPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = A3087849120A58C8003859AC /* LRRestyRequestPayload.h */; };
+		A308784C120A58C8003859AC /* LRRestyRequestPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = A308784A120A58C8003859AC /* LRRestyRequestPayload.m */; };
+		A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A308784F120A58D3003859AC /* LRRestyClientBlockDelegate.h */; };
+		A3087852120A58D3003859AC /* LRRestyClientBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087850120A58D3003859AC /* LRRestyClientBlockDelegate.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -91,20 +97,20 @@
 		A30874BC1209CCA5003859AC /* PostResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostResourceTests.m; sourceTree = "<group>"; };
 		A308758D1209E37B003859AC /* FormEncodedStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEncodedStringTest.m; sourceTree = "<group>"; };
 		A30875D1120A2640003859AC /* PutResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PutResourceTests.m; sourceTree = "<group>"; };
-		A3087621120A2EF0003859AC /* LRRestyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequest.h; sourceTree = "<group>"; };
-		A3087622120A2EF0003859AC /* LRRestyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyRequest.m; sourceTree = "<group>"; };
-		A3087628120A2F36003859AC /* LRRestyClientBlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClientBlockDelegate.h; sourceTree = "<group>"; };
-		A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClientBlockDelegate.m; sourceTree = "<group>"; };
-		A3087647120A31C9003859AC /* LRRestyClient+GET.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyClient+GET.h"; sourceTree = "<group>"; };
-		A3087648120A31C9003859AC /* LRRestyClient+GET.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyClient+GET.m"; sourceTree = "<group>"; };
-		A308764C120A31F5003859AC /* LRRestyClient+POST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyClient+POST.h"; sourceTree = "<group>"; };
-		A308764D120A31F5003859AC /* LRRestyClient+POST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyClient+POST.m"; sourceTree = "<group>"; };
-		A308764F120A31FC003859AC /* LRRestyClient+PUT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyClient+PUT.h"; sourceTree = "<group>"; };
-		A3087650120A31FC003859AC /* LRRestyClient+PUT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyClient+PUT.m"; sourceTree = "<group>"; };
-		A3087697120A390C003859AC /* LRRestyRequestPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestPayload.h; sourceTree = "<group>"; };
-		A3087698120A390C003859AC /* LRRestyRequestPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyRequestPayload.m; sourceTree = "<group>"; };
 		A308776B120A48F0003859AC /* CookieHandlingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieHandlingTests.m; sourceTree = "<group>"; };
 		A30877E2120A522D003859AC /* AuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationTests.m; sourceTree = "<group>"; };
+		A3087835120A58B1003859AC /* LRRestyClient+GET.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LRRestyClient+GET.h"; path = "Classes/LRRestyClient+GET.h"; sourceTree = "<group>"; };
+		A3087836120A58B1003859AC /* LRRestyClient+GET.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LRRestyClient+GET.m"; path = "Classes/LRRestyClient+GET.m"; sourceTree = "<group>"; };
+		A3087837120A58B1003859AC /* LRRestyClient+POST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LRRestyClient+POST.h"; path = "Classes/LRRestyClient+POST.h"; sourceTree = "<group>"; };
+		A3087838120A58B1003859AC /* LRRestyClient+POST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LRRestyClient+POST.m"; path = "Classes/LRRestyClient+POST.m"; sourceTree = "<group>"; };
+		A3087839120A58B1003859AC /* LRRestyClient+PUT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LRRestyClient+PUT.h"; path = "Classes/LRRestyClient+PUT.h"; sourceTree = "<group>"; };
+		A308783A120A58B1003859AC /* LRRestyClient+PUT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LRRestyClient+PUT.m"; path = "Classes/LRRestyClient+PUT.m"; sourceTree = "<group>"; };
+		A3087841120A58B8003859AC /* LRRestyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyRequest.h; path = Classes/LRRestyRequest.h; sourceTree = "<group>"; };
+		A3087842120A58B8003859AC /* LRRestyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyRequest.m; path = Classes/LRRestyRequest.m; sourceTree = "<group>"; };
+		A3087849120A58C8003859AC /* LRRestyRequestPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyRequestPayload.h; path = Classes/LRRestyRequestPayload.h; sourceTree = "<group>"; };
+		A308784A120A58C8003859AC /* LRRestyRequestPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyRequestPayload.m; path = Classes/LRRestyRequestPayload.m; sourceTree = "<group>"; };
+		A308784F120A58D3003859AC /* LRRestyClientBlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyClientBlockDelegate.h; path = Classes/LRRestyClientBlockDelegate.h; sourceTree = "<group>"; };
+		A3087850120A58D3003859AC /* LRRestyClientBlockDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyClientBlockDelegate.m; path = Classes/LRRestyClientBlockDelegate.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -275,8 +281,8 @@
 				A3F81DCB1208934600E60B0B /* LRRestyClient.h */,
 				A3F81DCC1208934600E60B0B /* LRRestyClient.m */,
 				A3F81DCD1208934600E60B0B /* LRRestyClientDelegate.h */,
-				A3087621120A2EF0003859AC /* LRRestyRequest.h */,
-				A3087622120A2EF0003859AC /* LRRestyRequest.m */,
+				A3087841120A58B8003859AC /* LRRestyRequest.h */,
+				A3087842120A58B8003859AC /* LRRestyRequest.m */,
 				A3F81DCE1208934600E60B0B /* LRRestyResponse.h */,
 				A3F81DCF1208934600E60B0B /* LRRestyResponse.m */,
 			);
@@ -302,10 +308,10 @@
 		A308761D120A2EDD003859AC /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				A3087628120A2F36003859AC /* LRRestyClientBlockDelegate.h */,
-				A3087629120A2F36003859AC /* LRRestyClientBlockDelegate.m */,
-				A3087697120A390C003859AC /* LRRestyRequestPayload.h */,
-				A3087698120A390C003859AC /* LRRestyRequestPayload.m */,
+				A308784F120A58D3003859AC /* LRRestyClientBlockDelegate.h */,
+				A3087850120A58D3003859AC /* LRRestyClientBlockDelegate.m */,
+				A3087849120A58C8003859AC /* LRRestyRequestPayload.h */,
+				A308784A120A58C8003859AC /* LRRestyRequestPayload.m */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -313,12 +319,12 @@
 		A3087646120A31BD003859AC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A3087647120A31C9003859AC /* LRRestyClient+GET.h */,
-				A3087648120A31C9003859AC /* LRRestyClient+GET.m */,
-				A308764C120A31F5003859AC /* LRRestyClient+POST.h */,
-				A308764D120A31F5003859AC /* LRRestyClient+POST.m */,
-				A308764F120A31FC003859AC /* LRRestyClient+PUT.h */,
-				A3087650120A31FC003859AC /* LRRestyClient+PUT.m */,
+				A3087835120A58B1003859AC /* LRRestyClient+GET.h */,
+				A3087836120A58B1003859AC /* LRRestyClient+GET.m */,
+				A3087837120A58B1003859AC /* LRRestyClient+POST.h */,
+				A3087838120A58B1003859AC /* LRRestyClient+POST.m */,
+				A3087839120A58B1003859AC /* LRRestyClient+PUT.h */,
+				A308783A120A58B1003859AC /* LRRestyClient+PUT.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -548,6 +554,12 @@
 				A3F81DD21208934600E60B0B /* LRRestyClient.h in Headers */,
 				A3F81DD41208934600E60B0B /* LRRestyClientDelegate.h in Headers */,
 				A3F81DD51208934600E60B0B /* LRRestyResponse.h in Headers */,
+				A308783B120A58B1003859AC /* LRRestyClient+GET.h in Headers */,
+				A308783D120A58B1003859AC /* LRRestyClient+POST.h in Headers */,
+				A308783F120A58B1003859AC /* LRRestyClient+PUT.h in Headers */,
+				A3087843120A58B8003859AC /* LRRestyRequest.h in Headers */,
+				A308784B120A58C8003859AC /* LRRestyRequestPayload.h in Headers */,
+				A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,12 +727,6 @@
 				A30874C71209CE4F003859AC /* PostResourceTests.m in Sources */,
 				A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */,
 				A30875D2120A2640003859AC /* PutResourceTests.m in Sources */,
-				A3087623120A2EF0003859AC /* LRRestyRequest.m in Sources */,
-				A308762A120A2F36003859AC /* LRRestyClientBlockDelegate.m in Sources */,
-				A3087649120A31C9003859AC /* LRRestyClient+GET.m in Sources */,
-				A308764E120A31F5003859AC /* LRRestyClient+POST.m in Sources */,
-				A3087651120A31FC003859AC /* LRRestyClient+PUT.m in Sources */,
-				A3087699120A390C003859AC /* LRRestyRequestPayload.m in Sources */,
 				A308776C120A48F0003859AC /* CookieHandlingTests.m in Sources */,
 				A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */,
 			);
@@ -736,6 +742,12 @@
 				A3F81DD11208934600E60B0B /* LRResty.m in Sources */,
 				A3F81DD31208934600E60B0B /* LRRestyClient.m in Sources */,
 				A3F81DD61208934600E60B0B /* LRRestyResponse.m in Sources */,
+				A308783C120A58B1003859AC /* LRRestyClient+GET.m in Sources */,
+				A308783E120A58B1003859AC /* LRRestyClient+POST.m in Sources */,
+				A3087840120A58B1003859AC /* LRRestyClient+PUT.m in Sources */,
+				A3087844120A58B8003859AC /* LRRestyRequest.m in Sources */,
+				A308784C120A58C8003859AC /* LRRestyRequestPayload.m in Sources */,
+				A3087852120A58D3003859AC /* LRRestyClientBlockDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
