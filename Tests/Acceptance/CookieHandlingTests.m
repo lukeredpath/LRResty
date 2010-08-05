@@ -9,14 +9,14 @@
 #import "TestHelper.h"
 #import "LRResty.h"
 
-@interface CookieHandlingTest : SenTestCase
+@interface CookieHandlingTests : SenTestCase
 {
   LRRestyResponse *lastResponse;
   LRRestyClient *client;
 }
 @end
 
-@implementation CookieHandlingTest
+@implementation CookieHandlingTests
 
 - (void)setUp
 {
