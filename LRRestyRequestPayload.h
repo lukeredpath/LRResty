@@ -20,6 +20,13 @@
 + (id)payloadFromObject:(id)object;
 @end
 
+@interface LRRestyRequestBasicPayload : NSObject <LRRestyRequestPayload>
+{
+  NSData *data;
+}
+- (id)initWithData:(NSData *)rawData;
+@end
+
 @interface LRRestyRequestEncodablePayload : NSObject <LRRestyRequestPayload>
 {
   id encodable; // typically a string, but anything that responds to dataUsingEncoding:

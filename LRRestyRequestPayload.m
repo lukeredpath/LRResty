@@ -20,10 +20,37 @@
   if ([object isKindOfClass:[NSDictionary class]]) {
     return [[[LRRestyRequestFormEncodedData alloc] initWithDictionary:object] autorelease];
   }
+  if ([object isKindOfClass:[NSData class]]) {
+    return [[[LRRestyRequestBasicPayload alloc] initWithData:object] autorelease];
+  }
   return nil;
 }
 
 @end
+
+@implementation LRRestyRequestBasicPayload
+
+- (id)initWithData:(NSData *)rawData;
+{
+  if (self = [super init]) {
+    data = [rawData copy];
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+  [data release];
+  [super dealloc];
+}
+
+- (void)modifyRequest:(LRRestyRequest *)request
+{
+  [request setPostData:data];
+}
+
+@end
+
 
 @implementation LRRestyRequestEncodablePayload
 

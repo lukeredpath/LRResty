@@ -40,6 +40,17 @@
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said Resty rocks!")));
 }
 
+- (void)testCanPostRawDataToResourceAndHaveThatValueEchoedBack
+{
+  __block LRRestyResponse *receivedResponse = nil;
+  
+  [client put:resourceWithPath(@"/simple/echo") payload:[@"hello world" dataUsingEncoding:NSUTF8StringEncoding] withBlock:^(LRRestyResponse *response) {
+    receivedResponse = [response retain];
+  }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said hello world")));
+}
+
 - (void)testCanPostToResourceWithCustomHeaders
 {
   __block LRRestyResponse *receivedResponse = nil;
