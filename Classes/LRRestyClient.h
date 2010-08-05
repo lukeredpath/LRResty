@@ -17,7 +17,6 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 
 @interface LRRestyClient : NSObject {
   NSOperationQueue *operationQueue;
-  BOOL handlesCookiesAutomatically;
   NSMutableArray *requestModifiers;
 }
 - (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;

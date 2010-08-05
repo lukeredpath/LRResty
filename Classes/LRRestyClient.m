@@ -27,7 +27,6 @@
 {
   if (self = [super init]) {
     operationQueue = [[NSOperationQueue alloc] init];
-    handlesCookiesAutomatically = YES;
     requestModifiers = [[NSMutableArray alloc] init];
   }
   return self;
@@ -62,14 +61,16 @@
 
 #pragma mark -
 
-- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
-{
-  handlesCookiesAutomatically = shouldHandleCookies;
-}
-
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
 {
   [requestModifiers addObject:Block_copy(block)];
+}
+
+- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
+{
+  [self attachRequestModifier:^(LRRestyRequest *request) {
+    [request setHandlesCookiesAutomatically:shouldHandleCookies];
+  }];
 }
 
 - (void)setUsername:(NSString *)username password:(NSString *)password;
@@ -87,7 +88,6 @@
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod client:self delegate:delegate];
   [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
   [request setHeaders:headers];
-  [request setHandlesCookiesAutomatically:handlesCookiesAutomatically];
   return [request autorelease];
 }
 
