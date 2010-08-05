@@ -41,6 +41,15 @@
   assertEventuallyThat(&lastResponse, hasHeader(@"Content-Type", @"text/plain"));
 }
 
+- (void)testCanExtractCookiesFromResponse
+{
+  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource"));
+  
+  [client get:resourceWithPath(@"/simple/resource") delegate:self];
+  
+  assertEventuallyThat(&lastResponse, hasCookie(@"TestCookie", @"CookieValue"));
+}
+
 - (void)testCanPerformGetRequestWithQueryParameters
 {
   serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource?foo=bar"));

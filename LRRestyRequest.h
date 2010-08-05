@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSHTTPURLResponse *response;
 @property (nonatomic, retain) NSData *responseData;
 @property (nonatomic, retain) NSError *connectionError;
+@property (nonatomic, readonly) NSURL *URL;
 
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientDelegate>)theDelegate;
 - (void)setExecuting:(BOOL)isExecuting;

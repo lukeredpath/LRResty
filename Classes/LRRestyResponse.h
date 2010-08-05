@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class LRRestyRequest;
+
 @interface LRRestyResponse : NSObject {
   NSUInteger status;
   NSData *responseData;
   NSDictionary *headers;
+  NSDictionary *cookies;
 }
-- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders;
+- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 - (NSUInteger)status;
 - (NSString *)asString;
+- (NSHTTPCookie *)cookieNamed:(NSString *)name;
 - (NSString *)valueForHeader:(NSString *)header;
+- (NSString *)valueForCookie:(NSString *)cookieName;
 @end

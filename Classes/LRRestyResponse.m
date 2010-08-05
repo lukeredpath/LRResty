@@ -7,15 +7,26 @@
 //
 
 #import "LRRestyResponse.h"
+#import "LRRestyRequest.h"
+
+NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
+{
+  NSMutableDictionary *cookies = [NSMutableDictionary dictionary];
+  for (NSHTTPCookie *cookie in [NSHTTPCookie cookiesWithResponseHeaderFields:headers forURL:url]) {
+    [cookies setObject:cookie forKey:cookie.name];
+  }
+  return [cookies copy];
+}
 
 @implementation LRRestyResponse
 
-- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders;
+- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 {
   if (self = [super init]) {
     status = statusCode;
     responseData = [data retain];
     headers = [theHeaders copy];
+    cookies = extractCookiesFromHeaders(headers, originalRequest.URL);
   }
   return self;
 }
@@ -42,8 +53,19 @@
   return [NSString stringWithFormat:@"%d Response | text/plain (%d bytes)", [self status], [responseData length]];
 }
 
+- (NSHTTPCookie *)cookieNamed:(NSString *)name;
+{
+  return [cookies objectForKey:name];
+}
+
 - (NSString *)valueForHeader:(NSString *)header;
 {
   return [headers objectForKey:header];
 }
+
+- (NSString *)valueForCookie:(NSString *)cookieNamed;
+{
+  return [[self cookieNamed:cookieNamed] value];
+}
+
 @end

@@ -41,6 +41,11 @@
   return [NSString stringWithFormat:@"%@ %@ <LRRestyRequest>", [URLRequest HTTPMethod], [URLRequest URL]];
 }
 
+- (NSURL *)URL
+{
+  return [URLRequest URL];
+}
+
 #pragma mark -
 #pragma mark Request manipulation
 
@@ -94,7 +99,8 @@
   LRRestyResponse *restResponse = [[LRRestyResponse alloc] 
        initWithStatus:self.response.statusCode 
          responseData:self.responseData 
-              headers:[self.response allHeaderFields]];
+              headers:[self.response allHeaderFields]
+       originalRequest:self];
   
   [delegate restClient:client receivedResponse:restResponse];
   

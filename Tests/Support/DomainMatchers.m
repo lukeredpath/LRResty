@@ -53,3 +53,16 @@ id<HCMatcher> hasHeader(NSString *header, NSString *value)
     
   }, [NSString stringWithFormat:@"a response containing header {%@ => %@}", header, value]);
 }
+
+id<HCMatcher> hasCookie(NSString *key, NSString *value)
+{
+  return HC_passesBlock(^(id object) {
+    if (![object isKindOfClass:[LRRestyResponse class]]) {
+      return NO;
+    }
+    LRRestyResponse *response = object;
+    
+    return (BOOL)[[response valueForCookie:key] isEqualToString:value];
+    
+  }, [NSString stringWithFormat:@"a response containing cookie {%@ => %@}", key, value]);
+}

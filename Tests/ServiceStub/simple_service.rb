@@ -5,6 +5,7 @@ class SimpleService < Sinatra::Base
   
   get '/resource' do
     with_error_handling do
+      response.set_cookie("TestCookie", "CookieValue")
       response_for("GET")
     end
   end

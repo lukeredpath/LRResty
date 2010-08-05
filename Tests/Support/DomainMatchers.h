@@ -13,3 +13,4 @@ id<HCMatcher> responseWithStatus(NSUInteger status);
 id<HCMatcher> responseWithStatusAndBody(NSUInteger status, NSString *body);
 id<HCMatcher> responseWithStatusAndBodyMatching(NSUInteger status, id<HCMatcher>bodyMatcher);
 id<HCMatcher> hasHeader(NSString *header, NSString *value);
+id<HCMatcher> hasCookie(NSString *key, NSString *value);
