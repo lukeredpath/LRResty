@@ -54,11 +54,7 @@
 
 - (void)setHeaders:(NSDictionary *)headers
 {
-  if (headers == nil) return;
-  
-  for (NSString *header in [headers allKeys]) {
-    [self addHeader:header value:[headers objectForKey:header]];
-  }
+  [URLRequest setAllHTTPHeaderFields:headers];
 }
 
 - (void)addHeader:(NSString *)header value:(NSString *)value;
