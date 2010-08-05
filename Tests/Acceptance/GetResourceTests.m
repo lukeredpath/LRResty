@@ -64,6 +64,18 @@
   assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
 }
 
+- (void)testCanGloballyModifyRequestsBeforeTheyAreSentUsingBlock
+{
+  serviceStubWillServe(anyResponse(), [forGetRequestTo(@"/simple/resource") withHeader:@"X-Test-Header" value:@"Resty"]);
+  
+  [client setBeforeExecutionBlock:^(LRRestyRequest *request) {
+    [request addHeader:@"X-Test-Header" value:@"Resty"];
+  }];  
+  [client get:resourceWithPath(@"/simple/resource") delegate:self];
+  
+  assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
+}
+
 - (void)testCanPerformGetRequestAndPassResponseToABlock
 {
   __block LRRestyResponse *testLocalResponse = nil;

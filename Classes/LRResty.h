@@ -12,6 +12,7 @@
 #import "LRRestyClient+POST.h"
 #import "LRRestyClient+PUT.h"
 #import "LRRestyResponse.h"
+#import "LRRestyRequest.h"
 
 @interface LRResty : NSObject {
 

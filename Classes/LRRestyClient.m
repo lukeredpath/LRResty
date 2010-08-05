@@ -16,6 +16,7 @@
 
 @interface LRRestyClient ()
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)performRequest:(LRRestyRequest *)request;
 @end
 
 #pragma mark -
@@ -33,6 +34,7 @@
 
 - (void)dealloc
 {
+  Block_release(beforeExecutionBlock);
   [operationQueue release];
   [super dealloc];
 }
@@ -44,19 +46,17 @@
 {
   LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers delegate:delegate];
   [request setQueryParameters:parameters];
-  [operationQueue addOperation:request];
+  [self performRequest:request];
 }
 
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  [operationQueue addOperation:
-    [self requestForURL:url method:@"POST" payload:payload headers:headers delegate:delegate]];
+  [self performRequest:[self requestForURL:url method:@"POST" payload:payload headers:headers delegate:delegate]];
 }
 
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
 {
-  [operationQueue addOperation:
-   [self requestForURL:url method:@"PUT" payload:payload headers:headers delegate:delegate]];
+  [self performRequest:[self requestForURL:url method:@"PUT" payload:payload headers:headers delegate:delegate]];
 }
 
 #pragma mark -
@@ -64,6 +64,11 @@
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 {
   handlesCookiesAutomatically = shouldHandleCookies;
+}
+
+- (void)setBeforeExecutionBlock:(LRRestyRequestBlock)block;
+{
+  beforeExecutionBlock = Block_copy(block);
 }
 
 #pragma mark -
@@ -76,6 +81,14 @@
   [request setHeaders:headers];
   [request setHandlesCookiesAutomatically:handlesCookiesAutomatically];
   return [request autorelease];
+}
+
+- (void)performRequest:(LRRestyRequest *)request;
+{
+  if (beforeExecutionBlock) {
+    beforeExecutionBlock(request);
+  }
+  [operationQueue addOperation:request];
 }
 
 @end
