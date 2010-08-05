@@ -14,17 +14,14 @@
 
 @interface LRRestyRequest : NSOperation
 {
-  NSURL *requestURL;
-  NSString *requestMethod;
+  NSMutableURLRequest *URLRequest;
   LRRestyClient *client;
-  NSMutableDictionary *requestHeaders;
   id<LRRestyClientDelegate> delegate;
   BOOL _isExecuting;
   BOOL _isFinished;
   NSError *connectionError;
   NSMutableData *responseData;
   NSHTTPURLResponse *response;
-  NSData *postData;
 }
 @property (nonatomic, retain) NSHTTPURLResponse *response;
 @property (nonatomic, retain) NSData *responseData;

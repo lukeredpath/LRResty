@@ -20,32 +20,36 @@
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientDelegate>)theDelegate;
 {
   if (self = [super init]) {
-    requestURL = [aURL retain];
-    requestMethod = [httpMethod copy];
-    delegate = [theDelegate retain];
     client = theClient;
-    requestHeaders = [[NSMutableDictionary alloc] init];
+    delegate = [theDelegate retain];
+    
+    URLRequest = [[NSMutableURLRequest alloc] initWithURL:aURL];
+    [URLRequest setHTTPMethod:httpMethod];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  [postData release];
-  [requestHeaders release];
-  [requestURL release];
-  [requestMethod release];
+  [URLRequest release];
   [delegate release];
   [super dealloc];
 }
+
+- (NSString *)description
+{
+  return [NSString stringWithFormat:@"%@ %@ <LRRestyRequest>", [URLRequest HTTPMethod], [URLRequest URL]];
+}
+
+#pragma mark -
+#pragma mark Request manipulation
 
 - (void)setQueryParameters:(NSDictionary *)parameters;
 {
   if (parameters == nil) return;
   
-  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [requestURL absoluteString], [parameters stringWithFormEncodedComponents]]];
-  [requestURL release];
-  requestURL = [URLWithParameters retain];
+  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [URLRequest.URL absoluteString], [parameters stringWithFormEncodedComponents]]];
+  [URLRequest setURL:URLWithParameters];
 }
 
 - (void)setHeaders:(NSDictionary *)headers
@@ -59,17 +63,47 @@
 
 - (void)addHeader:(NSString *)header value:(NSString *)value;
 {
-  [requestHeaders setObject:value forKey:header];
+  [URLRequest addValue:value forHTTPHeaderField:header];
 }
 
 - (void)setPostData:(NSData *)data;
 {
-  postData = [data retain];
+  [URLRequest setHTTPBody:data];
 }
 
 - (void)setPayload:(id<LRRestyRequestPayload>)payload;
 {
   [payload modifyRequest:self];
+}
+
+#pragma mark -
+#pragma mark NSOperation methods
+
+- (void)start
+{
+  if (![NSThread isMainThread]) {
+    return [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
+  }
+  [self setExecuting:YES];
+  
+  NSURLConnection *connection = [NSURLConnection connectionWithRequest:URLRequest delegate:self];
+  
+  if (connection == nil) {
+    [self setFinished:YES]; 
+  }
+}
+
+- (void)finish;
+{
+  LRRestyResponse *restResponse = [[LRRestyResponse alloc] 
+       initWithStatus:self.response.statusCode 
+         responseData:self.responseData 
+              headers:[self.response allHeaderFields]];
+  
+  [delegate restClient:client receivedResponse:restResponse];
+  
+  [restResponse release];
+  [self setFinished:YES];
 }
 
 - (BOOL)isConcurrent
@@ -87,35 +121,7 @@
   return _isFinished;
 }
 
-- (NSString *)description
-{
-  return [NSString stringWithFormat:@"%@ %@ <LRRestyRequest>", requestMethod, requestURL];
-}
-
-- (void)start
-{
-  if (![NSThread isMainThread]) {
-    return [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
-  }
-  [self setExecuting:YES];
-  
-  NSMutableURLRequest *URLRequest = [NSMutableURLRequest requestWithURL:requestURL];
-  [requestHeaders enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
-    [URLRequest addValue:value forHTTPHeaderField:key];
-  }];
-  
-  [URLRequest setHTTPBody:postData];
-  [URLRequest setHTTPMethod:requestMethod];
-  
-  NSURLConnection *connection = [NSURLConnection 
-                                 connectionWithRequest:URLRequest
-                                 delegate:self];
-  
-  if (connection == nil) {
-    [self setFinished:YES]; 
-  }
-}
-
+#pragma mark -
 #pragma mark NSURLConnection delegate methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)theResponse
@@ -153,19 +159,7 @@
   [self setFinished:YES];
 }
 
-- (void)finish;
-{
-  LRRestyResponse *restResponse = [[LRRestyResponse alloc] 
-                                   initWithStatus:self.response.statusCode 
-                                   responseData:self.responseData 
-                                   headers:[self.response allHeaderFields]];
-  
-  [delegate restClient:client receivedResponse:restResponse];
-  
-  [restResponse release];
-  [self setFinished:YES];
-}
-
+#pragma mark -
 #pragma mark Private methods
 
 - (void)setExecuting:(BOOL)isExecuting;
