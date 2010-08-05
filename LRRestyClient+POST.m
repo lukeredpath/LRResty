@@ -8,7 +8,6 @@
 
 #import "LRRestyClient+POST.h"
 #import "LRRestyClientBlockDelegate.h"
-#import "LRRestyClient+Internal.h"
 
 @implementation LRRestyClient (POST)
 

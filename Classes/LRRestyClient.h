@@ -27,4 +27,3 @@ typedef void (^LRRestyResponseBlock)(LRRestyResponse *response);
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 @end
 
-
