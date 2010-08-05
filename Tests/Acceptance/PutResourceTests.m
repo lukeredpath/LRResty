@@ -104,4 +104,10 @@
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"PUT params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
 }
 
+- (void)tearDown
+{
+  [lastResponse release]; lastResponse = nil;
+  clearServiceStubs();
+}
+
 @end

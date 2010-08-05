@@ -37,4 +37,5 @@
 - (void)addHeader:(NSString *)header value:(NSString *)value;
 - (void)setPostData:(NSData *)data;
 - (void)setPayload:(id<LRRestyRequestPayload>)thePayload;
+- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 @end

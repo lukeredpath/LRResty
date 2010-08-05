@@ -26,6 +26,7 @@
 {
   if (self = [super init]) {
     operationQueue = [[NSOperationQueue alloc] init];
+    handlesCookiesAutomatically = YES;
   }
   return self;
 }
@@ -59,6 +60,13 @@
 }
 
 #pragma mark -
+
+- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
+{
+  handlesCookiesAutomatically = shouldHandleCookies;
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
@@ -66,6 +74,7 @@
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod client:self delegate:delegate];
   [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
   [request setHeaders:headers];
+  [request setHandlesCookiesAutomatically:handlesCookiesAutomatically];
   return [request autorelease];
 }
 

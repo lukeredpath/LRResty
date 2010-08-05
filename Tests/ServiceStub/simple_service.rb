@@ -10,6 +10,16 @@ class SimpleService < Sinatra::Base
     end
   end
   
+  get '/requires_cookie' do
+    with_error_handling do
+      if request.cookies['TestCookie']
+        [200, {'Content-Type' => "text/plain"}, "Got cookie #{request.cookies['TestCookie']}"]
+      else
+        [403, {'Content-Type' => "text/plain"}, "Missing cookie"]
+      end
+    end
+  end
+  
   post '/echo' do
     with_error_handling do
       [200, {'Content-Type' => "text/plain"}, "you said #{request.body.read}"]

@@ -77,6 +77,11 @@
   [payload modifyRequest:self];
 }
 
+- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
+{
+  [URLRequest setHTTPShouldHandleCookies:shouldHandleCookies];
+}
+
 #pragma mark -
 #pragma mark NSOperation methods
 
