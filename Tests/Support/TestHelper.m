@@ -13,9 +13,14 @@ NSString *anyResponse()
   return @"";
 }
 
+NSString *resourceRoot()
+{
+  return [NSString stringWithFormat:@"http://%@:%d", TEST_HOST, TEST_PORT];
+}
+
 NSString *resourceWithPath(NSString *path)
 {
-  return [NSString stringWithFormat:@"http://%@:%d%@", TEST_HOST, TEST_PORT, path];
+  return [NSString stringWithFormat:@"%@%@", resourceRoot(), path];
 }
 
 NSData *encodedString(NSString *aString)

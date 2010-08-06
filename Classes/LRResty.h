@@ -13,10 +13,12 @@
 #import "LRRestyClient+PUT.h"
 #import "LRRestyResponse.h"
 #import "LRRestyRequest.h"
+#import "LRRestyResource.h"
 
 @interface LRResty : NSObject {
 
 }
 + (LRRestyClient *)client;
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
++ (LRRestyResource *)resource:(NSString *)urlString;
 @end

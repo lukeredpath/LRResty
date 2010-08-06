@@ -18,6 +18,7 @@
 #define TEST_PORT 10090
 
 NSString *anyResponse();
+NSString *resourceRoot();
 NSString *resourceWithPath(NSString *path);
 NSData *encodedString(NSString *aString);
 NSData *anyData();

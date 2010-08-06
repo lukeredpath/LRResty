@@ -23,4 +23,9 @@
   }];
 }
 
++ (LRRestyResource *)resource:(NSString *)urlString;
+{
+  return [[[LRRestyResource alloc] initWithRestClient:[self client] URL:[NSURL URLWithString:urlString]] autorelease];
+}
+
 @end

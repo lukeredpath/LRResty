@@ -59,7 +59,7 @@
 }
 
 - (void)getUserWithUsername:(NSString *)username 
-                   andYield:(GithubUserRepositoryResultBlock)resultBlock;
+        andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
   [restClient get:[NSString stringWithFormat:@"http://github.com/api/v2/json/user/show/%@", username] withBlock:^(LRRestyResponse *response) {
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
@@ -70,7 +70,7 @@
 }
 
 - (void)getUsersMatching:(NSString *)searchString
-                andYield:(RepositoryCollectionResultBlock)resultBlock;
+        andYield:(RepositoryCollectionResultBlock)resultBlock;
 {
   
 }
