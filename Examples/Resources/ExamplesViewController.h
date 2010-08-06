@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class LRRestyClient;
+@class LRRestyResource;
 
 @interface ExamplesViewController : UITableViewController {
-  LRRestyClient *restClient;
+  LRRestyResource *rootResource;
 }
-@property (nonatomic, readonly) LRRestyClient *restClient;
+@property (nonatomic, readonly) LRRestyResource *rootResource;
 
 - (void)doRepositoryExample;
 @end

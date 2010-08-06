@@ -21,4 +21,5 @@
 + (LRRestyClient *)client;
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
 + (LRRestyResource *)resource:(NSString *)urlString;
++ (LRRestyResource *)authenticatedResource:(NSString *)urlString username:(NSString *)username password:(NSString *)password;
 @end

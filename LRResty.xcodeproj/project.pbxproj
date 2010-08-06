@@ -25,26 +25,26 @@
 		A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A308784F120A58D3003859AC /* LRRestyClientBlockDelegate.h */; };
 		A3087852120A58D3003859AC /* LRRestyClientBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087850120A58D3003859AC /* LRRestyClientBlockDelegate.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; };
-		A308793C120C4850003859AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
-		A3087957120C489C003859AC /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
-		A308795B120C48BC003859AC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
-		A3087966120C48EE003859AC /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
-		A308799E120C4B1F003859AC /* RemoteRepositoryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */; };
-		A30879CC120C4EA2003859AC /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879B7120C4EA2003859AC /* CDataScanner.m */; };
-		A30879CD120C4EA2003859AC /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BA120C4EA2003859AC /* CDataScanner_Extensions.m */; };
-		A30879CE120C4EA2003859AC /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BC120C4EA2003859AC /* NSCharacterSet_Extensions.m */; };
-		A30879CF120C4EA2003859AC /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BE120C4EA2003859AC /* NSDictionary_JSONExtensions.m */; };
-		A30879D0120C4EA2003859AC /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C0120C4EA2003859AC /* NSScanner_Extensions.m */; };
-		A30879D1120C4EA2003859AC /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C3120C4EA2003859AC /* CJSONDataSerializer.m */; };
-		A30879D2120C4EA2003859AC /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C5120C4EA2003859AC /* CJSONDeserializer.m */; };
-		A30879D3120C4EA2003859AC /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C7120C4EA2003859AC /* CJSONScanner.m */; };
-		A30879D4120C4EA2003859AC /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C9120C4EA2003859AC /* CJSONSerializer.m */; };
-		A30879D5120C4EA2003859AC /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
-		A30879D8120C4EB3003859AC /* LRRestyResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879D7120C4EB3003859AC /* LRRestyResponse+JSON.m */; };
-		A30879E9120C4FF0003859AC /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
 		A3087A06120C50DD003859AC /* NSObject+Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087A04120C50CC003859AC /* NSObject+Tap.m */; };
 		A3087A2C120C52D3003859AC /* ResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087A28120C524B003859AC /* ResourceTests.m */; };
 		A3087A44120C5526003859AC /* LRRestyResource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087A30120C5324003859AC /* LRRestyResource.m */; };
+		A3236DBC120C5BE600001E40 /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
+		A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
+		A3236DC9120C5C0100001E40 /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
+		A3236DCA120C5C0100001E40 /* RemoteRepositoryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */; };
+		A3236DCB120C5C0100001E40 /* LRRestyResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879D7120C4EB3003859AC /* LRRestyResponse+JSON.m */; };
+		A3236DD3120C5C2C00001E40 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879B7120C4EA2003859AC /* CDataScanner.m */; };
+		A3236DD4120C5C2C00001E40 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BA120C4EA2003859AC /* CDataScanner_Extensions.m */; };
+		A3236DD5120C5C2C00001E40 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BC120C4EA2003859AC /* NSCharacterSet_Extensions.m */; };
+		A3236DD6120C5C2C00001E40 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BE120C4EA2003859AC /* NSDictionary_JSONExtensions.m */; };
+		A3236DD7120C5C2C00001E40 /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C0120C4EA2003859AC /* NSScanner_Extensions.m */; };
+		A3236DD8120C5C2C00001E40 /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C3120C4EA2003859AC /* CJSONDataSerializer.m */; };
+		A3236DD9120C5C2C00001E40 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C5120C4EA2003859AC /* CJSONDeserializer.m */; };
+		A3236DDA120C5C2C00001E40 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C7120C4EA2003859AC /* CJSONScanner.m */; };
+		A3236DDB120C5C2C00001E40 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C9120C4EA2003859AC /* CJSONSerializer.m */; };
+		A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
+		A3236DDF120C5C3400001E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
+		A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -105,7 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A30879E7120C4FED003859AC /* PBXContainerItemProxy */ = {
+		A3236DBA120C5BE300001E40 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -142,8 +142,6 @@
 		A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteRepositoryExample.h; sourceTree = "<group>"; };
 		A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteRepositoryExample.m; sourceTree = "<group>"; };
 		A30878B9120C4776003859AC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A3087934120C4847003859AC /* ExampleRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3087936120C4847003859AC /* ExampleRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleRunner-Info.plist"; sourceTree = "<group>"; };
 		A3087955120C489C003859AC /* ExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleAppDelegate.h; sourceTree = "<group>"; };
 		A3087956120C489C003859AC /* ExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleAppDelegate.m; sourceTree = "<group>"; };
 		A308795A120C48BC003859AC /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -176,6 +174,8 @@
 		A3087A28120C524B003859AC /* ResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceTests.m; sourceTree = "<group>"; };
 		A3087A2F120C5324003859AC /* LRRestyResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResource.h; sourceTree = "<group>"; };
 		A3087A30120C5324003859AC /* LRRestyResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResource.m; sourceTree = "<group>"; };
+		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3236DB6120C5BDE00001E40 /* ExamplesRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExamplesRunner-Info.plist"; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -285,11 +285,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A3087932120C4847003859AC /* Frameworks */ = {
+		A3236DB2120C5BDE00001E40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A30879E9120C4FF0003859AC /* libLRResty.a in Frameworks */,
+				A3236DBC120C5BE600001E40 /* libLRResty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +317,7 @@
 			children = (
 				D2AAC07E0554694100DB518D /* libLRResty.a */,
 				A3F818E81208248F00E60B0B /* Acceptance Tests.octest */,
-				A3087934120C4847003859AC /* ExampleRunner.app */,
+				A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,7 +334,7 @@
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */,
-				A3087936120C4847003859AC /* ExampleRunner-Info.plist */,
+				A3236DB6120C5BDE00001E40 /* ExamplesRunner-Info.plist */,
 			);
 			name = LRResty;
 			sourceTree = "<group>";
@@ -719,22 +719,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A3087933120C4847003859AC /* ExampleRunner */ = {
+		A3236DB3120C5BDE00001E40 /* ExamplesRunner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3087939120C4847003859AC /* Build configuration list for PBXNativeTarget "ExampleRunner" */;
+			buildConfigurationList = A3236DB9120C5BDF00001E40 /* Build configuration list for PBXNativeTarget "ExamplesRunner" */;
 			buildPhases = (
-				A3087930120C4847003859AC /* Resources */,
-				A3087931120C4847003859AC /* Sources */,
-				A3087932120C4847003859AC /* Frameworks */,
+				A3236DB0120C5BDE00001E40 /* Resources */,
+				A3236DB1120C5BDE00001E40 /* Sources */,
+				A3236DB2120C5BDE00001E40 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A30879E8120C4FED003859AC /* PBXTargetDependency */,
+				A3236DBB120C5BE300001E40 /* PBXTargetDependency */,
 			);
-			name = ExampleRunner;
-			productName = ExampleRunner;
-			productReference = A3087934120C4847003859AC /* ExampleRunner.app */;
+			name = ExamplesRunner;
+			productName = ExamplesRunner;
+			productReference = A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A3F818E71208248F00E60B0B /* Tests */ = {
@@ -790,17 +790,17 @@
 			targets = (
 				D2AAC07D0554694100DB518D /* LRResty */,
 				A3F818E71208248F00E60B0B /* Tests */,
-				A3087933120C4847003859AC /* ExampleRunner */,
+				A3236DB3120C5BDE00001E40 /* ExamplesRunner */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A3087930120C4847003859AC /* Resources */ = {
+		A3236DB0120C5BDE00001E40 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A308795B120C48BC003859AC /* MainWindow.xib in Resources */,
+				A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,25 +859,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A3087931120C4847003859AC /* Sources */ = {
+		A3236DB1120C5BDE00001E40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A308793C120C4850003859AC /* main.m in Sources */,
-				A3087957120C489C003859AC /* ExampleAppDelegate.m in Sources */,
-				A3087966120C48EE003859AC /* ExamplesViewController.m in Sources */,
-				A308799E120C4B1F003859AC /* RemoteRepositoryExample.m in Sources */,
-				A30879CC120C4EA2003859AC /* CDataScanner.m in Sources */,
-				A30879CD120C4EA2003859AC /* CDataScanner_Extensions.m in Sources */,
-				A30879CE120C4EA2003859AC /* NSCharacterSet_Extensions.m in Sources */,
-				A30879CF120C4EA2003859AC /* NSDictionary_JSONExtensions.m in Sources */,
-				A30879D0120C4EA2003859AC /* NSScanner_Extensions.m in Sources */,
-				A30879D1120C4EA2003859AC /* CJSONDataSerializer.m in Sources */,
-				A30879D2120C4EA2003859AC /* CJSONDeserializer.m in Sources */,
-				A30879D3120C4EA2003859AC /* CJSONScanner.m in Sources */,
-				A30879D4120C4EA2003859AC /* CJSONSerializer.m in Sources */,
-				A30879D5120C4EA2003859AC /* CSerializedJSONData.m in Sources */,
-				A30879D8120C4EB3003859AC /* LRRestyResponse+JSON.m in Sources */,
+				A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */,
+				A3236DC9120C5C0100001E40 /* ExamplesViewController.m in Sources */,
+				A3236DCA120C5C0100001E40 /* RemoteRepositoryExample.m in Sources */,
+				A3236DCB120C5C0100001E40 /* LRRestyResponse+JSON.m in Sources */,
+				A3236DD3120C5C2C00001E40 /* CDataScanner.m in Sources */,
+				A3236DD4120C5C2C00001E40 /* CDataScanner_Extensions.m in Sources */,
+				A3236DD5120C5C2C00001E40 /* NSCharacterSet_Extensions.m in Sources */,
+				A3236DD6120C5C2C00001E40 /* NSDictionary_JSONExtensions.m in Sources */,
+				A3236DD7120C5C2C00001E40 /* NSScanner_Extensions.m in Sources */,
+				A3236DD8120C5C2C00001E40 /* CJSONDataSerializer.m in Sources */,
+				A3236DD9120C5C2C00001E40 /* CJSONDeserializer.m in Sources */,
+				A3236DDA120C5C2C00001E40 /* CJSONScanner.m in Sources */,
+				A3236DDB120C5C2C00001E40 /* CJSONSerializer.m in Sources */,
+				A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */,
+				A3236DDF120C5C3400001E40 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,10 +959,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A30879E8120C4FED003859AC /* PBXTargetDependency */ = {
+		A3236DBB120C5BE300001E40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D2AAC07D0554694100DB518D /* LRResty */;
-			targetProxy = A30879E7120C4FED003859AC /* PBXContainerItemProxy */;
+			targetProxy = A3236DBA120C5BE300001E40 /* PBXContainerItemProxy */;
 		};
 		A3F818F01208249B00E60B0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1008,12 +1008,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
@@ -1022,16 +1024,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
-		A3087937120C4847003859AC /* Debug */ = {
+		A3236DB7120C5BDF00001E40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1041,7 +1045,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "ExampleRunner-Info.plist";
+				INFOPLIST_FILE = "ExamplesRunner-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1051,12 +1055,12 @@
 					"-all_load",
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = ExampleRunner;
+				PRODUCT_NAME = ExamplesRunner;
 				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
-		A3087938120C4847003859AC /* Release */ = {
+		A3236DB8120C5BDF00001E40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1066,17 +1070,16 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "ExampleRunner-Info.plist";
+				INFOPLIST_FILE = "ExamplesRunner-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
 					"-framework",
 					UIKit,
-					"-all_load",
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = ExampleRunner;
+				PRODUCT_NAME = ExamplesRunner;
 				SDKROOT = iphoneos4.0;
 				ZERO_LINK = NO;
 			};
@@ -1162,11 +1165,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3087939120C4847003859AC /* Build configuration list for PBXNativeTarget "ExampleRunner" */ = {
+		A3236DB9120C5BDF00001E40 /* Build configuration list for PBXNativeTarget "ExamplesRunner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A3087937120C4847003859AC /* Debug */,
-				A3087938120C4847003859AC /* Release */,
+				A3236DB7120C5BDF00001E40 /* Debug */,
+				A3236DB8120C5BDF00001E40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

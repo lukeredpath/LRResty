@@ -44,24 +44,24 @@
 
 @implementation GithubUserRepository
 
-- (id)initWithRestClient:(LRRestyClient *)client;
+- (id)initWithRemoteResource:(LRRestyResource *)aResource;
 {
   if (self = [super init]) {
-    restClient = [client retain];
+    resource = [aResource retain];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  [restClient release];
+  [resource release];
   [super dealloc];
 }
 
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
-  [restClient get:[NSString stringWithFormat:@"http://github.com/api/v2/json/user/show/%@", username] withBlock:^(LRRestyResponse *response) {
+  [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response) {
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
     resultBlock(user);

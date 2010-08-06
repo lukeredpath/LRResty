@@ -24,12 +24,12 @@
   [super dealloc];
 }
 
-- (LRRestyClient *)restClient
+- (LRRestyResource *)rootResource
 {
-  if (restClient == nil) {
-    restClient = [[LRResty authenticatedClientWithUsername:@"lukeredpath/token" password:@"a4ca1fb79a14ec42b77097794a3572b"] retain];
+  if (rootResource == nil) {
+    rootResource = [[LRResty authenticatedResource:@"http://github.com/api/v2/json" username:@"lukeredpath/token" password:@"a4ca1fb79a14ec42b77097794a3572b"] retain];
   }
-  return restClient;
+  return rootResource;
 }
 
 #pragma mark UITableView methods
@@ -80,7 +80,7 @@
 
 - (void)doRepositoryExample
 {
-  GithubUserRepository *repository = [[GithubUserRepository alloc] initWithRestClient:self.restClient];
+  GithubUserRepository *repository = [[GithubUserRepository alloc] initWithRemoteResource:self.rootResource];
   
   [repository getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
     NSLog(@"Got user from repository %@", user);

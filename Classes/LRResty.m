@@ -28,4 +28,10 @@
   return [[[LRRestyResource alloc] initWithRestClient:[self client] URL:[NSURL URLWithString:urlString]] autorelease];
 }
 
++ (LRRestyResource *)authenticatedResource:(NSString *)urlString username:(NSString *)username password:(NSString *)password;
+{
+  LRRestyClient *client = [self authenticatedClientWithUsername:username password:password];
+  return [[[LRRestyResource alloc] initWithRestClient:client URL:[NSURL URLWithString:urlString]] autorelease];
+}
+
 @end

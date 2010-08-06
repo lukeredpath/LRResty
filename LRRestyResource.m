@@ -34,7 +34,6 @@
 
 - (void)get:(LRRestyResponseBlock)responseBlock;
 {
-  NSLog(@"GETTING %@", URL);
   [restClient getURL:URL parameters:nil headers:nil withBlock:responseBlock];
 }
 
