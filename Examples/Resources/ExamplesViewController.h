@@ -9,16 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "RemoteRepositoryExample.h"
 
-@class LRRestyResource;
+@class GithubAPI;
 @class GithubUserRepository;
 
 @interface ExamplesViewController : UITableViewController <RemoteResourceRepositoryDelegate> {
-  LRRestyResource *rootResource;
-  GithubUserRepository *repository;
+  GithubAPI *github;
 }
-@property (nonatomic, readonly) LRRestyResource *rootResource;
+@property (nonatomic, readonly) GithubAPI *github;
 
-- (GithubUserRepository *)repository;
 - (void)doGetUserExample;
 - (void)doSearchUserExample;
 @end

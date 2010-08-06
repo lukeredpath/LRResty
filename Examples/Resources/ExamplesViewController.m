@@ -9,12 +9,8 @@
 #import "ExamplesViewController.h"
 #import "LRResty.h"
 #import "GithubCredentials.h"
+#import "GithubAPI.h"
 #import "UsersViewController.h"
-
-NSString *githubUsername(NSString *user)
-{
-  return [NSString stringWithFormat:@"%@/token", user];
-}
 
 @interface ExamplesViewController ()
 - (void)showCellAsLoading:(UITableViewCell *)cell;
@@ -37,17 +33,16 @@ NSString *githubUsername(NSString *user)
 
 - (void)dealloc
 {
-  [rootResource release];
-  [repository release];
+  [github release];
   [super dealloc];
 }
 
-- (LRRestyResource *)rootResource
+- (GithubAPI *)github
 {
-  if (rootResource == nil) {
-    rootResource = [[LRResty authenticatedResource:@"http://github.com/api/v2/json" username:githubUsername(GITHUB_USERNAME) password:GITHUB_APIKEY] retain];
+  if (github == nil) {
+    github = [[GithubAPI apiWithUsername:GITHUB_USERNAME key:GITHUB_APIKEY] retain];
   }
-  return rootResource;
+  return github;
 }
 
 #pragma mark UITableView methods
@@ -118,18 +113,9 @@ NSString *githubUsername(NSString *user)
   [spinner release];
 }
 
-- (GithubUserRepository *)repository
-{
-  if (repository == nil) {
-    repository = [[GithubUserRepository alloc] initWithRemoteResource:self.rootResource];
-    repository.delegate = self;
-  }  
-  return repository;
-}
-
 - (void)doGetUserExample
 {
-  [[self repository] getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
+  [[self.github users:self] getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
     NSLog(@"User %@ has followers %@", user, user.followers);
     [self performSelector:@selector(pushUserListWithUsers:) withObject:[NSArray arrayWithObject:user]];
   }];
@@ -137,7 +123,7 @@ NSString *githubUsername(NSString *user)
 
 - (void)doSearchUserExample
 {
-  [[self repository] getUsersMatching:@"luke" andYield:^(NSArray *users) {
+  [[self.github users:self] getUsersMatching:@"luke" andYield:^(NSArray *users) {
     [self performSelector:@selector(pushUserListWithUsers:) withObject:users];
   }];
 }
