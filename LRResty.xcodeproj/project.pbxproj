@@ -45,6 +45,7 @@
 		A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
 		A3236DDF120C5C3400001E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
 		A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
+		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -177,6 +178,8 @@
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3236DB6120C5BDE00001E40 /* ExamplesRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExamplesRunner-Info.plist"; sourceTree = "<group>"; };
 		A3CB4B85120C6354006CADCE /* GithubCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubCredentials.h; sourceTree = "<group>"; };
+		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersViewController.h; path = ../UsersViewController.h; sourceTree = "<group>"; };
+		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersViewController.m; path = ../UsersViewController.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				A308795A120C48BC003859AC /* MainWindow.xib */,
 				A3087964120C48EE003859AC /* ExamplesViewController.h */,
 				A3087965120C48EE003859AC /* ExamplesViewController.m */,
+				A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */,
+				A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -884,6 +889,7 @@
 				A3236DDB120C5C2C00001E40 /* CJSONSerializer.m in Sources */,
 				A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */,
 				A3236DDF120C5C3400001E40 /* main.m in Sources */,
+				A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

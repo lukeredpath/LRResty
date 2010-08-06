@@ -12,6 +12,9 @@
 
 @implementation GithubUser
 
+@synthesize remoteID, username;
+@synthesize fullName;
+
 - (id)initWithUsername:(NSString *)theUsername;
 {
   if (self = [super init]) {
@@ -95,6 +98,7 @@ GithubID userIDFromString(NSString *userIDString)
     
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
+    user.fullName = [userData objectForKey:@"name"];
     resultBlock(user);
     [user release];
   }];
@@ -111,6 +115,7 @@ GithubID userIDFromString(NSString *userIDString)
     NSMutableArray *users = [NSMutableArray array];
     for (NSDictionary *userData in [[response asJSONObject] objectForKey:@"users"]) {
       GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"username"] remoteID:userIDFromString([userData objectForKey:@"id"])];
+      user.fullName = [userData objectForKey:@"fullname"];
       [users addObject:user];
       [user release];
     }

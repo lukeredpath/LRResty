@@ -14,7 +14,12 @@ typedef NSUInteger GithubID;
 {
   GithubID remoteID;
   NSString *username;
+  NSString *fullName;
 }
+@property (nonatomic, readonly) GithubID remoteID;
+@property (nonatomic, readonly) NSString * username;
+@property (nonatomic, copy) NSString *fullName;
+
 - (id)initWithUsername:(NSString *)theUsername;
 - (id)initWithUsername:(NSString *)theUsername remoteID:(GithubID)theID;
 @end

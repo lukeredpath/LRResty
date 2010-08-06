@@ -9,11 +9,17 @@
 #import "ExamplesViewController.h"
 #import "LRResty.h"
 #import "GithubCredentials.h"
+#import "UsersViewController.h"
 
 NSString *githubUsername(NSString *user)
 {
   return [NSString stringWithFormat:@"%@/token", user];
 }
+
+@interface ExamplesViewController ()
+- (void)showCellAsLoading:(UITableViewCell *)cell;
+- (void)pushUserListWithUsers:(NSArray *)users;
+@end
 
 @implementation ExamplesViewController
 
@@ -24,8 +30,15 @@ NSString *githubUsername(NSString *user)
   self.tableView.rowHeight = 70;
 }
 
+- (void)viewDidUnload
+{
+  [super viewDidUnload];
+}
+
 - (void)dealloc
 {
+  [rootResource release];
+  [repository release];
   [super dealloc];
 }
 
@@ -78,6 +91,8 @@ NSString *githubUsername(NSString *user)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [self showCellAsLoading:[tableView cellForRowAtIndexPath:indexPath]];
+
   switch (indexPath.row) {
     case 0:
       [self doGetUserExample];
@@ -87,6 +102,20 @@ NSString *githubUsername(NSString *user)
     default:
       break;
   }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [NSObject cancelPreviousPerformRequestsWithTarget:self];
+  [[tableView cellForRowAtIndexPath:indexPath] setAccessoryView:nil];
+}
+
+- (void)showCellAsLoading:(UITableViewCell *)cell;
+{
+  UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+  [cell setAccessoryView:spinner];
+  [spinner startAnimating];
+  [spinner release];
 }
 
 - (GithubUserRepository *)repository
@@ -101,15 +130,23 @@ NSString *githubUsername(NSString *user)
 - (void)doGetUserExample
 {
   [[self repository] getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
-    NSLog(@"Got user from repository %@", user);
+    [self performSelector:@selector(pushUserListWithUsers:) withObject:[NSArray arrayWithObject:user]];
   }];
 }
 
 - (void)doSearchUserExample
 {
   [[self repository] getUsersMatching:@"luke" andYield:^(NSArray *users) {
-    NSLog(@"Got users matching 'luke' from repository %@", users);
+    [self performSelector:@selector(pushUserListWithUsers:) withObject:users];
   }];
+}
+
+- (void)pushUserListWithUsers:(NSArray *)users;
+{
+  UsersViewController *controller = [[UsersViewController alloc] init];
+  controller.users = users;
+  [self.navigationController pushViewController:controller animated:YES];
+  [controller release];
 }
 
 #pragma mark RemoteResourceRepositoryDelegate methods
