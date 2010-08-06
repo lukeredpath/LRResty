@@ -34,8 +34,8 @@ typedef void (^GithubUserRepositoryResultBlock)(GithubUser *user);
 
 @protocol RemoteResourceRepositoryDelegate <NSObject>
 @optional
-- (void)repositoryWillFetchFromResource:(RemoteResourceRepository *)repository;
-- (void)repositoryDidFetchFromResource:(RemoteResourceRepository *)repository;
+- (void)repositoryDidStartRemoteOperation:(RemoteResourceRepository *)repository;
+- (void)repositoryDidFinishRemoteOperation:(RemoteResourceRepository *)repository;
 @end
 
 @class LRRestyResource;

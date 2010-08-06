@@ -138,12 +138,12 @@
 
 #pragma mark RemoteResourceRepositoryDelegate methods
 
-- (void)repositoryWillFetchFromResource:(RemoteResourceRepository *)repository
+- (void)repositoryDidStartRemoteOperation:(RemoteResourceRepository *)repository
 {
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
-- (void)repositoryDidFetchFromResource:(RemoteResourceRepository *)repository
+- (void)repositoryDidFinishRemoteOperation:(RemoteResourceRepository *)repository
 {
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }

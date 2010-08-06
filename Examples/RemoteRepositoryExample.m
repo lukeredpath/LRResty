@@ -53,6 +53,11 @@
 
 @end
 
+@interface RemoteResourceRepository ()
+- (void)startRemoteOperation;
+- (void)finishRemoteOperation;
+@end
+
 @implementation RemoteResourceRepository
 
 @synthesize delegate;
@@ -61,7 +66,6 @@
 {
   if (self = [super init]) {
     resource = [aResource retain];
-    resource.delegate = self;
   }
   return self;
 }
@@ -72,14 +76,18 @@
   [super dealloc];
 }
 
-- (void)resourceWillPerformRequest:(LRRestyResource *)resource;
+- (void)startRemoteOperation
 {
-  [self.delegate repositoryWillFetchFromResource:self];
+  if ([self.delegate respondsToSelector:@selector(repositoryDidStartRemoteOperation:)]) {
+    [self.delegate repositoryDidStartRemoteOperation:self];
+  }
 }
 
-- (void)resourceDidPerformRequest:(LRRestyResource *)resource;
+- (void)finishRemoteOperation
 {
-  [self.delegate repositoryDidFetchFromResource:self];
+  if ([self.delegate respondsToSelector:@selector(repositoryDidFinishRemoteOperation:)]) {
+    [self.delegate repositoryDidFinishRemoteOperation:self];
+  }
 }
 
 @end
@@ -95,6 +103,8 @@ GithubID userIDFromString(NSString *userIDString)
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
+  [self startRemoteOperation];
+  
   [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
     
@@ -104,7 +114,9 @@ GithubID userIDFromString(NSString *userIDString)
     [[userResource at:@"followers"] get:^(LRRestyResponse *response, LRRestyResource *followersResource) {
       [user setFollowers:[[response asJSONObject] objectForKey:@"users"]];
       resultBlock(user);
+
       [user release];
+      [self finishRemoteOperation];
     }];
   }];
 }
@@ -112,13 +124,17 @@ GithubID userIDFromString(NSString *userIDString)
 - (void)getUsersMatching:(NSString *)searchString
         andYield:(RepositoryCollectionResultBlock)resultBlock;
 {
+  [self startRemoteOperation];
+
   [[resource at:[NSString stringWithFormat:@"user/search/%@", searchString]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
     NSMutableArray *users = [NSMutableArray array];
     for (NSDictionary *userData in [[response asJSONObject] objectForKey:@"users"]) {
       GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"username"] remoteID:userIDFromString([userData objectForKey:@"id"])];
       user.fullName = [userData objectForKey:@"fullname"];
       [users addObject:user];
+
       [user release];
+      [self finishRemoteOperation];
     }
     resultBlock(users);
   }];
