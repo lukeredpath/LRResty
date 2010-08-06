@@ -30,6 +30,19 @@
 		A308795B120C48BC003859AC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
 		A3087966120C48EE003859AC /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
 		A308799E120C4B1F003859AC /* RemoteRepositoryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */; };
+		A30879CC120C4EA2003859AC /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879B7120C4EA2003859AC /* CDataScanner.m */; };
+		A30879CD120C4EA2003859AC /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BA120C4EA2003859AC /* CDataScanner_Extensions.m */; };
+		A30879CE120C4EA2003859AC /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BC120C4EA2003859AC /* NSCharacterSet_Extensions.m */; };
+		A30879CF120C4EA2003859AC /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879BE120C4EA2003859AC /* NSDictionary_JSONExtensions.m */; };
+		A30879D0120C4EA2003859AC /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C0120C4EA2003859AC /* NSScanner_Extensions.m */; };
+		A30879D1120C4EA2003859AC /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C3120C4EA2003859AC /* CJSONDataSerializer.m */; };
+		A30879D2120C4EA2003859AC /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C5120C4EA2003859AC /* CJSONDeserializer.m */; };
+		A30879D3120C4EA2003859AC /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C7120C4EA2003859AC /* CJSONScanner.m */; };
+		A30879D4120C4EA2003859AC /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879C9120C4EA2003859AC /* CJSONSerializer.m */; };
+		A30879D5120C4EA2003859AC /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
+		A30879D8120C4EB3003859AC /* LRRestyResponse+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879D7120C4EB3003859AC /* LRRestyResponse+JSON.m */; };
+		A30879E9120C4FF0003859AC /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
+		A3087A06120C50DD003859AC /* NSObject+Tap.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087A04120C50CC003859AC /* NSObject+Tap.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -90,6 +103,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A30879E7120C4FED003859AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* LRResty */;
+			remoteInfo = LRResty;
+		};
 		A3F818EF1208249B00E60B0B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -127,6 +147,30 @@
 		A308795A120C48BC003859AC /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		A3087964120C48EE003859AC /* ExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamplesViewController.h; sourceTree = "<group>"; };
 		A3087965120C48EE003859AC /* ExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesViewController.m; sourceTree = "<group>"; };
+		A30879B6120C4EA2003859AC /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDataScanner.h; path = Vendor/TouchJSON/Source/CDataScanner.h; sourceTree = "<group>"; };
+		A30879B7120C4EA2003859AC /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDataScanner.m; path = Vendor/TouchJSON/Source/CDataScanner.m; sourceTree = "<group>"; };
+		A30879B9120C4EA2003859AC /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		A30879BA120C4EA2003859AC /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		A30879BB120C4EA2003859AC /* NSCharacterSet_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCharacterSet_Extensions.h; sourceTree = "<group>"; };
+		A30879BC120C4EA2003859AC /* NSCharacterSet_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSCharacterSet_Extensions.m; sourceTree = "<group>"; };
+		A30879BD120C4EA2003859AC /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		A30879BE120C4EA2003859AC /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		A30879BF120C4EA2003859AC /* NSScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSScanner_Extensions.h; sourceTree = "<group>"; };
+		A30879C0120C4EA2003859AC /* NSScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSScanner_Extensions.m; sourceTree = "<group>"; };
+		A30879C2120C4EA2003859AC /* CJSONDataSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDataSerializer.h; sourceTree = "<group>"; };
+		A30879C3120C4EA2003859AC /* CJSONDataSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDataSerializer.m; sourceTree = "<group>"; };
+		A30879C4120C4EA2003859AC /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		A30879C5120C4EA2003859AC /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		A30879C6120C4EA2003859AC /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		A30879C7120C4EA2003859AC /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		A30879C8120C4EA2003859AC /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		A30879C9120C4EA2003859AC /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		A30879CA120C4EA2003859AC /* CSerializedJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSerializedJSONData.h; sourceTree = "<group>"; };
+		A30879CB120C4EA2003859AC /* CSerializedJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSerializedJSONData.m; sourceTree = "<group>"; };
+		A30879D6120C4EB3003859AC /* LRRestyResponse+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyResponse+JSON.h"; sourceTree = "<group>"; };
+		A30879D7120C4EB3003859AC /* LRRestyResponse+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyResponse+JSON.m"; sourceTree = "<group>"; };
+		A3087A03120C50CC003859AC /* NSObject+Tap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Tap.h"; sourceTree = "<group>"; };
+		A3087A04120C50CC003859AC /* NSObject+Tap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Tap.m"; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -240,6 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30879E9120C4FF0003859AC /* libLRResty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +407,8 @@
 				A30878B9120C4776003859AC /* main.m */,
 				A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */,
 				A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */,
+				A30879D6120C4EB3003859AC /* LRRestyResponse+JSON.h */,
+				A30879D7120C4EB3003859AC /* LRRestyResponse+JSON.m */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -376,6 +423,51 @@
 				A3087965120C48EE003859AC /* ExamplesViewController.m */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A30879B2120C4E94003859AC /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				A30879B6120C4EA2003859AC /* CDataScanner.h */,
+				A30879B7120C4EA2003859AC /* CDataScanner.m */,
+				A30879B8120C4EA2003859AC /* Extensions */,
+				A30879C1120C4EA2003859AC /* JSON */,
+			);
+			name = TouchJSON;
+			sourceTree = "<group>";
+		};
+		A30879B8120C4EA2003859AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A30879B9120C4EA2003859AC /* CDataScanner_Extensions.h */,
+				A30879BA120C4EA2003859AC /* CDataScanner_Extensions.m */,
+				A30879BB120C4EA2003859AC /* NSCharacterSet_Extensions.h */,
+				A30879BC120C4EA2003859AC /* NSCharacterSet_Extensions.m */,
+				A30879BD120C4EA2003859AC /* NSDictionary_JSONExtensions.h */,
+				A30879BE120C4EA2003859AC /* NSDictionary_JSONExtensions.m */,
+				A30879BF120C4EA2003859AC /* NSScanner_Extensions.h */,
+				A30879C0120C4EA2003859AC /* NSScanner_Extensions.m */,
+			);
+			name = Extensions;
+			path = Vendor/TouchJSON/Source/Extensions;
+			sourceTree = "<group>";
+		};
+		A30879C1120C4EA2003859AC /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A30879C2120C4EA2003859AC /* CJSONDataSerializer.h */,
+				A30879C3120C4EA2003859AC /* CJSONDataSerializer.m */,
+				A30879C4120C4EA2003859AC /* CJSONDeserializer.h */,
+				A30879C5120C4EA2003859AC /* CJSONDeserializer.m */,
+				A30879C6120C4EA2003859AC /* CJSONScanner.h */,
+				A30879C7120C4EA2003859AC /* CJSONScanner.m */,
+				A30879C8120C4EA2003859AC /* CJSONSerializer.h */,
+				A30879C9120C4EA2003859AC /* CJSONSerializer.m */,
+				A30879CA120C4EA2003859AC /* CSerializedJSONData.h */,
+				A30879CB120C4EA2003859AC /* CSerializedJSONData.m */,
+			);
+			name = JSON;
+			path = Vendor/TouchJSON/Source/JSON;
 			sourceTree = "<group>";
 		};
 		A3F8190B1208254900E60B0B /* Tests */ = {
@@ -420,6 +512,7 @@
 		A3F819941208418200E60B0B /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A30879B2120C4E94003859AC /* TouchJSON */,
 				A3F819951208418800E60B0B /* OCHamcrest */,
 			);
 			name = Vendor;
@@ -584,6 +677,8 @@
 				A3F81D3A12088A0700E60B0B /* NSString+QueryString.m */,
 				A3F81D3B12088A0700E60B0B /* NSURL+QueryInspector.h */,
 				A3F81D3C12088A0700E60B0B /* NSURL+QueryInspector.m */,
+				A3087A03120C50CC003859AC /* NSObject+Tap.h */,
+				A3087A04120C50CC003859AC /* NSObject+Tap.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -627,6 +722,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A30879E8120C4FED003859AC /* PBXTargetDependency */,
 			);
 			name = ExampleRunner;
 			productName = ExampleRunner;
@@ -763,6 +859,17 @@
 				A3087957120C489C003859AC /* ExampleAppDelegate.m in Sources */,
 				A3087966120C48EE003859AC /* ExamplesViewController.m in Sources */,
 				A308799E120C4B1F003859AC /* RemoteRepositoryExample.m in Sources */,
+				A30879CC120C4EA2003859AC /* CDataScanner.m in Sources */,
+				A30879CD120C4EA2003859AC /* CDataScanner_Extensions.m in Sources */,
+				A30879CE120C4EA2003859AC /* NSCharacterSet_Extensions.m in Sources */,
+				A30879CF120C4EA2003859AC /* NSDictionary_JSONExtensions.m in Sources */,
+				A30879D0120C4EA2003859AC /* NSScanner_Extensions.m in Sources */,
+				A30879D1120C4EA2003859AC /* CJSONDataSerializer.m in Sources */,
+				A30879D2120C4EA2003859AC /* CJSONDeserializer.m in Sources */,
+				A30879D3120C4EA2003859AC /* CJSONScanner.m in Sources */,
+				A30879D4120C4EA2003859AC /* CJSONSerializer.m in Sources */,
+				A30879D5120C4EA2003859AC /* CSerializedJSONData.m in Sources */,
+				A30879D8120C4EB3003859AC /* LRRestyResponse+JSON.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,12 +942,18 @@
 				A3087844120A58B8003859AC /* LRRestyRequest.m in Sources */,
 				A308784C120A58C8003859AC /* LRRestyRequestPayload.m in Sources */,
 				A3087852120A58D3003859AC /* LRRestyClientBlockDelegate.m in Sources */,
+				A3087A06120C50DD003859AC /* NSObject+Tap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A30879E8120C4FED003859AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* LRResty */;
+			targetProxy = A30879E7120C4FED003859AC /* PBXContainerItemProxy */;
+		};
 		A3F818F01208249B00E60B0B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D2AAC07D0554694100DB518D /* LRResty */;
@@ -925,6 +1038,7 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-all_load",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ExampleRunner;
@@ -949,6 +1063,7 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-all_load",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ExampleRunner;

@@ -7,12 +7,20 @@
 //
 
 #import "LRResty.h"
+#import "NSObject+Tap.h"
 
 @implementation LRResty
 
 + (LRRestyClient *)client;
 {
   return [[[LRRestyClient alloc] init] autorelease];
+}
+
++ (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
+{
+  return [[self client] tap:^(id client) {
+    [client setUsername:username password:password];
+  }];
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "RemoteRepositoryExample.h"
+#import "LRResty.h"
+#import "LRRestyResponse+JSON.h"
 
 @implementation GithubUser
 
@@ -42,12 +44,29 @@
 
 @implementation GithubUserRepository
 
+- (id)initWithRestClient:(LRRestyClient *)client;
+{
+  if (self = [super init]) {
+    restClient = [client retain];
+  }
+  return self;
+}
+
+- (void)dealloc
+{
+  [restClient release];
+  [super dealloc];
+}
+
 - (void)getUserWithUsername:(NSString *)username 
                    andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
-  GithubUser *user = [[GithubUser alloc] initWithUsername:username];
-  resultBlock(user);
-  [user release];
+  [restClient get:[NSString stringWithFormat:@"http://github.com/api/v2/json/user/show/%@", username] withBlock:^(LRRestyResponse *response) {
+    NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
+    GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
+    resultBlock(user);
+    [user release];
+  }];
 }
 
 - (void)getUsersMatching:(NSString *)searchString

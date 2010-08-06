@@ -18,4 +18,5 @@
 
 }
 + (LRRestyClient *)client;
++ (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
 @end

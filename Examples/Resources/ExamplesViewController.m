@@ -8,6 +8,7 @@
 
 #import "ExamplesViewController.h"
 #import "RemoteRepositoryExample.h"
+#import "LRResty.h"
 
 @implementation ExamplesViewController
 
@@ -21,6 +22,14 @@
 - (void)dealloc
 {
   [super dealloc];
+}
+
+- (LRRestyClient *)restClient
+{
+  if (restClient == nil) {
+    restClient = [[LRResty authenticatedClientWithUsername:@"lukeredpath/token" password:@"a4ca1fb79a14ec42b77097794a3572b"] retain];
+  }
+  return restClient;
 }
 
 #pragma mark UITableView methods
@@ -71,7 +80,7 @@
 
 - (void)doRepositoryExample
 {
-  GithubUserRepository *repository = [[GithubUserRepository alloc] init];
+  GithubUserRepository *repository = [[GithubUserRepository alloc] initWithRestClient:self.restClient];
   
   [repository getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
     NSLog(@"Got user from repository %@", user);

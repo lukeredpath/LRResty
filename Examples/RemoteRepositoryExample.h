@@ -22,10 +22,14 @@ typedef NSUInteger GithubID;
 typedef void (^RepositoryCollectionResultBlock)(NSArray *collection);
 typedef void (^GithubUserRepositoryResultBlock)(GithubUser *user);
 
+@class LRRestyClient;
+
 @interface GithubUserRepository : NSObject
 {
-  
+  LRRestyClient *restClient;
 }
+- (id)initWithRestClient:(LRRestyClient *)client;
+
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 
