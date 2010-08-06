@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRRestyClientDelegate.h"
+#import "LRRestyClientResponseDelegate.h"
 #import "LRRestyRequestPayload.h"
 
 @class LRRestyClient;
@@ -16,7 +16,7 @@
 {
   NSMutableURLRequest *URLRequest;
   LRRestyClient *client;
-  id<LRRestyClientDelegate> delegate;
+  id<LRRestyClientResponseDelegate> delegate;
   BOOL _isExecuting;
   BOOL _isFinished;
   NSError *connectionError;
@@ -29,7 +29,7 @@
 @property (nonatomic, retain) NSError *connectionError;
 @property (nonatomic, readonly) NSURL *URL;
 
-- (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientDelegate>)theDelegate;
+- (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientResponseDelegate>)theDelegate;
 - (void)setExecuting:(BOOL)isExecuting;
 - (void)setFinished:(BOOL)isFinished;
 - (void)finish;

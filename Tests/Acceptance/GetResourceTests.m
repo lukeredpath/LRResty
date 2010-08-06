@@ -9,7 +9,7 @@
 #import "TestHelper.h"
 #import "LRResty.h"
 
-@interface GetResourceTests : SenTestCase <LRRestyClientDelegate>
+@interface GetResourceTests : SenTestCase <LRRestyClientResponseDelegate>
 {
   LRRestyResponse *lastResponse;
   LRRestyClient *client;

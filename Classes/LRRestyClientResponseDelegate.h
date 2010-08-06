@@ -11,7 +11,7 @@
 @class LRRestyClient;
 @class LRRestyResponse;
 
-@protocol LRRestyClientDelegate <NSObject>
+@protocol LRRestyClientResponseDelegate <NSObject>
 
 - (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;
 

@@ -11,17 +11,17 @@
 
 @implementation LRRestyClient (GET)
 
-- (void)get:(NSString *)urlString delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   [self get:urlString parameters:nil delegate:delegate];
 }
 
-- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   [self get:urlString parameters:parameters headers:nil delegate:delegate];
 }
 
-- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:delegate];
 }

@@ -9,8 +9,8 @@
 #import "LRRestyClient.h"
 
 @interface LRRestyClient (POST)
-- (void)post:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientDelegate>)delegate;
-- (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)post:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 - (void)post:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
 - (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 @end

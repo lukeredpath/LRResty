@@ -11,12 +11,12 @@
 
 @implementation LRRestyClient (POST)
 
-- (void)post:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)post:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   [self post:urlString payload:payload headers:nil delegate:delegate];
 }
 
-- (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   [self postURL:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:delegate];
 }

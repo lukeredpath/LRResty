@@ -98,7 +98,7 @@
 		A3F81DD11208934600E60B0B /* LRResty.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DCA1208934600E60B0B /* LRResty.m */; };
 		A3F81DD21208934600E60B0B /* LRRestyClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F81DCB1208934600E60B0B /* LRRestyClient.h */; };
 		A3F81DD31208934600E60B0B /* LRRestyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DCC1208934600E60B0B /* LRRestyClient.m */; };
-		A3F81DD41208934600E60B0B /* LRRestyClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F81DCD1208934600E60B0B /* LRRestyClientDelegate.h */; };
+		A3F81DD41208934600E60B0B /* LRRestyClientResponseDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F81DCD1208934600E60B0B /* LRRestyClientResponseDelegate.h */; };
 		A3F81DD51208934600E60B0B /* LRRestyResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F81DCE1208934600E60B0B /* LRRestyResponse.h */; };
 		A3F81DD61208934600E60B0B /* LRRestyResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DCF1208934600E60B0B /* LRRestyResponse.m */; };
 		AA747D9F0F9514B9006C5449 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
@@ -280,7 +280,7 @@
 		A3F81DCA1208934600E60B0B /* LRResty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRResty.m; path = Classes/LRResty.m; sourceTree = "<group>"; };
 		A3F81DCB1208934600E60B0B /* LRRestyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyClient.h; path = Classes/LRRestyClient.h; sourceTree = "<group>"; };
 		A3F81DCC1208934600E60B0B /* LRRestyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyClient.m; path = Classes/LRRestyClient.m; sourceTree = "<group>"; };
-		A3F81DCD1208934600E60B0B /* LRRestyClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyClientDelegate.h; path = Classes/LRRestyClientDelegate.h; sourceTree = "<group>"; };
+		A3F81DCD1208934600E60B0B /* LRRestyClientResponseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyClientResponseDelegate.h; path = Classes/LRRestyClientResponseDelegate.h; sourceTree = "<group>"; };
 		A3F81DCE1208934600E60B0B /* LRRestyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyResponse.h; path = Classes/LRRestyResponse.h; sourceTree = "<group>"; };
 		A3F81DCF1208934600E60B0B /* LRRestyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyResponse.m; path = Classes/LRRestyResponse.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRResty_Prefix.pch; sourceTree = SOURCE_ROOT; };
@@ -360,7 +360,7 @@
 				A3F81DCA1208934600E60B0B /* LRResty.m */,
 				A3F81DCB1208934600E60B0B /* LRRestyClient.h */,
 				A3F81DCC1208934600E60B0B /* LRRestyClient.m */,
-				A3F81DCD1208934600E60B0B /* LRRestyClientDelegate.h */,
+				A3F81DCD1208934600E60B0B /* LRRestyClientResponseDelegate.h */,
 				A3087841120A58B8003859AC /* LRRestyRequest.h */,
 				A3087842120A58B8003859AC /* LRRestyRequest.m */,
 				A3F81DCE1208934600E60B0B /* LRRestyResponse.h */,
@@ -711,7 +711,7 @@
 				A3F81D4112088A0700E60B0B /* NSURL+QueryInspector.h in Headers */,
 				A3F81DD01208934600E60B0B /* LRResty.h in Headers */,
 				A3F81DD21208934600E60B0B /* LRRestyClient.h in Headers */,
-				A3F81DD41208934600E60B0B /* LRRestyClientDelegate.h in Headers */,
+				A3F81DD41208934600E60B0B /* LRRestyClientResponseDelegate.h in Headers */,
 				A3F81DD51208934600E60B0B /* LRRestyResponse.h in Headers */,
 				A308783B120A58B1003859AC /* LRRestyClient+GET.h in Headers */,
 				A308783D120A58B1003859AC /* LRRestyClient+POST.h in Headers */,
@@ -789,7 +789,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "LRResty" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRRestyClientDelegate.h"
+#import "LRRestyClientResponseDelegate.h"
 
 @class LRRestyResponse;
 @class LRRestyRequest;
@@ -19,9 +19,9 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
   NSOperationQueue *operationQueue;
   NSMutableArray *requestModifiers;
 }
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
-- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
-- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientDelegate>)delegate;
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
 - (void)setUsername:(NSString *)username password:(NSString *)password;
