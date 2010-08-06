@@ -24,6 +24,12 @@
 		A308784C120A58C8003859AC /* LRRestyRequestPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = A308784A120A58C8003859AC /* LRRestyRequestPayload.m */; };
 		A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A308784F120A58D3003859AC /* LRRestyClientBlockDelegate.h */; };
 		A3087852120A58D3003859AC /* LRRestyClientBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087850120A58D3003859AC /* LRRestyClientBlockDelegate.m */; };
+		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; };
+		A308793C120C4850003859AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
+		A3087957120C489C003859AC /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
+		A308795B120C48BC003859AC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
+		A3087966120C48EE003859AC /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
+		A308799E120C4B1F003859AC /* RemoteRepositoryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -111,6 +117,16 @@
 		A308784A120A58C8003859AC /* LRRestyRequestPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyRequestPayload.m; path = Classes/LRRestyRequestPayload.m; sourceTree = "<group>"; };
 		A308784F120A58D3003859AC /* LRRestyClientBlockDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRRestyClientBlockDelegate.h; path = Classes/LRRestyClientBlockDelegate.h; sourceTree = "<group>"; };
 		A3087850120A58D3003859AC /* LRRestyClientBlockDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRRestyClientBlockDelegate.m; path = Classes/LRRestyClientBlockDelegate.m; sourceTree = "<group>"; };
+		A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteRepositoryExample.h; sourceTree = "<group>"; };
+		A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteRepositoryExample.m; sourceTree = "<group>"; };
+		A30878B9120C4776003859AC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A3087934120C4847003859AC /* ExampleRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3087936120C4847003859AC /* ExampleRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleRunner-Info.plist"; sourceTree = "<group>"; };
+		A3087955120C489C003859AC /* ExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleAppDelegate.h; sourceTree = "<group>"; };
+		A3087956120C489C003859AC /* ExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleAppDelegate.m; sourceTree = "<group>"; };
+		A308795A120C48BC003859AC /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A3087964120C48EE003859AC /* ExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExamplesViewController.h; sourceTree = "<group>"; };
+		A3087965120C48EE003859AC /* ExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExamplesViewController.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -220,6 +236,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A3087932120C4847003859AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3F818E51208248F00E60B0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +267,7 @@
 			children = (
 				D2AAC07E0554694100DB518D /* libLRResty.a */,
 				A3F818E81208248F00E60B0B /* Acceptance Tests.octest */,
+				A3087934120C4847003859AC /* ExampleRunner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,6 +275,7 @@
 		0867D691FE84028FC02AAC07 /* LRResty */ = {
 			isa = PBXGroup;
 			children = (
+				A30878A2120C44F2003859AC /* Examples */,
 				A3F819941208418200E60B0B /* Vendor */,
 				A3F8190B1208254900E60B0B /* Tests */,
 				A3F81D36120889F900E60B0B /* Categories */,
@@ -259,6 +284,7 @@
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */,
+				A3087936120C4847003859AC /* ExampleRunner-Info.plist */,
 			);
 			name = LRResty;
 			sourceTree = "<group>";
@@ -327,6 +353,29 @@
 				A308783A120A58B1003859AC /* LRRestyClient+PUT.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		A30878A2120C44F2003859AC /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				A3087954120C4880003859AC /* Resources */,
+				A30878B9120C4776003859AC /* main.m */,
+				A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */,
+				A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		A3087954120C4880003859AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3087955120C489C003859AC /* ExampleAppDelegate.h */,
+				A3087956120C489C003859AC /* ExampleAppDelegate.m */,
+				A308795A120C48BC003859AC /* MainWindow.xib */,
+				A3087964120C48EE003859AC /* ExamplesViewController.h */,
+				A3087965120C48EE003859AC /* ExamplesViewController.m */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A3F8190B1208254900E60B0B /* Tests */ = {
@@ -560,12 +609,30 @@
 				A3087843120A58B8003859AC /* LRRestyRequest.h in Headers */,
 				A308784B120A58C8003859AC /* LRRestyRequestPayload.h in Headers */,
 				A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */,
+				A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A3087933120C4847003859AC /* ExampleRunner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3087939120C4847003859AC /* Build configuration list for PBXNativeTarget "ExampleRunner" */;
+			buildPhases = (
+				A3087930120C4847003859AC /* Resources */,
+				A3087931120C4847003859AC /* Sources */,
+				A3087932120C4847003859AC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExampleRunner;
+			productName = ExampleRunner;
+			productReference = A3087934120C4847003859AC /* ExampleRunner.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A3F818E71208248F00E60B0B /* Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3F818EC1208249000E60B0B /* Build configuration list for PBXNativeTarget "Tests" */;
@@ -619,11 +686,20 @@
 			targets = (
 				D2AAC07D0554694100DB518D /* LRResty */,
 				A3F818E71208248F00E60B0B /* Tests */,
+				A3087933120C4847003859AC /* ExampleRunner */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A3087930120C4847003859AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A308795B120C48BC003859AC /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3F818E31208248F00E60B0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -679,6 +755,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A3087931120C4847003859AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A308793C120C4850003859AC /* main.m in Sources */,
+				A3087957120C489C003859AC /* ExampleAppDelegate.m in Sources */,
+				A3087966120C48EE003859AC /* ExamplesViewController.m in Sources */,
+				A308799E120C4B1F003859AC /* RemoteRepositoryExample.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3F818E41208248F00E60B0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -821,6 +908,55 @@
 			};
 			name = Release;
 		};
+		A3087937120C4847003859AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "ExampleRunner-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ExampleRunner;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Debug;
+		};
+		A3087938120C4847003859AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "ExampleRunner-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ExampleRunner;
+				SDKROOT = iphoneos4.0;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		A3F818EA1208249000E60B0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -897,6 +1033,15 @@
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3087939120C4847003859AC /* Build configuration list for PBXNativeTarget "ExampleRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3087937120C4847003859AC /* Debug */,
+				A3087938120C4847003859AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
