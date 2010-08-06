@@ -72,9 +72,11 @@
   return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByAppendingPathComponent:path] parent:self] autorelease];
 }
 
-- (void)get:(LRRestyResponseBlock)responseBlock;
+- (void)get:(LRRestyResourceResponseBlock)responseBlock;
 {
-  [restClient getURL:URL parameters:nil headers:nil withBlock:responseBlock];
+  [restClient getURL:URL parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
+    responseBlock(response, self);
+  }];
 }
 
 @end

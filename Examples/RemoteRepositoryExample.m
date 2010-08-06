@@ -10,17 +10,17 @@
 #import "LRResty.h"
 #import "LRRestyResponse+JSON.h"
 
+#define NULL_GITHUB_ID 0
+
 @implementation GithubUser
 
 @synthesize remoteID, username;
 @synthesize fullName;
+@synthesize followers;
 
 - (id)initWithUsername:(NSString *)theUsername;
 {
-  if (self = [super init]) {
-    username = [theUsername copy];
-  }
-  return self;
+  return [self initWithUsername:theUsername remoteID:NULL_GITHUB_ID];
 }
 
 - (id)initWithUsername:(NSString *)theUsername remoteID:(GithubID)theID;
@@ -28,12 +28,14 @@
   if (self = [super init]) {
     username = [theUsername copy];
     remoteID = theID;
+    followers = [[NSMutableArray alloc] init];
   }
   return self;
 }
 
 - (void)dealloc
 {
+  [followers release];
   [username release];
   [super dealloc];
 }
@@ -41,6 +43,12 @@
 - (NSString *)description
 {
   return [NSString stringWithFormat:@"<GithubUser id:%d username:%@>", remoteID, username];
+}
+
+- (void)setFollowers:(NSArray *)replacementFollowers
+{
+  [followers removeAllObjects];
+  [followers setArray:replacementFollowers];
 }
 
 @end
@@ -87,19 +95,24 @@ GithubID userIDFromString(NSString *userIDString)
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
-  [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response) {
+  [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
+    
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
     user.fullName = [userData objectForKey:@"name"];
-    resultBlock(user);
-    [user release];
+    
+    [[userResource at:@"followers"] get:^(LRRestyResponse *response, LRRestyResource *followersResource) {
+      [user setFollowers:[[response asJSONObject] objectForKey:@"users"]];
+      resultBlock(user);
+      [user release];
+    }];
   }];
 }
 
 - (void)getUsersMatching:(NSString *)searchString
         andYield:(RepositoryCollectionResultBlock)resultBlock;
 {
-  [[resource at:[NSString stringWithFormat:@"user/search/%@", searchString]] get:^(LRRestyResponse *response) {
+  [[resource at:[NSString stringWithFormat:@"user/search/%@", searchString]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
     NSMutableArray *users = [NSMutableArray array];
     for (NSDictionary *userData in [[response asJSONObject] objectForKey:@"users"]) {
       GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"username"] remoteID:userIDFromString([userData objectForKey:@"id"])];

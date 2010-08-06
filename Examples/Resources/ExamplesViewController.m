@@ -130,6 +130,7 @@ NSString *githubUsername(NSString *user)
 - (void)doGetUserExample
 {
   [[self repository] getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
+    NSLog(@"User %@ has followers %@", user, user.followers);
     [self performSelector:@selector(pushUserListWithUsers:) withObject:[NSArray arrayWithObject:user]];
   }];
 }

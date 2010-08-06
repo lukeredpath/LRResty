@@ -10,6 +10,8 @@
 #import "LRRestyClient.h"
 #import "LRRestyResourceDelegate.h"
 
+typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyResource *resource);
+
 @interface LRRestyResource : NSObject <LRRestyClientDelegate> {
   LRRestyResource *parentResource;
   LRRestyClient *restClient;
@@ -21,5 +23,5 @@
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
 - (LRRestyResource *)at:(NSString *)path;
-- (void)get:(LRRestyResponseBlock)responseBlock;
+- (void)get:(LRRestyResourceResponseBlock)responseBlock;
 @end
