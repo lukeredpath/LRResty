@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRRestyClientDelegate.h"
+#import "LRRestyResourceDelegate.h"
 
 typedef NSUInteger GithubID;
 
@@ -38,7 +38,7 @@ typedef void (^GithubUserRepositoryResultBlock)(GithubUser *user);
 
 @class LRRestyResource;
 
-@interface RemoteResourceRepository : NSObject <LRRestyClientDelegate>
+@interface RemoteResourceRepository : NSObject <LRRestyResourceDelegate>
 {
   LRRestyResource *resource;
   id<RemoteResourceRepositoryDelegate> delegate;

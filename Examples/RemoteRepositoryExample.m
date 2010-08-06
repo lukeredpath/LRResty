@@ -53,7 +53,7 @@
 {
   if (self = [super init]) {
     resource = [aResource retain];
-    [resource setClientDelegate:self];
+    resource.delegate = self;
   }
   return self;
 }
@@ -64,12 +64,12 @@
   [super dealloc];
 }
 
-- (void)restyClientWillPerformRequest:(LRRestyClient *)resource
+- (void)resourceWillPerformRequest:(LRRestyResource *)resource;
 {
   [self.delegate repositoryWillFetchFromResource:self];
 }
 
-- (void)restyClientDidPerformRequest:(LRRestyClient *)resource
+- (void)resourceDidPerformRequest:(LRRestyResource *)resource;
 {
   [self.delegate repositoryDidFetchFromResource:self];
 }

@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "LRRestyClient.h"
+#import "LRRestyResourceDelegate.h"
 
 @interface LRRestyResource : NSObject <LRRestyClientDelegate> {
+  LRRestyResource *parentResource;
   LRRestyClient *restClient;
   NSURL *URL;
+  id<LRRestyResourceDelegate> delegate;
 }
+@property (nonatomic, assign) id<LRRestyResourceDelegate> delegate;
+
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
+- (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
 - (LRRestyResource *)at:(NSString *)path;
 - (void)get:(LRRestyResponseBlock)responseBlock;
-- (void)setClientDelegate:(id<LRRestyClientDelegate>)clientDelegate;
 @end
