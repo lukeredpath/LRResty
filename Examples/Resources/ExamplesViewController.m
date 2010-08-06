@@ -8,6 +8,12 @@
 
 #import "ExamplesViewController.h"
 #import "LRResty.h"
+#import "GithubCredentials.h"
+
+NSString *githubUsername(NSString *user)
+{
+  return [NSString stringWithFormat:@"%@/token", user];
+}
 
 @implementation ExamplesViewController
 
@@ -26,7 +32,7 @@
 - (LRRestyResource *)rootResource
 {
   if (rootResource == nil) {
-    rootResource = [[LRResty authenticatedResource:@"http://github.com/api/v2/json" username:@"lukeredpath/token" password:@"a4ca1fb79a14ec42b77097794a3572b"] retain];
+    rootResource = [[LRResty authenticatedResource:@"http://github.com/api/v2/json" username:githubUsername(GITHUB_USERNAME) password:GITHUB_APIKEY] retain];
   }
   return rootResource;
 }
