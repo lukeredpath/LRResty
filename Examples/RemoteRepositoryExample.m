@@ -79,6 +79,12 @@
 
 @implementation GithubUserRepository
 
+GithubID userIDFromString(NSString *userIDString)
+{
+  // for some reason the search API returns IDs as user-xxxx
+  return [[[userIDString componentsSeparatedByString:@"-"] lastObject] integerValue];
+}
+
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
@@ -97,7 +103,19 @@
 - (void)getUsersMatching:(NSString *)searchString
         andYield:(RepositoryCollectionResultBlock)resultBlock;
 {
+  [self willFetchFromResource];
   
+  [[resource at:[NSString stringWithFormat:@"user/search/%@", searchString]] get:^(LRRestyResponse *response) {
+    [self didFetchFromResource];
+
+    NSMutableArray *users = [NSMutableArray array];
+    for (NSDictionary *userData in [[response asJSONObject] objectForKey:@"users"]) {
+      GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"username"] remoteID:userIDFromString([userData objectForKey:@"id"])];
+      [users addObject:user];
+      [user release];
+    }
+    resultBlock(users);
+  }];
 }
 
 @end

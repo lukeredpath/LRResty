@@ -46,7 +46,7 @@ NSString *githubUsername(NSString *user)
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
-  return 1;
+  return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,7 +62,11 @@ NSString *githubUsername(NSString *user)
   
   switch (indexPath.row) {
     case 0:
-      cell.textLabel.text = @"Repository Example";
+      cell.textLabel.text = @"Get Github User";
+      cell.detailTextLabel.text = @"An example of an asynchronous REST service-backed repository.";
+      break;
+    case 1:
+      cell.textLabel.text = @"Search Github User";
       cell.detailTextLabel.text = @"An example of an asynchronous REST service-backed repository.";
       break;
     default:
@@ -76,22 +80,35 @@ NSString *githubUsername(NSString *user)
 {
   switch (indexPath.row) {
     case 0:
-      [self doRepositoryExample];
+      [self doGetUserExample];
       break;
+    case 1:
+      [self doSearchUserExample];
     default:
       break;
   }
 }
 
-- (void)doRepositoryExample
+- (GithubUserRepository *)repository
 {
   if (repository == nil) {
     repository = [[GithubUserRepository alloc] initWithRemoteResource:self.rootResource];
     repository.delegate = self;
   }  
-  
-  [repository getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
+  return repository;
+}
+
+- (void)doGetUserExample
+{
+  [[self repository] getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
     NSLog(@"Got user from repository %@", user);
+  }];
+}
+
+- (void)doSearchUserExample
+{
+  [[self repository] getUsersMatching:@"luke" andYield:^(NSArray *users) {
+    NSLog(@"Got users matching 'luke' from repository %@", users);
   }];
 }
 

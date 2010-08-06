@@ -18,5 +18,7 @@
 }
 @property (nonatomic, readonly) LRRestyResource *rootResource;
 
-- (void)doRepositoryExample;
+- (GithubUserRepository *)repository;
+- (void)doGetUserExample;
+- (void)doSearchUserExample;
 @end
