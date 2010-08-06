@@ -29,7 +29,7 @@
   
   serviceStubWillServe(@"plain text response", forGetRequestTo(@"/simple/resource"));
   
-  [[resource at:@"simple/resource"] get:^(LRRestyResponse *response) {
+  [[resource at:@"simple/resource"] get:^(LRRestyResponse *response, LRRestyResource *resource) {
     receivedResponse = [response retain];
   }];
   
