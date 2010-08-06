@@ -177,9 +177,11 @@
 		A3087A30120C5324003859AC /* LRRestyResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResource.m; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3236DB6120C5BDE00001E40 /* ExamplesRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExamplesRunner-Info.plist"; sourceTree = "<group>"; };
+		A3AFE8BF120C71F4007EBC94 /* LRRestyResourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResourceDelegate.h; sourceTree = "<group>"; };
 		A3CB4B85120C6354006CADCE /* GithubCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubCredentials.h; sourceTree = "<group>"; };
 		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersViewController.h; path = ../UsersViewController.h; sourceTree = "<group>"; };
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersViewController.m; path = ../UsersViewController.m; sourceTree = "<group>"; };
+		A3EAC9FA120C6FFD00A5064C /* LRRestyClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClientDelegate.h; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F818E91208248F00E60B0B /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
@@ -360,13 +362,15 @@
 				A3F81DCA1208934600E60B0B /* LRResty.m */,
 				A3F81DCB1208934600E60B0B /* LRRestyClient.h */,
 				A3F81DCC1208934600E60B0B /* LRRestyClient.m */,
-				A3F81DCD1208934600E60B0B /* LRRestyClientResponseDelegate.h */,
 				A3087841120A58B8003859AC /* LRRestyRequest.h */,
 				A3087842120A58B8003859AC /* LRRestyRequest.m */,
 				A3F81DCE1208934600E60B0B /* LRRestyResponse.h */,
 				A3F81DCF1208934600E60B0B /* LRRestyResponse.m */,
 				A3087A2F120C5324003859AC /* LRRestyResource.h */,
 				A3087A30120C5324003859AC /* LRRestyResource.m */,
+				A3F81DCD1208934600E60B0B /* LRRestyClientResponseDelegate.h */,
+				A3AFE8BF120C71F4007EBC94 /* LRRestyResourceDelegate.h */,
+				A3EAC9FA120C6FFD00A5064C /* LRRestyClientDelegate.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -789,6 +793,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "LRResty" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,

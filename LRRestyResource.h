@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "LRRestyClient.h"
 
-@interface LRRestyResource : NSObject {
+@interface LRRestyResource : NSObject <LRRestyClientDelegate> {
   LRRestyClient *restClient;
   NSURL *URL;
 }
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
 - (LRRestyResource *)at:(NSString *)path;
 - (void)get:(LRRestyResponseBlock)responseBlock;
+- (void)setClientDelegate:(id<LRRestyClientDelegate>)clientDelegate;
 @end

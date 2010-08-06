@@ -23,10 +23,12 @@
 
 @implementation LRRestyClient
 
+@synthesize delegate = clientDelegate;
+
 - (id)init
 {
   if (self = [super init]) {
-    operationQueue = [[NSOperationQueue alloc] init];
+    operationQueue = [[NSOperationQueue alloc] init];    
     requestModifiers = [[NSMutableArray alloc] init];
   }
   return self;
@@ -93,6 +95,16 @@
 
 - (void)performRequest:(LRRestyRequest *)request;
 {
+  if ([clientDelegate respondsToSelector:@selector(restyClientWillPerformRequest:)] ){
+    [clientDelegate restyClientWillPerformRequest:self];
+  }
+
+  [request setCompletionBlock:^{
+    if ([clientDelegate respondsToSelector:@selector(restyClientDidPerformRequest:)]) {
+      [clientDelegate restyClientDidPerformRequest:self];
+    }
+  }];
+    
   for (LRRestyRequestBlock requestModifier in requestModifiers) {
     requestModifier(request);
   }

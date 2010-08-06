@@ -45,11 +45,6 @@
 
 @end
 
-@interface RemoteResourceRepository ()
-- (void)willFetchFromResource;
-- (void)didFetchFromResource;
-@end
-
 @implementation RemoteResourceRepository
 
 @synthesize delegate;
@@ -58,6 +53,7 @@
 {
   if (self = [super init]) {
     resource = [aResource retain];
+    [resource setClientDelegate:self];
   }
   return self;
 }
@@ -68,12 +64,12 @@
   [super dealloc];
 }
 
-- (void)willFetchFromResource;
+- (void)restyClientWillPerformRequest:(LRRestyClient *)resource
 {
   [self.delegate repositoryWillFetchFromResource:self];
 }
 
-- (void)didFetchFromResource;
+- (void)restyClientDidPerformRequest:(LRRestyClient *)resource
 {
   [self.delegate repositoryDidFetchFromResource:self];
 }
@@ -91,11 +87,7 @@ GithubID userIDFromString(NSString *userIDString)
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
-  [self willFetchFromResource];
-  
   [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response) {
-    [self didFetchFromResource];
-    
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
     user.fullName = [userData objectForKey:@"name"];
@@ -107,11 +99,7 @@ GithubID userIDFromString(NSString *userIDString)
 - (void)getUsersMatching:(NSString *)searchString
         andYield:(RepositoryCollectionResultBlock)resultBlock;
 {
-  [self willFetchFromResource];
-  
   [[resource at:[NSString stringWithFormat:@"user/search/%@", searchString]] get:^(LRRestyResponse *response) {
-    [self didFetchFromResource];
-
     NSMutableArray *users = [NSMutableArray array];
     for (NSDictionary *userData in [[response asJSONObject] objectForKey:@"users"]) {
       GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"username"] remoteID:userIDFromString([userData objectForKey:@"id"])];

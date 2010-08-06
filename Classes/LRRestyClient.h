@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LRRestyClientResponseDelegate.h"
+#import "LRRestyClientDelegate.h"
 
 @class LRRestyResponse;
 @class LRRestyRequest;
@@ -18,7 +19,10 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 @interface LRRestyClient : NSObject {
   NSOperationQueue *operationQueue;
   NSMutableArray *requestModifiers;
+  id<LRRestyClientDelegate> clientDelegate;
 }
+@property (nonatomic, assign) id<LRRestyClientDelegate> delegate;
+
 - (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;

@@ -11,8 +11,7 @@
 
 @implementation LRRestyResource
 
-- (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
-{
+- (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;{
   if (self = [super init]) {
     restClient = [theClient retain];
     URL = [aURL copy];
@@ -25,6 +24,11 @@
   [URL release];
   [restClient release];
   [super dealloc];
+}
+
+- (void)setClientDelegate:(id<LRRestyClientDelegate>)clientDelegate;
+{
+  restClient.delegate = clientDelegate;
 }
 
 - (LRRestyResource *)at:(NSString *)path;
