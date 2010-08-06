@@ -42,7 +42,14 @@
 
 @end
 
-@implementation GithubUserRepository
+@interface RemoteResourceRepository ()
+- (void)willFetchFromResource;
+- (void)didFetchFromResource;
+@end
+
+@implementation RemoteResourceRepository
+
+@synthesize delegate;
 
 - (id)initWithRemoteResource:(LRRestyResource *)aResource;
 {
@@ -58,10 +65,28 @@
   [super dealloc];
 }
 
+- (void)willFetchFromResource;
+{
+  [self.delegate repositoryWillFetchFromResource:self];
+}
+
+- (void)didFetchFromResource;
+{
+  [self.delegate repositoryDidFetchFromResource:self];
+}
+
+@end
+
+@implementation GithubUserRepository
+
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;
 {
+  [self willFetchFromResource];
+  
   [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response) {
+    [self didFetchFromResource];
+    
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
     resultBlock(user);

@@ -22,13 +22,28 @@ typedef NSUInteger GithubID;
 typedef void (^RepositoryCollectionResultBlock)(NSArray *collection);
 typedef void (^GithubUserRepositoryResultBlock)(GithubUser *user);
 
+@class RemoteResourceRepository;
+
+@protocol RemoteResourceRepositoryDelegate <NSObject>
+@optional
+- (void)repositoryWillFetchFromResource:(RemoteResourceRepository *)repository;
+- (void)repositoryDidFetchFromResource:(RemoteResourceRepository *)repository;
+@end
+
 @class LRRestyResource;
 
-@interface GithubUserRepository : NSObject
+@interface RemoteResourceRepository : NSObject 
 {
   LRRestyResource *resource;
+  id<RemoteResourceRepositoryDelegate> delegate;
 }
+@property (nonatomic, assign) id<RemoteResourceRepositoryDelegate> delegate;
+
 - (id)initWithRemoteResource:(LRRestyResource *)aResource;
+@end
+
+@interface GithubUserRepository : RemoteResourceRepository
+{}
 
 - (void)getUserWithUsername:(NSString *)username 
         andYield:(GithubUserRepositoryResultBlock)resultBlock;

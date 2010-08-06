@@ -7,7 +7,6 @@
 //
 
 #import "ExamplesViewController.h"
-#import "RemoteRepositoryExample.h"
 #import "LRResty.h"
 
 @implementation ExamplesViewController
@@ -80,11 +79,26 @@
 
 - (void)doRepositoryExample
 {
-  GithubUserRepository *repository = [[GithubUserRepository alloc] initWithRemoteResource:self.rootResource];
+  if (repository == nil) {
+    repository = [[GithubUserRepository alloc] initWithRemoteResource:self.rootResource];
+    repository.delegate = self;
+  }  
   
   [repository getUserWithUsername:@"lukeredpath" andYield:^(GithubUser *user) {
     NSLog(@"Got user from repository %@", user);
   }];
+}
+
+#pragma mark RemoteResourceRepositoryDelegate methods
+
+- (void)repositoryWillFetchFromResource:(RemoteResourceRepository *)repository
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+- (void)repositoryDidFetchFromResource:(RemoteResourceRepository *)repository
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 @end
