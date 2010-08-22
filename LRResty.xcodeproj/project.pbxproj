@@ -45,6 +45,8 @@
 		A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
 		A3236DDF120C5C3400001E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
 		A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
+		A32CA46C1221EB7600BBE14A /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A32CA46A1221EB7600BBE14A /* NSData+Base64.h */; };
+		A32CA46D1221EB7600BBE14A /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A32CA46B1221EB7600BBE14A /* NSData+Base64.m */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
@@ -178,6 +180,8 @@
 		A3087A30120C5324003859AC /* LRRestyResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResource.m; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3236DB6120C5BDE00001E40 /* ExamplesRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExamplesRunner-Info.plist"; sourceTree = "<group>"; };
+		A32CA46A1221EB7600BBE14A /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		A32CA46B1221EB7600BBE14A /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		A3AFE943120C7DD5007EBC94 /* LRRestyResourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResourceDelegate.h; sourceTree = "<group>"; };
 		A3AFE9AD120C8916007EBC94 /* GithubAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubAPI.h; sourceTree = "<group>"; };
 		A3AFE9AE120C8916007EBC94 /* GithubAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubAPI.m; sourceTree = "<group>"; };
@@ -695,6 +699,8 @@
 		A3F81D36120889F900E60B0B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A32CA46A1221EB7600BBE14A /* NSData+Base64.h */,
+				A32CA46B1221EB7600BBE14A /* NSData+Base64.m */,
 				A3F81D3712088A0700E60B0B /* NSDictionary+QueryString.h */,
 				A3F81D3812088A0700E60B0B /* NSDictionary+QueryString.m */,
 				A3F81D3912088A0700E60B0B /* NSString+QueryString.h */,
@@ -729,6 +735,7 @@
 				A308784B120A58C8003859AC /* LRRestyRequestPayload.h in Headers */,
 				A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */,
 				A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */,
+				A32CA46C1221EB7600BBE14A /* NSData+Base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +805,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "LRResty" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -975,6 +981,7 @@
 				A3087852120A58D3003859AC /* LRRestyClientBlockDelegate.m in Sources */,
 				A3087A06120C50DD003859AC /* NSObject+Tap.m in Sources */,
 				A3087A44120C5526003859AC /* LRRestyResource.m in Sources */,
+				A32CA46D1221EB7600BBE14A /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

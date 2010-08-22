@@ -10,6 +10,7 @@
 #import "LRRestyResponse.h"
 #import "LRRestyClient.h"
 #import "NSDictionary+QueryString.h"
+#import "NSData+Base64.h"
 
 @implementation LRRestyRequest
 
@@ -83,9 +84,14 @@
   [URLRequest setHTTPShouldHandleCookies:shouldHandleCookies];
 }
 
-- (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password;
+- (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password useCredentialSystem:(BOOL)useCredential;
 {
-  credential = [[NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone] retain];
+  if (useCredential) {
+    credential = [[NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone] retain];
+  } else {
+    NSData *credentialData = [[NSString stringWithFormat:@"%@:%@", username, password] dataUsingEncoding:NSUTF8StringEncoding];
+    [self addHeader:@"Authorization" value:[NSString stringWithFormat:@"Basic %@", [credentialData base64EncodedString]]];
+  }
 }
 
 #pragma mark -

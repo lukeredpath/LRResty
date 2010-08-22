@@ -78,7 +78,7 @@
 - (void)setUsername:(NSString *)username password:(NSString *)password;
 {
   [self attachRequestModifier:^(LRRestyRequest *request) {
-    [request setBasicAuthUsername:username password:password];
+    [request setBasicAuthUsername:username password:password useCredentialSystem:NO];
   }];
 }
 

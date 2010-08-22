@@ -39,5 +39,5 @@
 - (void)setPostData:(NSData *)data;
 - (void)setPayload:(id<LRRestyRequestPayload>)thePayload;
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
-- (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password;
+- (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password useCredentialSystem:(BOOL)useCredential;
 @end
