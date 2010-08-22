@@ -36,6 +36,7 @@
 
 - (void)dealloc
 {
+  Block_release(errorHandlerBlock);
   [requestModifiers release];
   [operationQueue release];
   [super dealloc];
@@ -82,6 +83,12 @@
   }];
 }
 
+- (void)setErrorHandlerBlock:(LRRestyErrorHandlerBlock)block;
+{
+  Block_release(errorHandlerBlock);
+  errorHandlerBlock = Block_copy(block);
+}
+
 #pragma mark -
 #pragma mark Private
 
@@ -115,19 +122,24 @@
 
 @implementation LRRestyClient (Blocks)
 
+- (LRRestyClientBlockDelegate *)delegateForBlock:(LRRestyResponseBlock)block;
+{
+  return [LRRestyClientBlockDelegate delegateWithBlock:block errorHandler:errorHandlerBlock];
+}
+
 - (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  [self getURL:url parameters:parameters headers:headers delegate:[self delegateForBlock:block]];
 }
 
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self postURL:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  [self postURL:url payload:payload headers:headers delegate:[self delegateForBlock:block]];
 }
 
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self putURL:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  [self putURL:url payload:payload headers:headers delegate:[self delegateForBlock:block]];
 }
 
 @end

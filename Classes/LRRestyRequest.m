@@ -13,7 +13,6 @@
 
 @implementation LRRestyRequest
 
-@synthesize connectionError;
 @synthesize responseData;
 @synthesize response;
 
@@ -176,8 +175,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-  self.connectionError = error;
-  
+  [delegate restClient:client failedWithError:error];
   [self setFinished:YES];
 }
 

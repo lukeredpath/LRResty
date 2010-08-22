@@ -45,6 +45,7 @@
 		A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
 		A3236DDF120C5C3400001E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
 		A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
+		A32CA3B412219AAD00BBE14A /* ErrorHandlingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A32CA3B312219AAD00BBE14A /* ErrorHandlingTests.m */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
@@ -178,6 +179,7 @@
 		A3087A30120C5324003859AC /* LRRestyResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResource.m; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3236DB6120C5BDE00001E40 /* ExamplesRunner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExamplesRunner-Info.plist"; sourceTree = "<group>"; };
+		A32CA3B312219AAD00BBE14A /* ErrorHandlingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHandlingTests.m; sourceTree = "<group>"; };
 		A3AFE943120C7DD5007EBC94 /* LRRestyResourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResourceDelegate.h; sourceTree = "<group>"; };
 		A3AFE9AD120C8916007EBC94 /* GithubAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubAPI.h; sourceTree = "<group>"; };
 		A3AFE9AE120C8916007EBC94 /* GithubAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubAPI.m; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				A308776B120A48F0003859AC /* CookieHandlingTests.m */,
 				A30877E2120A522D003859AC /* AuthenticationTests.m */,
 				A3087A28120C524B003859AC /* ResourceTests.m */,
+				A32CA3B312219AAD00BBE14A /* ErrorHandlingTests.m */,
 			);
 			path = Acceptance;
 			sourceTree = "<group>";
@@ -798,7 +801,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "LRResty" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
@@ -954,6 +956,7 @@
 				A308776C120A48F0003859AC /* CookieHandlingTests.m in Sources */,
 				A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */,
 				A3087A2C120C52D3003859AC /* ResourceTests.m in Sources */,
+				A32CA3B412219AAD00BBE14A /* ErrorHandlingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,21 +11,23 @@
 
 @implementation LRRestyClientBlockDelegate
 
-+ (id)delegateWithBlock:(LRRestyResponseBlock)block;
++ (id)delegateWithBlock:(LRRestyResponseBlock)block errorHandler:(LRRestyErrorHandlerBlock)errorHandler;
 {
-  return [[[self alloc] initWithBlock:block] autorelease];
+  return [[[self alloc] initWithBlock:block errorHandler:errorHandler] autorelease];
 }
 
-- (id)initWithBlock:(LRRestyResponseBlock)theBlock;
+- (id)initWithBlock:(LRRestyResponseBlock)theBlock errorHandler:(LRRestyErrorHandlerBlock)errorBlock;
 {
   if (self = [super init]) {
     block = Block_copy(theBlock);
+    errorHandlerBlock = Block_copy(errorBlock);
   }
   return self;
 }
 
 - (void)dealloc
 {
+  Block_release(errorHandlerBlock);
   Block_release(block);
   [super dealloc];
 }
@@ -33,6 +35,11 @@
 - (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response
 {
   block(response);
+}
+
+- (void)restClient:(LRRestyClient *)client failedWithError:(NSError *)error
+{
+  errorHandlerBlock(error);
 }
 
 @end

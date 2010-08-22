@@ -19,14 +19,12 @@
   id<LRRestyClientResponseDelegate> delegate;
   BOOL _isExecuting;
   BOOL _isFinished;
-  NSError *connectionError;
   NSMutableData *responseData;
   NSHTTPURLResponse *response;
   NSURLCredential *credential;
 }
 @property (nonatomic, retain) NSHTTPURLResponse *response;
 @property (nonatomic, retain) NSData *responseData;
-@property (nonatomic, retain) NSError *connectionError;
 @property (nonatomic, readonly) NSURL *URL;
 
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientResponseDelegate>)theDelegate;
