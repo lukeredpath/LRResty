@@ -75,6 +75,8 @@
     for (NSString *nestedKey in object) {
       [self formEncodeObject:[object objectForKey:nestedKey] usingKey:objectKey subKey:nestedKey intoArray:array];
     } 
+  } else {
+    [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [[object description] stringByEscapingForURLQuery]]];
   }
 }
 

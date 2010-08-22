@@ -99,9 +99,23 @@
      withBlock:^(LRRestyResponse *response) {
        
      receivedResponse = [response retain];
-   }];
-  
+  }];
+
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
+}
+
+- (void)testCanPostToResourceWithFormEncodedDataContainingNumbers
+{
+  __block LRRestyResponse *receivedResponse = nil;
+  
+  [client post:resourceWithPath(@"/simple/form_handler") 
+       payload:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"number"]
+     withBlock:^(LRRestyResponse *response) {
+       
+       receivedResponse = [response retain];
+  }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"number\"=>\"123\"}")));
 }
 
 - (void)tearDown

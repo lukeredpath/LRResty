@@ -62,4 +62,10 @@
   assertThat(encodedString, equalTo(@"nested+object[qux+baz]=baz+foo"));
 }
 
+- (void)testCanEncodeNonStringObjectsByEncodingTheirDescription
+{
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"foo"] stringWithFormEncodedComponents];
+  assertThat(encodedString, equalTo(@"foo=123"));
+}
+
 @end
