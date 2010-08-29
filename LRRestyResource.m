@@ -79,4 +79,14 @@
   }];
 }
 
+// forward other methods to the client
+
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+  if ([restClient respondsToSelector:aSelector]) {
+    return restClient;
+  }
+  return nil;
+}
+
 @end
