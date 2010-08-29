@@ -24,4 +24,5 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
 - (LRRestyResource *)at:(NSString *)path;
 - (void)get:(LRRestyResourceResponseBlock)responseBlock;
+- (void)post:(LRRestyResourceResponseBlock)responseBlock;
 @end
