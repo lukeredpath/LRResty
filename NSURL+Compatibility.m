@@ -13,12 +13,17 @@
 - (NSURL *)URLByAppendingPathComponent:(NSString *)component;
 {
   NSString *newString;
+  
+  NSString *existingPath = [self path];
+  if ([existingPath isEqualToString:@""]) {
+    existingPath = @"/";
+  }  
   if ([self port] > 0) {
-   newString = [NSString stringWithFormat:@"%@://%@:%@/%@", 
-        [self scheme], [self host], [self port], [[self path] stringByAppendingPathComponent:component]]; 
+    newString = [NSString stringWithFormat:@"%@://%@:%@%@", 
+        [self scheme], [self host], [self port], [existingPath stringByAppendingPathComponent:component]]; 
   } else {
-   newString = [NSString stringWithFormat:@"%@://%@/%@", 
-        [self scheme], [self host], [[self path] stringByAppendingPathComponent:component]];
+    newString = [NSString stringWithFormat:@"%@://%@%@", 
+        [self scheme], [self host], [existingPath stringByAppendingPathComponent:component]];
   }
   return [NSURL URLWithString:newString];
 }

@@ -123,6 +123,7 @@
 		A38AF4EF1229E9000001D038 /* HCSubstringMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EC1208419300E60B0B /* HCSubstringMatcher.mm */; };
 		A38AF4F11229E9000001D038 /* HCWrapInMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */; };
 		A38AF4F31229E9000001D038 /* NSObject_HCSelfDescribingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */; };
+		A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
@@ -269,6 +270,7 @@
 		A3702EED1229E73D00A2C962 /* Compatibility Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Compatibility Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3702EEE1229E73D00A2C962 /* Compatibility Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compatibility Tests-Info.plist"; sourceTree = "<group>"; };
 		A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCompatibilityTests.m; sourceTree = "<group>"; };
+		A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResourceTest.m; sourceTree = "<group>"; };
 		A3AFE943120C7DD5007EBC94 /* LRRestyResourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResourceDelegate.h; sourceTree = "<group>"; };
 		A3AFE9AD120C8916007EBC94 /* GithubAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubAPI.h; sourceTree = "<group>"; };
 		A3AFE9AE120C8916007EBC94 /* GithubAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubAPI.m; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 			children = (
 				A308758D1209E37B003859AC /* FormEncodedStringTest.m */,
 				A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */,
+				A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */,
 			);
 			path = "Unit Tests";
 			sourceTree = "<group>";
@@ -1234,6 +1237,7 @@
 				A308776C120A48F0003859AC /* CookieHandlingTests.m in Sources */,
 				A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */,
 				A3087A2C120C52D3003859AC /* ResourceTests.m in Sources */,
+				A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

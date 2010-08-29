@@ -28,4 +28,11 @@
   assertThat([[URL URLByAppendingPathComponent:@"foo"] absoluteString], equalTo(@"http://www.example.com:80/foo"));
 }
 
+- (void)testURLByAppendingPathTwice
+{
+  NSURL *URL = [NSURL URLWithString:@"http://www.example.com"];
+  NSURL *subURL = [URL URLByAppendingPathComponent:@"foo"];
+  assertThat([[subURL URLByAppendingPathComponent:@"bar"] absoluteString], equalTo(@"http://www.example.com/foo/bar"));
+}
+
 @end
