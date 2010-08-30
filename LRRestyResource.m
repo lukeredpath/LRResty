@@ -89,9 +89,9 @@
   return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByDeletingPathExtension]] autorelease];
 }
 
-- (void)get:(LRRestyResourceResponseBlock)responseBlock;
+- (LRRestyRequest *)get:(LRRestyResourceResponseBlock)responseBlock;
 {
-  [restClient getURL:URL parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
+  return [restClient getURL:URL parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
     responseBlock(response, self);
   }];
 }
@@ -124,9 +124,9 @@
 
 @implementation LRRestyResource (Streaming)
 
-- (void)getStream:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
+- (LRRestyRequest *)getStream:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 {
-  [restClient getURL:URL parameters:nil headers:nil onData:dataHandler onError:errorHandler];
+  return [restClient getURL:URL parameters:nil headers:nil onData:dataHandler onError:errorHandler];
 }
 
 @end

@@ -17,7 +17,7 @@
 
 @interface LRRestyClient ()
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
-- (void)performRequest:(LRRestyRequest *)request;
+- (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
 @end
 
 #pragma mark -
@@ -45,11 +45,11 @@
 #pragma mark -
 #pragma mark Core API
 
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers delegate:delegate];
   [request setQueryParameters:parameters];
-  [self performRequest:request];
+  return [self performRequest:request];
 }
 
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
@@ -94,7 +94,7 @@
   return [request autorelease];
 }
 
-- (void)performRequest:(LRRestyRequest *)request;
+- (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
 {
   if ([clientDelegate respondsToSelector:@selector(restyClientWillPerformRequest:)] ){
     [clientDelegate restyClientWillPerformRequest:self];
@@ -110,15 +110,17 @@
     requestModifier(request);
   }
   [operationQueue addOperation:request];
+  
+  return request;
 }
 
 @end
 
 @implementation LRRestyClient (Blocks)
 
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  return [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
@@ -135,10 +137,10 @@
 
 @implementation LRRestyClient (Streaming)
 
-- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
+- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
         onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 {
-  [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
+  return [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
 }
 
 @end
