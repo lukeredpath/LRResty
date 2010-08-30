@@ -129,6 +129,7 @@
 		A38AF8F6122B9F140001D038 /* LRRestyStreamingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF8F4122B9F140001D038 /* LRRestyStreamingClient.m */; };
 		A38AF960122BA5A40001D038 /* TwitterCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = A38AF95F122BA5A40001D038 /* TwitterCredentials.h */; };
 		A38AF96A122BA6590001D038 /* HCBlockMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF969122BA6590001D038 /* HCBlockMatcher.m */; };
+		A38AF9CB122BAB870001D038 /* LRRestyStreamingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF8F4122B9F140001D038 /* LRRestyStreamingClient.m */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
@@ -1166,6 +1167,7 @@
 				A332B0431229CEB900B8F201 /* NSData+Base64.m in Sources */,
 				A3702D141229DB3A00A2C962 /* NSURL+Compatibility.m in Sources */,
 				A3702D341229DCCD00A2C962 /* NSOperation+Compatibility.m in Sources */,
+				A38AF9CB122BAB870001D038 /* LRRestyStreamingClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
