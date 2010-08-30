@@ -42,3 +42,13 @@
 }
 
 @end
+
+@implementation LRRestyClient (GET_Streaming)
+
+- (void)get:(NSString *)urlString onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
+{
+  [self getURL:[NSURL URLWithString:urlString] parameters:nil headers:nil onData:dataHandler onError:errorHandler];
+}
+
+@end
+

@@ -7,6 +7,7 @@
 //
 
 #import "LRRestyClient.h"
+#import "LRRestyTypes.h"
 
 @interface LRRestyClient (GET)
 - (void)get:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
@@ -15,4 +16,8 @@
 - (void)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+@end
+
+@interface LRRestyClient (GET_Streaming)
+- (void)get:(NSString *)urlString onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 @end

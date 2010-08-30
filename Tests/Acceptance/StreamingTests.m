@@ -31,7 +31,7 @@
   __block NSMutableData *responseData = [NSMutableData data];
   __block NSString *responseBody = nil;
   
-  [client getURL:[NSURL URLWithString:resourceWithPath(@"/simple/streaming")] parameters:nil headers:nil
+  [client get:resourceWithPath(@"/simple/streaming")
     onData:^(NSData *chunk, BOOL *cancel) {
       if (chunk) {
         [responseData appendData:chunk];
@@ -50,7 +50,7 @@
   
   [client setUsername:TwitterUsername password:TwitterPassword];
   
-  [client getURL:[NSURL URLWithString:@"http://stream.twitter.com/1/statuses/sample.json"] parameters:nil headers:nil
+  [client get:@"http://stream.twitter.com/1/statuses/sample.json"
     onData:^(NSData *chunk, BOOL *cancel) {
       if (chunk) {
         [chunks addObject:chunk];
@@ -74,7 +74,7 @@
 {
   __block NSError *streamError = nil;
   
-  [client getURL:[NSURL URLWithString:resourceWithPath(@"/simple/unknown")] parameters:nil headers:nil
+  [client get:resourceWithPath(@"/simple/unknown")
       onData:^(NSData *chunk, BOOL *cancel) {}
       onError:^(NSError *error) {
         streamError = [error retain];
