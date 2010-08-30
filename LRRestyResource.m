@@ -98,6 +98,13 @@
   }];
 }
 
+- (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
+{
+  [restClient postURL:URL payload:payload headers:nil withBlock:^(LRRestyResponse *response){
+    responseBlock(response, self);
+  }];
+}
+
 // forward other methods to the client
 
 - (id)forwardingTargetForSelector:(SEL)aSelector

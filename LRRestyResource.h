@@ -27,4 +27,5 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
 - (void)get:(LRRestyResourceResponseBlock)responseBlock;
 - (void)getStream:(LRRestyStreamResponseHandler)responseHandler onData:(LRRestyStreamDataHandler)dataHandler;
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
+- (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
 @end
