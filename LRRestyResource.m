@@ -96,11 +96,11 @@
   }];
 }
 
-- (void)getStream:(LRRestyStreamResponseHandler)responseHandler onData:(LRRestyStreamDataHandler)dataHandler;
+- (void)getStream:(LRRestyStreamHandler)dataHandler;
 {
   LRRestyStreamingClient *client = [[restClient streamingClient] retain];
-  [client get:[URL absoluteString] onResponse:responseHandler onData:^(LRRestyResponse *response, NSData *chunk, BOOL *cancel) {
-    dataHandler(response, chunk, cancel);
+  [client get:[URL absoluteString] onData:^(NSData *chunk, BOOL *cancel) {
+    dataHandler(chunk, cancel);
     
     if (*cancel == YES) {
       [client autorelease];

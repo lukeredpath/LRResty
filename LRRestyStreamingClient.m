@@ -27,7 +27,7 @@
   [super dealloc];
 }
 
-- (void)get:(NSString *)path receive:(LRRestyStreamHandler)block;
+- (void)get:(NSString *)path onData:(LRRestyStreamHandler)block;
 {
   LRRestyStreamingRequestHandler *handler = [[LRRestyStreamingRequestHandler alloc] initWithStreamingClient:self handler:block];
   [requestHandlers addObject:handler];
@@ -69,14 +69,11 @@
 }
 
 - (void)restClient:(LRRestyClient *)_client receivedResponse:(LRRestyResponse *)response;
-{
-  handler(response, nil, &shouldCancel);
-  [client requestFinished:self];
-}
+{}
 
 - (void)restClient:(LRRestyClient *)_client request:(LRRestyRequest *)request receivedData:(NSData *)data;
 {
-  handler(nil, data, &shouldCancel);
+  handler(data, &shouldCancel);
 
   if (shouldCancel) {
     [request cancel];

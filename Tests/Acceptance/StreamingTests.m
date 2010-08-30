@@ -31,7 +31,7 @@
   __block NSMutableData *responseData = [NSMutableData data];
   __block NSString *responseBody = nil;
   
-  [client get:resourceWithPath(@"/simple/streaming") receive:^(LRRestyResponse *response, NSData *chunk, BOOL *cancel) {
+  [client get:resourceWithPath(@"/simple/streaming") onData:^(NSData *chunk, BOOL *cancel) {
     if (chunk) {
       [responseData appendData:chunk];
       responseBody = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
@@ -44,16 +44,12 @@
 - (void)testCancellationUsingTwitterStream;
 {
   NSMutableArray *chunks = [NSMutableArray array];
-  __block LRRestyResponse *streamResponse = nil;
   
   [(LRRestyClient *)client setUsername:TwitterUsername password:TwitterPassword];
   
-  [client get:@"http://stream.twitter.com/1/statuses/sample.json" receive:^(LRRestyResponse *response, NSData *chunk, BOOL *cancel) {
+  [client get:@"http://stream.twitter.com/1/statuses/sample.json" onData:^(NSData *chunk, BOOL *cancel) {
     if (chunk) {
       [chunks addObject:chunk];
-    }
-    if (response) {
-      streamResponse = [response retain];
     }
     if (chunks.count == 5) {
       *cancel = YES;
@@ -66,13 +62,6 @@
   waitForInterval(0.5);
   
   assertThatInt(chunks.count, equalToInt(5)); // check it hasn't changed
-  assertThat(streamResponse, is(responseWithStatus(200)));
-  
-  NSMutableData *collectedData = [NSMutableData data];
-  for (NSData *chunk in chunks) {
-    [collectedData appendData:chunk];
-  }
-  assertThat(collectedData, equalTo(streamResponse.responseData));
 }
 
 @end

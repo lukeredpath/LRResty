@@ -28,7 +28,7 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
 - (LRRestyResource *)on:(NSString *)host secure:(BOOL)isSecure;
 - (LRRestyResource *)withoutPathExtension;
 - (void)get:(LRRestyResourceResponseBlock)responseBlock;
-- (void)getStream:(LRRestyStreamResponseHandler)responseHandler onData:(LRRestyStreamDataHandler)dataHandler;
+- (void)getStream:(LRRestyStreamHandler)dataHandler;
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 - (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
 @end

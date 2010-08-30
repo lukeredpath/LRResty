@@ -12,14 +12,14 @@
 @class LRRestyResponse;
 @class LRRestyStreamingRequestHandler;
 
-typedef void (^LRRestyStreamHandler)(LRRestyResponse *response, NSData *chunk, BOOL *cancel);
+typedef void (^LRRestyStreamHandler)(NSData *chunk, BOOL *cancel);
 
 @interface LRRestyStreamingClient : NSObject {
   LRRestyClient *client;
   NSMutableArray *requestHandlers;
 }
 - (id)initWithClient:(LRRestyClient *)theClient;
-- (void)get:(NSString *)path receive:(LRRestyStreamHandler)block;
+- (void)get:(NSString *)path onData:(LRRestyStreamHandler)block;
 - (void)requestFinished:(LRRestyStreamingRequestHandler *)handler;
 @end
 
