@@ -35,4 +35,10 @@
   assertThat([[subURL URLByAppendingPathComponent:@"bar"] absoluteString], equalTo(@"http://www.example.com/foo/bar"));
 }
 
+- (void)testURLByDeletingPathExtension
+{
+  NSURL *URL = [NSURL URLWithString:@"http://www.example.com/foo.json"];
+  assertThat([[URL URLByDeletingPathExtension] absoluteString], equalTo(@"http://www.example.com/foo"));
+}
+
 @end

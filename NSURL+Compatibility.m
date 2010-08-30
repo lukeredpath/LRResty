@@ -28,4 +28,9 @@
   return [NSURL URLWithString:newString];
 }
 
+- (NSURL *)URLByDeletingPathExtension
+{
+  return [[[NSURL alloc] initWithScheme:[self scheme] host:[self host] path:[[self path] stringByDeletingPathExtension]] autorelease];
+}
+
 @end

@@ -67,9 +67,26 @@
   }  
 }
 
+- (LRRestyResource *)on:(NSString *)host
+{
+  return [self on:host secure:NO];
+}
+
+- (LRRestyResource *)on:(NSString *)host secure:(BOOL)isSecure;
+{
+  NSString *scheme = isSecure ? @"https" : @"http";
+  NSURL *newURL = [[[NSURL alloc] initWithScheme:scheme host:host path:[URL relativePath]] autorelease];
+  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:newURL] autorelease];
+}
+
 - (LRRestyResource *)at:(NSString *)path;
 {
   return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByAppendingPathComponent:path] parent:self] autorelease];
+}
+
+- (LRRestyResource *)withoutPathExtension;
+{
+  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByDeletingPathExtension]] autorelease];
 }
 
 - (void)get:(LRRestyResourceResponseBlock)responseBlock;
