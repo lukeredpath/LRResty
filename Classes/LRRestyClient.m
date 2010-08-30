@@ -12,8 +12,8 @@
 #import "LRRestyRequest.h"
 #import "NSDictionary+QueryString.h"
 #import "LRRestyClientBlockDelegate.h"
+#import "LRRestyClientStreamingDelegate.h"
 #import "LRRestyRequestPayload.h"
-#import "LRRestyStreamingClient.h"
 
 @interface LRRestyClient ()
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
@@ -83,11 +83,6 @@
   }];
 }
 
-- (LRRestyStreamingClient *)streamingClient;
-{
-  return [[[LRRestyStreamingClient alloc] initWithClient:self] autorelease];
-}
-
 #pragma mark -
 #pragma mark Private
 
@@ -137,3 +132,14 @@
 }
 
 @end
+
+@implementation LRRestyClient (Streaming)
+
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
+        onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
+{
+  [self getURL:url parameters:parameters headers:headers delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
+}
+
+@end
+

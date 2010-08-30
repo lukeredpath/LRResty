@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyClientDelegate.h"
+#import "LRRestyTypes.h"
 
 @class LRRestyResponse;
 @class LRRestyRequest;
-@class LRRestyStreamingClient;
 
 typedef void (^LRRestyResponseBlock)(LRRestyResponse *response);
 typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
@@ -30,7 +30,6 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
 - (void)setUsername:(NSString *)username password:(NSString *)password;
-- (LRRestyStreamingClient *)streamingClient;
 @end
 
 @interface LRRestyClient (Blocks)
@@ -39,3 +38,7 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 @end
 
+@interface LRRestyClient (Streaming)
+- (void)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
+        onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
+@end

@@ -96,18 +96,6 @@
   }];
 }
 
-- (void)getStream:(LRRestyStreamHandler)dataHandler;
-{
-  LRRestyStreamingClient *client = [[restClient streamingClient] retain];
-  [client get:[URL absoluteString] onData:^(NSData *chunk, BOOL *cancel) {
-    dataHandler(chunk, cancel);
-    
-    if (*cancel == YES) {
-      [client autorelease];
-    }
-  }];
-}
-
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 {
   [restClient postURL:URL payload:nil headers:nil withBlock:^(LRRestyResponse *response){
@@ -133,3 +121,13 @@
 }
 
 @end
+
+@implementation LRRestyResource (Streaming)
+
+- (void)getStream:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
+{
+  [restClient getURL:URL parameters:nil headers:nil onData:dataHandler onError:errorHandler];
+}
+
+@end
+

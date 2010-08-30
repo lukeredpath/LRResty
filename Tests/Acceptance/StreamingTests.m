@@ -13,7 +13,7 @@
 
 @interface StreamingTests : SenTestCase
 {
-  LRRestyStreamingClient *client;
+  LRRestyClient *client;
 }
 @end
 
@@ -21,7 +21,7 @@
 
 - (void)setUp
 {
-  client = [[[LRResty client] streamingClient] retain];
+  client = [[LRResty client] retain];
 }
 
 - (void)testCanPerformGetRequestAndStreamResponse
@@ -31,12 +31,15 @@
   __block NSMutableData *responseData = [NSMutableData data];
   __block NSString *responseBody = nil;
   
-  [client get:resourceWithPath(@"/simple/streaming") onData:^(NSData *chunk, BOOL *cancel) {
-    if (chunk) {
-      [responseData appendData:chunk];
-      responseBody = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+  [client getURL:[NSURL URLWithString:resourceWithPath(@"/simple/streaming")] parameters:nil headers:nil
+    onData:^(NSData *chunk, BOOL *cancel) {
+      if (chunk) {
+        [responseData appendData:chunk];
+        responseBody = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+      }
     }
-  }];
+    onError:^(NSError *error) {}
+  ];
   
   assertEventuallyThat(&responseBody, equalTo(@"the\nquick\nbrown\nfox\njumped\nover\nthe\nlazy\ndog\n"));
 }
@@ -45,16 +48,19 @@
 {
   NSMutableArray *chunks = [NSMutableArray array];
   
-  [(LRRestyClient *)client setUsername:TwitterUsername password:TwitterPassword];
+  [client setUsername:TwitterUsername password:TwitterPassword];
   
-  [client get:@"http://stream.twitter.com/1/statuses/sample.json" onData:^(NSData *chunk, BOOL *cancel) {
-    if (chunk) {
-      [chunks addObject:chunk];
+  [client getURL:[NSURL URLWithString:@"http://stream.twitter.com/1/statuses/sample.json"] parameters:nil headers:nil
+    onData:^(NSData *chunk, BOOL *cancel) {
+      if (chunk) {
+        [chunks addObject:chunk];
+      }
+      if (chunks.count == 5) {
+        *cancel = YES;
+      }
     }
-    if (chunks.count == 5) {
-      *cancel = YES;
-    }
-  }];
+    onError:^(NSError *error) {}
+  ];
   
   assertEventuallyThatWithTimeout(&chunks, satisfiesBlock(@"has 5 objects", ^(id object) {
     return (BOOL)([(NSArray *)object count] == 5);
@@ -62,6 +68,20 @@
   waitForInterval(0.5);
   
   assertThatInt(chunks.count, equalToInt(5)); // check it hasn't changed
+}
+
+- (void)testNotifiesConnectionErrors
+{
+  __block NSError *streamError = nil;
+  
+  [client getURL:[NSURL URLWithString:resourceWithPath(@"/simple/unknown")] parameters:nil headers:nil
+      onData:^(NSData *chunk, BOOL *cancel) {}
+      onError:^(NSError *error) {
+        streamError = [error retain];
+      }
+  ];
+  
+  assertEventuallyThat(&streamError, isNot(nilValue()));
 }
 
 @end
