@@ -14,6 +14,7 @@
 #import "LRRestyResponse.h"
 #import "LRRestyRequest.h"
 #import "LRRestyResource.h"
+#import "LRRestyStreamingClient.h"
 
 @interface LRResty : NSObject {
 

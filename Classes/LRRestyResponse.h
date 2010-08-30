@@ -16,6 +16,8 @@
   NSDictionary *headers;
   NSDictionary *cookies;
 }
+@property (nonatomic, readonly) NSData *responseData;
+
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 - (NSUInteger)status;
 - (NSString *)asString;

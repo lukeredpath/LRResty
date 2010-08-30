@@ -20,6 +20,8 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 
 @implementation LRRestyResponse
 
+@synthesize responseData;
+
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 {
   if (self = [super init]) {

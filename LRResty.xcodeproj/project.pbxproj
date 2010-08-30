@@ -124,6 +124,11 @@
 		A38AF4F11229E9000001D038 /* HCWrapInMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */; };
 		A38AF4F31229E9000001D038 /* NSObject_HCSelfDescribingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */; };
 		A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */; };
+		A38AF8EA122B972D0001D038 /* StreamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF8E9122B972D0001D038 /* StreamingTests.m */; };
+		A38AF8F5122B9F140001D038 /* LRRestyStreamingClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A38AF8F3122B9F140001D038 /* LRRestyStreamingClient.h */; };
+		A38AF8F6122B9F140001D038 /* LRRestyStreamingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF8F4122B9F140001D038 /* LRRestyStreamingClient.m */; };
+		A38AF960122BA5A40001D038 /* TwitterCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = A38AF95F122BA5A40001D038 /* TwitterCredentials.h */; };
+		A38AF96A122BA6590001D038 /* HCBlockMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF969122BA6590001D038 /* HCBlockMatcher.m */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
@@ -271,6 +276,12 @@
 		A3702EEE1229E73D00A2C962 /* Compatibility Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Compatibility Tests-Info.plist"; sourceTree = "<group>"; };
 		A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCompatibilityTests.m; sourceTree = "<group>"; };
 		A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResourceTest.m; sourceTree = "<group>"; };
+		A38AF8E9122B972D0001D038 /* StreamingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamingTests.m; sourceTree = "<group>"; };
+		A38AF8F3122B9F140001D038 /* LRRestyStreamingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyStreamingClient.h; sourceTree = "<group>"; };
+		A38AF8F4122B9F140001D038 /* LRRestyStreamingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyStreamingClient.m; sourceTree = "<group>"; };
+		A38AF95F122BA5A40001D038 /* TwitterCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterCredentials.h; sourceTree = "<group>"; };
+		A38AF968122BA6590001D038 /* HCBlockMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBlockMatcher.h; sourceTree = "<group>"; };
+		A38AF969122BA6590001D038 /* HCBlockMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBlockMatcher.m; sourceTree = "<group>"; };
 		A3AFE943120C7DD5007EBC94 /* LRRestyResourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResourceDelegate.h; sourceTree = "<group>"; };
 		A3AFE9AD120C8916007EBC94 /* GithubAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubAPI.h; sourceTree = "<group>"; };
 		A3AFE9AE120C8916007EBC94 /* GithubAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubAPI.m; sourceTree = "<group>"; };
@@ -488,6 +499,8 @@
 				A3F81DCD1208934600E60B0B /* LRRestyClientResponseDelegate.h */,
 				A3AFE943120C7DD5007EBC94 /* LRRestyResourceDelegate.h */,
 				A3EAC9FA120C6FFD00A5064C /* LRRestyClientDelegate.h */,
+				A38AF8F3122B9F140001D038 /* LRRestyStreamingClient.h */,
+				A38AF8F4122B9F140001D038 /* LRRestyStreamingClient.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -498,6 +511,7 @@
 				A3CB4B85120C6354006CADCE /* GithubCredentials.h */,
 				AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */,
 				A3702E101229E27000A2C962 /* Tests_Prefix.pch */,
+				A38AF95F122BA5A40001D038 /* TwitterCredentials.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -622,6 +636,15 @@
 			name = Compatibility;
 			sourceTree = "<group>";
 		};
+		A38AF967122BA6590001D038 /* Hamcrest-Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A38AF968122BA6590001D038 /* HCBlockMatcher.h */,
+				A38AF969122BA6590001D038 /* HCBlockMatcher.m */,
+			);
+			name = "Hamcrest-Extensions";
+			sourceTree = "<group>";
+		};
 		A3F8190B1208254900E60B0B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +664,7 @@
 				A308776B120A48F0003859AC /* CookieHandlingTests.m */,
 				A30877E2120A522D003859AC /* AuthenticationTests.m */,
 				A3087A28120C524B003859AC /* ResourceTests.m */,
+				A38AF8E9122B972D0001D038 /* StreamingTests.m */,
 			);
 			path = Acceptance;
 			sourceTree = "<group>";
@@ -665,6 +689,7 @@
 		A3F819941208418200E60B0B /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A38AF967122BA6590001D038 /* Hamcrest-Extensions */,
 				A30879B2120C4E94003859AC /* TouchJSON */,
 				A3F819951208418800E60B0B /* OCHamcrest */,
 			);
@@ -888,6 +913,8 @@
 				A3087851120A58D3003859AC /* LRRestyClientBlockDelegate.h in Headers */,
 				A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */,
 				A32CA46C1221EB7600BBE14A /* NSData+Base64.h in Headers */,
+				A38AF8F5122B9F140001D038 /* LRRestyStreamingClient.h in Headers */,
+				A38AF960122BA5A40001D038 /* TwitterCredentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,6 +1265,8 @@
 				A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */,
 				A3087A2C120C52D3003859AC /* ResourceTests.m in Sources */,
 				A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */,
+				A38AF8EA122B972D0001D038 /* StreamingTests.m in Sources */,
+				A38AF96A122BA6590001D038 /* HCBlockMatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,6 +1289,7 @@
 				A3087A06120C50DD003859AC /* NSObject+Tap.m in Sources */,
 				A3087A44120C5526003859AC /* LRRestyResource.m in Sources */,
 				A32CA46D1221EB7600BBE14A /* NSData+Base64.m in Sources */,
+				A38AF8F6122B9F140001D038 /* LRRestyStreamingClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

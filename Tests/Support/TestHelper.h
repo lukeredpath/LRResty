@@ -23,3 +23,4 @@ NSString *resourceWithPath(NSString *path);
 NSData *encodedString(NSString *aString);
 NSData *anyData();
 id anyPayload();
+void waitForInterval(NSTimeInterval interval);

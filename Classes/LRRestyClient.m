@@ -13,6 +13,7 @@
 #import "NSDictionary+QueryString.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyRequestPayload.h"
+#import "LRRestyStreamingClient.h"
 
 @interface LRRestyClient ()
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
@@ -80,6 +81,11 @@
   [self attachRequestModifier:^(LRRestyRequest *request) {
     [request setBasicAuthUsername:username password:password useCredentialSystem:NO];
   }];
+}
+
+- (LRRestyStreamingClient *)streamingClient;
+{
+  return [[[LRRestyStreamingClient alloc] initWithClient:self] autorelease];
 }
 
 #pragma mark -

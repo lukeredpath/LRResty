@@ -12,6 +12,7 @@ require 'simple_service'
 set :daemonize, true
 
 app = Rack::Builder.new do
+  use Rack::Chunked
   map "/simple" do
     run SimpleService
   end

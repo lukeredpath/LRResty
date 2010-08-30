@@ -29,6 +29,12 @@ class SimpleService < Sinatra::Base
     end
   end
   
+  get '/streaming' do
+    with_error_handling do
+      stream(response_for("GET").last)
+    end
+  end
+  
   post '/echo' do
     with_error_handling do
       [200, {'Content-Type' => "text/plain"}, "you said #{request.body.read}"]
@@ -87,6 +93,28 @@ class SimpleService < Sinatra::Base
       return yield
     rescue StandardError => e # html error pages don't help me here
       return [500, {"Content-Type" => "text/plain"}, e.message]
+    end
+  end
+  
+  def stream(content)
+    streamer = StringStreamer.new(content)
+    [200, {"Content-Type" => "text/plain", "Connection" => "keep-alive"}, streamer]
+  end
+  
+  class StringStreamer
+    def initialize(string)
+      @string = string
+    end
+    
+    def each(&block)
+      @string.split(" ").each do |chunk|
+        yield chunk + "\n"
+        sleep 0.1
+      end
+    end
+    
+    def length
+      @string.split(" ").length + @string.length
     end
   end
   

@@ -35,3 +35,4 @@ Backup[ ]of[ ]*.numbers/
 
 tmp
 GithubCredentials.h
+TwitterCredentials.h

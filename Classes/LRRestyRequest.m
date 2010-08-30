@@ -169,6 +169,10 @@
 {
   [responseData appendData:data]; 
   
+  if ([delegate respondsToSelector:@selector(restClient:request:receivedData:)]) {
+    [delegate restClient:client request:self receivedData:data];
+  }
+  
   if ([self isCancelled]) {
     [connection cancel];
     [self finish];
@@ -183,7 +187,6 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
   self.connectionError = error;
-  
   [self setFinished:YES];
 }
 

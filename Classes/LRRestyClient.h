@@ -12,6 +12,7 @@
 
 @class LRRestyResponse;
 @class LRRestyRequest;
+@class LRRestyStreamingClient;
 
 typedef void (^LRRestyResponseBlock)(LRRestyResponse *response);
 typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
@@ -29,6 +30,7 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
 - (void)setUsername:(NSString *)username password:(NSString *)password;
+- (LRRestyStreamingClient *)streamingClient;
 @end
 
 @interface LRRestyClient (Blocks)

@@ -37,3 +37,8 @@ id anyPayload()
 {
   return nil;
 }
+
+void waitForInterval(NSTimeInterval interval)
+{
+  [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
+}
