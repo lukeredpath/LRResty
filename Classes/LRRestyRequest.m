@@ -167,6 +167,9 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+  if (responseData == nil) { // this might be called before didReceiveResponse
+    responseData = [[NSMutableData alloc] init];
+  }
   [responseData appendData:data]; 
   
   if ([delegate respondsToSelector:@selector(restClient:request:receivedData:)]) {

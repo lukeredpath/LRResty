@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LRRestyClient.h"
 #import "LRRestyResourceDelegate.h"
+#import "LRRestyStreamingClient.h"
 
 typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyResource *resource);
 
@@ -24,5 +25,6 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
 - (LRRestyResource *)at:(NSString *)path;
 - (void)get:(LRRestyResourceResponseBlock)responseBlock;
+- (void)getStream:(LRRestyStreamResponseHandler)responseHandler onData:(LRRestyStreamDataHandler)dataHandler;
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 @end

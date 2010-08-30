@@ -79,6 +79,18 @@
   }];
 }
 
+- (void)getStream:(LRRestyStreamResponseHandler)responseHandler onData:(LRRestyStreamDataHandler)dataHandler;
+{
+  LRRestyStreamingClient *client = [[restClient streamingClient] retain];
+  [client get:[URL absoluteString] onResponse:responseHandler onData:^(LRRestyResponse *response, NSData *chunk, BOOL *cancel) {
+    dataHandler(response, chunk, cancel);
+    
+    if (*cancel == YES) {
+      [client autorelease];
+    }
+  }];
+}
+
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 {
   [restClient postURL:URL payload:nil headers:nil withBlock:^(LRRestyResponse *response){
