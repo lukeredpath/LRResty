@@ -130,6 +130,8 @@
 		A38AFC47122BD02B0001D038 /* LRRestyTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = A38AFC46122BD02B0001D038 /* LRRestyTypes.h */; };
 		A38AFC76122BD4630001D038 /* LRRestyClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A38AFC74122BD4630001D038 /* LRRestyClient.h */; };
 		A38AFC77122BD4630001D038 /* LRRestyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AFC75122BD4630001D038 /* LRRestyClient.m */; };
+		A38AFCAA122BD6EB0001D038 /* LRRestyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AFC75122BD4630001D038 /* LRRestyClient.m */; };
+		A38AFCBF122BD7130001D038 /* LRRestyClientStreamingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AFC43122BCEB70001D038 /* LRRestyClientStreamingDelegate.m */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
@@ -1166,6 +1168,8 @@
 				A332B0431229CEB900B8F201 /* NSData+Base64.m in Sources */,
 				A3702D141229DB3A00A2C962 /* NSURL+Compatibility.m in Sources */,
 				A3702D341229DCCD00A2C962 /* NSOperation+Compatibility.m in Sources */,
+				A38AFCAA122BD6EB0001D038 /* LRRestyClient.m in Sources */,
+				A38AFCBF122BD7130001D038 /* LRRestyClientStreamingDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
