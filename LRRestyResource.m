@@ -67,6 +67,12 @@
   }  
 }
 
+- (LRRestyResource *)root;
+{
+  NSURL *rootURL = [[[NSURL alloc] initWithScheme:[URL scheme] host:[URL host] path:@"/"] autorelease];
+  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:rootURL] autorelease];
+}
+
 - (LRRestyResource *)on:(NSString *)host
 {
   return [self on:host secure:NO];

@@ -23,6 +23,7 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
 
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
+- (LRRestyResource *)root;
 - (LRRestyResource *)at:(NSString *)path;
 - (LRRestyResource *)on:(NSString *)host;
 - (LRRestyResource *)on:(NSString *)host secure:(BOOL)isSecure;
