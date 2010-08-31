@@ -106,7 +106,7 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 - (id)initWithBlock:(LRBlockProbeBlock)aBlock;
 {
   if (self = [super init]) {
-    block = Block_copy(aBlock);
+    block = [block copy];
     isSatisfied = NO;
     [self sample];
   }
@@ -115,7 +115,7 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 - (void)dealloc
 {
-  Block_release(block);
+  [block release];
   [super dealloc];
 }
 

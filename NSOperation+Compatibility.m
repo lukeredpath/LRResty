@@ -20,14 +20,14 @@
 - (id)initWithBlock:(void (^)(void))block;
 {
   if (self = [super init]) {
-    completionBlock = Block_copy(block);
+    completionBlock = [block copy];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  Block_release(completionBlock);
+  [completionBlock release];
   [super dealloc];
 }
 

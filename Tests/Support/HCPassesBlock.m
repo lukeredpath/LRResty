@@ -19,7 +19,7 @@
 - (id)initWithBlock:(HCPassesBlockBlock)theBlock expectationMessage:(NSString *)expectationMessage;
 {
   if (self = [super init]) {
-    block = Block_copy(theBlock);
+    block = [theBlock copy];
     message = [expectationMessage copy];
   }
   return self;
@@ -27,7 +27,7 @@
 
 - (void)dealloc
 {
-  Block_release(block);
+  [block release];
   [message release];
   [super dealloc];
 }

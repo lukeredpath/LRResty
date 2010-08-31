@@ -19,14 +19,14 @@
 - (id)initWithBlock:(LRRestyResponseBlock)theBlock;
 {
   if (self = [super init]) {
-    block = Block_copy(theBlock);
+    block = [theBlock copy];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  Block_release(block);
+  [block release];
   [super dealloc];
 }
 

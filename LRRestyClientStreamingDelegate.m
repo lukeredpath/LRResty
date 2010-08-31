@@ -21,16 +21,16 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
 - (id)initWithDataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock;
 {
   if (self = [super init]) {
-    dataHandler = Block_copy(dataBlock);
-    errorHandler = Block_copy(errorBlock);
+    dataHandler = [dataBlock copy];
+    errorHandler = [errorBlock copy];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  Block_release(dataHandler);
-  Block_release(errorHandler);
+  [dataHandler release];
+  [errorHandler release];
   [super dealloc];
 }
 

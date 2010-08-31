@@ -19,7 +19,7 @@
 - (id)initWithBlock:(HCBlockMatcherBlock)aBlock description:(NSString *)aDescription;
 {
   if (self = [super init]) {
-    block = Block_copy(aBlock);
+    block = [aBlock copy];
     description = [aDescription copy];
   }
   return self;
@@ -28,7 +28,7 @@
 - (void)dealloc
 {
   [description release];
-  Block_release(block);
+  [block release];
   [super dealloc];
 }
 

@@ -66,7 +66,7 @@
 
 - (void)attachRequestModifier:(LRRestyRequestBlock)block;
 {
-  [requestModifiers addObject:Block_copy(block)];
+  [requestModifiers addObject:[block copy]];
 }
 
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
