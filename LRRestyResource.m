@@ -36,7 +36,11 @@
 
 - (void)dealloc
 {
-  [parentResource becomeClientDelegate];
+  if (parentResource == nil) {
+    restClient.delegate = nil;
+  } else {
+    [parentResource becomeClientDelegate];
+  }
   [parentResource release];
   [URL release];
   [restClient release];
