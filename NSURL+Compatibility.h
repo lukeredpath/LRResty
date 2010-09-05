@@ -11,4 +11,5 @@
 
 @interface NSURL (Compatibility)
 - (NSURL *)URLByAppendingPathComponent:(NSString *)component;
+- (NSURL *)URLByDeletingPathExtension;
 @end
