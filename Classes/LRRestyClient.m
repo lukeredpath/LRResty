@@ -64,9 +64,16 @@
 
 #pragma mark -
 
-- (void)attachRequestModifier:(LRRestyRequestBlock)block;
+- (NSInteger)attachRequestModifier:(LRRestyRequestBlock)block;
 {
-  [requestModifiers addObject:[block copy]];
+  LRRestyRequestBlock modifier = [block copy];
+  [requestModifiers addObject:modifier];
+  return [requestModifiers indexOfObject:modifier];
+}
+
+- (void)removeRequestModifierAtIndex:(NSInteger)index
+{
+  [requestModifiers removeObjectAtIndex:index];
 }
 
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;

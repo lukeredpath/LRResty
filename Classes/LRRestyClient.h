@@ -28,7 +28,8 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 - (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 - (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
-- (void)attachRequestModifier:(LRRestyRequestBlock)block;
+- (NSInteger)attachRequestModifier:(LRRestyRequestBlock)block;
+- (void)removeRequestModifierAtIndex:(NSInteger)index;
 - (void)setUsername:(NSString *)username password:(NSString *)password;
 @end
 
