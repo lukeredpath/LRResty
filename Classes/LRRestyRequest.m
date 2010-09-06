@@ -67,7 +67,7 @@
 
 - (void)addHeader:(NSString *)header value:(NSString *)value;
 {
-  [URLRequest addValue:value forHTTPHeaderField:header];
+  [URLRequest setValue:value forHTTPHeaderField:header];
 }
 
 - (void)setPostData:(NSData *)data;
