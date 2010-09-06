@@ -20,6 +20,7 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
   id<LRRestyResourceDelegate> delegate;
 }
 @property (nonatomic, assign) id<LRRestyResourceDelegate> delegate;
+@property (nonatomic, readonly) NSURL *URL;
 
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;

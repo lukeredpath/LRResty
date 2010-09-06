@@ -14,7 +14,7 @@
 
 @implementation LRRestyResource
 
-@synthesize delegate;
+@synthesize delegate, URL;
 
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;{
   if (self = [super init]) {
