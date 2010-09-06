@@ -11,6 +11,7 @@
 #import "LRRestyClient.h"
 #import "NSDictionary+QueryString.h"
 #import "NSData+Base64.h"
+#import "LRResty.h"
 
 @implementation LRRestyRequest
 
@@ -103,6 +104,8 @@
     return [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
   }
   [self setExecuting:YES];
+  
+  [LRResty log:[NSString stringWithFormat:@"Performing %@ with headers %@", self, [URLRequest allHTTPHeaderFields]]];
   
   NSURLConnection *connection = [NSURLConnection connectionWithRequest:URLRequest delegate:self];
   

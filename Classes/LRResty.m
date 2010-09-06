@@ -34,4 +34,18 @@
   return [[[LRRestyResource alloc] initWithRestClient:client URL:[NSURL URLWithString:urlString]] autorelease];
 }
 
+static BOOL __RestyDebugLoggingEnabled = NO;
+
++ (void)setDebugLoggingEnabled:(BOOL)isEnabled;
+{
+  __RestyDebugLoggingEnabled = isEnabled; 
+}
+
++ (void)log:(NSString *)message;
+{
+  if (__RestyDebugLoggingEnabled) {
+    NSLog(@"debug: %@", message);
+  }
+}
+
 @end
