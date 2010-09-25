@@ -68,6 +68,7 @@
 {
   LRRestyRequestBlock modifier = [block copy];
   [requestModifiers addObject:modifier];
+  [modifier release];
   return [requestModifiers indexOfObject:modifier];
 }
 

@@ -33,6 +33,9 @@
 
 - (void)dealloc
 {
+  [connectionError release];
+  [response release];
+  [responseData release];
   [credential release];
   [URLRequest release];
   [delegate release];
@@ -125,6 +128,9 @@
   [delegate restClient:client receivedResponse:restResponse];
   
   [restResponse release];
+  [responseData release]; responseData = nil;
+  self.response = nil;
+  
   [self setFinished:YES];
 }
 

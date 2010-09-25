@@ -15,7 +15,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
   for (NSHTTPCookie *cookie in [NSHTTPCookie cookiesWithResponseHeaderFields:headers forURL:url]) {
     [cookies setObject:cookie forKey:cookie.name];
   }
-  return [cookies copy];
+  return cookies;
 }
 
 @implementation LRRestyResponse
@@ -28,7 +28,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
     status = statusCode;
     responseData = [data retain];
     headers = [theHeaders copy];
-    cookies = extractCookiesFromHeaders(headers, originalRequest.URL);
+    cookies = [extractCookiesFromHeaders(headers, originalRequest.URL) copy];
   }
   return self;
 }
