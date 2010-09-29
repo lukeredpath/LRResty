@@ -31,21 +31,21 @@
   [super dealloc];
 }
 
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
+- (LRRestyRequest *)GET:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
   LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers requestDelegate:requestDelegate];
   [request setQueryParameters:parameters];
   return [self performRequest:request];
 }
 
-- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
+- (LRRestyRequest *)POST:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  [self performRequest:[self requestForURL:url method:@"POST" payload:payload headers:headers requestDelegate:requestDelegate]];
+  return [self performRequest:[self requestForURL:url method:@"POST" payload:payload headers:headers requestDelegate:requestDelegate]];
 }
 
-- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
+- (LRRestyRequest *)PUT:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  [self performRequest:[self requestForURL:url method:@"PUT" payload:payload headers:headers requestDelegate:requestDelegate]];
+  return [self performRequest:[self requestForURL:url method:@"PUT" payload:payload headers:headers requestDelegate:requestDelegate]];
 }
 
 #pragma mark Private methods

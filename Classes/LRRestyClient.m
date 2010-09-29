@@ -86,17 +86,17 @@
 
 - (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  return [HTTPClient getURL:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  return [HTTPClient GET:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
-- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [HTTPClient postURL:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  return [HTTPClient POST:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
-- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [HTTPClient putURL:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  return [HTTPClient PUT:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 @end
@@ -106,7 +106,7 @@
 - (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
         onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 {
-  return [HTTPClient getURL:url parameters:parameters headers:headers delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
+  return [HTTPClient GET:url parameters:parameters headers:headers delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
 }
 
 @end

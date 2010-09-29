@@ -12,24 +12,24 @@
 
 @implementation LRRestyClient (PUT)
 
-- (void)put:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [self put:urlString payload:payload headers:nil delegate:delegate];
+  return [self put:urlString payload:payload headers:nil delegate:delegate];
 }
 
-- (void)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [HTTPClient putURL:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
+  return [HTTPClient PUT:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
-- (void)put:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
 {
-  [self put:urlString payload:payload headers:nil withBlock:block];
+  return [self put:urlString payload:payload headers:nil withBlock:block];
 }
 
-- (void)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self putURL:[NSURL URLWithString:urlString] payload:payload headers:headers withBlock:block];
+  return [self putURL:[NSURL URLWithString:urlString] payload:payload headers:headers withBlock:block];
 }
 
 @end

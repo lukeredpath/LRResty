@@ -11,34 +11,34 @@
 
 @implementation LRRestyClient (GET)
 
-- (void)get:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)get:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [self get:urlString parameters:nil delegate:delegate];
+  return [self get:urlString parameters:nil delegate:delegate];
 }
 
-- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [self get:urlString parameters:parameters headers:nil delegate:delegate];
+  return [self get:urlString parameters:parameters headers:nil delegate:delegate];
 }
 
-- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [HTTPClient getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
+  return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
-- (void)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
 {
-  [self get:urlString parameters:nil withBlock:block];
+  return [self get:urlString parameters:nil withBlock:block];
 }
 
-- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
 {
-  [self get:urlString parameters:parameters headers:nil withBlock:block];
+  return [self get:urlString parameters:parameters headers:nil withBlock:block];
 }
 
-- (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+- (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers withBlock:block];
+  return [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers withBlock:block];
 }
 
 @end
