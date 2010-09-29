@@ -33,7 +33,6 @@
 
 - (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  NSLog(@"PERFORMING GET WITH DELEGATE %@", requestDelegate);
   LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers requestDelegate:requestDelegate];
   [request setQueryParameters:parameters];
   return [self performRequest:request];
