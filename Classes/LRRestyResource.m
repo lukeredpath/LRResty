@@ -7,6 +7,9 @@
 //
 
 #import "LRRestyResource.h"
+#import "LRRestyClient+GET.h"
+#import "LRRestyClient+POST.h"
+#import "LRRestyClient+PUT.h"
 
 @interface LRRestyResource ()
 - (void)becomeClientDelegate;
@@ -16,7 +19,8 @@
 
 @synthesize delegate, URL;
 
-- (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;{
+- (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL
+{
   if (self = [super init]) {
     restClient = [theClient retain];
     restClient.delegate = self;
@@ -101,21 +105,21 @@
 
 - (LRRestyRequest *)get:(LRRestyResourceResponseBlock)responseBlock;
 {
-  return [restClient getURL:URL parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
+  return [restClient get:[URL absoluteString] parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
     responseBlock(response, self);
   }];
 }
 
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 {
-  [restClient postURL:URL payload:nil headers:nil withBlock:^(LRRestyResponse *response){
+  [restClient post:[URL absoluteString] payload:nil headers:nil withBlock:^(LRRestyResponse *response){
     responseBlock(response, self);
   }];
 }
 
 - (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
 {
-  [restClient postURL:URL payload:payload headers:nil withBlock:^(LRRestyResponse *response){
+  [restClient put:[URL absoluteString] payload:payload headers:nil withBlock:^(LRRestyResponse *response){
     responseBlock(response, self);
   }];
 }
@@ -136,7 +140,7 @@
 
 - (LRRestyRequest *)getStream:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 {
-  return [restClient getURL:URL parameters:nil headers:nil onData:dataHandler onError:errorHandler];
+  return [restClient get:[URL absoluteString] onData:dataHandler onError:errorHandler];
 }
 
 @end

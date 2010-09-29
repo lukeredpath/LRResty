@@ -8,6 +8,8 @@
 
 #import "LRRestyClient+GET.h"
 #import "LRRestyClientProxyDelegate.h"
+#import "LRRestyClientBlockDelegate.h"
+#import "LRRestyClientStreamingDelegate.h"
 
 @implementation LRRestyClient (GET)
 
@@ -38,7 +40,7 @@
 
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  return [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers withBlock:block];
+  return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 @end
@@ -47,7 +49,7 @@
 
 - (LRRestyRequest *)get:(NSString *)urlString onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 {
-  return [self getURL:[NSURL URLWithString:urlString] parameters:nil headers:nil onData:dataHandler onError:errorHandler];
+  return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:nil headers:nil delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
 }
 
 @end

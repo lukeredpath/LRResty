@@ -29,7 +29,7 @@
 
 - (LRRestyRequest *)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  return [self postURL:[NSURL URLWithString:urlString] payload:payload headers:headers withBlock:block];
+  return [HTTPClient POST:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 @end

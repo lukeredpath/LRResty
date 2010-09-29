@@ -11,12 +11,8 @@
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyRequest.h"
 #import "NSDictionary+QueryString.h"
-#import "LRRestyClientBlockDelegate.h"
-#import "LRRestyClientStreamingDelegate.h"
 #import "LRRestyRequestPayload.h"
 #import "LRRestyRequest.h"
-#import "LRRestyClientProxyDelegate.h"
-
 
 @implementation LRRestyClient
 
@@ -78,35 +74,6 @@
   for (LRRestyRequestBlock requestModifier in requestModifiers) {
     requestModifier(request);
   }
-}
-
-@end
-
-@implementation LRRestyClient (Blocks)
-
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-{
-  return [HTTPClient GET:url parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
-}
-
-- (LRRestyRequest *)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-{
-  return [HTTPClient POST:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
-}
-
-- (LRRestyRequest *)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-{
-  return [HTTPClient PUT:url payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
-}
-
-@end
-
-@implementation LRRestyClient (Streaming)
-
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
-        onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
-{
-  return [HTTPClient GET:url parameters:parameters headers:headers delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
 }
 
 @end

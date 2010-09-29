@@ -31,14 +31,3 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 - (void)removeRequestModifierAtIndex:(NSInteger)index;
 - (void)setUsername:(NSString *)username password:(NSString *)password;
 @end
-
-@interface LRRestyClient (Blocks)
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-- (LRRestyRequest *)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-- (LRRestyRequest *)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
-@end
-
-@interface LRRestyClient (Streaming)
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers 
-        onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
-@end
