@@ -10,6 +10,7 @@
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyClientDelegate.h"
 #import "LRRestyTypes.h"
+#import "LRRestyHTTPClient.h"
 
 @class LRRestyResponse;
 @class LRRestyRequest;
@@ -17,16 +18,15 @@
 typedef void (^LRRestyResponseBlock)(LRRestyResponse *response);
 typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 
-@interface LRRestyClient : NSObject {
-  NSOperationQueue *operationQueue;
+@interface LRRestyClient : NSObject <LRRestyHTTPClientDelegate>
+{
+  id<LRRestyHTTPClient> HTTPClient;
   NSMutableArray *requestModifiers;
   id<LRRestyClientDelegate> clientDelegate;
 }
 @property (nonatomic, assign) id<LRRestyClientDelegate> delegate;
 
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
-- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
-- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 - (NSInteger)attachRequestModifier:(LRRestyRequestBlock)block;
 - (void)removeRequestModifierAtIndex:(NSInteger)index;

@@ -14,6 +14,7 @@
 		A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30877E2120A522D003859AC /* AuthenticationTests.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3087A2C120C52D3003859AC /* ResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087A28120C524B003859AC /* ResourceTests.m */; };
+		A30A03AE1253851A00722B25 /* LRRestyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */; };
 		A3236DBC120C5BE600001E40 /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
 		A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
 		A3236DC9120C5C0100001E40 /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
@@ -220,6 +221,8 @@
 		A30879D6120C4EB3003859AC /* LRRestyResponse+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyResponse+JSON.h"; sourceTree = "<group>"; };
 		A30879D7120C4EB3003859AC /* LRRestyResponse+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyResponse+JSON.m"; sourceTree = "<group>"; };
 		A3087A28120C524B003859AC /* ResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceTests.m; sourceTree = "<group>"; };
+		A30A03AC1253851A00722B25 /* LRRestyHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyHTTPClient.h; sourceTree = "<group>"; };
+		A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyHTTPClient.m; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332B0491229CEB900B8F201 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3702E101229E27000A2C962 /* Tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests_Prefix.pch; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 				A389E014125381700006572D /* LRRestyResponse.h */,
 				A389E015125381700006572D /* LRRestyResponse.m */,
 				A389E016125381700006572D /* LRRestyTypes.h */,
+				A30A03AC1253851A00722B25 /* LRRestyHTTPClient.h */,
+				A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1224,6 +1229,7 @@
 				A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */,
 				A38AF8EA122B972D0001D038 /* StreamingTests.m in Sources */,
 				A389E06E125383220006572D /* HCBlockMatcher.m in Sources */,
+				A30A03AE1253851A00722B25 /* LRRestyHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

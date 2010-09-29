@@ -23,7 +23,7 @@
 
 - (void)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [self getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:delegate];
+  [HTTPClient getURL:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:delegate];
 }
 
 - (void)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;

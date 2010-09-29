@@ -18,7 +18,7 @@
 
 - (void)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [self putURL:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:delegate];
+  [HTTPClient putURL:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:delegate];
 }
 
 - (void)put:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
