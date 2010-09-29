@@ -8,6 +8,7 @@
 
 #import "LRRestyClientStreamingDelegate.h"
 #import "LRRestyResponse.h"
+#import "LRRestyRequest.h"
 
 NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingError";
 

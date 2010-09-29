@@ -7,7 +7,7 @@
 //
 
 #import "LRRestyHTTPClient.h"
-
+#import "LRRestyRequest.h"
 
 @interface LRRestyHTTPClient ()
 - (LRRestyRequest *)performRequest:(LRRestyRequest *)request;

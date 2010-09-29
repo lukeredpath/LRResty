@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LRRestyRequest.h"
+#import "LRRestyRequestDelegate.h"
 #import "LRRestyClientResponseDelegate.h"
 
 @class LRRestyClient;

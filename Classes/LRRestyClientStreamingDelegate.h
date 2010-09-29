@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRRestyRequest.h"
+#import "LRRestyRequestDelegate.h"
 #import "LRRestyTypes.h"
 
 extern NSString *const LRRestyClientStreamingErrorDomain;

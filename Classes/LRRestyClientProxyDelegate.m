@@ -8,6 +8,7 @@
 
 #import "LRRestyClientProxyDelegate.h"
 
+
 @implementation LRRestyClientProxyDelegate
 
 + (id)proxyForClient:(LRRestyClient *)client responseDelegate:(id<LRRestyClientResponseDelegate>)delegate;

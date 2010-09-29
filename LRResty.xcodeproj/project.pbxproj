@@ -226,6 +226,7 @@
 		A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyHTTPClient.m; sourceTree = "<group>"; };
 		A30A03DD12538BFA00722B25 /* LRRestyClientProxyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClientProxyDelegate.h; sourceTree = "<group>"; };
 		A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClientProxyDelegate.m; sourceTree = "<group>"; };
+		A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestDelegate.h; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332B0491229CEB900B8F201 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3702E101229E27000A2C962 /* Tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests_Prefix.pch; sourceTree = "<group>"; };
@@ -465,33 +466,14 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A30A04191253953900722B25 /* Core */,
+				A30A040D1253948A00722B25 /* Protocols */,
+				A30A040C1253946100722B25 /* Request Delegates (Internal) */,
 				A389DFBD125380130006572D /* Compatibility */,
 				A389DFA8125380080006572D /* Categories */,
 				A3087646120A31BD003859AC /* Helpers */,
 				A389DFFD125381700006572D /* LRResty.h */,
 				A389DFFE125381700006572D /* LRResty.m */,
-				A389DFFF125381700006572D /* LRRestyClient.h */,
-				A389E000125381700006572D /* LRRestyClient.m */,
-				A389E009125381700006572D /* LRRestyClientDelegate.h */,
-				A389E007125381700006572D /* LRRestyClientBlockDelegate.h */,
-				A389E008125381700006572D /* LRRestyClientBlockDelegate.m */,
-				A389E00A125381700006572D /* LRRestyClientResponseDelegate.h */,
-				A389E00B125381700006572D /* LRRestyClientStreamingDelegate.h */,
-				A389E00C125381700006572D /* LRRestyClientStreamingDelegate.m */,
-				A30A03DD12538BFA00722B25 /* LRRestyClientProxyDelegate.h */,
-				A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */,
-				A389E00D125381700006572D /* LRRestyRequest.h */,
-				A389E00E125381700006572D /* LRRestyRequest.m */,
-				A389E00F125381700006572D /* LRRestyRequestPayload.h */,
-				A389E010125381700006572D /* LRRestyRequestPayload.m */,
-				A389E011125381700006572D /* LRRestyResource.h */,
-				A389E012125381700006572D /* LRRestyResource.m */,
-				A389E013125381700006572D /* LRRestyResourceDelegate.h */,
-				A389E014125381700006572D /* LRRestyResponse.h */,
-				A389E015125381700006572D /* LRRestyResponse.m */,
-				A389E016125381700006572D /* LRRestyTypes.h */,
-				A30A03AC1253851A00722B25 /* LRRestyHTTPClient.h */,
-				A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -602,6 +584,50 @@
 			);
 			name = JSON;
 			path = Vendor/TouchJSON/Source/JSON;
+			sourceTree = "<group>";
+		};
+		A30A040C1253946100722B25 /* Request Delegates (Internal) */ = {
+			isa = PBXGroup;
+			children = (
+				A389E007125381700006572D /* LRRestyClientBlockDelegate.h */,
+				A389E008125381700006572D /* LRRestyClientBlockDelegate.m */,
+				A389E00B125381700006572D /* LRRestyClientStreamingDelegate.h */,
+				A389E00C125381700006572D /* LRRestyClientStreamingDelegate.m */,
+				A30A03DD12538BFA00722B25 /* LRRestyClientProxyDelegate.h */,
+				A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */,
+			);
+			name = "Request Delegates (Internal)";
+			sourceTree = "<group>";
+		};
+		A30A040D1253948A00722B25 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A389E009125381700006572D /* LRRestyClientDelegate.h */,
+				A389E00A125381700006572D /* LRRestyClientResponseDelegate.h */,
+				A389E013125381700006572D /* LRRestyResourceDelegate.h */,
+				A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		A30A04191253953900722B25 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A389E016125381700006572D /* LRRestyTypes.h */,
+				A389DFFF125381700006572D /* LRRestyClient.h */,
+				A389E000125381700006572D /* LRRestyClient.m */,
+				A389E00D125381700006572D /* LRRestyRequest.h */,
+				A389E00E125381700006572D /* LRRestyRequest.m */,
+				A389E00F125381700006572D /* LRRestyRequestPayload.h */,
+				A389E010125381700006572D /* LRRestyRequestPayload.m */,
+				A389E011125381700006572D /* LRRestyResource.h */,
+				A389E012125381700006572D /* LRRestyResource.m */,
+				A389E014125381700006572D /* LRRestyResponse.h */,
+				A389E015125381700006572D /* LRRestyResponse.m */,
+				A30A03AC1253851A00722B25 /* LRRestyHTTPClient.h */,
+				A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		A389DFA8125380080006572D /* Categories */ = {

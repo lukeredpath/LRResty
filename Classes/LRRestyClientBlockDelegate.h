@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LRRestyClient.h"
-#import "LRRestyRequest.h"
+#import "LRRestyRequestDelegate.h"
 
 @interface LRRestyClientBlockDelegate : NSObject <LRRestyRequestDelegate>
 {

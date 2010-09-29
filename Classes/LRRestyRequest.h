@@ -9,16 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyRequestPayload.h"
-
-@class LRRestyClient;
-@class LRRestyResponse;
-
-@protocol LRRestyRequestDelegate <NSObject>
-- (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response;
-@optional
-- (void)restyRequestDidStart:(LRRestyRequest *)request;
-- (void)restyRequest:(LRRestyRequest *)request didReceiveData:(NSData *)data;
-@end
+#import "LRRestyRequestDelegate.h"
 
 @interface LRRestyRequest : NSOperation
 {
