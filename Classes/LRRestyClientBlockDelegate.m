@@ -30,7 +30,7 @@
   [super dealloc];
 }
 
-- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response
+- (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response
 {
   block(response);
 }

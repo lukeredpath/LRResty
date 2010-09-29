@@ -34,7 +34,7 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
   [super dealloc];
 }
 
-- (void)restClient:(LRRestyClient *)client request:(LRRestyRequest *)request receivedData:(NSData *)data
+- (void)restyRequest:(LRRestyRequest *)request didReceiveData:(NSData *)data
 {
   BOOL shouldCancel = NO;
   dataHandler(data, &shouldCancel);
@@ -44,7 +44,7 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
   }
 }
 
-- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response
+- (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response
 {
   if ([response status] > 200) {
     NSError *error = [NSError errorWithDomain:LRRestyClientStreamingErrorDomain 

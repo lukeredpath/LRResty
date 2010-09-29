@@ -26,7 +26,6 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
 }
 @property (nonatomic, assign) id<LRRestyClientDelegate> delegate;
 
-
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 - (NSInteger)attachRequestModifier:(LRRestyRequestBlock)block;
 - (void)removeRequestModifierAtIndex:(NSInteger)index;

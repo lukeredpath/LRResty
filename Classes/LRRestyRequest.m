@@ -8,7 +8,6 @@
 
 #import "LRRestyRequest.h"
 #import "LRRestyResponse.h"
-#import "LRRestyClient.h"
 #import "NSDictionary+QueryString.h"
 #import "NSData+Base64.h"
 #import "LRResty.h"
@@ -19,12 +18,10 @@
 @synthesize responseData;
 @synthesize response;
 
-- (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientResponseDelegate>)theDelegate;
+- (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 {
   if (self = [super init]) {
-    client = theClient;
     delegate = [theDelegate retain];
-    
     URLRequest = [[NSMutableURLRequest alloc] initWithURL:aURL];
     [URLRequest setHTTPMethod:httpMethod];
   }
@@ -106,6 +103,9 @@
   if (![NSThread isMainThread]) {
     return [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
   }
+  if ([delegate respondsToSelector:@selector(restyRequestDidStart:)]) {
+    [delegate restyRequestDidStart:self];
+  }  
   [self setExecuting:YES];
   
   [LRResty log:[NSString stringWithFormat:@"Performing %@ with headers %@", self, [URLRequest allHTTPHeaderFields]]];
@@ -125,7 +125,7 @@
               headers:[self.response allHeaderFields]
        originalRequest:self];
   
-  [delegate restClient:client receivedResponse:restResponse];
+  [delegate restyRequest:self didFinishWithResponse:restResponse];
   
   [restResponse release];
   [responseData release]; responseData = nil;
@@ -180,9 +180,9 @@
     responseData = [[NSMutableData alloc] init];
   }
   [responseData appendData:data]; 
-  
-  if ([delegate respondsToSelector:@selector(restClient:request:receivedData:)]) {
-    [delegate restClient:client request:self receivedData:data];
+
+  if ([delegate respondsToSelector:@selector(restyRequest:didReceiveData:)]) {
+    [delegate restyRequest:self didReceiveData:data];
   }
   
   if ([self isCancelled]) {

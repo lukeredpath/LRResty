@@ -8,6 +8,7 @@
 
 #import "LRRestyClient+POST.h"
 #import "LRRestyClientBlockDelegate.h"
+#import "LRRestyClientProxyDelegate.h"
 
 @implementation LRRestyClient (POST)
 
@@ -18,7 +19,7 @@
 
 - (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  [HTTPClient postURL:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:delegate];
+  [HTTPClient postURL:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
 - (void)post:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
@@ -28,7 +29,7 @@
 
 - (void)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  [self post:urlString payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  [self postURL:[NSURL URLWithString:urlString] payload:payload headers:headers withBlock:block];
 }
 
 @end

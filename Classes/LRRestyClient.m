@@ -14,6 +14,8 @@
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientStreamingDelegate.h"
 #import "LRRestyRequestPayload.h"
+#import "LRRestyRequest.h"
+#import "LRRestyClientProxyDelegate.h"
 
 
 @implementation LRRestyClient

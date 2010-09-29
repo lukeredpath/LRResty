@@ -7,11 +7,11 @@
 //
 
 #import "LRRestyHTTPClient.h"
-#import "LRRestyRequest.h"
+
 
 @interface LRRestyHTTPClient ()
 - (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
-- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers requestDelegate:(id<LRRestyRequestDelegate>)requestDelegate;
 @end
 
 @implementation LRRestyHTTPClient
@@ -31,28 +31,29 @@
   [super dealloc];
 }
 
-- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)responseDelegate;
+- (LRRestyRequest *)getURL:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers delegate:responseDelegate];
+  NSLog(@"PERFORMING GET WITH DELEGATE %@", requestDelegate);
+  LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers requestDelegate:requestDelegate];
   [request setQueryParameters:parameters];
   return [self performRequest:request];
 }
 
-- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)responseDelegate;
+- (void)postURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  [self performRequest:[self requestForURL:url method:@"POST" payload:payload headers:headers delegate:responseDelegate]];
+  [self performRequest:[self requestForURL:url method:@"POST" payload:payload headers:headers requestDelegate:requestDelegate]];
 }
 
-- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)responseDelegate;
+- (void)putURL:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  [self performRequest:[self requestForURL:url method:@"PUT" payload:payload headers:headers delegate:responseDelegate]];
+  [self performRequest:[self requestForURL:url method:@"PUT" payload:payload headers:headers requestDelegate:requestDelegate]];
 }
 
 #pragma mark Private methods
 
-- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)responseDelegate;
+- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers requestDelegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod client:nil delegate:responseDelegate];
+  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod delegate:requestDelegate];
   [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
   [request setHeaders:headers];
   return [request autorelease];

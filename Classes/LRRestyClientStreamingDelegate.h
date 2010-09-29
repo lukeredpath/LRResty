@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LRRestyClientResponseDelegate.h"
+#import "LRRestyRequest.h"
 #import "LRRestyTypes.h"
 
 extern NSString *const LRRestyClientStreamingErrorDomain;
@@ -16,7 +16,7 @@ typedef enum {
   LRRestyStreamingErrorUnsuccessfulResponse = 100
 } LRRestyStreamingErrorCode;
 
-@interface LRRestyClientStreamingDelegate : NSObject <LRRestyClientResponseDelegate>
+@interface LRRestyClientStreamingDelegate : NSObject <LRRestyRequestDelegate>
 {
   LRRestyStreamingDataBlock dataHandler;
   LRRestyStreamingErrorBlock errorHandler;

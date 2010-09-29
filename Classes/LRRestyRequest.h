@@ -11,12 +11,19 @@
 #import "LRRestyRequestPayload.h"
 
 @class LRRestyClient;
+@class LRRestyResponse;
+
+@protocol LRRestyRequestDelegate <NSObject>
+- (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response;
+@optional
+- (void)restyRequestDidStart:(LRRestyRequest *)request;
+- (void)restyRequest:(LRRestyRequest *)request didReceiveData:(NSData *)data;
+@end
 
 @interface LRRestyRequest : NSOperation
 {
   NSMutableURLRequest *URLRequest;
-  LRRestyClient *client;
-  id<LRRestyClientResponseDelegate> delegate;
+  id<LRRestyRequestDelegate> delegate;
   BOOL _isExecuting;
   BOOL _isFinished;
   NSError *connectionError;
@@ -29,7 +36,7 @@
 @property (nonatomic, retain) NSError *connectionError;
 @property (nonatomic, readonly) NSURL *URL;
 
-- (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod client:(LRRestyClient *)theClient delegate:(id<LRRestyClientResponseDelegate>)theDelegate;
+- (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 - (void)setExecuting:(BOOL)isExecuting;
 - (void)setFinished:(BOOL)isFinished;
 - (void)finish;

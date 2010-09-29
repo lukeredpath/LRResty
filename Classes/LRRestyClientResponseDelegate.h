@@ -15,5 +15,6 @@
 @protocol LRRestyClientResponseDelegate <NSObject>
 - (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;
 @optional
+- (void)restClient:(LRRestyClient *)client willPerformRequest:(LRRestyRequest *)request;
 - (void)restClient:(LRRestyClient *)client request:(LRRestyRequest *)request receivedData:(NSData *)data;
 @end
