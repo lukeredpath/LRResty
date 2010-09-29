@@ -20,11 +20,18 @@
 
 - (id)init
 {
+  LRRestyHTTPClient *client = [[[LRRestyHTTPClient alloc] initWithDelegate:self] autorelease];
+  return [self initWithHTTPClient:client];
+}
+
+- (id)initWithHTTPClient:(id<LRRestyHTTPClient>)aHTTPClient
+{
   if (self = [super init]) {
-    HTTPClient = [[LRRestyHTTPClient alloc] initWithDelegate:self];
+    HTTPClient = [aHTTPClient retain];
+    HTTPClient.delegate = self;
     requestModifiers = [[NSMutableArray alloc] init];
   }
-  return self;
+  return self;  
 }
 
 - (void)dealloc

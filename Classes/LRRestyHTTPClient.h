@@ -11,8 +11,10 @@
 #import "LRRestyRequestDelegate.h"
 
 @class LRRestyRequest;
+@protocol LRRestyHTTPClientDelegate;
 
 @protocol LRRestyHTTPClient <NSObject>
+@property (nonatomic, assign) id<LRRestyHTTPClientDelegate> delegate;
 - (LRRestyRequest *)GET:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)POST:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)PUT:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;

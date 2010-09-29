@@ -16,11 +16,20 @@
 
 @implementation LRRestyHTTPClient
 
-- (id)initWithDelegate:(id<LRRestyHTTPClientDelegate>)aDelegate;
+@synthesize delegate;
+
+- (id)init
 {
   if (self = [super init]) {
-    delegate = aDelegate;
     operationQueue = [[NSOperationQueue alloc] init];
+  }
+  return self;
+}
+
+- (id)initWithDelegate:(id<LRRestyHTTPClientDelegate>)aDelegate;
+{
+  if (self = [self init]) {
+    delegate = aDelegate;
   }
   return self;
 }
