@@ -14,6 +14,9 @@
 
 + (id)payloadFromObject:(id)object;
 {
+  if ([object conformsToProtocol:@protocol(LRRestyRequestPayload)]) {
+    return object;
+  }
   if ([object respondsToSelector:@selector(dataUsingEncoding:)]) {
     return [[[LRRestyRequestEncodablePayload alloc] initWithEncodableObject:object] autorelease];
   }

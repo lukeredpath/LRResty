@@ -9,6 +9,33 @@
 #import "TestHelper.h"
 #import "LRResty.h"
 
+@interface CustomJsonObject : NSObject <LRRestyRequestPayload>
+{
+  NSString *string;
+}
+- (id)initWithJSONString:(NSString *)jsonString;
+@end
+
+@implementation CustomJsonObject
+
+- (id)initWithJSONString:(NSString *)jsonString;
+{
+  if (self = [super init]) {
+    string = [jsonString copy];
+  }
+  return self;
+}
+
+- (void)modifyRequest:(LRRestyRequest *)request
+{
+  [request addHeader:@"Accept" value:@"application/json"];
+  [request addHeader:@"Content-Type" value:@"application/json"];
+  [request setPostData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+@end
+
+
 @interface PostResourceTests : SenTestCase 
 {
   LRRestyResponse *lastResponse;
@@ -49,6 +76,21 @@
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said hello world")));
+}
+
+- (void)testCanPostCustomPayloadObjects
+{
+  __block LRRestyResponse *receivedResponse = nil;
+  id payload = [[[CustomJsonObject alloc] initWithJSONString:@"{'foo':'bar'}"] autorelease];
+  
+  [client post:resourceWithPath(@"/simple/accepts_only_json") 
+       payload:payload
+     withBlock:^(LRRestyResponse *response) {
+       
+       receivedResponse = [response retain];
+     }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
 }
 
 - (void)testCanPostToResourceWithCustomHeaders
