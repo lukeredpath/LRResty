@@ -11,16 +11,27 @@
 
 @implementation LRResty
 
+static LRRestyClient *__LR_SharedClient = nil;
+
 + (LRRestyClient *)client;
 {
-  return [[[LRRestyClient alloc] init] autorelease];
+  static dispatch_once_t predicate;
+  dispatch_once(&predicate, ^{
+    __LR_SharedClient = [self newClient];
+  });
+  return __LR_SharedClient;
+}
+
++ (LRRestyClient *)newClient;
+{
+  return [[LRRestyClient alloc] init];
 }
 
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
 {
-  return [[self client] tap:^(id client) {
+  return [[[self newClient] tap:^(id client) {
     [client setUsername:username password:password];
-  }];
+  }] autorelease];
 }
 
 + (LRRestyResource *)resource:(NSString *)urlString;

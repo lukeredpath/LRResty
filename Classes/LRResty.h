@@ -26,6 +26,10 @@
  */
 + (LRRestyClient *)client;
 /**
+ Returns a new instance of +LRRestyClient+.
+ */
++ (LRRestyClient *)newClient;
+/**
  Returns an auto-released instance of LRRestyClient with HTTP Basic Auth parameters set.
  */
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;

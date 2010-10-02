@@ -20,7 +20,7 @@
 
 - (void)setUp
 {
-  client = [[LRResty client] retain];
+  client = [LRResty newClient];
 }
 
 - (void)testCanPostStringToResourceAndHaveThatValueEchoedBack
