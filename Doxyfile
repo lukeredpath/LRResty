@@ -1,0 +1,19 @@
+PROJECT_NAME           = LRResty
+PROJECT_NUMBER         = 
+DOCSET_FEEDNAME       = "LRResty "
+OUTPUT_DIRECTORY       = /Users/luke/Code/Xcode/Projects/LRResty/Documentation
+INPUT                  = /Users/luke/Code/Xcode/Projects/LRResty/Classes
+FILE_PATTERNS          = *.h *.m *.doxygen
+
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = YES
+HIDE_UNDOC_RELATIONS   = YES
+REPEAT_BRIEF           = NO
+
+GENERATE_LATEX         = NO
+GENERATE_HTML          = YES
+GENERATE_DOCSET        = YES
+DOCSET_FEEDNAME        = "LRResty Documentation"
+DOCSET_BUNDLE_ID       = co.uk.lukeredpath.LRResty
+
+QUIET                  = NO

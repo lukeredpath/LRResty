@@ -10,13 +10,27 @@
 
 @class LRRestyRequest;
 
+/**
+ * Describes an object that can be used with POST or PUT request methods that
+ * take a payload parameter.
+ */
 @protocol LRRestyRequestPayload <NSObject>
+/**
+ * This method will be called when constructing the POST or PUT request and is where
+ * the object can inject itself into the request body in the appropriate format. It
+ * can also be used to set relevant headers (e.g. setting the content-type for the
+ * object's format).
+ */
 - (void)modifyRequest:(LRRestyRequest *)request;
 @end
 
-@interface LRRestyRequestPayloadFactory : NSObject {
-
-}
+/**
+ * Will return an object that implements LRRestyRequestPayload; this enables various
+ * native objects that do not implement the protocol to be used as payload parameters,
+ * such as NSData, NSString and NSDictionary.
+ */ 
+@interface LRRestyRequestPayloadFactory : NSObject 
+{}
 + (id)payloadFromObject:(id)object;
 @end
 

@@ -1,0 +1,12 @@
+auto:        false
+lsi:         false
+server_port: 4000
+pygments:    true
+markdown:    maruku
+permalink:   /:title.html
+base_url:    http://projects.lukeredpath.co.uk/resty
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_dir:    images/latex
+  png_url:    /images/latex

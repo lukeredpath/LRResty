@@ -12,6 +12,10 @@
 @class LRRestyResponse;
 @class LRRestyRequest;
 
+/**
+ * Implemented by objects that respond to the lifecycle of an individual request.
+ * This is used internally and will not normally need to be implemented by end users.
+ */
 @protocol LRRestyRequestDelegate <NSObject>
 - (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response;
 @optional

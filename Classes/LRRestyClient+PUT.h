@@ -11,9 +11,40 @@
 @class LRRestyRequest;
 
 @interface LRRestyClient (PUT)
+/**
+ Performs a PUT request with a payload on URL with delegate response handling.
+ @param urlString   The URL to request.
+ @param payload     The object to POST.
+ @param delegate    The response delegate.
+ @returns The request object.
+ @see LRRestyRequestPayload
+ */
+
 - (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientResponseDelegate>)delegate;
+/**
+ Performs a PUT request with a payload on URL with delegate response handling.
+ @param urlString   The URL to request.
+ @param delegate    The response delegate.
+ @returns The request object.
+ @see LRRestyRequestPayload
+ */
 - (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+/**
+ Performs a PUT request with a payload on URL with block response handling.
+ @param urlString   The URL to request.
+ @param payload     The object to POST.
+ @param block       The response block.
+ @returns The request object.
+ @see LRRestyRequestPayload
+ */
 - (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
+/**
+ Performs a PUT request with a payload on URL with block response handling.
+ @param urlString   The URL to request.
+ @param block       The response block.
+ @returns The request object.
+ @see LRRestyRequestPayload
+ */
 - (LRRestyRequest *)put:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 @end
 
