@@ -17,7 +17,7 @@ It uses modern Objective-C language features like blocks to simple asynchronous 
 {% endultrahighlight %}
 
 <div class="download">
-  <a href="http://example.com">Download the latest version of LRResty.framework (1.0)</a>
+  <a href="http://github.com/downloads/lukeredpath/LRResty/LRResty-0.9.dmg">Download the latest version of LRResty.framework (1.0)</a>
   
   <p class="license">Resty is released under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT license</a>.</p>
 </div>
