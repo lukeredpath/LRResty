@@ -3,6 +3,7 @@ require 'plist'
 THEME_PATH = "Documentation/theme"
 DOC_OUTPUT = "Documentation/html"
 SITE_ROOT  = "/var/www/projects.lukeredpath.co.uk/resty"
+VERSION = "0.9"
 
 def modify_plist(path, &block)
   if plist = Plist::parse_xml(path)
@@ -30,7 +31,7 @@ namespace :website do
     })
   end
   
-  task :upload_website => :generate do
+  task :upload_website => [:generate, "build:diskimage"] do
     system("rsync -avz --delete Documentation/website/_site/ lukeredpath.co.uk:#{SITE_ROOT}")
   end
   
@@ -45,7 +46,6 @@ namespace :build do
   LIB_NAME = "libLRResty.a"
   BUILD_DIR = "build"
   BASE_SDK = 4.2
-  VERSION = "1.0"
   
   task :simulator do
     system("xcodebuild -target #{TARGET} -configuration #{CONFIG} -sdk iphonesimulator#{BASE_SDK}")
@@ -80,7 +80,7 @@ namespace :build do
   
   task :diskimage => :framework do
     FileUtils.mkdir_p("pkg")
-    system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty.dmg")
+    system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-#{VERSION}.dmg")
   end
 end
 
