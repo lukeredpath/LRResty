@@ -1,12 +1,10 @@
 # Resty, an Objective-C HTTP framework
 
-Resty is a simple to use HTTP library for Cocoa* and iOS apps, aimed at consuming RESTful web services and APIs. 
+Resty is a simple to use HTTP library for iOS (and soon, Mac) apps, aimed at consuming RESTful web services and APIs. 
 
 It uses modern Objective-C language features like blocks to simple asynchronous requests without having to worry about threads, operation queues or repetitive delegation. It is inspired heavily by [RestClient](http://github.com/archiloque/rest-client), a Ruby HTTP library.
 
 For more information and documentation, [check out the project website](http://projects.lukeredpath.co.uk/resty/).
-
-*A Mac build of the framework is not currently available
 
 ## Getting started
 
