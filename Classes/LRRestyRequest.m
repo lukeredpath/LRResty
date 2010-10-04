@@ -14,39 +14,32 @@
 
 @implementation LRRestyRequest
 
-@synthesize connectionError;
-@synthesize responseData;
-@synthesize response;
-
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 {
   if (self = [super init]) {
     delegate = [theDelegate retain];
-    URLRequest = [[NSMutableURLRequest alloc] initWithURL:aURL];
-    [URLRequest setHTTPMethod:httpMethod];
+    _URLRequest = [[NSMutableURLRequest alloc] initWithURL:aURL];
+    [_URLRequest setHTTPMethod:httpMethod];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  [connectionError release];
-  [response release];
-  [responseData release];
   [credential release];
-  [URLRequest release];
   [delegate release];
+  [_URLRequest release];
   [super dealloc];
 }
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"%@ %@ <LRRestyRequest>", [URLRequest HTTPMethod], [URLRequest URL]];
+  return [NSString stringWithFormat:@"%@ %@ <LRRestyRequest>", [_URLRequest HTTPMethod], [_URLRequest URL]];
 }
 
 - (NSURL *)URL
 {
-  return [URLRequest URL];
+  return [_URLRequest URL];
 }
 
 #pragma mark -
@@ -56,23 +49,23 @@
 {
   if (parameters == nil) return;
   
-  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [URLRequest.URL absoluteString], [parameters stringWithFormEncodedComponents]]];
-  [URLRequest setURL:URLWithParameters];
+  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [_URLRequest.URL absoluteString], [parameters stringWithFormEncodedComponents]]];
+  [_URLRequest setURL:URLWithParameters];
 }
 
 - (void)setHeaders:(NSDictionary *)headers
 {
-  [URLRequest setAllHTTPHeaderFields:headers];
+  [_URLRequest setAllHTTPHeaderFields:headers];
 }
 
 - (void)addHeader:(NSString *)header value:(NSString *)value;
 {
-  [URLRequest setValue:value forHTTPHeaderField:header];
+  [_URLRequest setValue:value forHTTPHeaderField:header];
 }
 
 - (void)setPostData:(NSData *)data;
 {
-  [URLRequest setHTTPBody:data];
+  [_URLRequest setHTTPBody:data];
 }
 
 - (void)setPayload:(id<LRRestyRequestPayload>)payload;
@@ -82,7 +75,7 @@
 
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
 {
-  [URLRequest setHTTPShouldHandleCookies:shouldHandleCookies];
+  [_URLRequest setHTTPShouldHandleCookies:shouldHandleCookies];
 }
 
 - (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password useCredentialSystem:(BOOL)useCredential;
@@ -100,57 +93,31 @@
 
 - (void)start
 {
-  if (![NSThread isMainThread]) {
-    return [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
-  }
+  self.URLRequest = _URLRequest;
+
+  [super start];
+
   if ([delegate respondsToSelector:@selector(restyRequestDidStart:)]) {
     [delegate restyRequestDidStart:self];
-  }  
-  [self setExecuting:YES];
-  
-  [LRResty log:[NSString stringWithFormat:@"Performing %@ with headers %@", self, [URLRequest allHTTPHeaderFields]]];
-  
-  NSURLConnection *connection = [NSURLConnection connectionWithRequest:URLRequest delegate:self];
-  
-  if (connection == nil) {
-    [self setFinished:YES]; 
   }
+  [LRResty log:[NSString stringWithFormat:@"Performing %@ with headers %@", self, [URLRequest allHTTPHeaderFields]]];
 }
 
 - (void)finish;
 {
   LRRestyResponse *restResponse = [[LRRestyResponse alloc] 
-       initWithStatus:self.response.statusCode 
+       initWithStatus:[(NSHTTPURLResponse *)self.URLResponse statusCode]
          responseData:self.responseData 
-              headers:[self.response allHeaderFields]
+              headers:[(NSHTTPURLResponse *)self.URLResponse allHeaderFields]
        originalRequest:self];
   
   [delegate restyRequest:self didFinishWithResponse:restResponse];
-  
   [restResponse release];
-  [responseData release]; responseData = nil;
-  self.response = nil;
   
-  [self setFinished:YES];
-}
-
-- (BOOL)isConcurrent
-{
-  return YES;
-}
-
-- (BOOL)isExecuting
-{
-  return _isExecuting;
-}
-
-- (BOOL)isFinished
-{
-  return _isFinished;
+  [super finish];
 }
 
 #pragma mark -
-#pragma mark NSURLConnection delegate methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
@@ -161,63 +128,12 @@
   }
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)theResponse
-{
-  if (responseData == nil) {
-    responseData = [[NSMutableData alloc] init];
-  }
-  self.response = (NSHTTPURLResponse *)theResponse;
-  
-  if ([self isCancelled]) {
-    [connection cancel];
-    [self finish];
-  }
-}
-
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-  if (responseData == nil) { // this might be called before didReceiveResponse
-    responseData = [[NSMutableData alloc] init];
-  }
-  [responseData appendData:data]; 
-
   if ([delegate respondsToSelector:@selector(restyRequest:didReceiveData:)]) {
     [delegate restyRequest:self didReceiveData:data];
   }
-  
-  if ([self isCancelled]) {
-    [connection cancel];
-    [self finish];
-  }
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-  [self finish];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-  self.connectionError = error;
-  [self setFinished:YES];
-}
-
-#pragma mark -
-#pragma mark Private methods
-
-- (void)setExecuting:(BOOL)isExecuting;
-{
-  [self willChangeValueForKey:@"isExecuting"];
-  _isExecuting = isExecuting;
-  [self didChangeValueForKey:@"isExecuting"];
-}
-
-- (void)setFinished:(BOOL)isFinished;
-{
-  [self willChangeValueForKey:@"isFinished"];
-  [self setExecuting:NO];
-  _isFinished = isFinished;
-  [self didChangeValueForKey:@"isFinished"];
+  [super connection:connection didReceiveData:data];
 }
 
 @end

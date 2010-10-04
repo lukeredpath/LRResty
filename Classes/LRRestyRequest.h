@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LRURLRequestOperation.h"
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyRequestPayload.h"
 #import "LRRestyRequestDelegate.h"
@@ -15,20 +16,12 @@
  * Represents a single request; provides an API for modifying properties of the request
  * prior to it being executed.
  */
-@interface LRRestyRequest : NSOperation
+@interface LRRestyRequest : LRURLRequestOperation
 {
-  NSMutableURLRequest *URLRequest;
   id<LRRestyRequestDelegate> delegate;
-  BOOL _isExecuting;
-  BOOL _isFinished;
-  NSError *connectionError;
-  NSMutableData *responseData;
-  NSHTTPURLResponse *response;
   NSURLCredential *credential;
+  NSMutableURLRequest *_URLRequest;
 }
-@property (nonatomic, retain) NSHTTPURLResponse *response;
-@property (nonatomic, retain) NSData *responseData;
-@property (nonatomic, retain) NSError *connectionError;
 @property (nonatomic, readonly) NSURL *URL;
 
 /**
@@ -38,9 +31,7 @@
  * @param delegate  The delegate for this request.
  */
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
-- (void)setExecuting:(BOOL)isExecuting;
-- (void)setFinished:(BOOL)isFinished;
-- (void)finish;
+
 /**
  * Set the query parameters for the request.
  * @param parameters A dictionary of key-value pairs (supports nested parameters).

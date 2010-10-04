@@ -164,6 +164,7 @@
 		A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */; };
 		A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6912085B0B00E60B0B /* DomainMatchers.m */; };
 		A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DBE120892DA00E60B0B /* TestHelper.m */; };
+		A3FFFE5D125A5D380075D21F /* LRURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */; };
 		AA747D9F0F9514B9006C5449 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -378,6 +379,8 @@
 		A3F81B6812085B0B00E60B0B /* DomainMatchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainMatchers.h; sourceTree = "<group>"; };
 		A3F81B6912085B0B00E60B0B /* DomainMatchers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainMatchers.m; sourceTree = "<group>"; };
 		A3F81DBE120892DA00E60B0B /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		A3FFFE5B125A5D380075D21F /* LRURLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRURLRequestOperation.h; sourceTree = "<group>"; };
+		A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRURLRequestOperation.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRResty_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,6 +469,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A3FFFE9D125A64590075D21F /* Utility */,
 				A30A04191253953900722B25 /* Core */,
 				A30A040D1253948A00722B25 /* Protocols */,
 				A30A040C1253946100722B25 /* Request Delegates (Internal) */,
@@ -881,6 +885,15 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
+		A3FFFE9D125A64590075D21F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A3FFFE5B125A5D380075D21F /* LRURLRequestOperation.h */,
+				A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1262,6 +1275,7 @@
 				A389E06E125383220006572D /* HCBlockMatcher.m in Sources */,
 				A30A03AE1253851A00722B25 /* LRRestyHTTPClient.m in Sources */,
 				A30A03DF12538BFA00722B25 /* LRRestyClientProxyDelegate.m in Sources */,
+				A3FFFE5D125A5D380075D21F /* LRURLRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
