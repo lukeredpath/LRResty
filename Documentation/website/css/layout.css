@@ -69,6 +69,12 @@ p code {
   vertical-align: top;
 }
 
+p img {
+  display: block;
+  position: relative;
+  width: 600px;
+}
+
 pre, pre code {
   margin: 20px 0;
   font-family: Menlo, Consolas, Monaco, sans-serif;
