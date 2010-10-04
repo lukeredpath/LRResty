@@ -14,8 +14,6 @@
 		A30877E3120A522D003859AC /* AuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A30877E2120A522D003859AC /* AuthenticationTests.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3087A2C120C52D3003859AC /* ResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087A28120C524B003859AC /* ResourceTests.m */; };
-		A30A03AE1253851A00722B25 /* LRRestyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */; };
-		A30A03DF12538BFA00722B25 /* LRRestyClientProxyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */; };
 		A3236DBC120C5BE600001E40 /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
 		A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
 		A3236DC9120C5C0100001E40 /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
@@ -36,6 +34,25 @@
 		A332B0241229CEB900B8F201 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		A332B0321229CEB900B8F201 /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A332B0451229CEB900B8F201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		A35D8586125A83C200E5A8BD /* LRResty.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFFD125381700006572D /* LRResty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8587125A83C200E5A8BD /* LRRestyClient+GET.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E001125381700006572D /* LRRestyClient+GET.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8588125A83C200E5A8BD /* LRRestyClient+POST.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E003125381700006572D /* LRRestyClient+POST.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8589125A83C200E5A8BD /* LRRestyClient+PUT.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E005125381700006572D /* LRRestyClient+PUT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D858A125A83C200E5A8BD /* LRRestyClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFFF125381700006572D /* LRRestyClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D858B125A83C200E5A8BD /* LRRestyClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E009125381700006572D /* LRRestyClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D858C125A83C200E5A8BD /* LRRestyClientResponseDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E00A125381700006572D /* LRRestyClientResponseDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D858D125A83C200E5A8BD /* LRRestyHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A30A03AC1253851A00722B25 /* LRRestyHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D858E125A83C200E5A8BD /* LRRestyRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E00D125381700006572D /* LRRestyRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D858F125A83C200E5A8BD /* LRRestyRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8590125A83C200E5A8BD /* LRRestyRequestPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E00F125381700006572D /* LRRestyRequestPayload.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8591125A83C200E5A8BD /* LRRestyResource.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E011125381700006572D /* LRRestyResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8592125A83C200E5A8BD /* LRRestyResourceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E013125381700006572D /* LRRestyResourceDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8593125A83C200E5A8BD /* LRRestyResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E014125381700006572D /* LRRestyResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8594125A83C200E5A8BD /* LRRestyTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E016125381700006572D /* LRRestyTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D8595125A83C200E5A8BD /* LRURLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FFFE5B125A5D380075D21F /* LRURLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35D874F125A8D7300E5A8BD /* LRRestyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */; };
+		A35D8750125A8D7A00E5A8BD /* LRURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */; };
+		A35D8751125A8D8D00E5A8BD /* LRRestyClientProxyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */; };
 		A3702E111229E27000A2C962 /* Tests_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A3702E101229E27000A2C962 /* Tests_Prefix.pch */; };
 		A3702EFB1229E76A00A2C962 /* OSCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */; };
 		A389DFB3125380080006572D /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFA9125380080006572D /* NSData+Base64.h */; };
@@ -164,7 +181,6 @@
 		A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */; };
 		A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6912085B0B00E60B0B /* DomainMatchers.m */; };
 		A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DBE120892DA00E60B0B /* TestHelper.m */; };
-		A3FFFE5D125A5D380075D21F /* LRURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */; };
 		AA747D9F0F9514B9006C5449 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -230,6 +246,7 @@
 		A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestDelegate.h; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332B0491229CEB900B8F201 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A35D8777125A8E3200E5A8BD /* LRRestyFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LRRestyFramework-Info.plist"; path = "Resources/LRRestyFramework-Info.plist"; sourceTree = "<group>"; };
 		A3702E101229E27000A2C962 /* Tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests_Prefix.pch; sourceTree = "<group>"; };
 		A3702EED1229E73D00A2C962 /* Compatibility Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Compatibility Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCompatibilityTests.m; sourceTree = "<group>"; };
@@ -416,6 +433,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F81ACA12084DCF00E60B0B /* libLRResty.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3FFFECF125A81BB0075D21F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +690,7 @@
 		A389DFDE1253806A0006572D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A35D8777125A8E3200E5A8BD /* LRRestyFramework-Info.plist */,
 				A389DFE0125380720006572D /* Acceptance Tests-Info.plist */,
 				A389DFE1125380720006572D /* Compatibility Tests-Info.plist */,
 				A389DFE2125380720006572D /* ExamplesRunner-Info.plist */,
@@ -907,6 +932,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3FFFECC125A81BB0075D21F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A35D8586125A83C200E5A8BD /* LRResty.h in Headers */,
+				A35D8587125A83C200E5A8BD /* LRRestyClient+GET.h in Headers */,
+				A35D8588125A83C200E5A8BD /* LRRestyClient+POST.h in Headers */,
+				A35D8589125A83C200E5A8BD /* LRRestyClient+PUT.h in Headers */,
+				A35D858A125A83C200E5A8BD /* LRRestyClient.h in Headers */,
+				A35D858B125A83C200E5A8BD /* LRRestyClientDelegate.h in Headers */,
+				A35D858C125A83C200E5A8BD /* LRRestyClientResponseDelegate.h in Headers */,
+				A35D858D125A83C200E5A8BD /* LRRestyHTTPClient.h in Headers */,
+				A35D858E125A83C200E5A8BD /* LRRestyRequest.h in Headers */,
+				A35D858F125A83C200E5A8BD /* LRRestyRequestDelegate.h in Headers */,
+				A35D8590125A83C200E5A8BD /* LRRestyRequestPayload.h in Headers */,
+				A35D8591125A83C200E5A8BD /* LRRestyResource.h in Headers */,
+				A35D8592125A83C200E5A8BD /* LRRestyResourceDelegate.h in Headers */,
+				A35D8593125A83C200E5A8BD /* LRRestyResponse.h in Headers */,
+				A35D8594125A83C200E5A8BD /* LRRestyTypes.h in Headers */,
+				A35D8595125A83C200E5A8BD /* LRURLRequestOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2AAC07A0554694100DB518D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1018,6 +1066,23 @@
 			productReference = A3F818E81208248F00E60B0B /* Acceptance Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		A3FFFED0125A81BB0075D21F /* LRRestyFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3FFFEDD125A81E90075D21F /* Build configuration list for PBXNativeTarget "LRRestyFramework" */;
+			buildPhases = (
+				A3FFFECC125A81BB0075D21F /* Headers */,
+				A3FFFECD125A81BB0075D21F /* Resources */,
+				A3FFFECE125A81BB0075D21F /* Sources */,
+				A3FFFECF125A81BB0075D21F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LRRestyFramework;
+			productName = LRRestyFramework;
+			productType = "com.apple.product-type.framework";
+		};
 		D2AAC07D0554694100DB518D /* LRResty */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "LRResty" */;
@@ -1057,6 +1122,7 @@
 				A3236DB3120C5BDE00001E40 /* ExamplesRunner */,
 				A332B0221229CEB900B8F201 /* LRResty-PLBlocks */,
 				A3702EEC1229E73D00A2C962 /* Compatibility Tests */,
+				A3FFFED0125A81BB0075D21F /* LRRestyFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -1078,6 +1144,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A3F818E31208248F00E60B0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3FFFECD125A81BB0075D21F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1273,9 +1346,13 @@
 				A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */,
 				A38AF8EA122B972D0001D038 /* StreamingTests.m in Sources */,
 				A389E06E125383220006572D /* HCBlockMatcher.m in Sources */,
-				A30A03AE1253851A00722B25 /* LRRestyHTTPClient.m in Sources */,
-				A30A03DF12538BFA00722B25 /* LRRestyClientProxyDelegate.m in Sources */,
-				A3FFFE5D125A5D380075D21F /* LRURLRequestOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3FFFECE125A81BB0075D21F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,6 +1378,9 @@
 				A389E02A125381700006572D /* LRRestyRequestPayload.m in Sources */,
 				A389E02C125381700006572D /* LRRestyResource.m in Sources */,
 				A389E02F125381700006572D /* LRRestyResponse.m in Sources */,
+				A35D874F125A8D7300E5A8BD /* LRRestyHTTPClient.m in Sources */,
+				A35D8750125A8D7A00E5A8BD /* LRURLRequestOperation.m in Sources */,
+				A35D8751125A8D8D00E5A8BD /* LRRestyClientProxyDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1614,6 +1694,60 @@
 			};
 			name = Release;
 		};
+		A3FFFED1125A81BB0075D21F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "Resources/LRRestyFramework-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = LRResty;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		A3FFFED2125A81BB0075D21F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = "Resources/LRRestyFramework-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = LRResty;
+				SDKROOT = macosx10.6;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1667,6 +1801,15 @@
 			buildConfigurations = (
 				A3F818EA1208249000E60B0B /* Debug */,
 				A3F818EB1208249000E60B0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3FFFEDD125A81E90075D21F /* Build configuration list for PBXNativeTarget "LRRestyFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3FFFED1125A81BB0075D21F /* Debug */,
+				A3FFFED2125A81BB0075D21F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
