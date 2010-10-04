@@ -78,3 +78,5 @@ namespace :build do
     end
   end
 end
+
+task :default => "build:framework"
