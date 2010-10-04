@@ -77,6 +77,11 @@ namespace :build do
       plist["CFBundleVersion"] = VERSION
     end
   end
+  
+  task :diskimage => :framework do
+    FileUtils.mkdir_p("pkg")
+    system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty.dmg")
+  end
 end
 
 task :default => "build:framework"
