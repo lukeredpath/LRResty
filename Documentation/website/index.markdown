@@ -3,28 +3,20 @@ layout: default
 title: Resty,  Objective-C REST Resource consumption made easy
 ---
 
-# Getting started
+Resty is a simple to use HTTP library for Cocoa and iOS apps, aimed at consuming RESTful web services and APIs. 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+It uses modern Objective-C language features like blocks to simple asynchronous requests without having to worry about threads, operation queues or repetitive delegation. It is inspired heavily by [RestClient](http://github.com/archiloque/rest-client), a Ruby HTTP library.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-{% highlight objc %}
-- (id)initWithHTTPClient:(id<LRRestyHTTPClient>)aHTTPClient
+{% ultrahighlight objective-c %}
+- (void)fetchSomething
 {
-  if (self = [super init]) {
-    HTTPClient = [aHTTPClient retain];
-    HTTPClient.delegate = self;
-    requestModifiers = [[NSMutableArray alloc] init];
-  }
-  return self;  
+  [[LRResty client] get:@"http://www.example.com" withBlock:^(LRRestyResponse *r) {
+    NSLog(@"That's it! %@", [r asString]);
+  }];
 }
-{% endhighlight %}
+{% endultrahighlight %}
 
-## This is a sub-heading
+<div class="download">
+  <a href="http://example.com">Download the latest version of LRResty.framework (1.0)</a>
+</div>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 

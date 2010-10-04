@@ -91,6 +91,11 @@ pre {
   left: -20px;
 }
 
+.download {
+  font-size: 24px;
+  text-align: center;
+}
+
 /* github ribbon code courtesy of
  * http://unindented.org/articles/2009/10/github-ribbon-using-css-transforms/
  */
