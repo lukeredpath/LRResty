@@ -10,6 +10,14 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.notice {
+  text-align: center;
+  font-size: 12px;
+  color: #CA231E;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
 header {
   font-family: "droid-serif-1", "droid-serif-2", 'Helvetiva Neue', Helvetica, Arial, sans-serif;;
   margin-bottom: 50px;
