@@ -55,6 +55,10 @@ namespace :build do
     system("xcodebuild -target #{TARGET} -configuration #{CONFIG} -sdk iphoneos#{BASE_SDK}")
   end
   
+  task :mac do
+    system("xcodebuild -target #{TARGET}-Mac -configuration #{CONFIG}")
+  end
+  
   task :combined => [:simulator, :device] do
     FileUtils.mkdir_p("#{BUILD_DIR}/CombinedLib")
     system("lipo #{BUILD_DIR}/#{CONFIG}-iphonesimulator/#{LIB_NAME} #{BUILD_DIR}/#{CONFIG}-iphoneos/#{LIB_NAME} -create -output #{BUILD_DIR}/CombinedLib/libLRResty.a")
