@@ -1415,6 +1415,7 @@
 				GCC_PREFIX_HEADER = LRResty_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = LRResty;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1429,6 +1430,7 @@
 				GCC_PREFIX_HEADER = LRResty_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = LRResty;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
