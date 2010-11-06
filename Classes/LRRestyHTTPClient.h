@@ -6,7 +6,7 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyRequestDelegate.h"
 
