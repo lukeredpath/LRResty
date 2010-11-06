@@ -5,7 +5,7 @@ title: Getting started | Resty
 
 # Getting started with Resty
 
-Resty is distributed as a static framework for iOS; this makes it easy to get up and running with Resty.
+Resty is distributed as a static framework for iOS and Mac; this makes it easy to get up and running with Resty.
 
 ## Importing the framework
 
@@ -40,3 +40,15 @@ Then, in your application launch method, make a GET request and log the result:
 {% endultrahighlight %}
 
 If you see the returned HTML from www.example.com in your Console log, everything is up and running and you're ready to start using Resty.
+
+## Building from the latest source
+
+If you've cloned the latest copy of LRResty from Github, you can build the framework for your platform of choice using the supplied [Rake](http://rake.rubyforge.org/) tasks. You'll need to install one RubyGem - the plist gem.
+
+    $ gem install plist
+    
+You can then run the `build:framework` or `build:mac_framework` task to build either an iOS or Mac static framework, e.g.:
+    
+    $ rake build:framework
+    
+The built framework will be in `build/Release`. You can then import this framework into your project using the instructions above.
