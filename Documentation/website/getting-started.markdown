@@ -52,3 +52,5 @@ You can then run the `build:framework` or `build:mac_framework` task to build ei
     $ rake build:framework
     
 The built framework will be in `build/Release`. You can then import this framework into your project using the instructions above.
+
+Note: I have observed some issues when building with Clang, which results in Clang crashing with an "abort trap" message at the end of the build. As far as I can see, this doesn't actually cause a problem and the framework will still be successfully built.
