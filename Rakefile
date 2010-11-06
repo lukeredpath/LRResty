@@ -71,20 +71,28 @@ namespace :build do
   FRAMEWORK_NAME = "LRResty.framework"
   
   task :framework => [:clean, :combined] do
-    FileUtils.rm_rf("#{BUILD_DIR}/Release")
-    
-    system("xcodebuild -target LRRestyFramework -configuration #{CONFIG}")
-    system("cp #{BUILD_DIR}/CombinedLib/libLRResty.a #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Versions/A/LRResty")
-    system("ln -s Versions/A/LRResty #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/LRResty")
-    
-    modify_plist("#{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Resources/Info.plist") do |plist|
-      plist["CFBundleVersion"] = VERSION
-    end
+    build_framework("#{BUILD_DIR}/CombinedLib/libLRResty.a")
+  end
+  
+  task :mac_framework => [:clean, :mac] do
+    build_framework("#{BUILD_DIR}/Release-Mac/libLRResty.a")
   end
   
   task :diskimage => :framework do
     FileUtils.mkdir_p("pkg")
     system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-#{VERSION}.dmg")
+  end
+  
+  def build_framework(path_to_library)
+    FileUtils.rm_rf("#{BUILD_DIR}/Release")
+    
+    system("xcodebuild -target LRRestyFramework -configuration #{CONFIG}")
+    system("cp #{path_to_library} #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Versions/A/LRResty")
+    system("ln -s Versions/A/LRResty #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/LRResty")
+    
+    modify_plist("#{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Resources/Info.plist") do |plist|
+      plist["CFBundleVersion"] = VERSION
+    end
   end
 end
 
