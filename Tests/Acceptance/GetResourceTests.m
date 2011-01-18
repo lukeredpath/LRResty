@@ -74,18 +74,17 @@
   });
   
   assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
-  
 }
 
 - (void)testCanPerformGetRequestAndPassResponseToABlock
 {
   __block LRRestyResponse *testLocalResponse = nil;
-  
-  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource"));
-  
-  [client get:resourceWithPath(@"/simple/resource") withBlock:^(LRRestyResponse *response) {
-    testLocalResponse = [response retain];
-  }];
+
+  mimicGET(@"/simple/resource", andReturnAnything(), ^{
+    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) withBlock:^(LRRestyResponse *response) {
+      testLocalResponse = [response retain];
+    }];
+  });
   assertEventuallyThat(&testLocalResponse, is(responseWithStatus(200)));
   
   [testLocalResponse release];
