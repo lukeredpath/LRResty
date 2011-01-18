@@ -26,12 +26,10 @@
 
 - (void)testCanPerformGetRequestAndStreamResponse
 {
-  serviceStubWillServe(@"the quick brown fox jumped over the lazy dog", forGetRequestTo(@"/simple/streaming"));
-  
   __block NSMutableData *responseData = [NSMutableData data];
   __block NSString *responseBody = nil;
   
-  [client get:resourceWithPath(@"/simple/streaming")
+  [client get:resourceWithPathWithPort(@"/streaming", 11989)
     onData:^(NSData *chunk, BOOL *cancel) {
       if (chunk) {
         [responseData appendData:chunk];
@@ -44,7 +42,7 @@
   assertEventuallyThat(&responseBody, equalTo(@"the\nquick\nbrown\nfox\njumped\nover\nthe\nlazy\ndog\n"));
 }
 
-- (void)xtestCancellationUsingTwitterStream;
+- (void)testCancellationUsingTwitterStream;
 {
   NSMutableArray *chunks = [NSMutableArray array];
   
