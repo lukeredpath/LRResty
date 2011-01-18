@@ -19,7 +19,9 @@
 
 NSString *anyResponse();
 NSString *resourceRoot();
+NSString *resourceRootWithPort(NSInteger port);
 NSString *resourceWithPath(NSString *path);
+NSString *resourceWithPathWithPort(NSString *path, NSInteger port);
 NSData *encodedString(NSString *aString);
 NSData *anyData();
 id anyPayload();

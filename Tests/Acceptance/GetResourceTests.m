@@ -25,9 +25,9 @@
 
 - (void)testCanPerformGetRequestToResourceExtractTheResponseAsAString
 {
-  serviceStubWillServe(@"plain text response", forGetRequestTo(@"/simple/resource"));
-
-  [client get:resourceWithPath(@"/simple/resource") delegate:self];
+  mimicGET(@"/simple/resource", andReturnBody(@"plain text response"), ^{
+    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
+  });
   
   assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"plain text response")));
 }

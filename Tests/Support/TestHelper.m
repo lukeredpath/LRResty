@@ -15,12 +15,22 @@ NSString *anyResponse()
 
 NSString *resourceRoot()
 {
-  return [NSString stringWithFormat:@"http://%@:%d", TEST_HOST, TEST_PORT];
+  return resourceRootWithPort(TEST_PORT);
+}
+
+NSString *resourceRootWithPort(NSInteger port)
+{
+  return [NSString stringWithFormat:@"http://%@:%d", TEST_HOST, port];
 }
 
 NSString *resourceWithPath(NSString *path)
 {
   return [NSString stringWithFormat:@"%@%@", resourceRoot(), path];
+}
+
+NSString *resourceWithPathWithPort(NSString *path, NSInteger port)
+{
+  return [NSString stringWithFormat:@"%@%@", resourceRootWithPort(port), path];
 }
 
 NSData *encodedString(NSString *aString)

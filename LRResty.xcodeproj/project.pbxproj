@@ -188,6 +188,7 @@
 		A3C630BA12859826009A800C /* LRRestyClientProxyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */; };
 		A3C630BC12859826009A800C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
+		A3D0D9DA12E5EC73009B187B /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0D9D912E5EC73009B187B /* LRMimic.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -357,6 +358,8 @@
 		A3C630C012859826009A800C /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UsersViewController.h; path = ../UsersViewController.h; sourceTree = "<group>"; };
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersViewController.m; path = ../UsersViewController.m; sourceTree = "<group>"; };
+		A3D0D9D812E5EC73009B187B /* LRMimic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRMimic.h; path = "../../../mine/mimic/wrappers/Objective-C/LRMimic.h"; sourceTree = SOURCE_ROOT; };
+		A3D0D9D912E5EC73009B187B /* LRMimic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRMimic.m; path = "../../../mine/mimic/wrappers/Objective-C/LRMimic.m"; sourceTree = SOURCE_ROOT; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
 		A3F81970120837FC00E60B0B /* AssertEventually.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssertEventually.h; sourceTree = "<group>"; };
@@ -793,6 +796,8 @@
 		A3F8196F1208374400E60B0B /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A3D0D9D812E5EC73009B187B /* LRMimic.h */,
+				A3D0D9D912E5EC73009B187B /* LRMimic.m */,
 				A389E06C125383220006572D /* HCBlockMatcher.h */,
 				A389E06D125383220006572D /* HCBlockMatcher.m */,
 				A3F81B401208577500E60B0B /* TestHelper.h */,
@@ -1309,7 +1314,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb start\n";
+			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb start\nbundle exec ${SRCROOT}/Scripts/mimicd start\n\n";
 			showEnvVarsInLog = 0;
 		};
 		A3F81935120832DD00E60B0B /* Stop Service Stub */ = {
@@ -1324,7 +1329,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb stop\n";
+			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb stop\nbundle exec ${SRCROOT}/Scripts/mimicd stop\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1485,6 +1490,7 @@
 				A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */,
 				A38AF8EA122B972D0001D038 /* StreamingTests.m in Sources */,
 				A389E06E125383220006572D /* HCBlockMatcher.m in Sources */,
+				A3D0D9DA12E5EC73009B187B /* LRMimic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,14 +3,26 @@ GEM
   specs:
     daemons (1.1.0)
     eventmachine (0.12.10)
+    json (1.4.6)
+    mimic (0.4.0)
+      json
+      plist
+      rack
+      sinatra
+    plist (3.1.0)
     rack (1.2.1)
+    sinatra (1.1.2)
+      rack (~> 1.1)
+      tilt (~> 1.2)
     thin (1.2.7)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
+    tilt (1.2.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  mimic
   thin

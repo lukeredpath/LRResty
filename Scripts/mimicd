@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'daemons'
+require 'mimic'
+
+Daemons.run_proc("mimic") do
+  Mimic.mimic(:port => 11988, :fork => false, :remote_configuration_path => "/api")
+end

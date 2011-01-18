@@ -7,6 +7,7 @@
 //
 
 #import "TestRequestBuilder.h"
+#import "LRMimic.h"
 
 @implementation TestRequestSpecificationBuilder
 
@@ -106,4 +107,74 @@ void serviceStubWillServeWithHeaders(id object, NSDictionary *headers, TestReque
 void clearServiceStubs()
 {
   __requestSpecification = nil;
+}
+
+#pragma mark -
+#pragma mark LRMimic 
+
+void mimicGET(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
+{
+  mimic(@"GET", path, stubBuilder, callback);
+}
+
+void mimicPOST(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
+{
+  mimic(@"POST", path, stubBuilder, callback);
+}
+
+void mimicPUT(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
+{
+  mimic(@"PUT", path, stubBuilder, callback);
+}
+
+void mimicDELETE(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
+{
+  mimic(@"DELETE", path, stubBuilder, callback);
+}
+
+void mimicHEAD(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
+{
+  mimic(@"HEAD", path, stubBuilder, callback);
+}
+
+void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
+{
+  stubBuilder.method = @"GET";
+  stubBuilder.path = path;
+  
+  [LRMimic setURL:@"http://localhost:11989/api"];
+  [LRMimic configure:^(LRMimic *mimic) {
+    [mimic addRequestStub:[stubBuilder buildStub]];
+  }];
+  [LRMimic stubAndCall:^(BOOL success) {
+    if (success) {
+      callback();
+    } else {
+      [[NSException exceptionWithName:@"STUB ERROR" reason:@"Failure performing mimic stub" userInfo:nil] raise];
+    }
+  }];
+}
+
+LRMimicRequestStubBuilder *andReturnBody(NSString *body)
+{
+  LRMimicRequestStubBuilder *builder = [LRMimicRequestStubBuilder builder];
+  builder.body = body;
+  return builder;
+}
+
+LRMimicRequestStubBuilder *andReturnStatusAndBody(NSInteger status, NSString *body)
+{
+  LRMimicRequestStubBuilder *builder = [LRMimicRequestStubBuilder builder];
+  builder.code = status;
+  builder.body = body;
+  return builder;
+}
+
+LRMimicRequestStubBuilder *andReturnStatusAndBodyWithHeaders(NSInteger status, NSString *body, NSDictionary *headers)
+{
+  LRMimicRequestStubBuilder *builder = [LRMimicRequestStubBuilder builder];
+  builder.code = status;
+  builder.body = body;
+  builder.headers = headers;
+  return builder;
 }

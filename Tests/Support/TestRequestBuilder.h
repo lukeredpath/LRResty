@@ -33,3 +33,20 @@ TestRequestSpecificationBuilder *forGetRequestTo(NSString *path);
 void serviceStubWillServe(id object, TestRequestSpecificationBuilder *requestSpec);
 void serviceStubWillServeWithHeaders(id object, NSDictionary *headers, TestRequestSpecificationBuilder *requestSpec);
 void clearServiceStubs();
+
+#pragma mark -
+
+typedef void (^MimicStubCallbackBlock)(void);
+
+@class LRMimicRequestStubBuilder;
+
+void mimicGET(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
+void mimicPOST(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
+void mimicPUT(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
+void mimicDELETE(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
+void mimicHEAD(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
+void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
+
+LRMimicRequestStubBuilder *andReturnBody(NSString *body);
+LRMimicRequestStubBuilder *andReturnStatusAndBody(NSInteger status, NSString *body);
+LRMimicRequestStubBuilder *andReturnStatusAndBodyWithHeaders(NSInteger, NSString *body, NSDictionary *headers);
