@@ -11,7 +11,6 @@
 
 @interface ResourceTests : SenTestCase 
 {
-  LRRestyResponse *lastResponse;
   LRRestyResource *resource;
 }
 @end
@@ -20,18 +19,18 @@
 
 - (void)setUp
 {
-  resource = [[LRResty resource:resourceRoot()] retain];
+  resource = [[LRResty resource:resourceRootWithPort(11989)] retain];
 }
 
 - (void)testCanPerformGetRequests
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  serviceStubWillServe(@"plain text response", forGetRequestTo(@"/simple/resource"));
-  
-  [[resource at:@"simple/resource"] get:^(LRRestyResponse *response, LRRestyResource *resource) {
-    receivedResponse = [response retain];
-  }];
+  mimicGET(@"/simple/resource", andReturnBody(@"plain text response"), ^{
+    [[resource at:@"simple/resource"] get:^(LRRestyResponse *response, LRRestyResource *resource) {
+      receivedResponse = [response retain];
+    }];
+  });
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"plain text response")));
 }
