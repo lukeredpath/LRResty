@@ -11,6 +11,7 @@
 #define HC_SHORTHAND
 #import "OCHamcrest.h"
 #import "AssertEventually.h"
+#import "LRMimic.h"
 #import "TestRequestBuilder.h"
 #import "DomainMatchers.h"
 

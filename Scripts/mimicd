@@ -4,5 +4,7 @@ require 'daemons'
 require 'mimic'
 
 Daemons.run_proc("mimic") do
-  Mimic.mimic(:port => 11988, :fork => false, :remote_configuration_path => "/api")
+  Mimic.mimic(:port => 11988, :fork => false, :remote_configuration_path => "/api") do
+    import(File.join(File.dirname(__FILE__), *%w[.. Tests Stubs mimic.rb]))
+  end
 end

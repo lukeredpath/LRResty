@@ -150,8 +150,8 @@ void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuil
     stubBuilder.path = path;
   }
   
-  [LRMimic setURL:@"http://localhost:11989/api"];
   [LRMimic setAutomaticallyClearsStubs:YES];
+  [LRMimic setURL:@"http://localhost:11989/api"];
   [LRMimic reset];
   
   [LRMimic configure:^(LRMimic *mimic) {
