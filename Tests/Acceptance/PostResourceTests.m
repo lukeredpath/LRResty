@@ -54,116 +54,124 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/echo") payload:@"hello world" withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
-  }];
+  mimicPOST(@"/echo/test", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/echo/test", 11989) payload:@"hello world" withBlock:^(LRRestyResponse *response) {
+      receivedResponse = [response retain];
+    }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said hello world")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"body", @"hello world")));
   
-  [client post:resourceWithPath(@"/simple/echo") payload:@"Resty rocks!" withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
-  }];
+  mimicPOST(@"/echo/test", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/echo/test", 11989) payload:@"Resty rocks!" withBlock:^(LRRestyResponse *response) {
+      receivedResponse = [response retain];
+    }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said Resty rocks!")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"body", @"Resty rocks!")));
 }
 
 - (void)testCanPostRawDataToResourceAndHaveThatValueEchoedBack
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client put:resourceWithPath(@"/simple/echo") payload:[@"hello world" dataUsingEncoding:NSUTF8StringEncoding] withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
-  }];
+  mimicPOST(@"/echo/test", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/echo/test", 11989) payload:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
+      receivedResponse = [response retain];
+    }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"you said hello world")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"body", @"hello world")));
 }
 
 - (void)testCanPostCustomPayloadObjects
 {
   __block LRRestyResponse *receivedResponse = nil;
+
   id payload = [[[CustomJsonObject alloc] initWithJSONString:@"{'foo':'bar'}"] autorelease];
   
-  [client post:resourceWithPath(@"/simple/accepts_only_json") 
-       payload:payload
-     withBlock:^(LRRestyResponse *response) {
-       
-       receivedResponse = [response retain];
-     }];
+  mimicPOST(@"/echo/json", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/echo/json", 11989) 
+         payload:payload
+       withBlock:^(LRRestyResponse *response) {
+         
+         receivedResponse = [response retain];
+       }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"body", @"{'foo':'bar'}")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"env.HTTP_ACCEPT", @"application/json")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"env.CONTENT_TYPE", @"application/json")));
 }
 
 - (void)testCanPostToResourceWithCustomHeaders
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/accepts_only_json") 
-       payload:anyPayload()
-       headers:[NSDictionary dictionaryWithObject:@"application/xml" forKey:@"Accept"] 
-     withBlock:^(LRRestyResponse *response) {
-       
-     receivedResponse = [response retain];
-   }];
+  mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+         payload:@""
+         headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
+       withBlock:^(LRRestyResponse *response) {
+         
+         receivedResponse = [response retain];
+       }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatus(406)));
-  
-  [client post:resourceWithPath(@"/simple/accepts_only_json") 
-       payload:anyPayload() 
-       headers:[NSDictionary dictionaryWithObject:@"application/json" forKey:@"Accept"] 
-     withBlock:^(LRRestyResponse *response) {
-       
-    receivedResponse = [response retain];
-  }];
-  
-  assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));  
 }
 
 - (void)testCanPostToResourceWithFormEncodedData
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/form_handler") 
-       payload:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
-     withBlock:^(LRRestyResponse *response) {
-       
-    receivedResponse = [response retain];
-  }];
+  mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+         payload:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
+       withBlock:^(LRRestyResponse *response) {
+         
+         receivedResponse = [response retain];
+       }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"foo\"=>\"bar\"}")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"params.foo", @"bar")));
 }
 
 - (void)testCanPostToResourceWithFormEncodedDataWithNestedParameters
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/form_handler") 
-       payload:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
-     withBlock:^(LRRestyResponse *response) {
-       
-     receivedResponse = [response retain];
-  }];
-
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"payload\"=>{\"foo\"=>\"bar\"}}")));
+  mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+         payload:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
+       withBlock:^(LRRestyResponse *response) {
+         
+         receivedResponse = [response retain];
+       }];
+  });
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"params.payload.foo", @"bar")));
 }
 
 - (void)testCanPostToResourceWithFormEncodedDataContainingNumbers
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client post:resourceWithPath(@"/simple/form_handler") 
-       payload:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"number"]
-     withBlock:^(LRRestyResponse *response) {
-       
-       receivedResponse = [response retain];
-  }];
+  mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
+    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+         payload:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"number"]
+       withBlock:^(LRRestyResponse *response) {
+         
+         receivedResponse = [response retain];
+       }];
+  });
   
-  assertEventuallyThat(&receivedResponse, is(responseWithStatusAndBody(200, @"posted params {\"number\"=>\"123\"}")));
+  assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"params.number", @"123")));
 }
 
 - (void)tearDown
 {
   [lastResponse release]; lastResponse = nil;
-  clearServiceStubs();
 }
 
 @end

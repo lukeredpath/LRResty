@@ -23,7 +23,7 @@
   client = [LRResty newClient];
 }
 
-- (void)testCanPerformGetRequestToResourceExtractTheResponseAsAString
+- (void)testCanPerformGetRequestToResourceAndExtractTheResponseAsAString
 {
   mimicGET(@"/simple/resource", andReturnBody(@"plain text response"), ^{
     [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
