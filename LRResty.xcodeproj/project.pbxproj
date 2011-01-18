@@ -1169,12 +1169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3F818EC1208249000E60B0B /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
-				A3F8191012082A0000E60B0B /* Start Service Stub */,
+				A3F8191012082A0000E60B0B /* Start Mimic */,
 				A3F818E31208248F00E60B0B /* Resources */,
 				A3F818E41208248F00E60B0B /* Sources */,
 				A3F818E51208248F00E60B0B /* Frameworks */,
 				A3F818E61208248F00E60B0B /* ShellScript */,
-				A3F81935120832DD00E60B0B /* Stop Service Stub */,
+				A3F81935120832DD00E60B0B /* Stop Mimic */,
 			);
 			buildRules = (
 			);
@@ -1307,34 +1307,34 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		A3F8191012082A0000E60B0B /* Start Service Stub */ = {
+		A3F8191012082A0000E60B0B /* Start Mimic */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Start Service Stub";
+			name = "Start Mimic";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb start\nbundle exec ${SRCROOT}/Scripts/mimicd start\n\n";
+			shellScript = "source ~/.profile\nbundle exec ${SRCROOT}/Scripts/mimicd start\n\n";
 			showEnvVarsInLog = 0;
 		};
-		A3F81935120832DD00E60B0B /* Stop Service Stub */ = {
+		A3F81935120832DD00E60B0B /* Stop Mimic */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Stop Service Stub";
+			name = "Stop Mimic";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb stop\nbundle exec ${SRCROOT}/Scripts/mimicd stop\n";
+			shellScript = "source ~/.profile\nbundle exec ${SRCROOT}/Scripts/mimicd stop\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
