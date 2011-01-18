@@ -140,7 +140,7 @@ void mimicHEAD(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStub
 
 void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
 {
-  stubBuilder.method = @"GET";
+  stubBuilder.method = method;
 
   NSArray *pathComponents = [path componentsSeparatedByString:@"?"];
   if (pathComponents.count == 2) {
