@@ -15,9 +15,6 @@
 #import "TestRequestBuilder.h"
 #import "DomainMatchers.h"
 
-#define TEST_HOST @"localhost"
-#define TEST_PORT 10090
-
 NSString *anyResponse();
 NSString *resourceRoot();
 NSString *resourceRootWithPort(NSInteger port);

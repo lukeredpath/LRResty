@@ -26,7 +26,7 @@
 - (void)testCanPerformGetRequestToResourceAndExtractTheResponseAsAString
 {
   mimicGET(@"/simple/resource", andReturnBody(@"plain text response"), ^{
-    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
+    [client get:resourceWithPath(@"/simple/resource") delegate:self];
   });
   
   assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"plain text response")));
@@ -35,7 +35,7 @@
 - (void)testCanExtractHeadersFromResponse
 {
   mimicGET(@"/simple/resource", andReturnResponseHeader(@"Content-Type", @"text/plain"), ^{
-    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
+    [client get:resourceWithPath(@"/simple/resource") delegate:self];
   });
   
   assertEventuallyThat(&lastResponse, hasHeader(@"Content-Type", @"text/plain"));
@@ -44,7 +44,7 @@
 - (void)testCanPerformGetRequestWithQueryParameters
 {
   mimicGET(@"/simple/resource", andEchoRequest(), ^{
-    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) 
+    [client get:resourceWithPath(@"/simple/resource") 
      parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] 
        delegate:self];
   });
@@ -55,7 +55,7 @@
 - (void)testCanPerformGetRequestWithCustomHeaders
 {
   mimicGET(@"/simple/resource", andEchoRequest(), ^{  
-    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) 
+    [client get:resourceWithPath(@"/simple/resource") 
      parameters:nil
         headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
        delegate:self];
@@ -70,7 +70,7 @@
     [client attachRequestModifier:^(LRRestyRequest *request) {
       [request addHeader:@"X-Test-Header" value:@"Resty"];
     }];  
-    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
+    [client get:resourceWithPath(@"/simple/resource") delegate:self];
   });
   
   assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
@@ -81,7 +81,7 @@
   __block LRRestyResponse *testLocalResponse = nil;
 
   mimicGET(@"/simple/resource", andReturnAnything(), ^{
-    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) withBlock:^(LRRestyResponse *response) {
+    [client get:resourceWithPath(@"/simple/resource") withBlock:^(LRRestyResponse *response) {
       testLocalResponse = [response retain];
     }];
   });
@@ -100,7 +100,6 @@
 - (void)tearDown
 {
   [lastResponse release]; lastResponse = nil;
-  clearServiceStubs();
 }
 
 @end

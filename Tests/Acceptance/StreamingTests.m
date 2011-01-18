@@ -29,7 +29,7 @@
   __block NSMutableData *responseData = [NSMutableData data];
   __block NSString *responseBody = nil;
   
-  [client get:resourceWithPathWithPort(@"/streaming", 11989)
+  [client get:resourceWithPath(@"/streaming")
     onData:^(NSData *chunk, BOOL *cancel) {
       if (chunk) {
         [responseData appendData:chunk];

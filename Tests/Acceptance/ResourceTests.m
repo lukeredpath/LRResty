@@ -11,6 +11,7 @@
 
 @interface ResourceTests : SenTestCase 
 {
+  LRRestyResponse *lastResponse;
   LRRestyResource *resource;
 }
 @end
@@ -19,7 +20,7 @@
 
 - (void)setUp
 {
-  resource = [[LRResty resource:resourceRootWithPort(11989)] retain];
+  resource = [[LRResty resource:resourceRoot()] retain];
 }
 
 - (void)testCanPerformGetRequests

@@ -13,7 +13,6 @@
 
 @interface CookieHandlingTests : SenTestCase
 {
-  LRRestyResponse *lastResponse;
   LRRestyClient *client;
 }
 @end
@@ -36,7 +35,7 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
 
-  [client get:resourceWithPathWithPort(@"/sets/cookie", 11988) withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPath(@"/sets/cookie") withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
@@ -47,8 +46,8 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client get:resourceWithPathWithPort(@"/sets/cookie", 11989) withBlock:^(LRRestyResponse *response) {
-    [client get:resourceWithPathWithPort(@"/requires/cookie", 11989) withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPath(@"/sets/cookie") withBlock:^(LRRestyResponse *response) {
+    [client get:resourceWithPath(@"/requires/cookie") withBlock:^(LRRestyResponse *response) {
       receivedResponse = [response retain];
     }];
   }];
@@ -62,8 +61,8 @@
   
   [client setHandlesCookiesAutomatically:NO];
   
-  [client get:resourceWithPathWithPort(@"/sets/cookie", 11989) withBlock:^(LRRestyResponse *response) {
-    [client get:resourceWithPathWithPort(@"/requires/cookie", 11989) withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPath(@"/sets/cookie") withBlock:^(LRRestyResponse *response) {
+    [client get:resourceWithPath(@"/requires/cookie") withBlock:^(LRRestyResponse *response) {
       receivedResponse = [response retain];
     }];
   }];

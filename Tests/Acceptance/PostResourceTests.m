@@ -29,7 +29,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   mimicPOST(@"/echo/test", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/echo/test", 11989) payload:@"hello world" withBlock:^(LRRestyResponse *response) {
+    [client post:resourceWithPath(@"/echo/test") payload:@"hello world" withBlock:^(LRRestyResponse *response) {
       receivedResponse = [response retain];
     }];
   });
@@ -37,7 +37,7 @@
   assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"body", @"hello world")));
   
   mimicPOST(@"/echo/test", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/echo/test", 11989) payload:@"Resty rocks!" withBlock:^(LRRestyResponse *response) {
+    [client post:resourceWithPath(@"/echo/test") payload:@"Resty rocks!" withBlock:^(LRRestyResponse *response) {
       receivedResponse = [response retain];
     }];
   });
@@ -50,7 +50,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   mimicPOST(@"/echo/test", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/echo/test", 11989) payload:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
+    [client post:resourceWithPath(@"/echo/test") payload:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
       receivedResponse = [response retain];
     }];
   });
@@ -65,7 +65,7 @@
   id payload = [[[CustomJsonObject alloc] initWithJSONString:@"{'foo':'bar'}"] autorelease];
   
   mimicPOST(@"/echo/json", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/echo/json", 11989) 
+    [client post:resourceWithPath(@"/echo/json") 
          payload:payload
        withBlock:^(LRRestyResponse *response) {
          
@@ -83,7 +83,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+    [client post:resourceWithPath(@"/simple/resource") 
          payload:@""
          headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
        withBlock:^(LRRestyResponse *response) {
@@ -100,7 +100,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+    [client post:resourceWithPath(@"/simple/resource") 
          payload:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
        withBlock:^(LRRestyResponse *response) {
          
@@ -116,7 +116,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+    [client post:resourceWithPath(@"/simple/resource") 
          payload:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
        withBlock:^(LRRestyResponse *response) {
          
@@ -132,7 +132,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   mimicPOST(@"/simple/resource", andEchoRequest(), ^{  
-    [client post:resourceWithPathWithPort(@"/simple/resource", 11989) 
+    [client post:resourceWithPath(@"/simple/resource") 
          payload:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"number"]
        withBlock:^(LRRestyResponse *response) {
          

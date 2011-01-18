@@ -26,7 +26,7 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  [client get:resourceWithPathWithPort(@"/requires/auth", 11989) withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPath(@"/requires/auth") withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
@@ -38,7 +38,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   [client setUsername:@"testuser" password:@"testpass"];
-  [client get:resourceWithPathWithPort(@"/requires/auth", 11989) withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPath(@"/requires/auth") withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
@@ -50,7 +50,7 @@
   __block LRRestyResponse *receivedResponse = nil;
   
   [client setUsername:@"testuser" password:@"wrongpass"];
-  [client get:resourceWithPathWithPort(@"/requires/auth", 11989) withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPath(@"/requires/auth") withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
