@@ -172,6 +172,13 @@ LRMimicRequestStubBuilder *andReturnAnything()
   return [LRMimicRequestStubBuilder builder];
 }
 
+LRMimicRequestStubBuilder *andEchoRequest()
+{
+  LRMimicRequestStubBuilder *builder = andReturnAnything();
+  builder.echoRequest = YES;
+  return builder;
+}
+
 LRMimicRequestStubBuilder *andReturnBody(NSString *body)
 {
   LRMimicRequestStubBuilder *builder = andReturnAnything();

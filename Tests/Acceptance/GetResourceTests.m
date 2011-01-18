@@ -54,26 +54,27 @@
 
 - (void)testCanPerformGetRequestWithCustomHeaders
 {
-  serviceStubWillServe(anyResponse(), [forGetRequestTo(@"/simple/resource") withHeader:@"X-Test-Header" value:@"Resty"]);
+  mimicGET(@"/simple/resource", andEchoRequest(), ^{  
+    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) 
+     parameters:nil
+        headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
+       delegate:self];
+  });
   
-  [client get:resourceWithPath(@"/simple/resource") 
-   parameters:nil
-      headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
-     delegate:self];
-  
-  assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
+  assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
 }
 
 - (void)testCanModifyRequestsBeforeTheyAreSentUsingBlock
 {
-  serviceStubWillServe(anyResponse(), [forGetRequestTo(@"/simple/resource") withHeader:@"X-Test-Header" value:@"Resty"]);
+  mimicGET(@"/simple/resource", andEchoRequest(), ^{  
+    [client attachRequestModifier:^(LRRestyRequest *request) {
+      [request addHeader:@"X-Test-Header" value:@"Resty"];
+    }];  
+    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
+  });
   
-  [client attachRequestModifier:^(LRRestyRequest *request) {
-    [request addHeader:@"X-Test-Header" value:@"Resty"];
-  }];  
-  [client get:resourceWithPath(@"/simple/resource") delegate:self];
+  assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
   
-  assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
 }
 
 - (void)testCanPerformGetRequestAndPassResponseToABlock

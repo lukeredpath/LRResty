@@ -41,6 +41,28 @@ id<HCMatcher> responseWithStatusAndBodyMatching(NSUInteger status, id<HCMatcher>
   }, [NSString stringWithFormat:@"a %d response with body that is %@", status, describeMatcher(bodyMatcher)]);
 }
 
+id<HCMatcher> responseWithRequestEcho(NSString *keyPath, NSString *value)
+{
+  return HC_passesBlock(^(id object) {
+    if (![object isKindOfClass:[LRRestyResponse class]]) {
+      return NO;
+    }
+    LRRestyResponse *response = object;
+
+    if (response.status != 200) {
+      return NO;
+    }
+    NSDictionary *parsedResponse = [NSPropertyListSerialization propertyListWithData:response.responseData options:0 format:NULL error:NULL];
+    if (!parsedResponse) {
+      return NO;
+    }
+    NSDictionary *echo = [parsedResponse objectForKey:@"echo"];
+
+    return [[echo valueForKeyPath:keyPath] isEqualToString:value];
+    
+  }, [NSString stringWithFormat:@"a 200 response with request echo containing value '%@' at key path '%@'", value, keyPath]);
+}
+
 id<HCMatcher> hasHeader(NSString *header, NSString *value)
 {
   return HC_passesBlock(^(id object) {
