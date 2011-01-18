@@ -1309,7 +1309,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nruby ${SRCROOT}/Scripts/ServerControl.rb start\n";
+			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb start\n";
 			showEnvVarsInLog = 0;
 		};
 		A3F81935120832DD00E60B0B /* Stop Service Stub */ = {
@@ -1324,7 +1324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nruby ${SRCROOT}/Scripts/ServerControl.rb stop\n";
+			shellScript = "source ~/.profile\nbundle exec ruby ${SRCROOT}/Scripts/ServerControl.rb stop\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
