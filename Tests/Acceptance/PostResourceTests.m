@@ -8,33 +8,7 @@
 
 #import "TestHelper.h"
 #import "LRResty.h"
-
-@interface CustomJsonObject : NSObject <LRRestyRequestPayload>
-{
-  NSString *string;
-}
-- (id)initWithJSONString:(NSString *)jsonString;
-@end
-
-@implementation CustomJsonObject
-
-- (id)initWithJSONString:(NSString *)jsonString;
-{
-  if (self = [super init]) {
-    string = [jsonString copy];
-  }
-  return self;
-}
-
-- (void)modifyRequest:(LRRestyRequest *)request
-{
-  [request addHeader:@"Accept" value:@"application/json"];
-  [request addHeader:@"Content-Type" value:@"application/json"];
-  [request setPostData:[string dataUsingEncoding:NSUTF8StringEncoding]];
-}
-
-@end
-
+#import "CustomJsonObject.h"
 
 @interface PostResourceTests : SenTestCase 
 {

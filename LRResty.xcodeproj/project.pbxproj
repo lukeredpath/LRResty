@@ -189,6 +189,7 @@
 		A3C630BC12859826009A800C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3D0D9DA12E5EC73009B187B /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0D9D912E5EC73009B187B /* LRMimic.m */; };
+		A3D0DB2D12E61F0A009B187B /* CustomJsonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */; };
 		A3F8190E1208255F00E60B0B /* GetResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8190D1208255F00E60B0B /* GetResourceTests.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
 		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
@@ -360,6 +361,8 @@
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UsersViewController.m; path = ../UsersViewController.m; sourceTree = "<group>"; };
 		A3D0D9D812E5EC73009B187B /* LRMimic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LRMimic.h; path = "../../../mine/mimic/wrappers/Objective-C/LRMimic.h"; sourceTree = SOURCE_ROOT; };
 		A3D0D9D912E5EC73009B187B /* LRMimic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LRMimic.m; path = "../../../mine/mimic/wrappers/Objective-C/LRMimic.m"; sourceTree = SOURCE_ROOT; };
+		A3D0DB2B12E61F0A009B187B /* CustomJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomJsonObject.h; sourceTree = "<group>"; };
+		A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomJsonObject.m; sourceTree = "<group>"; };
 		A3F818E81208248F00E60B0B /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F8190D1208255F00E60B0B /* GetResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetResourceTests.m; sourceTree = "<group>"; };
 		A3F81970120837FC00E60B0B /* AssertEventually.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssertEventually.h; sourceTree = "<group>"; };
@@ -810,6 +813,8 @@
 				A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */,
 				A3F81B6812085B0B00E60B0B /* DomainMatchers.h */,
 				A3F81B6912085B0B00E60B0B /* DomainMatchers.m */,
+				A3D0DB2B12E61F0A009B187B /* CustomJsonObject.h */,
+				A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1491,6 +1496,7 @@
 				A38AF8EA122B972D0001D038 /* StreamingTests.m in Sources */,
 				A389E06E125383220006572D /* HCBlockMatcher.m in Sources */,
 				A3D0D9DA12E5EC73009B187B /* LRMimic.m in Sources */,
+				A3D0DB2D12E61F0A009B187B /* CustomJsonObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
