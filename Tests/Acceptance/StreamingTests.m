@@ -44,7 +44,7 @@
   assertEventuallyThat(&responseBody, equalTo(@"the\nquick\nbrown\nfox\njumped\nover\nthe\nlazy\ndog\n"));
 }
 
-- (void)testCancellationUsingTwitterStream;
+- (void)xtestCancellationUsingTwitterStream;
 {
   NSMutableArray *chunks = [NSMutableArray array];
   

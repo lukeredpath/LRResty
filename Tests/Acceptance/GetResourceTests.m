@@ -43,13 +43,13 @@
 
 - (void)testCanPerformGetRequestWithQueryParameters
 {
-  mimicGET(@"/simple/resource?foo=bar", andReturnAnything(), ^{
+  mimicGET(@"/simple/resource", andEchoRequest(), ^{
     [client get:resourceWithPathWithPort(@"/simple/resource", 11989) 
      parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] 
        delegate:self];
   });
     
-  assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
+  assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"params.foo", @"bar")));
 }
 
 - (void)testCanPerformGetRequestWithCustomHeaders
