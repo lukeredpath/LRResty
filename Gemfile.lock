@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:lukeredpath/mimic.git
-  revision: bf8d0cb191f9005db32139aa3729dd0a67b1a58d
+  revision: 06fcb14a65119007fd10299fb821969f3a351bf4
   branch: develop
   specs:
     mimic (0.4.1)

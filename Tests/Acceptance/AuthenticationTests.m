@@ -26,9 +26,7 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/requires_auth"));
-  
-  [client get:resourceWithPath(@"/simple/requires_auth") withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPathWithPort(@"/requires/auth", 11989) withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
@@ -39,10 +37,8 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/requires_auth"));
-  
   [client setUsername:@"testuser" password:@"testpass"];
-  [client get:resourceWithPath(@"/simple/requires_auth") withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPathWithPort(@"/requires/auth", 11989) withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
@@ -53,10 +49,8 @@
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/requires_auth"));
-  
   [client setUsername:@"testuser" password:@"wrongpass"];
-  [client get:resourceWithPath(@"/simple/requires_auth") withBlock:^(LRRestyResponse *response) {
+  [client get:resourceWithPathWithPort(@"/requires/auth", 11989) withBlock:^(LRRestyResponse *response) {
     receivedResponse = [response retain];
   }];
   
