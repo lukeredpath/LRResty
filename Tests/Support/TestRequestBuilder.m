@@ -8,6 +8,7 @@
 
 #import "TestRequestBuilder.h"
 #import "LRMimic.h"
+#import "NSDictionary+QueryString.h"
 
 @implementation TestRequestSpecificationBuilder
 
@@ -140,12 +141,23 @@ void mimicHEAD(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStub
 void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
 {
   stubBuilder.method = @"GET";
-  stubBuilder.path = path;
+
+  NSArray *pathComponents = [path componentsSeparatedByString:@"?"];
+  if (pathComponents.count == 2) {
+    stubBuilder.path = [pathComponents objectAtIndex:0];
+    stubBuilder.queryParameters = [NSDictionary dictionaryWithFormEncodedString:[pathComponents objectAtIndex:1]];
+  } else {
+    stubBuilder.path = path;
+  }
   
   [LRMimic setURL:@"http://localhost:11989/api"];
+  [LRMimic setAutomaticallyClearsStubs:YES];
+  [LRMimic reset];
+  
   [LRMimic configure:^(LRMimic *mimic) {
     [mimic addRequestStub:[stubBuilder buildStub]];
   }];
+  
   [LRMimic stubAndCall:^(BOOL success) {
     if (success) {
       callback();
@@ -155,16 +167,21 @@ void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuil
   }];
 }
 
+LRMimicRequestStubBuilder *andReturnAnything()
+{
+  return [LRMimicRequestStubBuilder builder];
+}
+
 LRMimicRequestStubBuilder *andReturnBody(NSString *body)
 {
-  LRMimicRequestStubBuilder *builder = [LRMimicRequestStubBuilder builder];
+  LRMimicRequestStubBuilder *builder = andReturnAnything();
   builder.body = body;
   return builder;
 }
 
 LRMimicRequestStubBuilder *andReturnStatusAndBody(NSInteger status, NSString *body)
 {
-  LRMimicRequestStubBuilder *builder = [LRMimicRequestStubBuilder builder];
+  LRMimicRequestStubBuilder *builder = andReturnAnything();
   builder.code = status;
   builder.body = body;
   return builder;
@@ -172,9 +189,16 @@ LRMimicRequestStubBuilder *andReturnStatusAndBody(NSInteger status, NSString *bo
 
 LRMimicRequestStubBuilder *andReturnStatusAndBodyWithHeaders(NSInteger status, NSString *body, NSDictionary *headers)
 {
-  LRMimicRequestStubBuilder *builder = [LRMimicRequestStubBuilder builder];
+  LRMimicRequestStubBuilder *builder = andReturnAnything();
   builder.code = status;
   builder.body = body;
   builder.headers = headers;
+  return builder;
+}
+
+LRMimicRequestStubBuilder *andReturnResponseHeader(NSString *key, NSString *value)
+{
+  LRMimicRequestStubBuilder *builder = andReturnAnything();
+  builder.headers = [NSDictionary dictionaryWithObject:value forKey:key];
   return builder;
 }

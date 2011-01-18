@@ -34,21 +34,21 @@
 
 - (void)testCanExtractHeadersFromResponse
 {
-  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource"));
-  
-  [client get:resourceWithPath(@"/simple/resource") delegate:self];
+  mimicGET(@"/simple/resource", andReturnResponseHeader(@"Content-Type", @"text/plain"), ^{
+    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) delegate:self];
+  });
   
   assertEventuallyThat(&lastResponse, hasHeader(@"Content-Type", @"text/plain"));
 }
 
 - (void)testCanPerformGetRequestWithQueryParameters
 {
-  serviceStubWillServe(anyResponse(), forGetRequestTo(@"/simple/resource?foo=bar"));
-  
-  [client get:resourceWithPath(@"/simple/resource") 
-   parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] 
-     delegate:self];
-  
+  mimicGET(@"/simple/resource?foo=bar", andReturnAnything(), ^{
+    [client get:resourceWithPathWithPort(@"/simple/resource", 11989) 
+     parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] 
+       delegate:self];
+  });
+    
   assertEventuallyThat(&lastResponse, is(responseWithStatus(200)));
 }
 

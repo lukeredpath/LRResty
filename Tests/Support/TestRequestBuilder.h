@@ -47,6 +47,9 @@ void mimicDELETE(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicSt
 void mimicHEAD(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
 void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
 
+LRMimicRequestStubBuilder *andReturnAnything();
 LRMimicRequestStubBuilder *andReturnBody(NSString *body);
 LRMimicRequestStubBuilder *andReturnStatusAndBody(NSInteger status, NSString *body);
 LRMimicRequestStubBuilder *andReturnStatusAndBodyWithHeaders(NSInteger, NSString *body, NSDictionary *headers);
+LRMimicRequestStubBuilder *andReturnResponseHeader(NSString *key, NSString *value);
+
