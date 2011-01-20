@@ -72,6 +72,8 @@ end
 
 ### Used by all synchronous tests
 
-get "/synchronous/echo" do
-  echo_request!(:plist)
+%w{get post put delete head}.each do |verb|
+  send(verb, "/synchronous/echo") do
+    echo_request!(:plist)
+  end
 end

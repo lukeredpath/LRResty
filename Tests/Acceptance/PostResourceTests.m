@@ -143,6 +143,21 @@
   assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"params.number", @"123")));
 }
 
+- (void)testCanPerformSynchronousPostRequest
+{
+  LRRestyResponse *response = [client post:resourceWithPath(@"/synchronous/echo") payload:@"hello world"];
+  
+  assertThat(response, is(responseWithRequestEcho(@"body", @"hello world")));
+}
+
+- (void)testCanPerformSynchronousPostRequestWithCustomHeaders
+{
+  LRRestyResponse *response = [client post:resourceWithPath(@"/synchronous/echo") payload:@"hello world"
+     headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]];
+  
+  assertThat(response, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
+}
+
 - (void)tearDown
 {
   [lastResponse release]; lastResponse = nil;

@@ -9,8 +9,12 @@
 #import "LRRestyClient+POST.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientProxyDelegate.h"
+#import "NSObject+SynchronousProxy.h"
 
 @implementation LRRestyClient (POST)
+
+#pragma mark -
+#pragma mark Delegate API
 
 - (LRRestyRequest *)post:(NSString *)urlString payload:(id)payload delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
@@ -22,6 +26,9 @@
   return [HTTPClient POST:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
+#pragma mark -
+#pragma mark Blocks API
+
 - (LRRestyRequest *)post:(NSString *)urlString payload:(id)payload withBlock:(LRRestyResponseBlock)block;
 {
   return [self post:urlString payload:payload headers:nil withBlock:block];
@@ -30,6 +37,29 @@
 - (LRRestyRequest *)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
   return [HTTPClient POST:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+#pragma mark -
+#pragma mark Synchronous API
+
+- (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload;
+{
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  {
+    [self post:urlString payload:payload withBlock:^(LRRestyResponse *response) {
+      *result = [response retain];
+    }];
+  }];
+}
+
+- (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers;
+{
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  {
+    [self post:urlString payload:payload headers:headers withBlock:^(LRRestyResponse *response) {
+      *result = [response retain];
+    }];
+  }];
 }
 
 @end
