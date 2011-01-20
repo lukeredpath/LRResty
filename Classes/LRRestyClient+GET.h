@@ -12,6 +12,7 @@
 @class LRRestyRequest;
 
 @interface LRRestyClient (GET)
+
 /**
  Performs a GET request on URL with delegate response handling.
  @param urlString   The URL to request.
@@ -19,6 +20,7 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
+
 /**
  Performs a GET request on URL with the specified query parameters with delegate response handling.
  @param urlString   The URL to request.
@@ -27,6 +29,7 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters delegate:(id<LRRestyClientResponseDelegate>)delegate;
+
 /**
  Performs a GET request on URL with the specified query parameters and request headers with delegate response handling.
  @param urlString   The URL to request.
@@ -36,6 +39,7 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+
 /**
  Performs a GET request on URL with block response handling.
  @param urlString   The URL to request.
@@ -43,6 +47,7 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
+
 /**
  Performs a GET request on URL with the specified query parameters block response handling.
  @param urlString   The URL to request.
@@ -51,6 +56,7 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters withBlock:(LRRestyResponseBlock)block;
+
 /**
  Performs a GET request on URL with block response handling.
  @param urlString   The URL to request.
@@ -60,6 +66,14 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+
+/**
+ Performs a *synchronous* GET request on URL, blocking the calling thread.
+ @param urlString   The URL to request.
+ @returns The response to the request.
+ */
+- (LRRestyResponse *)get:(NSString *)urlString;
+
 @end
 
 @interface LRRestyClient (GET_Streaming)

@@ -90,6 +90,17 @@
   [testLocalResponse release];
 }
 
+- (void)testCanPerformSynchronousGetRequest
+{
+  __block LRRestyResponse *testLocalResponse = nil;
+  
+  mimicGET(@"/simple/resource", andReturnAnything(), ^{
+    testLocalResponse = [[client get:resourceWithPath(@"/simple/resource")] retain];
+  });
+  
+  assertEventuallyThat(&testLocalResponse, is(responseWithStatus(200)));
+}
+
 #pragma mark -
 
 - (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;

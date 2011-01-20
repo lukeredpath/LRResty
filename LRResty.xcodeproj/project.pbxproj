@@ -34,6 +34,12 @@
 		A332B0241229CEB900B8F201 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
 		A332B0321229CEB900B8F201 /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A332B0451229CEB900B8F201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
+		A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
+		A33E505112E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
+		A33E505212E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
+		A33E505312E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
+		A33E505412E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
 		A35D8586125A83C200E5A8BD /* LRResty.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFFD125381700006572D /* LRResty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A35D8587125A83C200E5A8BD /* LRRestyClient+GET.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E001125381700006572D /* LRRestyClient+GET.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A35D8588125A83C200E5A8BD /* LRRestyClient+POST.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E003125381700006572D /* LRRestyClient+POST.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -297,6 +303,8 @@
 		A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestDelegate.h; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A332B0491229CEB900B8F201 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+Additions.h"; sourceTree = "<group>"; };
+		A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+Additions.m"; sourceTree = "<group>"; };
 		A35D8777125A8E3200E5A8BD /* LRRestyFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LRRestyFramework-Info.plist"; path = "Resources/LRRestyFramework-Info.plist"; sourceTree = "<group>"; };
 		A3702E101229E27000A2C962 /* Tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests_Prefix.pch; sourceTree = "<group>"; };
 		A3702EED1229E73D00A2C962 /* Compatibility Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Compatibility Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -736,6 +744,8 @@
 				A389DFB0125380080006572D /* NSString+QueryString.m */,
 				A389DFB1125380080006572D /* NSURL+QueryInspector.h */,
 				A389DFB2125380080006572D /* NSURL+QueryInspector.m */,
+				A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */,
+				A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -998,6 +1008,7 @@
 				A332B0241229CEB900B8F201 /* LRResty_Prefix.pch in Headers */,
 				A332B0321229CEB900B8F201 /* RemoteRepositoryExample.h in Headers */,
 				A3702E111229E27000A2C962 /* Tests_Prefix.pch in Headers */,
+				A33E505112E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1043,7 @@
 				A3C630A212859826009A800C /* LRRestyResourceDelegate.h in Headers */,
 				A3C630A312859826009A800C /* LRRestyResponse.h in Headers */,
 				A3C630A412859826009A800C /* LRRestyTypes.h in Headers */,
+				A33E505312E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,6 +1101,7 @@
 				A389E02D125381700006572D /* LRRestyResourceDelegate.h in Headers */,
 				A389E02E125381700006572D /* LRRestyResponse.h in Headers */,
 				A389E030125381700006572D /* LRRestyTypes.h in Headers */,
+				A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1367,6 +1380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33E505212E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1438,6 +1452,7 @@
 				A3C630B812859826009A800C /* LRRestyHTTPClient.m in Sources */,
 				A3C630B912859826009A800C /* LRURLRequestOperation.m in Sources */,
 				A3C630BA12859826009A800C /* LRRestyClientProxyDelegate.m in Sources */,
+				A33E505412E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1532,6 +1547,7 @@
 				A35D874F125A8D7300E5A8BD /* LRRestyHTTPClient.m in Sources */,
 				A35D8750125A8D7A00E5A8BD /* LRURLRequestOperation.m in Sources */,
 				A35D8751125A8D8D00E5A8BD /* LRRestyClientProxyDelegate.m in Sources */,
+				A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

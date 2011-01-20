@@ -10,8 +10,12 @@
 #import "LRRestyClientProxyDelegate.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientStreamingDelegate.h"
+#import "NSRunLoop+Additions.h"
 
 @implementation LRRestyClient (GET)
+
+#pragma mark -
+#pragma mark Delegate API
 
 - (LRRestyRequest *)get:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
@@ -28,6 +32,9 @@
   return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
+#pragma mark -
+#pragma mark Blocks API
+
 - (LRRestyRequest *)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
 {
   return [self get:urlString parameters:nil withBlock:block];
@@ -43,7 +50,28 @@
   return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:parameters headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
+#pragma mark -
+#pragma mark Synchronous API
+
+- (LRRestyResponse *)get:(NSString *)urlString;
+{
+  __block LRRestyResponse *response = nil;
+  
+  [self get:urlString withBlock:^(LRRestyResponse *theResponse) {
+    response = [theResponse retain];
+  }];
+  
+  while (response == nil) {
+    [[NSRunLoop currentRunLoop] runForTimeInterval:0.1];
+  }
+  
+  return [response autorelease];
+}
+
 @end
+
+#pragma mark -
+#pragma mark Streaming API
 
 @implementation LRRestyClient (GET_Streaming)
 
