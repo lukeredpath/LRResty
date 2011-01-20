@@ -10,7 +10,7 @@
 #import "LRRestyClientProxyDelegate.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientStreamingDelegate.h"
-#import "NSRunLoop+Additions.h"
+#import "NSObject+SynchronousProxy.h"
 
 @implementation LRRestyClient (GET)
 
@@ -55,17 +55,32 @@
 
 - (LRRestyResponse *)get:(NSString *)urlString;
 {
-  __block LRRestyResponse *response = nil;
-  
-  [self get:urlString withBlock:^(LRRestyResponse *theResponse) {
-    response = [theResponse retain];
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  {
+    [self get:urlString withBlock:^(LRRestyResponse *response) {
+      *result = [response retain];
+    }];
   }];
-  
-  while (response == nil) {
-    [[NSRunLoop currentRunLoop] runForTimeInterval:0.1];
-  }
-  
-  return [response autorelease];
+}
+
+- (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters;
+{
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  {
+    [self get:urlString parameters:parameters withBlock:^(LRRestyResponse *response) {
+      *result = [response retain];
+    }];
+  }];
+}
+
+- (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers;
+{
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  {
+    [self get:urlString parameters:parameters headers:headers withBlock:^(LRRestyResponse *response) {
+      *result = [response retain];
+    }];
+  }];
 }
 
 @end

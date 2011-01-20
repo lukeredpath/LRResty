@@ -68,3 +68,10 @@ class StringStreamer
     @string.split(" ").length + @string.length
   end
 end
+
+
+### Used by all synchronous tests
+
+get "/synchronous/echo" do
+  echo_request!(:plist)
+end

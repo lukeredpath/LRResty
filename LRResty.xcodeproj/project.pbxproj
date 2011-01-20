@@ -40,6 +40,18 @@
 		A33E505212E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
 		A33E505312E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
 		A33E505412E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
+		A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
+		A33E50C612E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
+		A33E50C712E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
+		A33E50C812E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
+		A33E50C912E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
+		A33E50CA12E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
+		A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
+		A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
+		A33E50CF12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
+		A33E50D012E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
+		A33E50D112E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
+		A33E50D212E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
 		A35D8586125A83C200E5A8BD /* LRResty.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFFD125381700006572D /* LRResty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A35D8587125A83C200E5A8BD /* LRRestyClient+GET.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E001125381700006572D /* LRRestyClient+GET.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A35D8588125A83C200E5A8BD /* LRRestyClient+POST.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E003125381700006572D /* LRRestyClient+POST.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -305,6 +317,10 @@
 		A332B0491229CEB900B8F201 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+Additions.h"; sourceTree = "<group>"; };
 		A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+Additions.m"; sourceTree = "<group>"; };
+		A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRSynchronousProxy.h; sourceTree = "<group>"; };
+		A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRSynchronousProxy.m; sourceTree = "<group>"; };
+		A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SynchronousProxy.h"; sourceTree = "<group>"; };
+		A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SynchronousProxy.m"; sourceTree = "<group>"; };
 		A35D8777125A8E3200E5A8BD /* LRRestyFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LRRestyFramework-Info.plist"; path = "Resources/LRRestyFramework-Info.plist"; sourceTree = "<group>"; };
 		A3702E101229E27000A2C962 /* Tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests_Prefix.pch; sourceTree = "<group>"; };
 		A3702EED1229E73D00A2C962 /* Compatibility Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Compatibility Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,6 +762,8 @@
 				A389DFB2125380080006572D /* NSURL+QueryInspector.m */,
 				A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */,
 				A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */,
+				A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */,
+				A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -994,6 +1012,8 @@
 			children = (
 				A3FFFE5B125A5D380075D21F /* LRURLRequestOperation.h */,
 				A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */,
+				A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */,
+				A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1009,6 +1029,8 @@
 				A332B0321229CEB900B8F201 /* RemoteRepositoryExample.h in Headers */,
 				A3702E111229E27000A2C962 /* Tests_Prefix.pch in Headers */,
 				A33E505112E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
+				A33E50C712E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
+				A33E50CF12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,6 +1066,8 @@
 				A3C630A312859826009A800C /* LRRestyResponse.h in Headers */,
 				A3C630A412859826009A800C /* LRRestyTypes.h in Headers */,
 				A33E505312E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
+				A33E50C912E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
+				A33E50D112E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1102,6 +1126,8 @@
 				A389E02E125381700006572D /* LRRestyResponse.h in Headers */,
 				A389E030125381700006572D /* LRRestyTypes.h in Headers */,
 				A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
+				A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
+				A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1381,6 +1407,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A33E505212E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
+				A33E50C812E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */,
+				A33E50D012E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1453,6 +1481,8 @@
 				A3C630B912859826009A800C /* LRURLRequestOperation.m in Sources */,
 				A3C630BA12859826009A800C /* LRRestyClientProxyDelegate.m in Sources */,
 				A33E505412E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
+				A33E50CA12E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */,
+				A33E50D212E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1548,6 +1578,8 @@
 				A35D8750125A8D7A00E5A8BD /* LRURLRequestOperation.m in Sources */,
 				A35D8751125A8D8D00E5A8BD /* LRRestyClientProxyDelegate.m in Sources */,
 				A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
+				A33E50C612E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */,
+				A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

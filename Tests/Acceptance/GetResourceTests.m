@@ -92,13 +92,25 @@
 
 - (void)testCanPerformSynchronousGetRequest
 {
-  __block LRRestyResponse *testLocalResponse = nil;
+  LRRestyResponse *response = [client get:resourceWithPath(@"/synchronous/echo")];
+  assertThat(response, is(responseWithStatus(200)));
+}
+
+- (void)testCanPerformSynchronousGetRequestWithParameters
+{
+  LRRestyResponse *response = [client get:resourceWithPath(@"/synchronous/echo") 
+    parameters:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]];
   
-  mimicGET(@"/simple/resource", andReturnAnything(), ^{
-    testLocalResponse = [[client get:resourceWithPath(@"/simple/resource")] retain];
-  });
+  assertThat(response, is(responseWithRequestEcho(@"params.foo", @"bar")));
+}
+
+- (void)testCanPerformSynchronousGetRequestWithCustomHeaders
+{
+  LRRestyResponse *response = [client get:resourceWithPath(@"/synchronous/echo") 
+       parameters:nil
+          headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]];
   
-  assertEventuallyThat(&testLocalResponse, is(responseWithStatus(200)));
+  assertThat(response, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
 }
 
 #pragma mark -

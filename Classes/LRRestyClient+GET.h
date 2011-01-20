@@ -13,6 +13,9 @@
 
 @interface LRRestyClient (GET)
 
+#pragma mark -
+#pragma mark Delegate API
+
 /**
  Performs a GET request on URL with delegate response handling.
  @param urlString   The URL to request.
@@ -39,6 +42,9 @@
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
+
+#pragma mark -
+#pragma mark Blocks API
 
 /**
  Performs a GET request on URL with block response handling.
@@ -67,6 +73,9 @@
  */
 - (LRRestyRequest *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 
+#pragma mark -
+#pragma mark Synchronous API
+
 /**
  Performs a *synchronous* GET request on URL, blocking the calling thread.
  @param urlString   The URL to request.
@@ -74,14 +83,32 @@
  */
 - (LRRestyResponse *)get:(NSString *)urlString;
 
+/**
+ Performs a *synchronous* GET request on URL, blocking the calling thread.
+ @param urlString   The URL to request.
+ @param parameters  A dictionary of query string parameters.
+ @returns The response to the request.
+ */
+- (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters;
+
+/**
+ Performs a *synchronous* GET request on URL, blocking the calling thread.
+ @param urlString   The URL to request.
+ @param parameters  A dictionary of query string parameters.
+ @param headers     A dictionary of HTTP request headers.
+ @returns The response to the request.
+ */
+- (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers;
+
 @end
+
+#pragma mark -
+#pragma mark Streaming API
 
 @interface LRRestyClient (GET_Streaming)
 /**
  Performs a GET request on URL, and yields data as it arrives. Designed for consuming streaming HTTP APIs.
  @param urlString    The URL to request.
- @param dataHandler  Called with data as it receives.
- @param errorHandler Called when an error is encountered.
  @returns The request object.
  */
 - (LRRestyRequest *)get:(NSString *)urlString onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
