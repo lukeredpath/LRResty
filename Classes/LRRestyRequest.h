@@ -24,16 +24,22 @@
 }
 @property (nonatomic, readonly) NSURL *URL;
 
+/// @name Initialization
+
 /**
  * Designated initializer
+ *
  * @param aURL      The request URL.
  * @param method    The HTTP request method (GET/POST/PUT/DELETE/HEAD).
  * @param delegate  The delegate for this request.
  */
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 
+/// @name Configuring the Request
+
 /**
  * Set the query parameters for the request.
+ *
  * @param parameters A dictionary of key-value pairs (supports nested parameters).
  */
 - (void)setQueryParameters:(NSDictionary *)parameters;
@@ -46,21 +52,28 @@
  */
 - (void)addHeader:(NSString *)header value:(NSString *)value;
 /**
+ * Toggle the automatic cookie handling menchanism (defaults to YES).
+ */
+- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
+/**
  * Set the raw HTTP request body data.
  */
+
+/// @name Configuring POST or PUT data
+
 - (void)setPostData:(NSData *)data;
 /**
  * Set the HTTP request body using a payload object.
  */
 - (void)setPayload:(id<LRRestyRequestPayload>)thePayload;
-/**
- * Toggle the automatic cookie handling menchanism (defaults to YES).
- */
-- (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;
+
+/// @name Authentication
+
 /**
  * Set the HTTP basic credentials for this request, using either the Authorization header or the native
  * authentication mechanism of NSURLConnection. The latter will make an unauthenticated request and will
  * use the supplied credentials if an HTTP 401 response is received. 
+ *
  * @param username        HTTP Basic username
  * @param password        HTTP Basic password
  * @param useCredential   When set to NO, will use a HTTP Authorization header.

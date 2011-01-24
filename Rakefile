@@ -3,7 +3,10 @@ require 'plist'
 THEME_PATH = "Documentation/theme"
 DOC_OUTPUT = "Documentation/html"
 SITE_ROOT  = "/var/www/projects.lukeredpath.co.uk/resty"
-VERSION = "0.9"
+
+unless defined?(VERSION)
+  VERSION = "0.9"
+end
 
 def modify_plist(path, &block)
   if plist = Plist::parse_xml(path)
@@ -23,12 +26,9 @@ namespace :website do
     end
   end
   
+  desc "Generate the doxygen documentation"
   task :generate_docs do  
-    system("doxygen")
-    system(%Q{
-      cp #{THEME_PATH}/*.css #{DOC_OUTPUT}
-      rm #{DOC_OUTPUT}/tabs.css
-    })
+    system("appledoc --keep-intermediate-files --verbose 1 --output Documentation/generated --project-name Resty Classes/")
   end
   
   task :upload_website => [:generate, "build:diskimage"] do
