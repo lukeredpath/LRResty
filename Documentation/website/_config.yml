@@ -2,9 +2,9 @@ auto:        false
 lsi:         false
 server_port: 4000
 pygments:    true
-markdown:    maruku
+markdown:    rdiscount
 permalink:   /:title.html
-base_url:    http://projects.lukeredpath.co.uk/resty
+base_url:    http://lukeredpath.co.uk/projects/resty
 maruku:
   use_tex:    false
   use_divs:   false
