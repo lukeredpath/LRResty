@@ -9,6 +9,9 @@
 *.perspectivev3
 *.pbxuser
 
+# xcode 4
+*.xcodeproj/xcuserdata
+*.xcodeproj/*.xcworkspace
 
 # Generated files
 VersionX-revision.h
@@ -40,3 +43,4 @@ Documentation/html
 Documentation/website/_site
 Documentation/generated
 pkg
+

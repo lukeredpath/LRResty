@@ -2,3 +2,5 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_4_0
 #import <PLBlocks/Block.h>
 #endif
+#import <SenTestingKit/SenTestingKit.h>
+
