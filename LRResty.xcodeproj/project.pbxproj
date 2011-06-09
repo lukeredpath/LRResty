@@ -26,25 +26,16 @@
 		A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
 		A3236DDF120C5C3400001E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
 		A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
-		A332B0241229CEB900B8F201 /* LRResty_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* LRResty_Prefix.pch */; };
-		A332B0321229CEB900B8F201 /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A332B0451229CEB900B8F201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
 		A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
-		A33E505112E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
-		A33E505212E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
 		A33E505312E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
 		A33E505412E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
 		A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
 		A33E50C612E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
-		A33E50C712E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
-		A33E50C812E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
 		A33E50C912E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
 		A33E50CA12E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
 		A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
 		A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
-		A33E50CF12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
-		A33E50D012E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
 		A33E50D112E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
 		A33E50D212E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
 		A35D8586125A83C200E5A8BD /* LRResty.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFFD125381700006572D /* LRResty.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,7 +108,6 @@
 		A3698EDD132A7F1D00A67C63 /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0D9D912E5EC73009B187B /* LRMimic.m */; };
 		A3698EDE132A7F1D00A67C63 /* CustomJsonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */; };
 		A3698EE0132A7F1D00A67C63 /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libLRResty.a */; };
-		A3702E111229E27000A2C962 /* Tests_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A3702E101229E27000A2C962 /* Tests_Prefix.pch */; };
 		A3702EFB1229E76A00A2C962 /* OSCompatibilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */; };
 		A389DFB3125380080006572D /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFA9125380080006572D /* NSData+Base64.h */; };
 		A389DFB4125380080006572D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFAA125380080006572D /* NSData+Base64.m */; };
@@ -162,7 +152,6 @@
 		A389E02E125381700006572D /* LRRestyResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E014125381700006572D /* LRRestyResponse.h */; };
 		A389E02F125381700006572D /* LRRestyResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A389E015125381700006572D /* LRRestyResponse.m */; };
 		A389E030125381700006572D /* LRRestyTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E016125381700006572D /* LRRestyTypes.h */; };
-		A389E047125382870006572D /* PLBlocks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A389E046125382870006572D /* PLBlocks.framework */; };
 		A389E06E125383220006572D /* HCBlockMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A389E06D125383220006572D /* HCBlockMatcher.m */; };
 		A38AF4A91229E9000001D038 /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
 		A38AF4AB1229E9000001D038 /* HCAnyOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199E1208419300E60B0B /* HCAnyOf.mm */; };
@@ -341,7 +330,6 @@
 		A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClientProxyDelegate.m; sourceTree = "<group>"; };
 		A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestDelegate.h; sourceTree = "<group>"; };
 		A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A332B0491229CEB900B8F201 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+Additions.h"; sourceTree = "<group>"; };
 		A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+Additions.m"; sourceTree = "<group>"; };
 		A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRSynchronousProxy.h; sourceTree = "<group>"; };
@@ -520,15 +508,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A332B0441229CEB900B8F201 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A332B0451229CEB900B8F201 /* Foundation.framework in Frameworks */,
-				A389E047125382870006572D /* PLBlocks.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A3698EDF132A7F1D00A67C63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,7 +560,6 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A332B0491229CEB900B8F201 /* libLRResty.a */,
 				D2AAC07E0554694100DB518D /* libLRResty.a */,
 				A3F818E81208248F00E60B0B /* Unit Tests.octest */,
 				A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */,
@@ -1058,19 +1036,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A332B0231229CEB900B8F201 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A332B0241229CEB900B8F201 /* LRResty_Prefix.pch in Headers */,
-				A332B0321229CEB900B8F201 /* RemoteRepositoryExample.h in Headers */,
-				A3702E111229E27000A2C962 /* Tests_Prefix.pch in Headers */,
-				A33E505112E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
-				A33E50C712E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
-				A33E50CF12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A3C6308912859826009A800C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1188,33 +1153,14 @@
 			productReference = A3236DB4120C5BDE00001E40 /* ExamplesRunner.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A332B0221229CEB900B8F201 /* LRResty-PLBlocks */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A332B0461229CEB900B8F201 /* Build configuration list for PBXNativeTarget "LRResty-PLBlocks" */;
-			buildPhases = (
-				A332B0231229CEB900B8F201 /* Headers */,
-				A332B0341229CEB900B8F201 /* Sources */,
-				A332B0441229CEB900B8F201 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "LRResty-PLBlocks";
-			productName = LRResty;
-			productReference = A332B0491229CEB900B8F201 /* libLRResty.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		A3698EA5132A7F1D00A67C63 /* Acceptance Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3698EE3132A7F1D00A67C63 /* Build configuration list for PBXNativeTarget "Acceptance Tests" */;
 			buildPhases = (
-				A3698EA8132A7F1D00A67C63 /* Start Mimic */,
 				A3698EA9132A7F1D00A67C63 /* Resources */,
 				A3698EAA132A7F1D00A67C63 /* Sources */,
 				A3698EDF132A7F1D00A67C63 /* Frameworks */,
 				A3698EE7132A812E00A67C63 /* ShellScript */,
-				A3698EE2132A7F1D00A67C63 /* Stop Mimic */,
 			);
 			buildRules = (
 			);
@@ -1335,7 +1281,6 @@
 				A3F818E71208248F00E60B0B /* Unit Tests */,
 				A3698EA5132A7F1D00A67C63 /* Acceptance Tests */,
 				A3236DB3120C5BDE00001E40 /* ExamplesRunner */,
-				A332B0221229CEB900B8F201 /* LRResty-PLBlocks */,
 				A3702EEC1229E73D00A2C962 /* Compatibility Tests */,
 				A3FFFED0125A81BB0075D21F /* LRRestyFramework */,
 				A3C6308812859826009A800C /* LRResty-Mac */,
@@ -1383,35 +1328,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A3698EA8132A7F1D00A67C63 /* Start Mimic */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Start Mimic";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nbundle exec ${SRCROOT}/Scripts/mimicd start\n\n";
-			showEnvVarsInLog = 0;
-		};
-		A3698EE2132A7F1D00A67C63 /* Stop Mimic */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Stop Mimic";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "source ~/.profile\nbundle exec ${SRCROOT}/Scripts/mimicd stop\n";
-		};
 		A3698EE7132A812E00A67C63 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1462,16 +1378,6 @@
 				A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */,
 				A3236DDF120C5C3400001E40 /* main.m in Sources */,
 				A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A332B0341229CEB900B8F201 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A33E505212E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
-				A33E50C812E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */,
-				A33E50D012E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1812,50 +1718,6 @@
 			};
 			name = Release;
 		};
-		A332B0471229CEB900B8F201 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/LRResty.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LRResty_Prefix.pch;
-				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
-				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = LRResty;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		A332B0481229CEB900B8F201 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				DSTROOT = /tmp/LRResty.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Frameworks\"",
-				);
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LRResty_Prefix.pch;
-				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
-				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = LRResty;
-				SDKROOT = iphoneos;
-			};
-			name = Release;
-		};
 		A3698EE4132A7F1D00A67C63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1884,7 +1746,6 @@
 				);
 				PRODUCT_NAME = "Acceptance Tests";
 				SDKROOT = iphoneos;
-				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -1915,7 +1776,6 @@
 				);
 				PRODUCT_NAME = "Acceptance Tests";
 				SDKROOT = iphoneos;
-				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -2165,15 +2025,6 @@
 			buildConfigurations = (
 				A3236DB7120C5BDF00001E40 /* Debug */,
 				A3236DB8120C5BDF00001E40 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A332B0461229CEB900B8F201 /* Build configuration list for PBXNativeTarget "LRResty-PLBlocks" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A332B0471229CEB900B8F201 /* Debug */,
-				A332B0481229CEB900B8F201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
