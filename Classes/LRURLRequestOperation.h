@@ -26,3 +26,10 @@
 - (id)initWithURLRequest:(NSURLRequest *)request;
 - (void)finish;
 @end
+
+@interface LRURLRequestOperation (NSURLConnectionDelegate)
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)theResponse;
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+@end
