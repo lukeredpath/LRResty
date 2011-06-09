@@ -13,7 +13,7 @@
 
 - (id)initWithJSONString:(NSString *)jsonString;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     string = [jsonString copy];
   }
   return self;

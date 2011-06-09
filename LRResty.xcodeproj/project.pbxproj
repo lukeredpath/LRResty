@@ -131,6 +131,9 @@
 		A3ACE1B213A12DB200E18687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3ACE1B013A12DB200E18687 /* InfoPlist.strings */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
 		A3BB535B13A13CC40007A07F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BB535A13A13CC40007A07F /* Foundation.framework */; };
+		A3BB536A13A13DBB0007A07F /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACE19513A12D3100E18687 /* libLRResty.a */; };
+		A3BB538213A13E290007A07F /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA3DF413A1334F00A9108C /* LRMimic.m */; };
+		A3BB538313A13E340007A07F /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACE19513A12D3100E18687 /* libLRResty.a */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3D0DB2D12E61F0A009B187B /* CustomJsonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */; };
 		A3EA3DF513A1334F00A9108C /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA3DF413A1334F00A9108C /* LRMimic.m */; };
@@ -304,16 +307,16 @@
 		A38AF968122BA6590001D038 /* HCBlockMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBlockMatcher.h; sourceTree = "<group>"; };
 		A38AF969122BA6590001D038 /* HCBlockMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBlockMatcher.m; sourceTree = "<group>"; };
 		A3ACE19513A12D3100E18687 /* libLRResty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLRResty.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3ACE19613A12D3100E18687 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3ACE19713A12D3100E18687 /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3ACE19813A12D3100E18687 /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3ACE1A613A12DB200E18687 /* LRResty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LRResty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3ACE1AF13A12DB200E18687 /* LRResty-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LRResty-Info.plist"; sourceTree = "<group>"; };
 		A3ACE1B113A12DB200E18687 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A3ACE1B313A12DB200E18687 /* LRResty-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LRResty-Prefix.pch"; sourceTree = "<group>"; };
 		A3AFE9AD120C8916007EBC94 /* GithubAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubAPI.h; sourceTree = "<group>"; };
 		A3AFE9AE120C8916007EBC94 /* GithubAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubAPI.m; sourceTree = "<group>"; };
 		A3BB535A13A13CC40007A07F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A3BB537613A13DC90007A07F /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BB537713A13DC90007A07F /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BB537813A13DC90007A07F /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3BB537A13A13DC90007A07F /* LRResty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LRResty.framework; path = ../Debug/LRResty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 		A3D0DB2B12E61F0A009B187B /* CustomJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomJsonObject.h; sourceTree = "<group>"; };
@@ -418,6 +421,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BB536A13A13DBB0007A07F /* libLRResty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +445,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BB538313A13E340007A07F /* libLRResty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +463,6 @@
 		0867D691FE84028FC02AAC07 /* LRResty */ = {
 			isa = PBXGroup;
 			children = (
-				A3BB535A13A13CC40007A07F /* Foundation.framework */,
 				A389DFDE1253806A0006572D /* Resources */,
 				A30878A2120C44F2003859AC /* Examples */,
 				A3F819941208418200E60B0B /* Vendor */,
@@ -467,11 +471,11 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				A3ACE1AD13A12DB200E18687 /* Framework */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				A3BB537613A13DC90007A07F /* Unit Tests.octest */,
+				A3BB537713A13DC90007A07F /* Acceptance Tests.octest */,
+				A3BB537813A13DC90007A07F /* ExamplesRunner.app */,
 				A3ACE19513A12D3100E18687 /* libLRResty.a */,
-				A3ACE19613A12D3100E18687 /* Unit Tests.octest */,
-				A3ACE19713A12D3100E18687 /* Acceptance Tests.octest */,
-				A3ACE19813A12D3100E18687 /* ExamplesRunner.app */,
-				A3ACE1A613A12DB200E18687 /* LRResty.framework */,
+				A3BB537A13A13DC90007A07F /* LRResty.framework */,
 			);
 			name = LRResty;
 			sourceTree = "<group>";
@@ -479,6 +483,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3BB535A13A13CC40007A07F /* Foundation.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -1004,7 +1009,7 @@
 			);
 			name = ExamplesRunner;
 			productName = ExamplesRunner;
-			productReference = A3ACE19813A12D3100E18687 /* ExamplesRunner.app */;
+			productReference = A3BB537813A13DC90007A07F /* ExamplesRunner.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A3698EA5132A7F1D00A67C63 /* Acceptance Tests */ = {
@@ -1022,7 +1027,7 @@
 			);
 			name = "Acceptance Tests";
 			productName = "Acceptance Tests";
-			productReference = A3ACE19713A12D3100E18687 /* Acceptance Tests.octest */;
+			productReference = A3BB537713A13DC90007A07F /* Acceptance Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		A3ACE1A513A12DB200E18687 /* LRResty */ = {
@@ -1040,7 +1045,7 @@
 			);
 			name = LRResty;
 			productName = LRResty;
-			productReference = A3ACE1A613A12DB200E18687 /* LRResty.framework */;
+			productReference = A3BB537A13A13DC90007A07F /* LRResty.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A3F818E71208248F00E60B0B /* Unit Tests */ = {
@@ -1057,7 +1062,7 @@
 			);
 			name = "Unit Tests";
 			productName = "Acceptance Tests";
-			productReference = A3ACE19613A12D3100E18687 /* Unit Tests.octest */;
+			productReference = A3BB537613A13DC90007A07F /* Unit Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		D2AAC07D0554694100DB518D /* LRResty-StaticLib */ = {
@@ -1314,6 +1319,7 @@
 				A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */,
 				A389E06E125383220006572D /* HCBlockMatcher.m in Sources */,
 				A3D0DB2D12E61F0A009B187B /* CustomJsonObject.m in Sources */,
+				A3BB538213A13E290007A07F /* LRMimic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

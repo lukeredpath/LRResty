@@ -18,7 +18,7 @@
 
 - (id)initWithBlock:(HCPassesBlockBlock)theBlock expectationMessage:(NSString *)expectationMessage;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     block = [theBlock copy];
     message = [expectationMessage copy];
   }

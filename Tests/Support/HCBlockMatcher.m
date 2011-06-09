@@ -18,7 +18,7 @@
 
 - (id)initWithBlock:(HCBlockMatcherBlock)aBlock description:(NSString *)aDescription;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     block = [aBlock copy];
     description = [aDescription copy];
   }

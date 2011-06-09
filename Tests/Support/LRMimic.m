@@ -60,7 +60,7 @@ static BOOL pingsWhenInitialized = YES;
 
 - (id)initWithMimicURL:(NSString *)mimicURL;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     URL = [mimicURL copy];
     stubs = [[NSMutableArray alloc] init];
     client = [LRResty newClient];
@@ -236,7 +236,7 @@ static BOOL pingsWhenInitialized = YES;
 
 - (id)initWithPath:(NSString *)aPath method:(NSString *)HTTPMethod;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     method = [HTTPMethod copy];
     path = [aPath copy];
     body = [[NSString alloc] initWithString:@""];
@@ -315,7 +315,7 @@ static BOOL pingsWhenInitialized = YES;
 
 - (id)init
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     self.path = @"/";
     self.method = @"GET";
     self.code = 200;

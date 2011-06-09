@@ -22,7 +22,7 @@
 
 - (id)initWithTimeout:(NSTimeInterval)timeout
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     timeoutDate = [[NSDate alloc] initWithTimeIntervalSinceNow:timeout];
   }
   return self;
@@ -48,7 +48,7 @@
 
 - (id)initWithTimeout:(NSTimeInterval)theTimeout delay:(NSTimeInterval)theDelay;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     timeoutInterval = theTimeout;
     delayInterval = theDelay;
   }
@@ -105,7 +105,7 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 - (id)initWithBlock:(LRBlockProbeBlock)aBlock;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     block = [block copy];
     isSatisfied = NO;
     [self sample];
@@ -149,7 +149,7 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 - (id)initWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     pointerToActualObject = objectPtr;
     matcher = [aMatcher retain];
     [self sample];
