@@ -130,6 +130,7 @@
 		A38AF6681229FCA10001D038 /* LRRestyResourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */; };
 		A3ACE1B213A12DB200E18687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3ACE1B013A12DB200E18687 /* InfoPlist.strings */; };
 		A3AFE9B6120C8AFE007EBC94 /* GithubAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AFE9AE120C8916007EBC94 /* GithubAPI.m */; };
+		A3BB535B13A13CC40007A07F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3BB535A13A13CC40007A07F /* Foundation.framework */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3D0DB2D12E61F0A009B187B /* CustomJsonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */; };
 		A3EA3DF513A1334F00A9108C /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA3DF413A1334F00A9108C /* LRMimic.m */; };
@@ -312,6 +313,7 @@
 		A3ACE1B313A12DB200E18687 /* LRResty-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LRResty-Prefix.pch"; sourceTree = "<group>"; };
 		A3AFE9AD120C8916007EBC94 /* GithubAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GithubAPI.h; sourceTree = "<group>"; };
 		A3AFE9AE120C8916007EBC94 /* GithubAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GithubAPI.m; sourceTree = "<group>"; };
+		A3BB535A13A13CC40007A07F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 		A3D0DB2B12E61F0A009B187B /* CustomJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomJsonObject.h; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BB535B13A13CC40007A07F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +458,7 @@
 		0867D691FE84028FC02AAC07 /* LRResty */ = {
 			isa = PBXGroup;
 			children = (
+				A3BB535A13A13CC40007A07F /* Foundation.framework */,
 				A389DFDE1253806A0006572D /* Resources */,
 				A30878A2120C44F2003859AC /* Examples */,
 				A3F819941208418200E60B0B /* Vendor */,
