@@ -1784,7 +1784,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ExamplesRunner;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1808,7 +1808,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = ExamplesRunner;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1833,7 +1833,7 @@
 				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = LRResty;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1853,7 +1853,7 @@
 				GCC_VERSION = coop.plausible.blocks.compilers.gcc.4_2;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = LRResty;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -1886,6 +1886,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Acceptance Tests";
+				SDKROOT = iphoneos;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1918,6 +1919,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Acceptance Tests";
+				SDKROOT = iphoneos;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
@@ -1954,7 +1956,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Compatibility Tests";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -1988,7 +1990,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Compatibility Tests";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -2061,6 +2063,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = iphoneos;
 				TEST_AFTER_BUILD = NO;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -2093,6 +2096,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = iphoneos;
 				TEST_AFTER_BUILD = NO;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
