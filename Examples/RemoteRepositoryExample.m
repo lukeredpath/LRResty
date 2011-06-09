@@ -94,6 +94,8 @@
 
 @implementation GithubUserRepository
 
+GithubID userIDFromString(NSString *userIDString);
+
 GithubID userIDFromString(NSString *userIDString)
 {
   // for some reason the search API returns IDs as user-xxxx

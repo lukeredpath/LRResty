@@ -14,12 +14,12 @@
 #import "TestRequestBuilder.h"
 #import "DomainMatchers.h"
 
-NSString *anyResponse();
-NSString *resourceRoot();
+NSString *anyResponse(void);
+NSString *resourceRoot(void);
 NSString *resourceRootWithPort(NSInteger port);
 NSString *resourceWithPath(NSString *path);
 NSString *resourceWithPathWithPort(NSString *path, NSInteger port);
 NSData *encodedString(NSString *aString);
-NSData *anyData();
-id anyPayload();
+NSData *anyData(void);
+id anyPayload(void);
 void waitForInterval(NSTimeInterval interval);

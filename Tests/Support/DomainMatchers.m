@@ -12,6 +12,8 @@
 #import "OCHamcrest.h"
 #import "HCStringDescription.h"
 
+NSString *describeMatcher(id<HCMatcher> matcher);
+
 NSString *describeMatcher(id<HCMatcher> matcher)
 {
   HCStringDescription *description = [[[HCStringDescription alloc] init] autorelease];

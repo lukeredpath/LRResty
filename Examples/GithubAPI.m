@@ -11,6 +11,8 @@
 
 #define kGITHUB_API_ROOT_URL @"http://github.com/api/v2/json"
 
+NSString *githubUsername(NSString *user);
+
 NSString *githubUsername(NSString *user)
 {
   return [NSString stringWithFormat:@"%@/token", user];
