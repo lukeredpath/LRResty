@@ -6,6 +6,8 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 @interface NSString (QueryString)
 
 - (NSString*)stringByEscapingForURLQuery;

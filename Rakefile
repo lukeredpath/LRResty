@@ -75,27 +75,33 @@ namespace :build do
 
   FRAMEWORK_NAME = "LRResty.framework"
   
-  desc "Create the static framework for the iOS platform"
-  task :framework => [:clean, :combined] do
-    build_framework("#{BUILD_DIR}/CombinedLib/libLRResty.a")
+  namespace :ios do
+    desc "Create the static framework for the iOS platform"
+    task :framework => [:clean, :combined] do
+      build_framework("#{BUILD_DIR}/CombinedLib/libLRResty.a")
+    end
+    
+    desc "Build a disk image for the iOS static framework"
+    task :diskimage => :framework do
+      FileUtils.mkdir_p("pkg")
+      system("hdiutil create -srcfolder #{BUILD_DIR}/Release-iOS pkg/LRResty-iOS-#{VERSION}.dmg")
+    end
   end
   
-  desc "Create the static framework for the Mac platform"
-  task :mac_framework => [:clean, :mac] do
-    build_framework("#{BUILD_DIR}/Release-Mac/libLRResty.a")
+  namespace :mac do
+    desc "Create the framework for the Mac platform"
+    task :framework => [:clean, :mac] do
+      build_framework("#{BUILD_DIR}/Release-Mac/libLRResty.a")
+    end
+    
+    desc "Build a disk image for the Mac framework"
+    task :diskimage => :framework do
+      FileUtils.mkdir_p("pkg")
+      system("hdiutil create -srcfolder #{BUILD_DIR}/Release-Mac pkg/LRResty-Mac-#{VERSION}.dmg")
+    end
   end
   
-  desc "Build a disk image for the iOS framework"
-  task :diskimage => :framework do
-    FileUtils.mkdir_p("pkg")
-    system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-#{VERSION}.dmg")
-  end
-  
-  desc "Build a disk image for the Mac framework"
-  task :diskimage_mac => :mac_framework do
-    FileUtils.mkdir_p("pkg")
-    system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-Mac-#{VERSION}.dmg")
-  end
+  task :all => %w{ios:framework mac:framework}
   
   def build_framework(path_to_library)
     FileUtils.rm_rf("#{BUILD_DIR}/Release")
@@ -110,4 +116,4 @@ namespace :build do
   end
 end
 
-task :default => "build:framework"
+task :default => "build:all"

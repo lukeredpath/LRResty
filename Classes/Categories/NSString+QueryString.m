@@ -6,6 +6,7 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "NSString+QueryString.h"
 
 @implementation NSString (QueryString)
