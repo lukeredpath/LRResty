@@ -297,7 +297,6 @@
 		A389E014125381700006572D /* LRRestyResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyResponse.h; sourceTree = "<group>"; };
 		A389E015125381700006572D /* LRRestyResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResponse.m; sourceTree = "<group>"; };
 		A389E016125381700006572D /* LRRestyTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyTypes.h; sourceTree = "<group>"; };
-		A389E046125382870006572D /* PLBlocks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PLBlocks.framework; path = Frameworks/PLBlocks.framework; sourceTree = "<group>"; };
 		A389E06C125383220006572D /* HCBlockMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCBlockMatcher.h; sourceTree = "<group>"; };
 		A389E06D125383220006572D /* HCBlockMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCBlockMatcher.m; sourceTree = "<group>"; };
 		A38AF6671229FCA10001D038 /* LRRestyResourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyResourceTest.m; sourceTree = "<group>"; };
@@ -480,7 +479,6 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A389E046125382870006572D /* PLBlocks.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
