@@ -26,7 +26,7 @@
 
 - (id)initWithHTTPClient:(id<LRRestyHTTPClient>)aHTTPClient
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     HTTPClient = [aHTTPClient retain];
     HTTPClient.delegate = self;
     requestModifiers = [[NSMutableArray alloc] init];

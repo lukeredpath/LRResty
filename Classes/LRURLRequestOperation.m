@@ -28,7 +28,7 @@
 
 - (id)initWithURLRequest:(NSURLRequest *)request;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     URLRequest = [request retain];
   }
   return self;

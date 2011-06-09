@@ -16,7 +16,7 @@
 
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     delegate = [theDelegate retain];
     _URLRequest = [[NSMutableURLRequest alloc] initWithURL:aURL];
     [_URLRequest setHTTPMethod:httpMethod];

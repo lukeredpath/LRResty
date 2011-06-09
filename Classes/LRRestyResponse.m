@@ -24,7 +24,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     status = statusCode;
     responseData = [data retain];
     headers = [theHeaders copy];

@@ -35,7 +35,7 @@
 
 - (id)initWithData:(NSData *)rawData;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     data = [rawData copy];
   }
   return self;
@@ -59,7 +59,7 @@
 
 - (id)initWithEncodableObject:(id)object;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     if ([object conformsToProtocol:@protocol(NSCopying)]) {
       encodable = [object copy];
     } else {
@@ -86,7 +86,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)aDictionary;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     dictionary = [aDictionary copy];
   }
   return self;

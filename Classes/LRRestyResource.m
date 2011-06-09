@@ -21,7 +21,7 @@
 
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     restClient = [theClient retain];
     restClient.delegate = self;
     URL = [aURL copy];
@@ -31,7 +31,7 @@
 
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
 {
-  if (self = [self initWithRestClient:theClient URL:aURL]) {
+  if ((self = [self initWithRestClient:theClient URL:aURL])) {
     parentResource = [parent retain];
     delegate = parentResource.delegate;
   }

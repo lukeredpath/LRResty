@@ -18,7 +18,7 @@
 
 - (id)initWithClient:(LRRestyClient *)client responseDelegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     restyClient = [client retain];
     responseDelegate = [delegate retain];
   }

@@ -18,7 +18,7 @@
 
 - (id)initWithBlock:(LRRestyResponseBlock)theBlock;
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     block = [theBlock copy];
   }
   return self;

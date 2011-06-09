@@ -20,7 +20,7 @@
 
 - (id)init
 {
-  if (self = [super init]) {
+  if ((self = [super init])) {
     operationQueue = [[NSOperationQueue alloc] init];
   }
   return self;
@@ -28,7 +28,7 @@
 
 - (id)initWithDelegate:(id<LRRestyHTTPClientDelegate>)aDelegate;
 {
-  if (self = [self init]) {
+  if ((self = [self init])) {
     delegate = aDelegate;
   }
   return self;
