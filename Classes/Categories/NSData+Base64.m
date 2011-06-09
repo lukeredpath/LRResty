@@ -108,11 +108,13 @@ void *NewBase64Decode(
 		//
 		// Store the 6 bits from each of the 4 characters as 3 bytes
 		//
+#ifndef __clang_analyzer__
 		outputBuffer[j] = (accumulated[0] << 2) | (accumulated[1] >> 4);
 		outputBuffer[j + 1] = (accumulated[1] << 4) | (accumulated[2] >> 2);
 		outputBuffer[j + 2] = (accumulated[2] << 6) | accumulated[3];
 		j += accumulateIndex - 1;
 	}
+#endif
 	
 	if (outputLength)
 	{
