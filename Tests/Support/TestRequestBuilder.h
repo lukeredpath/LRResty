@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 #define TEST_HOST @"localhost"
-#define TEST_PORT 11989
+#define DEFAULT_TEST_PORT 11988
 
 typedef void (^MimicStubCallbackBlock)(void);
 
 @class LRMimicRequestStubBuilder;
+
+NSInteger TEST_PORT(void);
 
 void mimicGET(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);
 void mimicPOST(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback);

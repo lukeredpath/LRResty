@@ -15,7 +15,7 @@ NSString *anyResponse()
 
 NSString *resourceRoot()
 {
-  return resourceRootWithPort(TEST_PORT);
+  return resourceRootWithPort(TEST_PORT());
 }
 
 NSString *resourceRootWithPort(NSInteger port)

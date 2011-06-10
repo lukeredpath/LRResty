@@ -10,6 +10,14 @@
 #import "LRMimic.h"
 #import "NSDictionary+QueryString.h"
 
+NSInteger TEST_PORT(void)
+{
+  NSInteger mimicPort = DEFAULT_TEST_PORT;
+  NSString *customPort = [[[NSProcessInfo processInfo] environment] objectForKey:@"MIMIC_PORT"];
+  if (customPort) { mimicPort = [customPort integerValue]; }
+  return mimicPort;
+}
+
 void mimicGET(NSString *path, LRMimicRequestStubBuilder *stubBuilder, MimicStubCallbackBlock callback)
 {
   mimic(@"GET", path, stubBuilder, callback);
@@ -48,7 +56,7 @@ void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuil
   }
   
   [LRMimic setAutomaticallyClearsStubs:YES];
-  [LRMimic setURL:[NSString stringWithFormat:@"http://localhost:%d/api", TEST_PORT]];
+  [LRMimic setURL:[NSString stringWithFormat:@"http://localhost:%d/api", TEST_PORT()]];
   [LRMimic reset];
   
   [LRMimic configure:^(LRMimic *mimic) {
