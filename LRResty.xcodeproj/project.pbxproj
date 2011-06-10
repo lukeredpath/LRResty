@@ -13,6 +13,7 @@
 		0FB9787113A20F1C0010A37C /* LRRestyClient+DELETE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */; };
 		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A311467713A2685900F09315 /* DeleteResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A311467613A2685900F09315 /* DeleteResourceTests.m */; };
 		A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
 		A3236DC9120C5C0100001E40 /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
 		A3236DCA120C5C0100001E40 /* RemoteRepositoryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */; };
@@ -282,6 +283,7 @@
 		A30A03DD12538BFA00722B25 /* LRRestyClientProxyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyClientProxyDelegate.h; sourceTree = "<group>"; };
 		A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClientProxyDelegate.m; sourceTree = "<group>"; };
 		A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestDelegate.h; sourceTree = "<group>"; };
+		A311467613A2685900F09315 /* DeleteResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteResourceTests.m; sourceTree = "<group>"; };
 		A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+Additions.h"; sourceTree = "<group>"; };
 		A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+Additions.m"; sourceTree = "<group>"; };
 		A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRSynchronousProxy.h; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 		A3F8190C1208254900E60B0B /* Acceptance */ = {
 			isa = PBXGroup;
 			children = (
+				A311467613A2685900F09315 /* DeleteResourceTests.m */,
 				A3F8190D1208255F00E60B0B /* GetResourceTests.m */,
 				A30874BC1209CCA5003859AC /* PostResourceTests.m */,
 				A30875D1120A2640003859AC /* PutResourceTests.m */,
@@ -1309,6 +1312,7 @@
 				A3698EDC132A7F1D00A67C63 /* HCBlockMatcher.m in Sources */,
 				A3698EDE132A7F1D00A67C63 /* CustomJsonObject.m in Sources */,
 				A3EA3DF513A1334F00A9108C /* LRMimic.m in Sources */,
+				A311467713A2685900F09315 /* DeleteResourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
