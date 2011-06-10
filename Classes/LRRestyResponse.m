@@ -9,6 +9,8 @@
 #import "LRRestyResponse.h"
 #import "LRRestyRequest.h"
 
+NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url);
+
 NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 {
   NSMutableDictionary *cookies = [NSMutableDictionary dictionary];
