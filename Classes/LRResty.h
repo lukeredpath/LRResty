@@ -11,6 +11,7 @@
 #import "LRRestyClient+GET.h"
 #import "LRRestyClient+POST.h"
 #import "LRRestyClient+PUT.h"
+#import "LRRestyClient+DELETE.h"
 #import "LRRestyResponse.h"
 #import "LRRestyRequest.h"
 #import "LRRestyResource.h"
