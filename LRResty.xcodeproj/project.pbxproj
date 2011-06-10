@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */; };
+		0FB9786E13A20F050010A37C /* LRRestyClient+DELETE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */; };
+		0FB9787013A20F190010A37C /* LRRestyClient+DELETE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */; };
+		0FB9787113A20F1C0010A37C /* LRRestyClient+DELETE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */; };
 		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
@@ -234,6 +238,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FB9786A13A20E0D0010A37C /* LRResty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LRResty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyClient+DELETE.h"; sourceTree = "<group>"; };
+		0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LRRestyClient+DELETE.m"; sourceTree = "<group>"; };
 		A30874BC1209CCA5003859AC /* PostResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostResourceTests.m; sourceTree = "<group>"; };
 		A308758D1209E37B003859AC /* FormEncodedStringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormEncodedStringTest.m; sourceTree = "<group>"; };
 		A30875D1120A2640003859AC /* PutResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PutResourceTests.m; sourceTree = "<group>"; };
@@ -346,7 +353,6 @@
 		A3BB537613A13DC90007A07F /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BB537713A13DC90007A07F /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BB537813A13DC90007A07F /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3BB537A13A13DC90007A07F /* LRResty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LRResty.framework; path = /Users/luke/Code/Xcode/Projects/LRResty/LRResty/build/Release/LRResty.framework; sourceTree = "<absolute>"; };
 		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 		A3D0DB2B12E61F0A009B187B /* CustomJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomJsonObject.h; sourceTree = "<group>"; };
@@ -505,6 +511,7 @@
 				A3BB537713A13DC90007A07F /* Acceptance Tests.octest */,
 				A3BB537813A13DC90007A07F /* ExamplesRunner.app */,
 				A3ACE19513A12D3100E18687 /* libLRResty.a */,
+				0FB9786A13A20E0D0010A37C /* LRResty.framework */,
 			);
 			name = LRResty;
 			sourceTree = "<group>";
@@ -563,6 +570,8 @@
 				A389E004125381700006572D /* LRRestyClient+POST.m */,
 				A389E005125381700006572D /* LRRestyClient+PUT.h */,
 				A389E006125381700006572D /* LRRestyClient+PUT.m */,
+				0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */,
+				0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1012,6 +1021,7 @@
 				A379180D13A144030025AF1C /* LRRestyClient+POST.h in Headers */,
 				A379180E13A144030025AF1C /* LRRestyClient+PUT.h in Headers */,
 				A379180F13A144030025AF1C /* LRResty.h in Headers */,
+				0FB9787013A20F190010A37C /* LRRestyClient+DELETE.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1058,7 @@
 				A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
 				A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
 				A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
+				0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,7 +1115,7 @@
 			);
 			name = LRResty;
 			productName = LRResty;
-			productReference = A3BB537A13A13DC90007A07F /* LRResty.framework */;
+			productReference = 0FB9786A13A20E0D0010A37C /* LRResty.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A3F818E71208248F00E60B0B /* Unit Tests */ = {
@@ -1327,6 +1338,7 @@
 				A3F45A8C13A12E4F00242E72 /* LRRestyClient+POST.m in Sources */,
 				A3F45A8D13A12E4F00242E72 /* LRRestyClient+PUT.m in Sources */,
 				A3F45A9113A12EE800242E72 /* LRResty.m in Sources */,
+				0FB9787113A20F1C0010A37C /* LRRestyClient+DELETE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1410,6 +1422,7 @@
 				A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
 				A33E50C612E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */,
 				A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */,
+				0FB9786E13A20F050010A37C /* LRRestyClient+DELETE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
