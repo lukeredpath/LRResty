@@ -56,12 +56,12 @@ namespace :build do
     system("xcodebuild -target LRResty-StaticLib -configuration #{CONFIG} -sdk iphoneos#{BASE_SDK}")
   end
   
-  desc "Build the static library for the Mac platform"
+  desc "Build the framework for the Mac platform"
   task :mac do
     system("xcodebuild -target LRResty -configuration #{CONFIG}")
   end
   
-  desc "Build a combined simulator/device library using lipo"
+  desc "Build a combined simulator/device static library using lipo"
   task :combined => [:simulator, :device] do
     FileUtils.mkdir_p("#{BUILD_DIR}/CombinedLib")
     system("lipo #{BUILD_DIR}/#{CONFIG}-iphonesimulator/#{LIB_NAME} #{BUILD_DIR}/#{CONFIG}-iphoneos/#{LIB_NAME} -create -output #{BUILD_DIR}/CombinedLib/libLRResty.a")
