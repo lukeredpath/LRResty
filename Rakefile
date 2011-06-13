@@ -4,8 +4,8 @@ THEME_PATH = "Documentation/theme"
 DOC_OUTPUT = "Documentation/html"
 SITE_ROOT  = "/var/www/projects.lukeredpath.co.uk/resty"
 
-unless defined?(VERSION)
-  VERSION = "0.9"
+unless defined?(RESTY_VERSION)
+  RESTY_VERSION = "0.9"
 end
 
 def modify_plist(path, &block)
@@ -41,25 +41,24 @@ namespace :website do
 end
 
 namespace :build do
-  TARGET = "LRResty"
   CONFIG = "Release"
   LIB_NAME = "libLRResty.a"
   BUILD_DIR = "build"
-  BASE_SDK = 4.2
+  BASE_SDK = 4.3
   
   desc "Build the static library for the simulator platform"
   task :simulator do
-    system("xcodebuild -target #{TARGET} -configuration #{CONFIG} -sdk iphonesimulator#{BASE_SDK}")
+    system("xcodebuild -target LRResty-StaticLib -configuration #{CONFIG} -sdk iphonesimulator#{BASE_SDK}")
   end
   
   desc "Build the static library for the device platform"
   task :device do
-    system("xcodebuild -target #{TARGET} -configuration #{CONFIG} -sdk iphoneos#{BASE_SDK}")
+    system("xcodebuild -target LRResty-StaticLib -configuration #{CONFIG} -sdk iphoneos#{BASE_SDK}")
   end
   
   desc "Build the static library for the Mac platform"
   task :mac do
-    system("xcodebuild -target #{TARGET}-Mac -configuration #{CONFIG}")
+    system("xcodebuild -target LRResty -configuration #{CONFIG}")
   end
   
   desc "Build a combined simulator/device library using lipo"
@@ -84,20 +83,18 @@ namespace :build do
     desc "Build a disk image for the iOS static framework"
     task :diskimage => :framework do
       FileUtils.mkdir_p("pkg")
-      system("hdiutil create -srcfolder #{BUILD_DIR}/Release-iOS pkg/LRResty-iOS-#{VERSION}.dmg")
+      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-iOS-#{RESTY_VERSION}.dmg")
     end
   end
   
   namespace :mac do
     desc "Create the framework for the Mac platform"
-    task :framework => [:clean, :mac] do
-      build_framework("#{BUILD_DIR}/Release-Mac/libLRResty.a")
-    end
+    task :framework => [:clean, :mac]
     
     desc "Build a disk image for the Mac framework"
     task :diskimage => :framework do
       FileUtils.mkdir_p("pkg")
-      system("hdiutil create -srcfolder #{BUILD_DIR}/Release-Mac pkg/LRResty-Mac-#{VERSION}.dmg")
+      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-Mac-#{RESTY_VERSION}.dmg")
     end
   end
   
@@ -106,12 +103,17 @@ namespace :build do
   def build_framework(path_to_library)
     FileUtils.rm_rf("#{BUILD_DIR}/Release")
     
-    system("xcodebuild -target LRRestyFramework -configuration #{CONFIG}")
-    system("cp #{path_to_library} #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Versions/A/LRResty")
+    # build the mac framework target
+    system("xcodebuild -target LRResty -configuration #{CONFIG}")
+    
+    # replace the dylib with our static library
+    system("rm #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/LRResty")
+    system("cp -f #{path_to_library} #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Versions/A/LRResty")
     system("ln -s Versions/A/LRResty #{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/LRResty")
     
+    # update the framework version
     modify_plist("#{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Resources/Info.plist") do |plist|
-      plist["CFBundleVersion"] = VERSION
+      plist["CFBundleVersion"] = RESTY_VERSION
     end
   end
 end
