@@ -69,7 +69,7 @@ namespace :build do
   
   desc "Clean the build products directory"
   task :clean do
-    system("xcodebuild clean")
+    system("xcodebuild clean && rm -fr pkg")
   end
 
   FRAMEWORK_NAME = "LRResty.framework"
