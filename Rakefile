@@ -31,7 +31,7 @@ namespace :website do
     system("appledoc --keep-intermediate-files --verbose 1 --output Documentation/generated --project-name Resty Classes/")
   end
   
-  task :upload_website => [:generate, "build:diskimage"] do
+  task :upload_website => [:generate] do
     system("rsync -avz --delete Documentation/website/_site/ lukeredpath.co.uk:#{SITE_ROOT}")
   end
   
