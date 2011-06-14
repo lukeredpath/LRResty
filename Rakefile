@@ -45,6 +45,7 @@ namespace :build do
   LIB_NAME = "libLRResty.a"
   BUILD_DIR = "build"
   BASE_SDK = 4.3
+  PACKAGE_SUFFIX = ENV["PACKAGE_SUFFIX"] || RESTY_VERSION
   
   desc "Build the static library for the simulator platform"
   task :simulator do
@@ -83,7 +84,7 @@ namespace :build do
     desc "Build a disk image for the iOS static framework"
     task :diskimage => :framework do
       FileUtils.mkdir_p("pkg")
-      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-iOS-#{RESTY_VERSION}.dmg")
+      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-iOS-#{PACKAGE_SUFFIX}.dmg")
     end
   end
   
@@ -94,7 +95,7 @@ namespace :build do
     desc "Build a disk image for the Mac framework"
     task :diskimage => :framework do
       FileUtils.mkdir_p("pkg")
-      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-Mac-#{RESTY_VERSION}.dmg")
+      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-Mac-#{PACKAGE_SUFFIX}.dmg")
     end
   end
   
