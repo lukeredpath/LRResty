@@ -5,7 +5,7 @@ DOC_OUTPUT = "Documentation/html"
 SITE_ROOT  = "/var/www/projects.lukeredpath.co.uk/resty"
 
 unless defined?(RESTY_VERSION)
-  RESTY_VERSION = "0.9"
+  RESTY_VERSION = "0.10"
 end
 
 def modify_plist(path, &block)
