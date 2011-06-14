@@ -4,7 +4,7 @@ server_port: 4000
 pygments:    true
 markdown:    rdiscount
 permalink:   /:title.html
-base_url:    http://lukeredpath.co.uk/projects/resty
+base_url:    http://projects.lukeredpath.co.uk/resty
 maruku:
   use_tex:    false
   use_divs:   false
