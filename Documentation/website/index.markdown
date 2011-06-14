@@ -19,7 +19,7 @@ It uses modern Objective-C language features like blocks to simple asynchronous 
 <div class="download">
   <p><strong>Download the latest version of LRResty.framework (0.10) <a href="http://github.com/downloads/lukeredpath/LRResty/LRResty-iOS-0.10.dmg">for iOS</a> or <a href="http://github.com/downloads/lukeredpath/LRResty/LRResty-Mac-0.10.dmg">for Mac</a></strong></a></p>
   
-  <p>Alternatively, you can grab one of the <a href="/downloads">nightly builds</a> or the latest source <a href="http://github.com/lukeredpath/LRResty">on Github</a></p>
+  <p>Alternatively, you can grab one of the <a href="/resty/downloads">nightly builds</a> or the latest source <a href="http://github.com/lukeredpath/LRResty">on Github</a></p>
   
   <p class="notice">Resty requires iOS 4.0 or Mac OSX 10.6 or later</p>
   
