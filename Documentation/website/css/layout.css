@@ -110,8 +110,18 @@ pre {
 }
 
 .download {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
+  border-radius: 8px;
+  background: #DEF6F7;
+  padding: 20px;
+  width: 600px;
+  position: relative;
+  left: -20px;
+}
+
+.download p {
+  margin: 0 0 5px;
 }
 
 .download .license {
