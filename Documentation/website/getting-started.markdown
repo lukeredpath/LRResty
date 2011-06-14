@@ -47,10 +47,10 @@ If you've cloned the latest copy of LRResty from Github, you can build the frame
 
     $ gem install plist
     
-You can then run the `build:framework` or `build:mac_framework` task to build either an iOS or Mac static framework, e.g.:
+You can then run the `build:ios:framework` or `build:mac:framework` task to build either a static framework for iOS or a regular framework for Mac, e.g.:
     
-    $ rake build:framework
+    $ rake build:ios:framework
     
-The built framework will be in `build/Release`. You can then import this framework into your project using the instructions above.
+The built framework will be in `build/Release`. You can then import this framework into your project using the instructions above. Alternatively, you may wish to download a <a href="/downloads">nightly build</a>.
 
 Note: I have observed some issues when building with Clang, which results in Clang crashing with an "abort trap" message at the end of the build. As far as I can see, this doesn't actually cause a problem and the framework will still be successfully built.
