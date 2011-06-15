@@ -79,4 +79,9 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
  overridden.
  */
 - (void)setUsername:(NSString *)username password:(NSString *)password;
+
+/**
+ Cancels all outstanding requests
+ */
+- (void)cancelAllRequests;
 @end

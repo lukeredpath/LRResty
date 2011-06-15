@@ -13,6 +13,7 @@
 #import "NSDictionary+QueryString.h"
 #import "LRRestyRequestPayload.h"
 #import "LRRestyRequest.h"
+#import "LRRestyHTTPClient.h"
 
 @implementation LRRestyClient
 
@@ -67,6 +68,14 @@
     [request setBasicAuthUsername:username password:password useCredentialSystem:NO];
   }];
 }
+
+- (void)cancelAllRequests
+{
+  [HTTPClient cancelAllRequests];
+}
+
+#pragma mark -
+#pragma mark LRRestyHTTPClientDelegate methods
 
 - (void)HTTPClient:(id <LRRestyHTTPClient>)client willPerformRequest:(LRRestyRequest *)request
 {

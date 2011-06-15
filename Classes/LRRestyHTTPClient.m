@@ -40,6 +40,11 @@
   [super dealloc];
 }
 
+- (void)cancelAllRequests
+{
+  [operationQueue cancelAllOperations];
+}
+
 - (LRRestyRequest *)GET:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
   LRRestyRequest *request = [self requestForURL:url method:@"GET" payload:nil headers:headers requestDelegate:requestDelegate];
