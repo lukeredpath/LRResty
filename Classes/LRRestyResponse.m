@@ -48,6 +48,11 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
   return status;
 }
 
+- (NSString *)localizedStatusDescription
+{
+  return [NSHTTPURLResponse localizedStringForStatusCode:self.status];
+}
+
 - (NSString *)asString;
 {
   return [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
@@ -55,7 +60,8 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 
 - (NSString *)description
 {
-  return [NSString stringWithFormat:@"%d Response | text/plain (%d bytes)", [self status], [responseData length]];
+  return [NSString stringWithFormat:@"%d %@ | text/plain (%d bytes)", 
+    self.status, self.localizedStatusDescription, [responseData length]];
 }
 
 - (NSHTTPCookie *)cookieNamed:(NSString *)name;

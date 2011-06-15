@@ -31,6 +31,10 @@
  */
 - (NSUInteger)status;
 /**
+ * Localized status description for the HTTP status coe
+ */
+- (NSString *)localizedStatusDescription;
+/**
  * Attempts to return a string representation of the response body.
  */
 - (NSString *)asString;
