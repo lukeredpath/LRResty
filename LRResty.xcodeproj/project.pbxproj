@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */; };
+		0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FB9786E13A20F050010A37C /* LRRestyClient+DELETE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */; };
-		0FB9787013A20F190010A37C /* LRRestyClient+DELETE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */; };
+		0FB9787013A20F190010A37C /* LRRestyClient+DELETE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB9786B13A20F050010A37C /* LRRestyClient+DELETE.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FB9787113A20F1C0010A37C /* LRRestyClient+DELETE.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB9786C13A20F050010A37C /* LRRestyClient+DELETE.m */; };
 		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
