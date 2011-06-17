@@ -104,9 +104,6 @@
 		A37917FF13A144030025AF1C /* LRRestyClientBlockDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E007125381700006572D /* LRRestyClientBlockDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180013A144030025AF1C /* LRRestyClientStreamingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E00B125381700006572D /* LRRestyClientStreamingDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180113A144030025AF1C /* LRRestyClientProxyDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A30A03DD12538BFA00722B25 /* LRRestyClientProxyDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A379180213A144030025AF1C /* NSOperation+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFBE125380130006572D /* NSOperation+Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A379180313A144030025AF1C /* NSURL+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFC0125380130006572D /* NSURL+Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A379180413A144030025AF1C /* OS4Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFC2125380130006572D /* OS4Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180513A144030025AF1C /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFA9125380080006572D /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180613A144030025AF1C /* NSDictionary+QueryString.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFAB125380080006572D /* NSDictionary+QueryString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180713A144030025AF1C /* NSObject+Tap.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFAD125380080006572D /* NSObject+Tap.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,11 +125,6 @@
 		A389DFBA125380080006572D /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFB0125380080006572D /* NSString+QueryString.m */; };
 		A389DFBB125380080006572D /* NSURL+QueryInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFB1125380080006572D /* NSURL+QueryInspector.h */; };
 		A389DFBC125380080006572D /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFB2125380080006572D /* NSURL+QueryInspector.m */; };
-		A389DFC3125380130006572D /* NSOperation+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFBE125380130006572D /* NSOperation+Compatibility.h */; };
-		A389DFC4125380130006572D /* NSOperation+Compatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFBF125380130006572D /* NSOperation+Compatibility.m */; };
-		A389DFC5125380130006572D /* NSURL+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFC0125380130006572D /* NSURL+Compatibility.h */; };
-		A389DFC6125380130006572D /* NSURL+Compatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFC1125380130006572D /* NSURL+Compatibility.m */; };
-		A389DFC7125380130006572D /* OS4Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFC2125380130006572D /* OS4Compatibility.h */; };
 		A389DFD21253803C0006572D /* GithubCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFD01253803C0006572D /* GithubCredentials.h */; };
 		A389DFD31253803C0006572D /* TwitterCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFD11253803C0006572D /* TwitterCredentials.h */; };
 		A389E017125381700006572D /* LRResty.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFFD125381700006572D /* LRResty.h */; };
@@ -303,11 +295,6 @@
 		A389DFB0125380080006572D /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
 		A389DFB1125380080006572D /* NSURL+QueryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+QueryInspector.h"; sourceTree = "<group>"; };
 		A389DFB2125380080006572D /* NSURL+QueryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+QueryInspector.m"; sourceTree = "<group>"; };
-		A389DFBE125380130006572D /* NSOperation+Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+Compatibility.h"; sourceTree = "<group>"; };
-		A389DFBF125380130006572D /* NSOperation+Compatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Compatibility.m"; sourceTree = "<group>"; };
-		A389DFC0125380130006572D /* NSURL+Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Compatibility.h"; sourceTree = "<group>"; };
-		A389DFC1125380130006572D /* NSURL+Compatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Compatibility.m"; sourceTree = "<group>"; };
-		A389DFC2125380130006572D /* OS4Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OS4Compatibility.h; sourceTree = "<group>"; };
 		A389DFD01253803C0006572D /* GithubCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GithubCredentials.h; path = Resources/GithubCredentials.h; sourceTree = "<group>"; };
 		A389DFD11253803C0006572D /* TwitterCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterCredentials.h; path = Resources/TwitterCredentials.h; sourceTree = "<group>"; };
 		A389DFE0125380720006572D /* Acceptance Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Acceptance Tests-Info.plist"; path = "Resources/Acceptance Tests-Info.plist"; sourceTree = "<group>"; };
@@ -534,7 +521,6 @@
 				A30A04191253953900722B25 /* Core */,
 				A30A040D1253948A00722B25 /* Protocols */,
 				A30A040C1253946100722B25 /* Request Delegates (Internal) */,
-				A389DFBD125380130006572D /* Compatibility */,
 				A389DFA8125380080006572D /* Categories */,
 				A3087646120A31BD003859AC /* Helpers */,
 				A389DFFD125381700006572D /* LRResty.h */,
@@ -715,18 +701,6 @@
 				A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		A389DFBD125380130006572D /* Compatibility */ = {
-			isa = PBXGroup;
-			children = (
-				A389DFBE125380130006572D /* NSOperation+Compatibility.h */,
-				A389DFBF125380130006572D /* NSOperation+Compatibility.m */,
-				A389DFC0125380130006572D /* NSURL+Compatibility.h */,
-				A389DFC1125380130006572D /* NSURL+Compatibility.m */,
-				A389DFC2125380130006572D /* OS4Compatibility.h */,
-			);
-			path = Compatibility;
 			sourceTree = "<group>";
 		};
 		A389DFDE1253806A0006572D /* Resources */ = {
@@ -1010,9 +984,6 @@
 				A37917FF13A144030025AF1C /* LRRestyClientBlockDelegate.h in Headers */,
 				A379180013A144030025AF1C /* LRRestyClientStreamingDelegate.h in Headers */,
 				A379180113A144030025AF1C /* LRRestyClientProxyDelegate.h in Headers */,
-				A379180213A144030025AF1C /* NSOperation+Compatibility.h in Headers */,
-				A379180313A144030025AF1C /* NSURL+Compatibility.h in Headers */,
-				A379180413A144030025AF1C /* OS4Compatibility.h in Headers */,
 				A379180513A144030025AF1C /* NSData+Base64.h in Headers */,
 				A379180613A144030025AF1C /* NSDictionary+QueryString.h in Headers */,
 				A379180713A144030025AF1C /* NSObject+Tap.h in Headers */,
@@ -1038,9 +1009,6 @@
 				A389DFB7125380080006572D /* NSObject+Tap.h in Headers */,
 				A389DFB9125380080006572D /* NSString+QueryString.h in Headers */,
 				A389DFBB125380080006572D /* NSURL+QueryInspector.h in Headers */,
-				A389DFC3125380130006572D /* NSOperation+Compatibility.h in Headers */,
-				A389DFC5125380130006572D /* NSURL+Compatibility.h in Headers */,
-				A389DFC7125380130006572D /* OS4Compatibility.h in Headers */,
 				A389DFD21253803C0006572D /* GithubCredentials.h in Headers */,
 				A389DFD31253803C0006572D /* TwitterCredentials.h in Headers */,
 				A389E017125381700006572D /* LRResty.h in Headers */,
@@ -1407,8 +1375,6 @@
 				A389DFB8125380080006572D /* NSObject+Tap.m in Sources */,
 				A389DFBA125380080006572D /* NSString+QueryString.m in Sources */,
 				A389DFBC125380080006572D /* NSURL+QueryInspector.m in Sources */,
-				A389DFC4125380130006572D /* NSOperation+Compatibility.m in Sources */,
-				A389DFC6125380130006572D /* NSURL+Compatibility.m in Sources */,
 				A389E018125381700006572D /* LRResty.m in Sources */,
 				A389E01A125381700006572D /* LRRestyClient.m in Sources */,
 				A389E01C125381700006572D /* LRRestyClient+GET.m in Sources */,
