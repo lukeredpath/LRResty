@@ -25,6 +25,11 @@
  */
 @property (nonatomic, readonly) NSData *responseData;
 
+/**
+ * Returns the list of response headers 
+ */
+@property (nonatomic, readonly) NSDictionary *headers;
+
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 /**
  * The HTTP status code.
