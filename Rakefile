@@ -32,7 +32,7 @@ namespace :website do
   end
   
   task :upload_website => [:generate] do
-    system("rsync -avz --delete Documentation/website/_site/ lukeredpath.co.uk:#{SITE_ROOT}")
+    system("rsync -avz --delete --exclude 'api' --exclude 'downloads' Documentation/website/_site/ lukeredpath.co.uk:#{SITE_ROOT}")
   end
   
   task :upload_docs => :generate_docs do
