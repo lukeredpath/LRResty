@@ -96,8 +96,10 @@
   // by the time this is called, the request has started so we can just start the timeout now
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (double)delayInSeconds * NSEC_PER_SEC);
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    [self cancelImmediately];
-    block(self);
+    if (![self isFinished]) {
+      [self cancelImmediately];
+      block(self);
+    }
   });
 }
 

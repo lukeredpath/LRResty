@@ -38,4 +38,16 @@ RESTY_CLIENT_ACCEPTANCE_TEST(TimeoutTests)
   assertEventuallyThat(&timedOutRequest, isCancelled());
 }
 
+- (void)testTimeoutBlockIsNeverCalledWhenRequestRespondsInTime
+{
+  __block BOOL timeoutHandlerCalled = NO;
+  
+  [[client get:@"/simple/resource" withBlock:nil] timeoutAfter:1 handleWithBlock:^(LRRestyRequest *request) {
+    timeoutHandlerCalled = YES;
+  }];
+  
+  waitForInterval(1.5);
+  assertThatBool(timeoutHandlerCalled, equalToBool(NO));
+}
+
 END_ACCEPTANCE_TEST
