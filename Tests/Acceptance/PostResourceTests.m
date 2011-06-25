@@ -6,23 +6,10 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import "TestHelper.h"
-#import "LRResty.h"
+#import "RestyClientAcceptanceTestCase.h"
 #import "CustomJsonObject.h"
 
-@interface PostResourceTests : SenTestCase 
-{
-  LRRestyResponse *lastResponse;
-  LRRestyClient *client;
-}
-@end
-
-@implementation PostResourceTests
-
-- (void)setUp
-{
-  client = [LRResty newClient];
-}
+RESTY_CLIENT_ACCEPTANCE_TEST(PostResourceTests)
 
 - (void)testCanPostStringToResourceAndHaveThatValueEchoedBack
 {
@@ -158,9 +145,4 @@
   assertThat(response, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
 }
 
-- (void)tearDown
-{
-  [lastResponse release]; lastResponse = nil;
-}
-
-@end
+END_ACCEPTANCE_TEST

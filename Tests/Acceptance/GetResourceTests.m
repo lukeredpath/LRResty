@@ -6,22 +6,9 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import "TestHelper.h"
-#import "LRResty.h"
+#import "RestyClientAcceptanceTestCase.h"
 
-@interface GetResourceTests : SenTestCase <LRRestyClientResponseDelegate>
-{
-  LRRestyResponse *lastResponse;
-  LRRestyClient *client;
-}
-@end
-
-@implementation GetResourceTests
-
-- (void)setUp
-{
-  client = [LRResty newClient];
-}
+RESTY_CLIENT_ACCEPTANCE_TEST(GetResourceTests)
 
 - (void)testCanPerformGetRequestToResourceAndExtractTheResponseAsAString
 {
@@ -113,16 +100,4 @@
   assertThat(response, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
 }
 
-#pragma mark -
-
-- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;
-{
-  lastResponse = [response retain];
-}
-
-- (void)tearDown
-{
-  [lastResponse release]; lastResponse = nil;
-}
-
-@end
+END_ACCEPTANCE_TEST

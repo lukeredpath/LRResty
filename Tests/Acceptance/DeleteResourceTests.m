@@ -6,22 +6,9 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import "TestHelper.h"
-#import "LRResty.h"
+#import "RestyClientAcceptanceTestCase.h"
 
-@interface DeleteResourceTests : SenTestCase <LRRestyClientResponseDelegate>
-{
-  LRRestyResponse *lastResponse;
-  LRRestyClient *client;
-}
-@end
-
-@implementation DeleteResourceTests
-
-- (void)setUp
-{
-  client = [LRResty newClient];
-}
+RESTY_CLIENT_ACCEPTANCE_TEST(DeleteResourceTests)
 
 - (void)testCanPerformDeleteRequestToResourceAndExtractTheResponseAsAString
 {
@@ -84,16 +71,4 @@
   assertThat(response, is(responseWithStatus(200)));
 }
 
-#pragma mark -
-
-- (void)restClient:(LRRestyClient *)client receivedResponse:(LRRestyResponse *)response;
-{
-  lastResponse = [response retain];
-}
-
-- (void)tearDown
-{
-  [lastResponse release]; lastResponse = nil;
-}
-
-@end
+END_ACCEPTANCE_TEST

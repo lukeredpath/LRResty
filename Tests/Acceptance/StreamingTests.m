@@ -6,23 +6,11 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import "TestHelper.h"
-#import "LRResty.h"
+#import "RestyClientAcceptanceTestCase.h"
 #import "TwitterCredentials.h"
 #import "HCBlockMatcher.h"
 
-@interface StreamingTests : SenTestCase
-{
-  LRRestyClient *client;
-}
-@end
-
-@implementation StreamingTests
-
-- (void)setUp
-{
-  client = [LRResty newClient];
-}
+RESTY_CLIENT_ACCEPTANCE_TEST(StreamingTests)
 
 - (void)testCanPerformGetRequestAndStreamResponse
 {
@@ -82,4 +70,4 @@
   assertEventuallyThat(&streamError, isNot(nilValue()));
 }
 
-@end
+END_ACCEPTANCE_TEST

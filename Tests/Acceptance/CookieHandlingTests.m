@@ -6,26 +6,16 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import "TestHelper.h"
-#import "LRResty.h"
+#import "RestyClientAcceptanceTestCase.h"
 
 #define TEST_COOKIE_VALUE @"CookieValue"
 
-@interface CookieHandlingTests : SenTestCase
-{
-  LRRestyClient *client;
-}
-@end
-
-@implementation CookieHandlingTests
-
-- (void)setUp
-{
-  client = [LRResty newClient];
-}
+RESTY_CLIENT_ACCEPTANCE_TEST(CookieHandlingTests)
 
 - (void)tearDown
 {
+  [super tearDown];
+  
   for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
   }
@@ -70,4 +60,4 @@
   assertEventuallyThat(&receivedResponse, responseWithStatusAndBody(403, @"Missing cookie"));
 }
 
-@end
+END_ACCEPTANCE_TEST

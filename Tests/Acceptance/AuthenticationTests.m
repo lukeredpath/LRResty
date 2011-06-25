@@ -6,21 +6,9 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import "TestHelper.h"
-#import "LRResty.h"
+#import "RestyClientAcceptanceTestCase.h"
 
-@interface AuthenticationTests : SenTestCase
-{
-  LRRestyClient *client;
-}
-@end
-
-@implementation AuthenticationTests
-
-- (void)setUp
-{
-  client = [LRResty newClient];
-}
+RESTY_CLIENT_ACCEPTANCE_TEST(AuthenticationTests)
 
 - (void)testGetsUnauthorizedResponseWhenRequestingAuthenticatedResourceWithoutCredentials
 {
@@ -57,4 +45,4 @@
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(401)));
 }
 
-@end
+END_ACCEPTANCE_TEST

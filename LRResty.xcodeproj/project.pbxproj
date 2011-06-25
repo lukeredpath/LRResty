@@ -161,6 +161,8 @@
 		A3BB536A13A13DBB0007A07F /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACE19513A12D3100E18687 /* libLRResty.a */; };
 		A3BB538213A13E290007A07F /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA3DF413A1334F00A9108C /* LRMimic.m */; };
 		A3BB538313A13E340007A07F /* libLRResty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3ACE19513A12D3100E18687 /* libLRResty.a */; };
+		A3C43EF713B650A300CC0899 /* TimeoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C43EF613B650A300CC0899 /* TimeoutTests.m */; };
+		A3C43EFE13B6517100CC0899 /* RestyClientAcceptanceTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C43EFA13B650D600CC0899 /* RestyClientAcceptanceTestCase.m */; };
 		A3CB4BD0120C6BFA006CADCE /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */; };
 		A3D0DB2D12E61F0A009B187B /* CustomJsonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D0DB2C12E61F0A009B187B /* CustomJsonObject.m */; };
 		A3EA3DF513A1334F00A9108C /* LRMimic.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA3DF413A1334F00A9108C /* LRMimic.m */; };
@@ -342,6 +344,9 @@
 		A3BB537613A13DC90007A07F /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BB537713A13DC90007A07F /* Acceptance Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3BB537813A13DC90007A07F /* ExamplesRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamplesRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3C43EF613B650A300CC0899 /* TimeoutTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeoutTests.m; sourceTree = "<group>"; };
+		A3C43EF913B650D600CC0899 /* RestyClientAcceptanceTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestyClientAcceptanceTestCase.h; sourceTree = "<group>"; };
+		A3C43EFA13B650D600CC0899 /* RestyClientAcceptanceTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestyClientAcceptanceTestCase.m; sourceTree = "<group>"; };
 		A3CB4BCE120C6BFA006CADCE /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
 		A3CB4BCF120C6BFA006CADCE /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
 		A3D0DB2B12E61F0A009B187B /* CustomJsonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomJsonObject.h; sourceTree = "<group>"; };
@@ -742,6 +747,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A3C43EF813B650B600CC0899 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A3C43EF913B650D600CC0899 /* RestyClientAcceptanceTestCase.h */,
+				A3C43EFA13B650D600CC0899 /* RestyClientAcceptanceTestCase.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
 		A3F8190B1208254900E60B0B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +769,7 @@
 		A3F8190C1208254900E60B0B /* Acceptance */ = {
 			isa = PBXGroup;
 			children = (
+				A3C43EF813B650B600CC0899 /* Support */,
 				A311467613A2685900F09315 /* DeleteResourceTests.m */,
 				A3F8190D1208255F00E60B0B /* GetResourceTests.m */,
 				A30874BC1209CCA5003859AC /* PostResourceTests.m */,
@@ -763,6 +778,7 @@
 				A30877E2120A522D003859AC /* AuthenticationTests.m */,
 				A3087A28120C524B003859AC /* ResourceTests.m */,
 				A38AF8E9122B972D0001D038 /* StreamingTests.m */,
+				A3C43EF613B650A300CC0899 /* TimeoutTests.m */,
 			);
 			path = Acceptance;
 			sourceTree = "<group>";
@@ -1281,6 +1297,8 @@
 				A3698EDE132A7F1D00A67C63 /* CustomJsonObject.m in Sources */,
 				A3EA3DF513A1334F00A9108C /* LRMimic.m in Sources */,
 				A311467713A2685900F09315 /* DeleteResourceTests.m in Sources */,
+				A3C43EF713B650A300CC0899 /* TimeoutTests.m in Sources */,
+				A3C43EFE13B6517100CC0899 /* RestyClientAcceptanceTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
