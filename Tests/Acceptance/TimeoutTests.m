@@ -6,18 +6,22 @@
 //  Copyright 2011 LJR Software Limited. All rights reserved.
 //
 
-#import "TimeoutTests.h"
+#import "RestyClientAcceptanceTestCase.h"
 
-@implementation TimeoutTests
+RESTY_CLIENT_ACCEPTANCE_TEST(TimeoutTests)
 
-- (id)init
+- (void)testCanPerformRequestAndHandleTimeoutAfterGivenTime
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+  __block LRRestyRequest *timedOutRequest = nil;
+  
+  [[client post:resourceWithPath(@"/long/request") 
+       payload:[NSDictionary dictionaryWithObject:@"5" forKey:@"sleep"]
+     withBlock:nil] timeoutAfter:3 handleWithBlock:^(LRRestyRequest *request) {
+      
+      timedOutRequest = request;
+  }];
+  
+  assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"plain text response")));
 }
 
-@end
+END_ACCEPTANCE_TEST
