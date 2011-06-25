@@ -93,7 +93,8 @@
 
 - (void)timeoutAfter:(NSTimeInterval)delayInSeconds handleWithBlock:(LRRestyRequestTimeoutBlock)block
 {
-  // by the time this is called, the request has started so we can just start the timeout now
+  // by the time this is called, the request has started or is about to start
+  // so we can just start the timeout now
   dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (double)delayInSeconds * NSEC_PER_SEC);
   dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     if (![self isFinished]) {

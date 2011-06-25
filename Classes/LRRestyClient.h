@@ -17,6 +17,7 @@
 
 typedef void (^LRRestyResponseBlock)(LRRestyResponse *response);
 typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
+typedef void (^LRRestyRequestTimeoutBlock)(LRRestyRequest *);
 
 /**
  LRRestyClient provides the core API for performing requests. It provides both
@@ -27,6 +28,8 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
   id<LRRestyHTTPClient> HTTPClient;
   NSMutableArray *requestModifiers;
   id<LRRestyClientDelegate> clientDelegate;
+  LRRestyRequestTimeoutBlock globalTimeoutHandler;
+  NSTimeInterval globalTimeoutInterval;
 }
 /* *
  The client's delegate will be notified when a request is performed and finished.
@@ -84,4 +87,6 @@ typedef void (^LRRestyRequestBlock)(LRRestyRequest *request);
  Cancels all outstanding requests
  */
 - (void)cancelAllRequests;
+
+- (void)setGlobalTimeout:(NSTimeInterval)timeout handleWithBlock:(LRRestyRequestTimeoutBlock)block;
 @end

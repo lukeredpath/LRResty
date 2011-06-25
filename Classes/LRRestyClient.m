@@ -39,6 +39,7 @@
 {
   [HTTPClient release];
   [requestModifiers release];
+  [globalTimeoutHandler release];
   [super dealloc];
 }
 
@@ -74,6 +75,13 @@
   [HTTPClient cancelAllRequests];
 }
 
+- (void)setGlobalTimeout:(NSTimeInterval)timeout handleWithBlock:(LRRestyRequestTimeoutBlock)block
+{
+  [globalTimeoutHandler release];
+  globalTimeoutHandler = [block copy];
+  globalTimeoutInterval = timeout;
+}
+
 #pragma mark -
 #pragma mark LRRestyHTTPClientDelegate methods
 
@@ -89,6 +97,9 @@
   }];
   for (LRRestyRequestBlock requestModifier in requestModifiers) {
     requestModifier(request);
+  }
+  if (globalTimeoutHandler) {
+    [request timeoutAfter:globalTimeoutInterval handleWithBlock:globalTimeoutHandler];
   }
 }
 

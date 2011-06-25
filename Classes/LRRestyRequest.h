@@ -11,8 +11,7 @@
 #import "LRRestyClientResponseDelegate.h"
 #import "LRRestyRequestPayload.h"
 #import "LRRestyRequestDelegate.h"
-
-typedef void (^LRRestyRequestTimeoutBlock)(LRRestyRequest *);
+#import "LRRestyClient.h"
 
 /**
  * Represents a single request; provides an API for modifying properties of the request
