@@ -15,9 +15,20 @@ def modify_plist(path, &block)
   end
 end
 
+namespace :docs do
+  desc "Generate the doxygen documentation"
+  task :generate do  
+    system("appledoc --keep-intermediate-files --verbose 1 --output Documentation/generated --project-name Resty Classes/")
+  end
+  
+  task :upload => :generate do
+    system("rsync -avz --delete Documentation/html/ lukeredpath.co.uk:#{SITE_ROOT}/api")
+  end
+end
+
 namespace :website do
   desc "Deploy to production"
-  task :deploy => [:upload_website, :upload_docs]
+  task :deploy => [:upload, "docs:upload"]
 
   desc "Regenerate the site"
   task :generate do
@@ -26,17 +37,8 @@ namespace :website do
     end
   end
   
-  desc "Generate the doxygen documentation"
-  task :generate_docs do  
-    system("appledoc --keep-intermediate-files --verbose 1 --output Documentation/generated --project-name Resty Classes/")
-  end
-  
-  task :upload_website => [:generate] do
+  task :upload => :generate do
     system("rsync -avz --delete --exclude 'api' --exclude 'downloads' Documentation/website/_site/ lukeredpath.co.uk:#{SITE_ROOT}")
-  end
-  
-  task :upload_docs => :generate_docs do
-    system("rsync -avz --delete Documentation/html/ lukeredpath.co.uk:#{SITE_ROOT}/api")
   end
 end
 
