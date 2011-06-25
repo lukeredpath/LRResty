@@ -32,7 +32,9 @@
 
 - (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response
 {
-  block(response);
+  if (block) {
+    block(response);
+  }
 }
 
 @end

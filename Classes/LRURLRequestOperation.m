@@ -103,7 +103,7 @@
   [responseData appendData:data];
   
   if ([self isCancelled]) {
-    [URLConnection cancel];
+    [connection cancel];
     [self finish];
   }
 }
@@ -117,6 +117,12 @@
 {
   self.connectionError = error;
   [self setFinished:YES];
+}
+
+- (void)cancelImmediately
+{
+  [URLConnection cancel];
+  [self finish];
 }
 
 #pragma mark -

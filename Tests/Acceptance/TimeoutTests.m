@@ -16,12 +16,26 @@ RESTY_CLIENT_ACCEPTANCE_TEST(TimeoutTests)
   
   [[client post:resourceWithPath(@"/long/request") 
        payload:[NSDictionary dictionaryWithObject:@"5" forKey:@"sleep"]
-     withBlock:nil] timeoutAfter:3 handleWithBlock:^(LRRestyRequest *request) {
+     withBlock:nil] timeoutAfter:1 handleWithBlock:^(LRRestyRequest *request) {
       
       timedOutRequest = request;
   }];
   
-  assertEventuallyThat(&lastResponse, is(responseWithStatusAndBody(200, @"plain text response")));
+  assertEventuallyThat(&timedOutRequest, is(notNilValue()));
+}
+
+- (void)testCancelsRequestWhenTimesOut
+{
+  __block LRRestyRequest *timedOutRequest = nil;
+  
+  [[client post:resourceWithPath(@"/long/request") 
+        payload:[NSDictionary dictionaryWithObject:@"5" forKey:@"sleep"]
+      withBlock:nil] timeoutAfter:1 handleWithBlock:^(LRRestyRequest *request) {
+    
+    timedOutRequest = request;
+  }];
+  
+  assertEventuallyThat(&timedOutRequest, isCancelled());
 }
 
 END_ACCEPTANCE_TEST

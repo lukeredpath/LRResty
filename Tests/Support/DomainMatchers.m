@@ -9,6 +9,7 @@
 #import "DomainMatchers.h"
 #import "HCPassesBlock.h"
 #import "LRRestyResponse.h"
+#import "LRRestyRequest.h"
 #import "OCHamcrest.h"
 #import "HCStringDescription.h"
 
@@ -89,4 +90,16 @@ id<HCMatcher> hasCookie(NSString *key, NSString *value)
     return (BOOL)[[response valueForCookie:key] isEqualToString:value];
     
   }, [NSString stringWithFormat:@"a response containing cookie {%@ => %@}", key, value]);
+}
+
+id<HCMatcher> isCancelled(void)
+{
+  return HC_passesBlock(^(id object) {
+    if (![object isKindOfClass:[LRRestyRequest class]]) {
+      return NO;
+    }
+    LRRestyRequest *request = object;
+    return ([request isFinished] && ![request isExecuting]);
+    
+  }, @"to be cancelled");
 }

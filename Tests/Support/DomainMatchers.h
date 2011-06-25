@@ -15,3 +15,4 @@ id<HCMatcher> responseWithStatusAndBodyMatching(NSUInteger status, id<HCMatcher>
 id<HCMatcher> responseWithRequestEcho(NSString *keyPath, NSString *value);
 id<HCMatcher> hasHeader(NSString *header, NSString *value);
 id<HCMatcher> hasCookie(NSString *key, NSString *value);
+id<HCMatcher> isCancelled(void);

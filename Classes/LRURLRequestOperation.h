@@ -25,6 +25,7 @@
 
 - (id)initWithURLRequest:(NSURLRequest *)request;
 - (void)finish;
+- (void)cancelImmediately;
 @end
 
 @interface LRURLRequestOperation (NSURLConnectionDelegate)

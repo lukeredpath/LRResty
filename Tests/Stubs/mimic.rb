@@ -77,3 +77,11 @@ end
     echo_request!(:plist)
   end
 end
+
+### Used by TimeoutTests.m
+
+post "/long/request" do
+  sleep_time = (params[:sleep] || 0).to_i
+  sleep(sleep_time)
+  [200, {}, ""]
+end

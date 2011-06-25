@@ -12,6 +12,8 @@
 #import "LRRestyRequestPayload.h"
 #import "LRRestyRequestDelegate.h"
 
+typedef void (^LRRestyRequestTimeoutBlock)(LRRestyRequest *);
+
 /**
  * Represents a single request; provides an API for modifying properties of the request
  * prior to it being executed.
@@ -79,4 +81,8 @@
  * @param useCredential   When set to NO, will use a HTTP Authorization header.
  */
 - (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password useCredentialSystem:(BOOL)useCredential;
+
+/// @name Handling Timeouts
+
+- (void)timeoutAfter:(NSTimeInterval)delayInSeconds handleWithBlock:(LRRestyRequestTimeoutBlock)block;
 @end
