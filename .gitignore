@@ -43,5 +43,6 @@ Documentation/html
 Documentation/website/_site
 Documentation/generated
 pkg
+log
 
 mimic.pid
