@@ -18,71 +18,51 @@
     return object;
   }
   if ([object respondsToSelector:@selector(dataUsingEncoding:)]) {
-    return [[[LRRestyRequestEncodablePayload alloc] initWithEncodableObject:object] autorelease];
+    return [[[LRRestyDataPayload alloc] initWithEncodable:object encoding:NSUTF8StringEncoding] autorelease];
   }
   if ([object isKindOfClass:[NSDictionary class]]) {
-    return [[[LRRestyRequestFormEncodedData alloc] initWithDictionary:object] autorelease];
+    return [[[LRRestyFormEncodedPayload alloc] initWithDictionary:object] autorelease];
   }
   if ([object isKindOfClass:[NSData class]]) {
-    return [[[LRRestyRequestBasicPayload alloc] initWithData:object] autorelease];
+    return [[[LRRestyDataPayload alloc] initWithData:object] autorelease];
   }
   return nil;
 }
 
 @end
 
-@implementation LRRestyRequestBasicPayload
+@implementation LRRestyDataPayload
 
-- (id)initWithData:(NSData *)rawData;
+- (id)initWithData:(NSData *)data;
 {
   if ((self = [super init])) {
-    data = [rawData copy];
+    requestData = [data copy];
   }
   return self;
 }
 
+- (id)initWithEncodable:(id)encodable encoding:(NSStringEncoding)encoding
+{
+  if (![encodable respondsToSelector:@selector(dataUsingEncoding:)]) {
+    [NSException raise:NSInternalInconsistencyException format:@"Expected an object that responds to dataUsingEncoding", nil];
+  }
+  return [self initWithData:[encodable dataUsingEncoding:encoding]];
+}
+
 - (void)dealloc
 {
-  [data release];
+  [requestData release];
   [super dealloc];
 }
 
 - (void)modifyRequest:(LRRestyRequest *)request
 {
-  [request setPostData:data];
+  [request setPostData:requestData];
 }
 
 @end
 
-
-@implementation LRRestyRequestEncodablePayload
-
-- (id)initWithEncodableObject:(id)object;
-{
-  if ((self = [super init])) {
-    if ([object conformsToProtocol:@protocol(NSCopying)]) {
-      encodable = [object copy];
-    } else {
-      encodable = [object retain];
-    }
-  }
-  return self;
-}
-
-- (void)dealloc
-{
-  [encodable release];
-  [super dealloc];
-}
-
-- (void)modifyRequest:(LRRestyRequest *)request
-{
-  [request setPostData:[encodable dataUsingEncoding:NSUTF8StringEncoding]];
-}
-
-@end
-
-@implementation LRRestyRequestFormEncodedData
+@implementation LRRestyFormEncodedPayload
 
 - (id)initWithDictionary:(NSDictionary *)aDictionary;
 {

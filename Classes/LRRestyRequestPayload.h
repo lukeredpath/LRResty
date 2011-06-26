@@ -47,21 +47,15 @@
 + (id)payloadFromObject:(id)object;
 @end
 
-@interface LRRestyRequestBasicPayload : NSObject <LRRestyRequestPayload>
+@interface LRRestyDataPayload : NSObject <LRRestyRequestPayload>
 {
-  NSData *data;
+  NSData *requestData;
 }
-- (id)initWithData:(NSData *)rawData;
+- (id)initWithData:(NSData *)data;
+- (id)initWithEncodable:(id)encodable encoding:(NSStringEncoding)encoding;
 @end
 
-@interface LRRestyRequestEncodablePayload : NSObject <LRRestyRequestPayload>
-{
-  id encodable; // typically a string, but anything that responds to dataUsingEncoding:
-}
-- (id)initWithEncodableObject:(id)object;
-@end
-
-@interface LRRestyRequestFormEncodedData : NSObject <LRRestyRequestPayload>
+@interface LRRestyFormEncodedPayload : NSObject <LRRestyRequestPayload>
 {
   NSDictionary *dictionary;
 }
