@@ -28,13 +28,36 @@
  and of course, NSData can also be used directly.
  */
 @protocol LRRestyRequestPayload <NSObject>
+
+@required
+
 /**
- * This method will be called when constructing the POST or PUT request and is where
- * the object can inject itself into the request body in the appropriate format. It
- * can also be used to set relevant headers (e.g. setting the content-type for the
- * object's format).
+ The data to be used in the request body.
  */
-- (void)modifyRequest:(LRRestyRequest *)request;
+- (NSData *)dataForRequest;
+
+/**
+ The MIME type that will be used in the Content-Type header
+ */
+- (NSString *)contentTypeForRequest;
+
+@optional
+
+/**
+ This will be called just before the request is performed. 
+ 
+ It gives the payload object one more opportunity to modify the request
+ prior to it being performed.
+ 
+ This used to be the only method in the protocol and was used to set the request
+ data and any headers (such as the content type). You should no longer use
+ this method for setting the data or the Content-Type header as these will be set
+ automatically using the values returned by the other protocol methods.
+ 
+ @param request The request about to be performed.
+ */
+- (void)modifyRequestBeforePerforming:(LRRestyRequest *)request;
+
 @end
 
 /**
@@ -50,6 +73,7 @@
 @interface LRRestyDataPayload : NSObject <LRRestyRequestPayload>
 {
   NSData *requestData;
+  NSString *contentType;
 }
 - (id)initWithData:(NSData *)data;
 - (id)initWithEncodable:(id)encodable encoding:(NSStringEncoding)encoding;

@@ -37,6 +37,7 @@
 {
   if ((self = [super init])) {
     requestData = [data copy];
+    contentType = [@"application/octet-stream" copy];
   }
   return self;
 }
@@ -46,18 +47,28 @@
   if (![encodable respondsToSelector:@selector(dataUsingEncoding:)]) {
     [NSException raise:NSInternalInconsistencyException format:@"Expected an object that responds to dataUsingEncoding", nil];
   }
-  return [self initWithData:[encodable dataUsingEncoding:encoding]];
+  if ((self = [self init])) {
+    requestData = [[encodable dataUsingEncoding:encoding] copy];
+    contentType = [@"text/plain" copy];
+  }
+  return self;
 }
 
 - (void)dealloc
 {
+  [contentType release];
   [requestData release];
   [super dealloc];
 }
 
-- (void)modifyRequest:(LRRestyRequest *)request
+- (NSData *)dataForRequest
 {
-  [request setPostData:requestData];
+  return requestData;
+}
+
+- (NSString *)contentTypeForRequest
+{
+  return contentType;
 }
 
 @end
@@ -78,12 +89,14 @@
   [super dealloc];
 }
 
-- (void)modifyRequest:(LRRestyRequest *)request
+- (NSData *)dataForRequest
 {
-  [request setPostData:[[dictionary stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
-  [request addHeader:@"Content-Type" value:@"application/x-www-form-urlencoded"];
+  return [[dictionary stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)contentTypeForRequest
+{
+  return @"application/x-www-form-urlencoded";
 }
 
 @end
-
-

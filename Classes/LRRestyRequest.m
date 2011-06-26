@@ -70,7 +70,11 @@
 
 - (void)setPayload:(id<LRRestyRequestPayload>)payload;
 {
-  [payload modifyRequest:self];
+  [self setPostData:[payload dataForRequest]];
+  [self addHeader:@"Content-Type" value:[payload contentTypeForRequest]];
+  if ([payload respondsToSelector:@selector(modifyRequestBeforePerforming:)]) {
+    [payload modifyRequestBeforePerforming:self];
+  }
 }
 
 - (void)setHandlesCookiesAutomatically:(BOOL)shouldHandleCookies;

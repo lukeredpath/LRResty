@@ -19,11 +19,19 @@
   return self;
 }
 
-- (void)modifyRequest:(LRRestyRequest *)request
+- (NSData *)dataForRequest
+{
+  return [string dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)contentTypeForRequest
+{
+  return @"application/json";
+}
+
+- (void)modifyRequestBeforePerforming:(LRRestyRequest *)request
 {
   [request addHeader:@"Accept" value:@"application/json"];
-  [request addHeader:@"Content-Type" value:@"application/json"];
-  [request setPostData:[string dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end
