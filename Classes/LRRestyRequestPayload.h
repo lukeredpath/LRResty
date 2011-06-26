@@ -11,8 +11,21 @@
 @class LRRestyRequest;
 
 /**
- * Describes an object that can be used with POST or PUT request methods that
- * take a payload parameter.
+ The LRRestyRequestPayload protocol is the basis for the LRResty payload system.
+ 
+ It describes an object that can be used with POST or PUT request methods that
+ take a payload parameter.
+ 
+ When you perform POST or PUT requests to a resource, you typically want to post some kind of
+ data to that resource.
+ 
+ The LRResty payload system lets you POST or PUT data in an agnostic way, letting you pass
+ any object that implements the LRRestyRequestPayload protocol into one of the request methods
+ on LRRestyClient that accept a payload parameter.
+ 
+ In addition, LRResty provides out of the box support for certain native data types, including
+ encodable objects (such as NSString, or anything that responds to dataUsingEncoding:), NSDictionary
+ and of course, NSData can also be used directly.
  */
 @protocol LRRestyRequestPayload <NSObject>
 /**
