@@ -14,6 +14,8 @@
 		A308758E1209E37B003859AC /* FormEncodedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A308758D1209E37B003859AC /* FormEncodedStringTest.m */; };
 		A30878A5120C44FF003859AC /* RemoteRepositoryExample.h in Headers */ = {isa = PBXBuildFile; fileRef = A30878A3120C44FF003859AC /* RemoteRepositoryExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A311467713A2685900F09315 /* DeleteResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A311467613A2685900F09315 /* DeleteResourceTests.m */; };
+		A322549F13B6C93900F16A97 /* LRRestyResponse+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A322549E13B6C93900F16A97 /* LRRestyResponse+Internal.h */; settings = {ATTRIBUTES = (); }; };
+		A32254A113B6C9FA00F16A97 /* LRRestyResponse+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A322549E13B6C93900F16A97 /* LRRestyResponse+Internal.h */; };
 		A3236DC8120C5C0100001E40 /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087956120C489C003859AC /* ExampleAppDelegate.m */; };
 		A3236DC9120C5C0100001E40 /* ExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3087965120C48EE003859AC /* ExamplesViewController.m */; };
 		A3236DCA120C5C0100001E40 /* RemoteRepositoryExample.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878A4120C44FF003859AC /* RemoteRepositoryExample.m */; };
@@ -278,6 +280,7 @@
 		A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRRestyClientProxyDelegate.m; sourceTree = "<group>"; };
 		A30A040E125394A700722B25 /* LRRestyRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRRestyRequestDelegate.h; sourceTree = "<group>"; };
 		A311467613A2685900F09315 /* DeleteResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteResourceTests.m; sourceTree = "<group>"; };
+		A322549E13B6C93900F16A97 /* LRRestyResponse+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyResponse+Internal.h"; sourceTree = "<group>"; };
 		A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+Additions.h"; sourceTree = "<group>"; };
 		A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+Additions.m"; sourceTree = "<group>"; };
 		A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRSynchronousProxy.h; sourceTree = "<group>"; };
@@ -670,6 +673,7 @@
 		A30A04191253953900722B25 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A32254A013B6C95B00F16A97 /* Internal */,
 				A389E016125381700006572D /* LRRestyTypes.h */,
 				A389DFFF125381700006572D /* LRRestyClient.h */,
 				A389E000125381700006572D /* LRRestyClient.m */,
@@ -685,6 +689,14 @@
 				A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		A32254A013B6C95B00F16A97 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				A322549E13B6C93900F16A97 /* LRRestyResponse+Internal.h */,
+			);
+			name = Internal;
 			sourceTree = "<group>";
 		};
 		A389DFA8125380080006572D /* Categories */ = {
@@ -1012,6 +1024,7 @@
 				A379180E13A144030025AF1C /* LRRestyClient+PUT.h in Headers */,
 				A379180F13A144030025AF1C /* LRResty.h in Headers */,
 				0FB9787013A20F190010A37C /* LRRestyClient+DELETE.h in Headers */,
+				A32254A113B6C9FA00F16A97 /* LRRestyResponse+Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,6 +1059,7 @@
 				A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
 				A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
 				0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */,
+				A322549F13B6C93900F16A97 /* LRRestyResponse+Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,9 @@
 @class LRRestyRequest;
 
 /**
- * Represents a response for a single LRRestyRequest; will typically be used
- * in response handler blocks or delegate objects implementing LRRestyClientResponseDelegate.
+ Represents a response for a single LRRestyRequest.
+ 
+ This will typically be used in response handler blocks or delegate objects implementing LRRestyClientResponseDelegate.
  */
 @interface LRRestyResponse : NSObject {
   NSUInteger status;
@@ -21,38 +22,42 @@
   NSDictionary *cookies;
 }
 /**
- * Returns the raw response data.
+ Returns the raw response data.
  */
 @property (nonatomic, readonly) NSData *responseData;
 
 /**
- * Returns the list of response headers 
+ Returns a dictionary of response headers 
  */
 @property (nonatomic, readonly) NSDictionary *headers;
 
-- (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 /**
  * The HTTP status code.
  */
-- (NSUInteger)status;
+@property (nonatomic, readonly) NSUInteger status;
+
 /**
- * Localized status description for the HTTP status coe
+ Localized status description for the HTTP status code
  */
 - (NSString *)localizedStatusDescription;
+
 /**
- * Attempts to return a string representation of the response body.
+ Attempts to return a string representation of the response body.
  */
 - (NSString *)asString;
+
 /**
- * Returns the named cookie.
+ Returns the named cookie.
  */
 - (NSHTTPCookie *)cookieNamed:(NSString *)name;
+
 /**
- * Returns the value for the named header.
+ Returns the value for the named header.
  */
 - (NSString *)valueForHeader:(NSString *)header;
+
 /**
- * Returns the value for the named cookie.
+ Returns the value for the named cookie.
  */
 - (NSString *)valueForCookie:(NSString *)cookieName;
 @end

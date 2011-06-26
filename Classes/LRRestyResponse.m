@@ -24,6 +24,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 
 @synthesize responseData;
 @synthesize headers;
+@synthesize status;
 
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 {
@@ -42,11 +43,6 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
   [headers release];
   [responseData release];
   [super dealloc];
-}
-
-- (NSUInteger)status;
-{
-  return status;
 }
 
 - (NSString *)localizedStatusDescription

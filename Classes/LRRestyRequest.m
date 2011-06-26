@@ -7,7 +7,7 @@
 //
 
 #import "LRRestyRequest.h"
-#import "LRRestyResponse.h"
+#import "LRRestyResponse+Internal.h"
 #import "NSDictionary+QueryString.h"
 #import "NSData+Base64.h"
 #import "LRResty.h"
