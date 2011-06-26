@@ -13,6 +13,10 @@
 
 @interface LRRestyClient (DELETE)
 
+/// ---------------------------------
+/// @name Making DELETE requests
+/// ---------------------------------
+
 #pragma mark -
 #pragma mark Delegate API
 

@@ -22,7 +22,7 @@ namespace :docs do
   end
   
   task :upload => :generate do
-    system("rsync -avz --delete Documentation/html/ lukeredpath.co.uk:#{SITE_ROOT}/api")
+    system("rsync -avz --delete Documentation/generated/ lukeredpath.co.uk:#{SITE_ROOT}/api")
   end
 end
 

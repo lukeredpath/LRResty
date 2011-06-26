@@ -17,37 +17,61 @@
 #import "LRRestyResource.h"
 
 /**
- A simple static factory for creating clients and resources.
+ This is the main top-level interface to Resty and acts as a static factory for creating
+ and accessing clients and resources.
  */
-@interface LRResty : NSObject {
+@interface LRResty : NSObject 
 
-}
+/// ---------------------------------
+/// @name Accessing Clients
+/// ---------------------------------
+
 /**
- Returns a shared instance of +LRRestyClient+.
+ Returns a globally shared instance of LRRestyClient.
+ 
+ For most simple cases, this is all you will need; if you need your own unique instance,
+ you should use newClient instead.
  */
 + (LRRestyClient *)client;
+
 /**
- Returns a new instance of +LRRestyClient+.
+ Returns a new instance of LRRestyClient.
  */
 + (LRRestyClient *)newClient;
+
 /**
- Returns an auto-released instance of LRRestyClient with HTTP Basic Auth parameters set.
+ Returns a new (autoreleased) instance of LRRestyClient, pre-configured for basic authentication.
+ 
+ @param username The username to use when authenticating.
+ @param password The password to use when authenticating.
  */
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
+
 /**
- Returns an auto-released LRRestyResource, using the shared client.
+ Returns a new (autoreleased) instance of LRRestyResource, using the global client.
  */
 + (LRRestyResource *)resource:(NSString *)urlString;
+
 /**
- Returns an auto-released LRRestyResource, using an authenticated client.
+ Returns a new (autoreleased) LRRestyResource, pre-configured for basic authentication.
+ 
+ @param username The username to use when authenticating.
+ @param password The password to use when authenticating.
  */
 + (LRRestyResource *)authenticatedResource:(NSString *)urlString username:(NSString *)username password:(NSString *)password;
+
+/// ---------------------------------
+/// @name Logging
+/// ---------------------------------
+
 /**
  Can be used to toggle logging for debug purposes.
  */
 + (void)setDebugLoggingEnabled:(BOOL)isEnabled;
+
 /**
  Outputs the message to the console only if debug logging is enabled
  */
 + (void)log:(NSString *)message;
+
 @end

@@ -12,6 +12,10 @@
 
 @interface LRRestyClient (PUT)
 
+/// ---------------------------------
+/// @name Making PUT requests
+/// ---------------------------------
+
 #pragma mark -
 #pragma mark Delegate API
 

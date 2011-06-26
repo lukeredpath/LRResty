@@ -12,6 +12,10 @@
 
 @interface LRRestyClient (POST)
 
+/// ---------------------------------
+/// @name Making POST requests
+/// ---------------------------------
+
 #pragma mark -
 #pragma mark Delegate API
 

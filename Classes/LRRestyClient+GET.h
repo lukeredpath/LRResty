@@ -13,6 +13,10 @@
 
 @interface LRRestyClient (GET)
 
+/// ---------------------------------
+/// @name Making GET requests
+/// ---------------------------------
+
 #pragma mark -
 #pragma mark Delegate API
 
