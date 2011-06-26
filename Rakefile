@@ -18,7 +18,7 @@ end
 namespace :docs do
   desc "Generate the doxygen documentation"
   task :generate do  
-    system("appledoc --keep-intermediate-files --verbose 1 --output Documentation/generated --project-name Resty Classes/")
+    system("appledoc --no-search-undocumented-doc --keep-intermediate-files --verbose 1 --output Documentation/generated --project-name Resty Classes/")
   end
   
   task :upload => :generate do
