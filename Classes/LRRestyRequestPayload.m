@@ -10,6 +10,27 @@
 #import "LRRestyRequest.h"
 #import "NSDictionary+QueryString.h"
 
+#pragma mark -
+#pragma mark Private Headers
+
+@interface LRRestyDataPayload : NSObject <LRRestyRequestPayload>
+{
+  NSData *requestData;
+  NSString *contentType;
+}
+- (id)initWithData:(NSData *)data;
+- (id)initWithEncodable:(id)encodable encoding:(NSStringEncoding)encoding;
+@end
+
+@interface LRRestyFormEncodedPayload : NSObject <LRRestyRequestPayload>
+{
+  NSDictionary *dictionary;
+}
+- (id)initWithDictionary:(NSDictionary *)aDictionary;
+@end
+
+#pragma mark -
+
 @implementation LRRestyRequestPayloadFactory
 
 + (id)payloadFromObject:(id)object;
@@ -30,6 +51,9 @@
 }
 
 @end
+
+#pragma mark -
+#pragma mark Native payloads
 
 @implementation LRRestyDataPayload
 
