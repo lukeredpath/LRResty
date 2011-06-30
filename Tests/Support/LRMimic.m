@@ -24,7 +24,6 @@ static BOOL pingsWhenInitialized = YES;
 
 + (void)setURL:(NSString *)url;
 {
-  [mimicURL autorelease];
   mimicURL = [url copy];
 }
 
@@ -86,14 +85,6 @@ static BOOL pingsWhenInitialized = YES;
                            userInfo:nil] raise];
   }
   
-}
-
-- (void)dealloc
-{
-  [client release];
-  [mimicURL release];
-  [stubs release];
-  [super dealloc];
 }
 
 - (void)prepareStubs:(LRMimicCallback)callback;
@@ -226,7 +217,7 @@ static BOOL pingsWhenInitialized = YES;
 
 + (id)stub:(NSString *)path method:(NSString *)method
 {
-  return [[[self alloc] initWithPath:path method:method] autorelease];
+  return [[self alloc] initWithPath:path method:method];
 }
 
 - (id)initWithPath:(NSString *)aPath method:(NSString *)HTTPMethod;
@@ -239,16 +230,6 @@ static BOOL pingsWhenInitialized = YES;
     shouldEchoRequest = NO;
   }
   return self;
-}
-
-- (void)dealloc
-{
-  [queryParameters release];
-  [headers release];
-  [method release];
-  [path release];
-  [body release];
-  [super dealloc];
 }
 
 - (void)willReturnResponse:(NSString *)responseBody withStatus:(NSInteger)statusCode 
@@ -305,7 +286,7 @@ static BOOL pingsWhenInitialized = YES;
 
 + (id)builder;
 {
-  return [[[self alloc] init] autorelease];
+  return [[self alloc] init];
 }
 
 - (id)init
@@ -320,16 +301,6 @@ static BOOL pingsWhenInitialized = YES;
     self.echoRequest = NO;
   }
   return self;
-}
-
-- (void)dealloc
-{
-  [queryParameters release];
-  [path release];
-  [method release];
-  [body release];
-  [headers release];
-  [super dealloc];
 }
 
 - (LRMimicRequestStub *)buildStub;

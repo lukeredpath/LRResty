@@ -28,12 +28,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  [timeoutDate release];
-  [super dealloc];
-}
-
 - (BOOL)hasTimedOut
 {
   return [timeoutDate timeIntervalSinceDate:[NSDate date]] < 0;
@@ -61,13 +55,11 @@
   
   while (![probe isSatisfied]) {
     if ([timeout hasTimedOut]) {
-      [timeout release];
       return NO;
     }
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:delayInterval]];
     [probe sample];
   }
-  [timeout release];
   
   return YES;
 }
@@ -85,7 +77,6 @@ void LR_assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char
                           atLine:lineNumber 
                  withDescription:failureMessage]];
   }
-  [poller release];
 }
 
 void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe)
@@ -100,7 +91,7 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 + (id)probeWithBlock:(LRBlockProbeBlock)block;
 {
-  return [[[self alloc] initWithBlock:block] autorelease];
+  return [[self alloc] initWithBlock:block];
 }
 
 - (id)initWithBlock:(LRBlockProbeBlock)aBlock;
@@ -111,12 +102,6 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
     [self sample];
   }
   return self;
-}
-
-- (void)dealloc
-{
-  [block release];
-  [super dealloc];
 }
 
 - (BOOL)isSatisfied;
@@ -142,25 +127,19 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 
 @implementation LRHamcrestProbe
 
-+ (id)probeWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)matcher;
++ (id)probeWithObjectPointer:(__strong id *)objectPtr matcher:(id<HCMatcher>)matcher;
 {
-  return [[[self alloc] initWithObjectPointer:objectPtr matcher:matcher] autorelease];
+  return [[self alloc] initWithObjectPointer:objectPtr matcher:matcher];
 }
 
-- (id)initWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
+- (id)initWithObjectPointer:(__strong id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
 {
   if ((self = [super init])) {
     pointerToActualObject = objectPtr;
-    matcher = [aMatcher retain];
+    matcher = aMatcher;
     [self sample];
   }
   return self;
-}
-
-- (void)dealloc
-{
-  [matcher release];
-  [super dealloc];
 }
 
 - (BOOL)isSatisfied;

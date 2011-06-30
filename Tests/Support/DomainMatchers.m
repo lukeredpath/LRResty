@@ -17,7 +17,7 @@ NSString *describeMatcher(id<HCMatcher> matcher);
 
 NSString *describeMatcher(id<HCMatcher> matcher)
 {
-  HCStringDescription *description = [[[HCStringDescription alloc] init] autorelease];
+  HCStringDescription *description = [[HCStringDescription alloc] init];
   [description appendDescriptionOf:matcher];
   return [description description];
 }

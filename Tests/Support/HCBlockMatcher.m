@@ -13,7 +13,7 @@
 
 + (id)matcherWithBlock:(HCBlockMatcherBlock)block description:(NSString *)aDescription;
 {
-  return [[[self alloc] initWithBlock:block description:aDescription] autorelease];
+  return [[self alloc] initWithBlock:block description:aDescription];
 }
 
 - (id)initWithBlock:(HCBlockMatcherBlock)aBlock description:(NSString *)aDescription;
@@ -23,13 +23,6 @@
     description = [aDescription copy];
   }
   return self;
-}
-
-- (void)dealloc
-{
-  [description release];
-  [block release];
-  [super dealloc];
 }
 
 - (BOOL)matches:(id)actual

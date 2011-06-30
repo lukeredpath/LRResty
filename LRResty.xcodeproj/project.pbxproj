@@ -32,6 +32,7 @@
 		A3236DDC120C5C2C00001E40 /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A30879CB120C4EA2003859AC /* CSerializedJSONData.m */; };
 		A3236DDF120C5C3400001E40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30878B9120C4776003859AC /* main.m */; };
 		A3236DF9120C5C8100001E40 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A308795A120C48BC003859AC /* MainWindow.xib */; };
+		A33CC73313BD3C3F00479068 /* HCPassesBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B381208567800E60B0B /* HCPassesBlock.m */; };
 		A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; };
 		A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
 		A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
@@ -192,42 +193,41 @@
 		A3F45A8D13A12E4F00242E72 /* LRRestyClient+PUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A389E006125381700006572D /* LRRestyClient+PUT.m */; };
 		A3F45A9113A12EE800242E72 /* LRResty.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFFE125381700006572D /* LRResty.m */; };
 		A3F81972120837FC00E60B0B /* AssertEventually.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81971120837FC00E60B0B /* AssertEventually.m */; };
-		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; };
-		A3F819EE1208419300E60B0B /* HCAnyOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199E1208419300E60B0B /* HCAnyOf.mm */; };
-		A3F819EF1208419300E60B0B /* HCDescribedAs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A01208419300E60B0B /* HCDescribedAs.mm */; };
-		A3F819F01208419300E60B0B /* HCIs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A21208419300E60B0B /* HCIs.mm */; };
-		A3F819F11208419300E60B0B /* HCIsAnything.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A41208419300E60B0B /* HCIsAnything.mm */; };
-		A3F819F21208419300E60B0B /* HCIsEqual.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A61208419300E60B0B /* HCIsEqual.mm */; };
-		A3F819F31208419300E60B0B /* HCIsInstanceOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A81208419300E60B0B /* HCIsInstanceOf.mm */; };
-		A3F819F41208419300E60B0B /* HCIsNil.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AA1208419300E60B0B /* HCIsNil.mm */; };
-		A3F819F51208419300E60B0B /* HCIsNot.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AC1208419300E60B0B /* HCIsNot.mm */; };
-		A3F819F61208419300E60B0B /* HCIsSame.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AE1208419300E60B0B /* HCIsSame.mm */; };
-		A3F819F71208419300E60B0B /* HCBaseDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B01208419300E60B0B /* HCBaseDescription.mm */; };
-		A3F819F81208419300E60B0B /* HCBaseMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B21208419300E60B0B /* HCBaseMatcher.mm */; };
-		A3F819F91208419300E60B0B /* HCInvocationMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B51208419300E60B0B /* HCInvocationMatcher.mm */; };
-		A3F819FA1208419300E60B0B /* HCMatcherAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B81208419300E60B0B /* HCMatcherAssert.mm */; };
-		A3F819FB1208419300E60B0B /* HCStringDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BB1208419300E60B0B /* HCStringDescription.mm */; };
-		A3F819FC1208419300E60B0B /* HCWrapInMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */; };
-		A3F819FD1208419300E60B0B /* HCCollectMatchers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C01208419300E60B0B /* HCCollectMatchers.mm */; };
-		A3F819FE1208419300E60B0B /* NSObject_HCSelfDescribingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */; };
-		A3F819FF1208419300E60B0B /* HCIsCollectionContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C71208419300E60B0B /* HCIsCollectionContaining.mm */; };
-		A3F81A001208419300E60B0B /* HCIsCollectionOnlyContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C91208419300E60B0B /* HCIsCollectionOnlyContaining.mm */; };
-		A3F81A011208419300E60B0B /* HCIsDictionaryContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CB1208419300E60B0B /* HCIsDictionaryContaining.mm */; };
-		A3F81A021208419300E60B0B /* HCIsDictionaryContainingKey.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CD1208419300E60B0B /* HCIsDictionaryContainingKey.mm */; };
-		A3F81A031208419300E60B0B /* HCIsDictionaryContainingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CF1208419300E60B0B /* HCIsDictionaryContainingValue.mm */; };
-		A3F81A041208419300E60B0B /* HCIsIn.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D11208419300E60B0B /* HCIsIn.mm */; };
-		A3F81A051208419300E60B0B /* HCIsCloseTo.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D51208419300E60B0B /* HCIsCloseTo.mm */; };
-		A3F81A061208419300E60B0B /* HCIsEqualToNumber.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D71208419300E60B0B /* HCIsEqualToNumber.mm */; };
-		A3F81A071208419300E60B0B /* HCNumberAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D91208419300E60B0B /* HCNumberAssert.mm */; };
-		A3F81A081208419300E60B0B /* HCOrderingComparison.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819DB1208419300E60B0B /* HCOrderingComparison.mm */; };
-		A3F81A091208419300E60B0B /* HCHasDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819DE1208419300E60B0B /* HCHasDescription.mm */; };
-		A3F81A0A1208419300E60B0B /* HCIsEqualIgnoringCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E11208419300E60B0B /* HCIsEqualIgnoringCase.mm */; };
-		A3F81A0B1208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E31208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm */; };
-		A3F81A0C1208419300E60B0B /* HCStringContains.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E61208419300E60B0B /* HCStringContains.mm */; };
-		A3F81A0D1208419300E60B0B /* HCStringEndsWith.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E81208419300E60B0B /* HCStringEndsWith.mm */; };
-		A3F81A0E1208419300E60B0B /* HCStringStartsWith.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EA1208419300E60B0B /* HCStringStartsWith.mm */; };
-		A3F81A0F1208419300E60B0B /* HCSubstringMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EC1208419300E60B0B /* HCSubstringMatcher.mm */; };
-		A3F81B391208567800E60B0B /* HCPassesBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B381208567800E60B0B /* HCPassesBlock.m */; };
+		A3F819ED1208419300E60B0B /* HCAllOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199C1208419300E60B0B /* HCAllOf.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819EE1208419300E60B0B /* HCAnyOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F8199E1208419300E60B0B /* HCAnyOf.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819EF1208419300E60B0B /* HCDescribedAs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A01208419300E60B0B /* HCDescribedAs.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F01208419300E60B0B /* HCIs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A21208419300E60B0B /* HCIs.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F11208419300E60B0B /* HCIsAnything.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A41208419300E60B0B /* HCIsAnything.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F21208419300E60B0B /* HCIsEqual.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A61208419300E60B0B /* HCIsEqual.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F31208419300E60B0B /* HCIsInstanceOf.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819A81208419300E60B0B /* HCIsInstanceOf.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F41208419300E60B0B /* HCIsNil.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AA1208419300E60B0B /* HCIsNil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F51208419300E60B0B /* HCIsNot.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AC1208419300E60B0B /* HCIsNot.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F61208419300E60B0B /* HCIsSame.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819AE1208419300E60B0B /* HCIsSame.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F71208419300E60B0B /* HCBaseDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B01208419300E60B0B /* HCBaseDescription.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F81208419300E60B0B /* HCBaseMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B21208419300E60B0B /* HCBaseMatcher.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819F91208419300E60B0B /* HCInvocationMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B51208419300E60B0B /* HCInvocationMatcher.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819FA1208419300E60B0B /* HCMatcherAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819B81208419300E60B0B /* HCMatcherAssert.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819FB1208419300E60B0B /* HCStringDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BB1208419300E60B0B /* HCStringDescription.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819FC1208419300E60B0B /* HCWrapInMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819BD1208419300E60B0B /* HCWrapInMatcher.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819FD1208419300E60B0B /* HCCollectMatchers.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C01208419300E60B0B /* HCCollectMatchers.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819FE1208419300E60B0B /* NSObject_HCSelfDescribingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C31208419300E60B0B /* NSObject_HCSelfDescribingValue.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F819FF1208419300E60B0B /* HCIsCollectionContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C71208419300E60B0B /* HCIsCollectionContaining.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A001208419300E60B0B /* HCIsCollectionOnlyContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819C91208419300E60B0B /* HCIsCollectionOnlyContaining.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A011208419300E60B0B /* HCIsDictionaryContaining.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CB1208419300E60B0B /* HCIsDictionaryContaining.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A021208419300E60B0B /* HCIsDictionaryContainingKey.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CD1208419300E60B0B /* HCIsDictionaryContainingKey.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A031208419300E60B0B /* HCIsDictionaryContainingValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819CF1208419300E60B0B /* HCIsDictionaryContainingValue.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A041208419300E60B0B /* HCIsIn.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D11208419300E60B0B /* HCIsIn.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A051208419300E60B0B /* HCIsCloseTo.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D51208419300E60B0B /* HCIsCloseTo.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A061208419300E60B0B /* HCIsEqualToNumber.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D71208419300E60B0B /* HCIsEqualToNumber.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A071208419300E60B0B /* HCNumberAssert.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819D91208419300E60B0B /* HCNumberAssert.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A081208419300E60B0B /* HCOrderingComparison.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819DB1208419300E60B0B /* HCOrderingComparison.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A091208419300E60B0B /* HCHasDescription.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819DE1208419300E60B0B /* HCHasDescription.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A0A1208419300E60B0B /* HCIsEqualIgnoringCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E11208419300E60B0B /* HCIsEqualIgnoringCase.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A0B1208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E31208419300E60B0B /* HCIsEqualIgnoringWhiteSpace.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A0C1208419300E60B0B /* HCStringContains.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E61208419300E60B0B /* HCStringContains.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A0D1208419300E60B0B /* HCStringEndsWith.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819E81208419300E60B0B /* HCStringEndsWith.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A0E1208419300E60B0B /* HCStringStartsWith.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EA1208419300E60B0B /* HCStringStartsWith.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3F81A0F1208419300E60B0B /* HCSubstringMatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3F819EC1208419300E60B0B /* HCSubstringMatcher.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6612085AC400E60B0B /* TestRequestBuilder.m */; };
 		A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81B6912085B0B00E60B0B /* DomainMatchers.m */; };
 		A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F81DBE120892DA00E60B0B /* TestHelper.m */; };
@@ -1388,7 +1388,7 @@
 				A3F81A0D1208419300E60B0B /* HCStringEndsWith.mm in Sources */,
 				A3F81A0E1208419300E60B0B /* HCStringStartsWith.mm in Sources */,
 				A3F81A0F1208419300E60B0B /* HCSubstringMatcher.mm in Sources */,
-				A3F81B391208567800E60B0B /* HCPassesBlock.m in Sources */,
+				A33CC73313BD3C3F00479068 /* HCPassesBlock.m in Sources */,
 				A3F81B6712085AC400E60B0B /* TestRequestBuilder.m in Sources */,
 				A3F81B6A12085B0B00E60B0B /* DomainMatchers.m in Sources */,
 				A3F81DC0120892EF00E60B0B /* TestHelper.m in Sources */,
@@ -1693,6 +1693,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ARC_MIGRATION = precheck;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1727,6 +1729,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ARC_MIGRATION = precheck;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

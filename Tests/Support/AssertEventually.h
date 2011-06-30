@@ -57,12 +57,12 @@ typedef BOOL (^LRBlockProbeBlock)();
 
 @interface LRHamcrestProbe : NSObject <LRProbe>
 {
-  id *pointerToActualObject;
+  __strong id *pointerToActualObject;
   id<HCMatcher> matcher;
   BOOL didMatch;
 }
-+ (id)probeWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)matcher;
-- (id)initWithObjectPointer:(id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
++ (id)probeWithObjectPointer:(__strong id *)objectPtr matcher:(id<HCMatcher>)matcher;
+- (id)initWithObjectPointer:(__strong id *)objectPtr matcher:(id<HCMatcher>)aMatcher;
 - (id)actualObject;
 @end
 
