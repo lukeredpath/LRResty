@@ -49,7 +49,7 @@ typedef void (^LRRestyRequestTimeoutBlock)(LRRestyRequest *);
 {
   id<LRRestyHTTPClient> HTTPClient;
   NSMutableArray *requestModifiers;
-  id<LRRestyClientDelegate> __weak clientDelegate;
+  id<LRRestyClientDelegate> __unsafe_unretained clientDelegate;
   LRRestyRequestTimeoutBlock globalTimeoutHandler;
   NSTimeInterval globalTimeoutInterval;
 }
@@ -61,7 +61,7 @@ typedef void (^LRRestyRequestTimeoutBlock)(LRRestyRequest *);
  This is not designed for handling individual responses, but to perform more generic actions
  that should happen whenever a request is performed (i.e. displaying a network activity indicator).
 */
-@property (nonatomic, weak) id<LRRestyClientDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<LRRestyClientDelegate> delegate;
 
 /// ---------------------------------
 /// @name Initializing

@@ -17,9 +17,9 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
   LRRestyResource *parentResource;
   LRRestyClient *restClient;
   NSURL *URL;
-  id<LRRestyResourceDelegate> __weak delegate;
+  id<LRRestyResourceDelegate> __unsafe_unretained delegate;
 }
-@property (nonatomic, weak) id<LRRestyResourceDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<LRRestyResourceDelegate> delegate;
 @property (nonatomic, readonly) NSURL *URL;
 
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL;
