@@ -15,3 +15,7 @@ Resty is distributed as a static framework for iOS and a regular framework Mac; 
 To download Resty, you can either [clone this project and build from scratch](http://projects.lukeredpath.co.uk/resty/getting-started.html), grab one of the latest releases from the [Github downloads tab](http://github.com/lukeredpath/LRResty/downloads) or grab one of the [nightly builds](http://projects.lukeredpath.co.uk/resty/downloads).
 
 For detailed information, [check out the Resty website](http://projects.lukeredpath.co.uk/documentation.html).
+
+## Using LRResty with ARC projects
+
+A version of LRResty that uses [Objective-C Automatic Reference Counting](http://clang.llvm.org/docs/AutomaticReferenceCounting.html) (ARC) is available in the [arcified branch](https://github.com/lukeredpath/LRResty/tree/arcified). This, like ARC, should be considered experimental. I aim to move over to ARC fully when it is production ready (but without the use of __weak to maintain iOS4 compatibility). I will aim to keep both branches in sync, feature-wise.
