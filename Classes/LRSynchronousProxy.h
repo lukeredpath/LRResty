@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^LRSynchronousProxyBlock)(id *);
+typedef void (^LRSynchronousProxyBlock)(__strong id *);
 
 @interface LRSynchronousProxy : NSObject {
 

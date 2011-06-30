@@ -44,7 +44,7 @@
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(__strong id *result) 
   {
     [self post:urlString payload:payload withBlock:^(LRRestyResponse *response) {
       *result = response;
@@ -54,7 +54,7 @@
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(__strong id *result) 
   {
     [self post:urlString payload:payload headers:headers withBlock:^(LRRestyResponse *response) {
       *result = response;

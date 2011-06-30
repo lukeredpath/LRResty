@@ -45,7 +45,7 @@
 
 - (LRRestyResponse *)delete:(NSString *)urlString;
 {
-    return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+    return [self performAsynchronousBlockAndReturnResultWhenReady:^(__strong id *result) 
             {
                 [self delete:urlString withBlock:^(LRRestyResponse *response) {
                     *result = response;
@@ -55,7 +55,7 @@
 
 - (LRRestyResponse *)delete:(NSString *)urlString headers:(NSDictionary *)headers;
 {
-    return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+    return [self performAsynchronousBlockAndReturnResultWhenReady:^(__strong id *result) 
             {
                 [self delete:urlString headers:headers withBlock:^(LRRestyResponse *response) {
                     *result = response;
