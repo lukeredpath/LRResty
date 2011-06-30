@@ -11,15 +11,11 @@
 
 @implementation LRResty
 
-static LRRestyClient *__LR_SharedClient = nil;
-
 + (LRRestyClient *)client;
 {
-  static dispatch_once_t predicate;
-  dispatch_once(&predicate, ^{
-    __LR_SharedClient = [self newClient];
+  DEFINE_SHARED_INSTANCE_USING_BLOCK(^{
+    return [self newClient];
   });
-  return __LR_SharedClient;
 }
 
 + (LRRestyClient *)newClient;

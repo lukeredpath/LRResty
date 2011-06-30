@@ -153,7 +153,6 @@ static BOOL pingsWhenInitialized = YES;
   for (LRMimicRequestStub *stub in stubs) {
     [stubPayloads addObject:[stub toDictionary]];
   }
-  NSLog(@"STUBBING %@", stubPayloads);
   NSDictionary *payload = [NSDictionary dictionaryWithObject:stubPayloads forKey:@"stubs"];
   return [NSPropertyListSerialization dataFromPropertyList:(id)payload
                                                     format:NSPropertyListXMLFormat_v1_0 
@@ -162,16 +161,12 @@ static BOOL pingsWhenInitialized = YES;
 
 + (id)sharedInstance;
 {
-  static id sharedInstance = nil;
-  
-  if (sharedInstance == nil) {
+  DEFINE_SHARED_INSTANCE_USING_BLOCK(^{
     if (mimicURL == nil) {
       mimicURL = kMimicDefaultURL;
     }
-    sharedInstance = [[self alloc] initWithMimicURL:mimicURL];
-  }
-  
-  return sharedInstance;
+    return [[self alloc] initWithMimicURL:mimicURL];
+  });
 }
 
 @end

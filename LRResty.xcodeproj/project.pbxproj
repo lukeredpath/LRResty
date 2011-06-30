@@ -287,6 +287,7 @@
 		A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRSynchronousProxy.m; sourceTree = "<group>"; };
 		A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SynchronousProxy.h"; sourceTree = "<group>"; };
 		A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SynchronousProxy.m"; sourceTree = "<group>"; };
+		A355CC9B13BD2C9700B932BA /* LRMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRMacros.h; sourceTree = "<group>"; };
 		A35D8777125A8E3200E5A8BD /* LRRestyFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LRRestyFramework-Info.plist"; path = "Resources/LRRestyFramework-Info.plist"; sourceTree = "<group>"; };
 		A3702E101229E27000A2C962 /* Tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests_Prefix.pch; sourceTree = "<group>"; };
 		A3702EFA1229E76A00A2C962 /* OSCompatibilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCompatibilityTests.m; sourceTree = "<group>"; };
@@ -543,6 +544,7 @@
 				A389DFD01253803C0006572D /* GithubCredentials.h */,
 				A389DFD11253803C0006572D /* TwitterCredentials.h */,
 				A3702E101229E27000A2C962 /* Tests_Prefix.pch */,
+				A355CC9B13BD2C9700B932BA /* LRMacros.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -1567,6 +1569,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1599,6 +1603,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
