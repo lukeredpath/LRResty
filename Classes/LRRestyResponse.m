@@ -13,6 +13,8 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url);
 
 NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 {
+  if (headers == nil) return [NSDictionary dictionary];
+  
   NSMutableDictionary *cookies = [NSMutableDictionary dictionary];
   for (NSHTTPCookie *cookie in [NSHTTPCookie cookiesWithResponseHeaderFields:headers forURL:url]) {
     [cookies setObject:cookie forKey:cookie.name];

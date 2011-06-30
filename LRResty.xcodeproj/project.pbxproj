@@ -1459,6 +1459,8 @@
 				GCC_PREFIX_HEADER = "LRResty/LRResty-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = LRResty;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
@@ -1478,6 +1480,8 @@
 				GCC_PREFIX_HEADER = "LRResty/LRResty-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = LRResty;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
@@ -1584,6 +1588,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = Tests/Support;
 				INFOPLIST_FILE = "Resources/Acceptance Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1617,6 +1622,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = Tests/Support;
 				INFOPLIST_FILE = "Resources/Acceptance Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1700,6 +1706,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = Tests/Support;
 				INFOPLIST_FILE = "Resources/Acceptance Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1732,6 +1739,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = Tests/Support;
 				INFOPLIST_FILE = "Resources/Acceptance Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
