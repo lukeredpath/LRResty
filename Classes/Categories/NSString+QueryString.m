@@ -15,7 +15,7 @@
 {
   NSString *result = self;
   
-  CFStringRef originalAsCFString = (CFStringRef) self;
+  CFStringRef originalAsCFString = (CFStringRef) objc_unretainedPointer(self);
   CFStringRef leaveAlone = CFSTR(" ");
   CFStringRef toEscape = CFSTR("\n\r?[]()$,!'*;:@&=#%+/");
   
@@ -23,7 +23,7 @@
   escapedStr = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, originalAsCFString, leaveAlone, toEscape, kCFStringEncodingUTF8);
   
   if (escapedStr) {
-    NSMutableString *mutable = [NSMutableString stringWithString:(NSString *)escapedStr];
+    NSMutableString *mutable = [NSMutableString stringWithString:(__bridge NSString *)escapedStr];
     CFRelease(escapedStr);
     
     [mutable replaceOccurrencesOfString:@" " withString:@"+" options:0 range:NSMakeRange(0, [mutable length])];

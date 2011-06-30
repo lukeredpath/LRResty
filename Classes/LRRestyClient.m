@@ -21,33 +21,25 @@
 
 - (id)init
 {
-  LRRestyHTTPClient *client = [[[LRRestyHTTPClient alloc] initWithDelegate:self] autorelease];
+  LRRestyHTTPClient *client = [[LRRestyHTTPClient alloc] initWithDelegate:self];
   return [self initWithHTTPClient:client];
 }
 
 - (id)initWithHTTPClient:(id<LRRestyHTTPClient>)aHTTPClient
 {
   if ((self = [super init])) {
-    HTTPClient = [aHTTPClient retain];
+    HTTPClient = aHTTPClient;
     HTTPClient.delegate = self;
     requestModifiers = [[NSMutableArray alloc] init];
   }
   return self;  
 }
 
-- (void)dealloc
-{
-  [HTTPClient release];
-  [requestModifiers release];
-  [globalTimeoutHandler release];
-  [super dealloc];
-}
 
 - (NSInteger)attachRequestModifier:(LRRestyRequestBlock)block;
 {
   LRRestyRequestBlock modifier = [block copy];
   [requestModifiers addObject:modifier];
-  [modifier release];
   return [requestModifiers indexOfObject:modifier];
 }
 
@@ -77,7 +69,6 @@
 
 - (void)setGlobalTimeout:(NSTimeInterval)timeout handleWithBlock:(LRRestyRequestTimeoutBlock)block
 {
-  [globalTimeoutHandler release];
   globalTimeoutHandler = [block copy];
   globalTimeoutInterval = timeout;
 }

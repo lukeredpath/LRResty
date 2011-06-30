@@ -58,7 +58,7 @@
   return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
   {
     [self get:urlString withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      *result = response;
     }];
   }];
 }
@@ -68,7 +68,7 @@
   return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
   {
     [self get:urlString parameters:parameters withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      *result = response;
     }];
   }];
 }
@@ -78,7 +78,7 @@
   return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
   {
     [self get:urlString parameters:parameters headers:headers withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      *result = response;
     }];
   }];
 }

@@ -20,7 +20,7 @@
   while (result == nil) {
     [[NSRunLoop currentRunLoop] runForTimeInterval:0.1];
   }
-  return [result autorelease];
+  return result;
 }
 
 @end

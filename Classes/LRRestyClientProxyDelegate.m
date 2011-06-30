@@ -13,24 +13,18 @@
 
 + (id)proxyForClient:(LRRestyClient *)client responseDelegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  return [[[self alloc] initWithClient:client responseDelegate:delegate] autorelease];
+  return [[self alloc] initWithClient:client responseDelegate:delegate];
 }
 
 - (id)initWithClient:(LRRestyClient *)client responseDelegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
   if ((self = [super init])) {
-    restyClient = [client retain];
-    responseDelegate = [delegate retain];
+    restyClient = client;
+    responseDelegate = delegate;
   }
   return self;
 }
 
-- (void)dealloc
-{
-  [restyClient release];
-  [responseDelegate release];
-  [super dealloc];
-}
 
 - (void)restyRequestDidStart:(LRRestyRequest *)request;
 {

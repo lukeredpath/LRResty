@@ -22,7 +22,7 @@
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL
 {
   if ((self = [super init])) {
-    restClient = [theClient retain];
+    restClient = theClient;
     restClient.delegate = self;
     URL = [aURL copy];
   }
@@ -32,7 +32,7 @@
 - (id)initWithRestClient:(LRRestyClient *)theClient URL:(NSURL *)aURL parent:(LRRestyResource *)parent;
 {
   if ((self = [self initWithRestClient:theClient URL:aURL])) {
-    parentResource = [parent retain];
+    parentResource = parent;
     delegate = parentResource.delegate;
   }
   return self;
@@ -45,10 +45,6 @@
   } else {
     [parentResource becomeClientDelegate];
   }
-  [parentResource release];
-  [URL release];
-  [restClient release];
-  [super dealloc];
 }
 
 - (void)becomeClientDelegate
@@ -77,8 +73,8 @@
 
 - (LRRestyResource *)root;
 {
-  NSURL *rootURL = [[[NSURL alloc] initWithScheme:[URL scheme] host:[URL host] path:@"/"] autorelease];
-  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:rootURL] autorelease];
+  NSURL *rootURL = [[NSURL alloc] initWithScheme:[URL scheme] host:[URL host] path:@"/"];
+  return [[LRRestyResource alloc] initWithRestClient:restClient URL:rootURL];
 }
 
 - (LRRestyResource *)on:(NSString *)host
@@ -89,18 +85,18 @@
 - (LRRestyResource *)on:(NSString *)host secure:(BOOL)isSecure;
 {
   NSString *scheme = isSecure ? @"https" : @"http";
-  NSURL *newURL = [[[NSURL alloc] initWithScheme:scheme host:host path:[URL relativePath]] autorelease];
-  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:newURL] autorelease];
+  NSURL *newURL = [[NSURL alloc] initWithScheme:scheme host:host path:[URL relativePath]];
+  return [[LRRestyResource alloc] initWithRestClient:restClient URL:newURL];
 }
 
 - (LRRestyResource *)at:(NSString *)path;
 {
-  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByAppendingPathComponent:path] parent:self] autorelease];
+  return [[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByAppendingPathComponent:path] parent:self];
 }
 
 - (LRRestyResource *)withoutPathExtension;
 {
-  return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByDeletingPathExtension]] autorelease];
+  return [[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByDeletingPathExtension]];
 }
 
 - (LRRestyRequest *)get:(LRRestyResourceResponseBlock)responseBlock;

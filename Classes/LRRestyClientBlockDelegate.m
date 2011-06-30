@@ -13,7 +13,7 @@
 
 + (id)delegateWithBlock:(LRRestyResponseBlock)block;
 {
-  return [[[self alloc] initWithBlock:block] autorelease];
+  return [[self alloc] initWithBlock:block];
 }
 
 - (id)initWithBlock:(LRRestyResponseBlock)theBlock;
@@ -24,11 +24,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  [block release];
-  [super dealloc];
-}
 
 - (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response
 {

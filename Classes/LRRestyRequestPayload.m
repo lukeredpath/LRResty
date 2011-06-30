@@ -39,13 +39,13 @@
     return object;
   }
   if ([object respondsToSelector:@selector(dataUsingEncoding:)]) {
-    return [[[LRRestyDataPayload alloc] initWithEncodable:object encoding:NSUTF8StringEncoding] autorelease];
+    return [[LRRestyDataPayload alloc] initWithEncodable:object encoding:NSUTF8StringEncoding];
   }
   if ([object isKindOfClass:[NSDictionary class]]) {
-    return [[[LRRestyFormEncodedPayload alloc] initWithDictionary:object] autorelease];
+    return [[LRRestyFormEncodedPayload alloc] initWithDictionary:object];
   }
   if ([object isKindOfClass:[NSData class]]) {
-    return [[[LRRestyDataPayload alloc] initWithData:object] autorelease];
+    return [[LRRestyDataPayload alloc] initWithData:object];
   }
   return nil;
 }
@@ -78,12 +78,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  [contentType release];
-  [requestData release];
-  [super dealloc];
-}
 
 - (NSData *)dataForRequest
 {
@@ -107,11 +101,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  [dictionary release];
-  [super dealloc];
-}
 
 - (NSData *)dataForRequest
 {

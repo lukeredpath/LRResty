@@ -34,11 +34,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  [operationQueue release];
-  [super dealloc];
-}
 
 - (void)cancelAllRequests
 {
@@ -74,7 +69,7 @@
   LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod delegate:requestDelegate];
   [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
   [request setHeaders:headers];
-  return [request autorelease];
+  return request;
 }
 
 - (LRRestyRequest *)performRequest:(LRRestyRequest *)request;

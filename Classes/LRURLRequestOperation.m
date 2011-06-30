@@ -29,19 +29,11 @@
 - (id)initWithURLRequest:(NSURLRequest *)request;
 {
   if ((self = [super init])) {
-    URLRequest = [request retain];
+    URLRequest = request;
   }
   return self;
 }
 
-- (void)dealloc
-{
-  [connectionError release];
-  [URLConnection release];
-  [URLResponse release];
-  [URLRequest release];
-  [super dealloc];
-}
 
 - (void)start
 {
@@ -53,7 +45,7 @@
   
   [self setExecuting:YES];
   
-  URLConnection = [[NSURLConnection connectionWithRequest:URLRequest delegate:self] retain];
+  URLConnection = [NSURLConnection connectionWithRequest:URLRequest delegate:self];
   
   if (URLConnection == nil) {
     [self setFinished:YES]; 

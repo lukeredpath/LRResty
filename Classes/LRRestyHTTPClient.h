@@ -14,7 +14,7 @@
 @protocol LRRestyHTTPClientDelegate;
 
 @protocol LRRestyHTTPClient <NSObject>
-@property (nonatomic, assign) id<LRRestyHTTPClientDelegate> delegate;
+@property (nonatomic, weak) id<LRRestyHTTPClientDelegate> delegate;
 - (LRRestyRequest *)GET:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)POST:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)PUT:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
@@ -29,7 +29,7 @@
 
 @interface LRRestyHTTPClient : NSObject <LRRestyHTTPClient> 
 {
-  id<LRRestyHTTPClientDelegate> delegate;
+  id<LRRestyHTTPClientDelegate> __weak delegate;
   NSOperationQueue *operationQueue;
 }
 - (id)initWithDelegate:(id<LRRestyHTTPClientDelegate>)aDelegate;

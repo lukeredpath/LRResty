@@ -30,20 +30,13 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 {
   if ((self = [super init])) {
     status = statusCode;
-    responseData = [data retain];
+    responseData = data;
     headers = [theHeaders copy];
     cookies = [extractCookiesFromHeaders(headers, originalRequest.URL) copy];
   }
   return self;
 }
 
-- (void)dealloc
-{
-  [cookies release];
-  [headers release];
-  [responseData release];
-  [super dealloc];
-}
 
 - (NSString *)localizedStatusDescription
 {
@@ -52,7 +45,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 
 - (NSString *)asString;
 {
-  return [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+  return [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 }
 
 - (NSString *)description

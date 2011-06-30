@@ -29,7 +29,7 @@ static LRRestyClient *__LR_SharedClient = nil;
 
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
 {
-  LRRestyClient *client = [[self newClient] autorelease];
+  LRRestyClient *client = [self newClient];
   return [client tap:^(id client) {
     [client setUsername:username password:password];
   }];
@@ -37,13 +37,13 @@ static LRRestyClient *__LR_SharedClient = nil;
 
 + (LRRestyResource *)resource:(NSString *)urlString;
 {
-  return [[[LRRestyResource alloc] initWithRestClient:[self client] URL:[NSURL URLWithString:urlString]] autorelease];
+  return [[LRRestyResource alloc] initWithRestClient:[self client] URL:[NSURL URLWithString:urlString]];
 }
 
 + (LRRestyResource *)authenticatedResource:(NSString *)urlString username:(NSString *)username password:(NSString *)password;
 {
   LRRestyClient *client = [self authenticatedClientWithUsername:username password:password];
-  return [[[LRRestyResource alloc] initWithRestClient:client URL:[NSURL URLWithString:urlString]] autorelease];
+  return [[LRRestyResource alloc] initWithRestClient:client URL:[NSURL URLWithString:urlString]];
 }
 
 static BOOL __RestyDebugLoggingEnabled = NO;

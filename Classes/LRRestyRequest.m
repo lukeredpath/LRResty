@@ -17,20 +17,13 @@
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 {
   if ((self = [super init])) {
-    delegate = [theDelegate retain];
+    delegate = theDelegate;
     _URLRequest = [[NSMutableURLRequest alloc] initWithURL:aURL];
     [_URLRequest setHTTPMethod:httpMethod];
   }
   return self;
 }
 
-- (void)dealloc
-{
-  [credential release];
-  [delegate release];
-  [_URLRequest release];
-  [super dealloc];
-}
 
 - (NSString *)description
 {
@@ -85,7 +78,7 @@
 - (void)setBasicAuthUsername:(NSString *)username password:(NSString *)password useCredentialSystem:(BOOL)useCredential;
 {
   if (useCredential) {
-    credential = [[NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone] retain];
+    credential = [NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
   } else {
     NSData *credentialData = [[NSString stringWithFormat:@"%@:%@", username, password] dataUsingEncoding:NSUTF8StringEncoding];
     [self addHeader:@"Authorization" value:[NSString stringWithFormat:@"Basic %@", [credentialData base64EncodedString]]];
@@ -132,7 +125,6 @@
        originalRequest:self];
   
   [delegate restyRequest:self didFinishWithResponse:restResponse];
-  [restResponse release];
   
   [super finish];
 }

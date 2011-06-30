@@ -47,7 +47,7 @@
   return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
   {
     [self post:urlString payload:payload withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      *result = response;
     }];
   }];
 }
@@ -57,7 +57,7 @@
   return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
   {
     [self post:urlString payload:payload headers:headers withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      *result = response;
     }];
   }];
 }

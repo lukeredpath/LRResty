@@ -16,7 +16,7 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
 
 + (id)delegateWithDataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock;
 {
-  return [[[self alloc] initWithDataHandler:dataBlock errorHandler:errorBlock] autorelease];
+  return [[self alloc] initWithDataHandler:dataBlock errorHandler:errorBlock];
 }
 
 - (id)initWithDataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock;
@@ -28,12 +28,6 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
   return self;
 }
 
-- (void)dealloc
-{
-  [dataHandler release];
-  [errorHandler release];
-  [super dealloc];
-}
 
 - (void)restyRequest:(LRRestyRequest *)request didReceiveData:(NSData *)data
 {
