@@ -32,12 +32,12 @@ RESTY_CLIENT_ACCEPTANCE_TEST(StreamingTests)
 
 - (void)testCancellationUsingTwitterStream;
 {
-  NSMutableArray *chunks = [NSMutableArray array];
+  __block NSMutableArray *chunks = [NSMutableArray array];
   
   [client setUsername:TwitterUsername password:TwitterPassword];
   
   [client get:@"http://stream.twitter.com/1/statuses/sample.json"
-    onData:^(NSData *chunk, BOOL *cancel) {
+       onData:^(NSData *chunk, BOOL *cancel) {
       if (chunk) {
         [chunks addObject:chunk];
       }
