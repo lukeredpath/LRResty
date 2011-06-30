@@ -26,7 +26,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(CookieHandlingTests)
   __block LRRestyResponse *receivedResponse = nil;
 
   [client get:resourceWithPath(@"/sets/cookie") withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
+    receivedResponse = response;
   }];
   
   assertEventuallyThat(&receivedResponse, hasCookie(@"TestCookie", TEST_COOKIE_VALUE));
@@ -38,7 +38,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(CookieHandlingTests)
   
   [client get:resourceWithPath(@"/sets/cookie") withBlock:^(LRRestyResponse *response) {
     [client get:resourceWithPath(@"/requires/cookie") withBlock:^(LRRestyResponse *response) {
-      receivedResponse = [response retain];
+      receivedResponse = response;
     }];
   }];
   
@@ -53,7 +53,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(CookieHandlingTests)
   
   [client get:resourceWithPath(@"/sets/cookie") withBlock:^(LRRestyResponse *response) {
     [client get:resourceWithPath(@"/requires/cookie") withBlock:^(LRRestyResponse *response) {
-      receivedResponse = [response retain];
+      receivedResponse = response;
     }];
   }];
   

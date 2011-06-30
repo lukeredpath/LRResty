@@ -20,7 +20,7 @@
 
 - (void)setUp
 {
-  resource = [[LRResty resource:resourceRoot()] retain];
+  resource = [LRResty resource:resourceRoot()];
 }
 
 - (void)testCanPerformGetRequests
@@ -29,7 +29,7 @@
   
   mimicGET(@"/simple/resource", andReturnBody(@"plain text response"), ^{
     [[resource at:@"simple/resource"] get:^(LRRestyResponse *response, LRRestyResource *resource) {
-      receivedResponse = [response retain];
+      receivedResponse = response;
     }];
   });
   

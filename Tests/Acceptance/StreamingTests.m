@@ -61,9 +61,9 @@ RESTY_CLIENT_ACCEPTANCE_TEST(StreamingTests)
   __block NSError *streamError = nil;
   
   [client get:resourceWithPath(@"/simple/unknown")
-      onData:^(NSData *chunk, BOOL *cancel) {}
+       onData:^(NSData *chunk, BOOL *cancel) {}
       onError:^(NSError *error) {
-        streamError = [error retain];
+        streamError = error;
       }
   ];
   

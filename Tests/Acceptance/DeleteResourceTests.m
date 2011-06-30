@@ -57,12 +57,10 @@ RESTY_CLIENT_ACCEPTANCE_TEST(DeleteResourceTests)
   
   mimicDELETE(@"/simple/resource", andReturnAnything(), ^{
     [client delete:resourceWithPath(@"/simple/resource") withBlock:^(LRRestyResponse *response) {
-      testLocalResponse = [response retain];
+      testLocalResponse = response;
     }];
   });
   assertEventuallyThat(&testLocalResponse, is(responseWithStatus(200)));
-  
-  [testLocalResponse release];
 }
 
 - (void)testCanPerformSynchronousDeleteRequest

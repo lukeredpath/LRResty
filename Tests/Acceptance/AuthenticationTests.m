@@ -15,7 +15,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(AuthenticationTests)
   __block LRRestyResponse *receivedResponse = nil;
   
   [client get:resourceWithPath(@"/requires/auth") withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
+    receivedResponse = response;
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(401)));
@@ -27,7 +27,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(AuthenticationTests)
   
   [client setUsername:@"testuser" password:@"testpass"];
   [client get:resourceWithPath(@"/requires/auth") withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
+    receivedResponse = response;
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
@@ -39,7 +39,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(AuthenticationTests)
   
   [client setUsername:@"testuser" password:@"wrongpass"];
   [client get:resourceWithPath(@"/requires/auth") withBlock:^(LRRestyResponse *response) {
-    receivedResponse = [response retain];
+    receivedResponse = response;
   }];
   
   assertEventuallyThat(&receivedResponse, is(responseWithStatus(401)));

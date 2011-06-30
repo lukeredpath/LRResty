@@ -17,7 +17,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
   
   mimicPUT(@"/echo/test", andEchoRequest(), ^{  
     [client put:resourceWithPath(@"/echo/test") payload:@"hello world" withBlock:^(LRRestyResponse *response) {
-      receivedResponse = [response retain];
+      receivedResponse = response;
     }];
   });
   
@@ -25,7 +25,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
   
   mimicPUT(@"/echo/test", andEchoRequest(), ^{  
     [client put:resourceWithPath(@"/echo/test") payload:@"Resty rocks!" withBlock:^(LRRestyResponse *response) {
-      receivedResponse = [response retain];
+      receivedResponse = response;
     }];
   });
   
@@ -38,7 +38,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
   
   mimicPUT(@"/echo/test", andEchoRequest(), ^{  
     [client put:resourceWithPath(@"/echo/test") payload:encodedString(@"hello world") withBlock:^(LRRestyResponse *response) {
-      receivedResponse = [response retain];
+      receivedResponse = response;
     }];
   });
   
@@ -49,14 +49,14 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
 {
   __block LRRestyResponse *receivedResponse = nil;
   
-  id payload = [[[CustomJsonObject alloc] initWithJSONString:@"{'foo':'bar'}"] autorelease];
+  id payload = [[CustomJsonObject alloc] initWithJSONString:@"{'foo':'bar'}"];
   
   mimicPUT(@"/echo/json", andEchoRequest(), ^{  
     [client put:resourceWithPath(@"/echo/json") 
          payload:payload
        withBlock:^(LRRestyResponse *response) {
          
-         receivedResponse = [response retain];
+         receivedResponse = response;
        }];
   });
   
@@ -75,7 +75,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
          headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
        withBlock:^(LRRestyResponse *response) {
          
-         receivedResponse = [response retain];
+         receivedResponse = response;
        }];
   });
   
@@ -91,7 +91,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
          payload:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"]
        withBlock:^(LRRestyResponse *response) {
          
-         receivedResponse = [response retain];
+         receivedResponse = response;
        }];
   });
   
@@ -107,7 +107,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
          payload:[NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] forKey:@"payload"]
        withBlock:^(LRRestyResponse *response) {
          
-         receivedResponse = [response retain];
+         receivedResponse = response;
        }];
   });
   
@@ -123,7 +123,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
          payload:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"number"]
        withBlock:^(LRRestyResponse *response) {
          
-         receivedResponse = [response retain];
+         receivedResponse = response;
        }];
   });
   
@@ -143,11 +143,6 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
      headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]];
   
   assertThat(response, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
-}
-
-- (void)tearDown
-{
-  [lastResponse release]; lastResponse = nil;
 }
 
 END_ACCEPTANCE_TEST
