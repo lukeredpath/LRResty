@@ -8,4 +8,5 @@ group :development do
   gem "highline"
   gem "osx_keychain"
   gem "jekyll"
+  gem "rdiscount"
 end
