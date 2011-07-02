@@ -1,4 +1,8 @@
+require "bundler/setup"
 require 'plist'
+require 'github/downloads'
+require 'highline/import'
+require 'osx_keychain'
 
 THEME_PATH = "Documentation/theme"
 DOC_OUTPUT = "Documentation/html"
@@ -101,6 +105,24 @@ namespace :build do
     end
   end
   
+  GITHUB_USER = "lukeredpath"
+  
+  desc "Upload the specified packages to Github"
+  task :upload_to_github do
+    client = Github::Downloads.connect(GITHUB_USER, prompt_for_password, "LRResty")
+    
+    Dir["pkg/*-#{PACKAGE_SUFFIX}.dmg"].each do |file|
+      print "* Uploading #{file} to Github..."; STDOUT.flush
+      
+      if client.create(file, "Automated upload #{Time.now}")
+        puts "Success."
+      else
+        puts "Failed."
+        puts "->  #{client.last_response.errors.inspect}"
+      end
+    end
+  end
+  
   task :all => %w{ios:framework mac:framework}
   
   def build_framework(path_to_library)
@@ -118,6 +140,26 @@ namespace :build do
     modify_plist("#{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Resources/Info.plist") do |plist|
       plist["CFBundleVersion"] = RESTY_VERSION
     end
+  end
+  
+  def prompt_for_password
+    fetch_password_from_keychain(GITHUB_USER) || ask("Enter Github password (#{GITHUB_USER}):", String) {|q| q.echo = false }.tap do |password|
+      store_password_in_keychain(GITHUB_USER, password)
+    end
+  end
+  
+  def mac?
+    RUBY_PLATFORM.match(/darwin/)
+  end
+  
+  KEYCHAIN_SERVICE = "github-uploads"
+  
+  def fetch_password_from_keychain(user)
+    OSXKeychain.new[KEYCHAIN_SERVICE, user] if mac?
+  end
+  
+  def store_password_in_keychain(user, password)
+    OSXKeychain.new[KEYCHAIN_SERVICE, user] = password if mac?
   end
 end
 
