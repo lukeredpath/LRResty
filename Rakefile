@@ -89,8 +89,7 @@ namespace :build do
     
     desc "Build a disk image for the iOS static framework"
     task :diskimage => :framework do
-      FileUtils.mkdir_p("pkg")
-      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-iOS-#{PACKAGE_SUFFIX}.dmg")
+      create_disk_image("pkg", "#{BUILD_DIR}/Release", "LRResty-iOS-#{PACKAGE_SUFFIX}.dmg")
     end
   end
   
@@ -100,8 +99,7 @@ namespace :build do
     
     desc "Build a disk image for the Mac framework"
     task :diskimage => :framework do
-      FileUtils.mkdir_p("pkg")
-      system("hdiutil create -srcfolder #{BUILD_DIR}/Release pkg/LRResty-Mac-#{PACKAGE_SUFFIX}.dmg")
+      create_disk_image("pkg", "#{BUILD_DIR}/Release", "LRResty-Mac-#{PACKAGE_SUFFIX}.dmg")
     end
   end
   
@@ -140,6 +138,11 @@ namespace :build do
     modify_plist("#{BUILD_DIR}/Release/#{FRAMEWORK_NAME}/Resources/Info.plist") do |plist|
       plist["CFBundleVersion"] = RESTY_VERSION
     end
+  end
+  
+  def create_disk_image(destination, source, output_file)
+    FileUtils.mkdir_p(destination)
+    system("hdiutil create -srcfolder #{source} #{destination}/#{output_file} -ov")
   end
   
   def prompt_for_password
