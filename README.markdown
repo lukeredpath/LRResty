@@ -12,9 +12,9 @@ Because Resty relies heavily on Objective-C blocks, it requires a minimum of iOS
 
 Resty is distributed as a static framework for iOS and a regular framework Mac; this makes it easy to get up and running with Resty. Simply drop the framework into your project (like any other framework) and add the -ObjC and -all_load linker flags to your target. If your project builds, you should be ready to go.
 
-To download Resty, you can either [clone this project and build from scratch](http://projects.lukeredpath.co.uk/resty/getting-started.html), grab one of the latest releases from the [Github downloads tab](http://github.com/lukeredpath/LRResty/downloads) or grab one of the [nightly builds](http://projects.lukeredpath.co.uk/resty/downloads).
+To download Resty, you can either [clone this project and build from scratch](http://projects.lukeredpath.co.uk/resty/getting-started.html) or grab one of the latest releases or nightly builds from the [Github downloads tab](http://github.com/lukeredpath/LRResty/downloads).
 
-For detailed information, [check out the Resty website](http://projects.lukeredpath.co.uk/documentation.html).
+For detailed information, [check out the Resty website](http://projects.lukeredpath.co.uk/resty/documentation.html).
 
 ## Using LRResty with ARC projects
 
