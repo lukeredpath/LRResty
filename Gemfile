@@ -7,4 +7,5 @@ group :development do
   gem "plist"
   gem "highline"
   gem "osx_keychain"
+  gem "jekyll"
 end
