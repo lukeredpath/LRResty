@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:lukeredpath/github-downloads.git
-  revision: 3db31bfac7e48bb629c6c280ef3866a32257e702
+  revision: 2604f84bf1bebd2f6888787bbb2adb8c2b71dab2
   specs:
     github-downloads (0.1.1)
       highline

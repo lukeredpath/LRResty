@@ -114,7 +114,7 @@ namespace :build do
     Dir["pkg/*-#{PACKAGE_SUFFIX}.dmg"].each do |file|
       print "* Uploading #{file} to Github..."; STDOUT.flush
       
-      if client.create(file, "Automated upload #{Time.now}")
+      if client.create(file, "Automated upload #{Time.now}", :overwrite => true)
         puts "Success."
       else
         puts "Failed."
