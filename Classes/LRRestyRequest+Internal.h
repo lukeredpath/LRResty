@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LRRestyHTTPClient.h"
 
-@interface LRRestyRequest_Internal : NSObject
+@interface LRRestyRequest ()
+
+/** Only the request should be able to set this, it's read-only externally **/
+@property (nonatomic, assign, readwrite) NSUInteger numberOfRetries;
+
+/** Used as a back-reference to the client so the request can enqueue it's retry **/
+@property (nonatomic, assign) id<LRRestyHTTPClient> HTTPClient;
+
+@end
+
+@interface LRRestyRequest (RetrySupport)
+
+/** Used by a request to create a copy of itself for retrying **/
+- (id)initWithURLRequest:(NSMutableURLRequest *)request delegate:(id<LRRestyRequestDelegate>)theDelegate;
 
 @end

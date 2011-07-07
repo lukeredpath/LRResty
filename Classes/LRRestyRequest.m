@@ -8,11 +8,17 @@
 
 #import "LRRestyRequest.h"
 #import "LRRestyResponse+Internal.h"
+#import "LRRestyRequest+Internal.h"
 #import "NSDictionary+QueryString.h"
 #import "NSData+Base64.h"
 #import "LRResty.h"
 
+#pragma mark -
+
 @implementation LRRestyRequest
+
+@synthesize numberOfRetries;
+@synthesize HTTPClient;
 
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 {
@@ -108,6 +114,16 @@
   });
 }
 
+#pragma mark - Retry support
+
+- (LRRestyRequest *)retry
+{
+  LRRestyRequest *retryRequest = [[LRRestyRequest alloc] initWithURLRequest:_URLRequest delegate:delegate];
+  retryRequest.numberOfRetries = self.numberOfRetries + 1;
+  [self.HTTPClient performRequest:retryRequest];
+  return [retryRequest autorelease];
+}
+
 #pragma mark -
 #pragma mark NSOperation methods
 
@@ -134,6 +150,8 @@
   [delegate restyRequest:self didFinishWithResponse:restResponse];
   [restResponse release];
   
+  [LRResty log:[NSString stringWithFormat:@"Finished request %@", self]];
+  
   [super finish];
 }
 
@@ -158,4 +176,18 @@
 
 @end
 
+#pragma mark -
+
+@implementation LRRestyRequest (RetrySupport)
+
+- (id)initWithURLRequest:(NSMutableURLRequest *)request delegate:(id<LRRestyRequestDelegate>)theDelegate
+{
+  if ((self = [super init])) {
+    delegate = [theDelegate retain];
+    _URLRequest = [request retain];
+  }
+  return self;
+}
+
+@end
 

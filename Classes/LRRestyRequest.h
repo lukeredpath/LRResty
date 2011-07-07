@@ -24,6 +24,7 @@
   NSMutableURLRequest *_URLRequest;
 }
 @property (nonatomic, readonly) NSURL *URL;
+@property (nonatomic, assign, readonly) NSUInteger numberOfRetries;
 
 /// ---------------------------------
 /// @name Initializing
@@ -146,4 +147,11 @@
  @param block   The timeout handler block. The cancelled request will be passed into the block.
  */
 - (void)timeoutAfter:(NSTimeInterval)delayInSeconds handleWithBlock:(LRRestyRequestTimeoutBlock)block;
+
+/// ---------------------------------
+/// @name Retrying requests
+/// ---------------------------------
+
+- (LRRestyRequest *)retry;
+
 @end

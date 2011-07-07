@@ -8,9 +8,9 @@
 
 #import "LRRestyHTTPClient.h"
 #import "LRRestyRequest.h"
+#import "LRRestyRequest+Internal.h"
 
 @interface LRRestyHTTPClient ()
-- (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
 - (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers requestDelegate:(id<LRRestyRequestDelegate>)requestDelegate;
 @end
 
@@ -67,23 +67,15 @@
     return [self performRequest:[self requestForURL:url method:@"DELETE" payload:nil headers:headers requestDelegate:requestDelegate]];
 }
 
-#pragma mark Private methods
-
-- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers requestDelegate:(id<LRRestyRequestDelegate>)requestDelegate;
-{
-  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod delegate:requestDelegate];
-  [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
-  [request setHeaders:headers];
-  return [request autorelease];
-}
-
 - (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
 {
+  [request setHTTPClient:self];
+  
   if ([delegate respondsToSelector:@selector(HTTPClient:willPerformRequest:)]) {
     [delegate HTTPClient:self willPerformRequest:request];
   }
   [operationQueue addOperation:request];
-
+  
   return request;
 }
 

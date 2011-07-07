@@ -25,3 +25,7 @@
   @implementation name \
 
 #define END_ACCEPTANCE_TEST @end
+
+#define ENABLE_RESTY_LOGGING \
+  - (void)setUp { [super setUp]; [LRResty setDebugLoggingEnabled:YES]; }       \
+  - (void)tearDown { [super tearDown];  [LRResty setDebugLoggingEnabled:NO]; } \

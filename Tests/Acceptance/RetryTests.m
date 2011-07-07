@@ -6,18 +6,24 @@
 //  Copyright 2011 LJR Software Limited. All rights reserved.
 //
 
-#import "RetryTests.h"
+#import "RestyClientAcceptanceTestCase.h"
 
-@implementation RetryTests
+RESTY_CLIENT_ACCEPTANCE_TEST(RetryTests)
 
-- (id)init
+- (void)testCanRetryFailedRequest
 {
-    self = [super init];
-    if (self) {
-        // Initialization code here.
+  __block LRRestyResponse *receivedResponse = nil;
+  __block LRRestyRequest *request = [client get:resourceWithPath(@"/optional/failure") parameters:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:1] forKey:@"succeed_after"] withBlock:^(LRRestyResponse *response) {
+
+    if (response.status == 200) {
+      receivedResponse = [response retain];
     }
-    
-    return self;
+    else if (response.status == 500 && request.numberOfRetries < 1) {
+      request = [request retry];
+    }
+  }];
+  
+  assertEventuallyThat(&receivedResponse, is(responseWithStatus(200)));
 }
 
-@end
+END_ACCEPTANCE_TEST

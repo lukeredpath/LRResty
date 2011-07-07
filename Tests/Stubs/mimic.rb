@@ -85,3 +85,22 @@ post "/long/request" do
   sleep(sleep_time)
   [200, {}, ""]
 end
+
+### Used by RetryTests.m
+
+enable :sessions
+
+get "/optional/failure" do
+  session[:failure_count] ||= 0
+  succeed_after = (params[:succeed_after] || "0").to_i
+  
+  if session[:failure_count] < succeed_after
+    session[:failure_count] += 1
+
+    [500, {"X-Number-Of-Retries" => session[:failure_count].to_s, "X-Succeed-After" => succeed_after.to_s}, ""]
+  else
+    session[:failure_count] = 0
+    
+    [200, {"X-Number-Of-Retries" => (session[:failure_count] + 1).to_s}, ""]
+  end
+end
