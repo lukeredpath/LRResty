@@ -87,4 +87,16 @@
   return request;
 }
 
+#pragma mark Private methods
+
+- (LRRestyRequest *)requestForURL:(NSURL *)url method:(NSString *)httpMethod payload:(id)payload headers:(NSDictionary *)headers requestDelegate:(id<LRRestyRequestDelegate>)requestDelegate;
+{  
+  NSAssert1([url.scheme hasPrefix:@"http"], @"LResty requires a valid HTTP(S) URL, received %@", url);
+  
+  LRRestyRequest *request = [[LRRestyRequest alloc] initWithURL:url method:httpMethod delegate:requestDelegate];
+  [request setPayload:[LRRestyRequestPayloadFactory payloadFromObject:payload]];
+  [request setHeaders:headers];
+  return [request autorelease];
+}
+
 @end

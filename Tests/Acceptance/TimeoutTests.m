@@ -42,7 +42,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(TimeoutTests)
 {
   __block BOOL timeoutHandlerCalled = NO;
   
-  [[client get:@"/simple/resource" withBlock:nil] timeoutAfter:1 handleWithBlock:^(LRRestyRequest *request) {
+  [[client get:resourceWithPath(@"/simple/resource") withBlock:nil] timeoutAfter:1 handleWithBlock:^(LRRestyRequest *request) {
     timeoutHandlerCalled = YES;
   }];
   
