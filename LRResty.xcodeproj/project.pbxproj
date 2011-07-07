@@ -39,6 +39,8 @@
 		A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
 		A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
 		A34E8A6C13C47B2D006D5B76 /* RetryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A34E8A6B13C47B2D006D5B76 /* RetryTests.m */; };
+		A34E8A7313C5E58B006D5B76 /* LRRestyRequest+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A34E8A6D13C48981006D5B76 /* LRRestyRequest+Internal.h */; };
+		A34E8A7413C5E58C006D5B76 /* LRRestyRequest+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A34E8A6D13C48981006D5B76 /* LRRestyRequest+Internal.h */; };
 		A35D874F125A8D7300E5A8BD /* LRRestyHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03AD1253851A00722B25 /* LRRestyHTTPClient.m */; };
 		A35D8750125A8D7A00E5A8BD /* LRURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FFFE5C125A5D380075D21F /* LRURLRequestOperation.m */; };
 		A35D8751125A8D8D00E5A8BD /* LRRestyClientProxyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A03DE12538BFA00722B25 /* LRRestyClientProxyDelegate.m */; };
@@ -1030,6 +1032,7 @@
 				A379180F13A144030025AF1C /* LRResty.h in Headers */,
 				0FB9787013A20F190010A37C /* LRRestyClient+DELETE.h in Headers */,
 				A32254A113B6C9FA00F16A97 /* LRRestyResponse+Internal.h in Headers */,
+				A34E8A7413C5E58C006D5B76 /* LRRestyRequest+Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1065,6 +1068,7 @@
 				A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
 				0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */,
 				A322549F13B6C93900F16A97 /* LRRestyResponse+Internal.h in Headers */,
+				A34E8A7313C5E58B006D5B76 /* LRRestyRequest+Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
