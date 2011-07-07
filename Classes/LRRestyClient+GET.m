@@ -55,30 +55,30 @@
 
 - (LRRestyResponse *)get:(NSString *)urlString;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition) 
   {
     [self get:urlString withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
     }];
   }];
 }
 
 - (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition) 
   {
     [self get:urlString parameters:parameters withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
     }];
   }];
 }
 
 - (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition) 
   {
     [self get:urlString parameters:parameters headers:headers withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
     }];
   }];
 }

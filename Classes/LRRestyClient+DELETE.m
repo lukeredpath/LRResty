@@ -19,12 +19,12 @@
 
 - (LRRestyRequest *)delete:(NSString *)urlString delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-    return [self delete:urlString headers:nil delegate:delegate];
+  return [self delete:urlString headers:nil delegate:delegate];
 }
 
 - (LRRestyRequest *)delete:(NSString *)urlString headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-    return [HTTPClient DELETE:[NSURL URLWithString:urlString] headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
+  return [HTTPClient DELETE:[NSURL URLWithString:urlString] headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
 #pragma mark -
@@ -32,12 +32,12 @@
 
 - (LRRestyRequest *)delete:(NSString *)urlString withBlock:(LRRestyResponseBlock)block;
 {
-    return [self delete:urlString headers:nil withBlock:block];
+  return [self delete:urlString headers:nil withBlock:block];
 }
 
 - (LRRestyRequest *)delete:(NSString *)urlString headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-    return [HTTPClient DELETE:[NSURL URLWithString:urlString] headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+  return [HTTPClient DELETE:[NSURL URLWithString:urlString] headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
 }
 
 #pragma mark -
@@ -45,22 +45,22 @@
 
 - (LRRestyResponse *)delete:(NSString *)urlString;
 {
-    return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
-            {
-                [self delete:urlString withBlock:^(LRRestyResponse *response) {
-                    *result = [response retain];
-                }];
-            }];
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
+  {
+    [self delete:urlString withBlock:^(LRRestyResponse *response) {
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+    }];
+  }];
 }
 
 - (LRRestyResponse *)delete:(NSString *)urlString headers:(NSDictionary *)headers;
 {
-    return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
-            {
-                [self delete:urlString headers:headers withBlock:^(LRRestyResponse *response) {
-                    *result = [response retain];
-                }];
-            }];
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
+  {
+    [self delete:urlString headers:headers withBlock:^(LRRestyResponse *response) {
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+    }];
+  }];
 }
 
 

@@ -15,11 +15,16 @@
 {
   id result = nil;
   
-  block(&result);
+  NSCondition *condition = [[NSCondition alloc] init];
   
-  while (result == nil) {
-    [[NSRunLoop currentRunLoop] runForTimeInterval:0.1];
-  }
+  block(&result, condition);
+  
+  [condition lock];
+  [condition wait];
+  [condition unlock];
+
+  [condition release];
+  
   return [result autorelease];
 }
 

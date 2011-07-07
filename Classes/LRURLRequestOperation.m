@@ -45,19 +45,22 @@
 
 - (void)start
 {
-  if (![NSThread isMainThread]) {
-    return [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
-  }
-  
   NSAssert(URLRequest, @"Cannot start URLRequestOperation without a NSURLRequest.");
   
   [self setExecuting:YES];
   
-  URLConnection = [[NSURLConnection connectionWithRequest:URLRequest delegate:self] retain];
+  URLConnection = [[NSURLConnection alloc] initWithRequest:URLRequest delegate:self startImmediately:NO];
   
   if (URLConnection == nil) {
     [self setFinished:YES]; 
   }
+  
+  [URLConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  [URLConnection start];
+  
+  do {
+    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+  } while (!_isFinished);
 }
 
 - (void)finish;

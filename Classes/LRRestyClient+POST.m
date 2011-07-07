@@ -44,20 +44,20 @@
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
   {
     [self post:urlString payload:payload withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
     }];
   }];
 }
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
   {
     [self post:urlString payload:payload headers:headers withBlock:^(LRRestyResponse *response) {
-      *result = [response retain];
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
     }];
   }];
 }
