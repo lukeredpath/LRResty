@@ -152,6 +152,36 @@
 /// @name Retrying requests
 /// ---------------------------------
 
+/**
+ Creates a new request based on the current one and automatically runs it.
+ 
+ LRResty makes no assumptions about when to retry a request - you need to call this explicitly 
+ within your response handler. You may want to retry a request if you did not get an expected 
+ HTTP response code.
+ 
+ Calling this method will create a brand new request based on the original and run it. Requests
+ have a numberOfRetries property that tracks how many times a request has been retried. You 
+ could use this in your response handler to limit the number of retries to perform.
+ 
+ For instance, if you wanted to retry a request up to a maximum of 3 times until you received
+ a 201 Created response, you would do something like this:
+ 
+    __block LRRestyRequest *request = [[LRRestyClient client] post:@"http://www.example.com" payload:someObject 
+          handleWithBlock:^(LRRestyResponse *response) {
+      if (response.status == 201) {
+        // do something with response
+      }
+      else if (request.numberOfRetries < 3) {
+        // be sure to update the pointer to the new request
+        request = [request retry];
+      }
+      else {
+        // handle failure
+      }
+    }];
+ 
+ @returns The newly created request.
+ */ 
 - (LRRestyRequest *)retry;
 
 @end
