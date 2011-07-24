@@ -17,4 +17,12 @@ typedef void (^LRSynchronousProxyBlock)(id *, NSCondition *condition);
 
 }
 + (id)performAsynchronousBlockAndReturnResultWhenReady:(LRSynchronousProxyBlock)block;
++ (id)performAsynchronousBlockWithTimeout:(NSTimeInterval)timeout andReturnResultWhenReady:(LRSynchronousProxyBlock)block;
+@end
+
+@interface NSObject (SynchronousProxy)
+
+- (id)performAsynchronousBlockAndReturnResultWhenReady:(LRSynchronousProxyBlock)block;
+- (id)performAsynchronousBlockWithTimeout:(NSTimeInterval)timeout andReturnResultWhenReady:(LRSynchronousProxyBlock)block;
+
 @end

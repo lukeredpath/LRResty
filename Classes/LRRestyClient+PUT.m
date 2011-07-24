@@ -9,7 +9,7 @@
 #import "LRRestyClient+PUT.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientProxyDelegate.h"
-#import "NSObject+SynchronousProxy.h"
+#import "LRSynchronousProxy.h"
 
 @implementation LRRestyClient (PUT)
 

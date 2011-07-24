@@ -10,7 +10,7 @@
 #import "LRRestyClientProxyDelegate.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientStreamingDelegate.h"
-#import "NSObject+SynchronousProxy.h"
+#import "LRSynchronousProxy.h"
 
 @implementation LRRestyClient (GET)
 
@@ -55,7 +55,7 @@
 
 - (LRRestyResponse *)get:(NSString *)urlString;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition) 
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, NSCondition *condition) 
   {
     [self get:urlString withBlock:^(LRRestyResponse *response) {
       LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
@@ -65,7 +65,7 @@
 
 - (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition) 
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, NSCondition *condition) 
   {
     [self get:urlString parameters:parameters withBlock:^(LRRestyResponse *response) {
       LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);

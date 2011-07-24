@@ -9,7 +9,7 @@
 #import "LRRestyClient+POST.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientProxyDelegate.h"
-#import "NSObject+SynchronousProxy.h"
+#import "LRSynchronousProxy.h"
 
 @implementation LRRestyClient (POST)
 
@@ -44,7 +44,7 @@
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval + 1 andReturnResultWhenReady:^(id *result, NSCondition *condition)
   {
     [self post:urlString payload:payload withBlock:^(LRRestyResponse *response) {
       LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);

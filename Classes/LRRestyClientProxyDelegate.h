@@ -12,7 +12,7 @@
 
 @class LRRestyClient;
 
-@interface LRRestyClientProxyDelegate : NSOperation <LRRestyRequestDelegate> {
+@interface LRRestyClientProxyDelegate : NSObject <LRRestyRequestDelegate> {
   LRRestyClient *restyClient;
   id<LRRestyClientResponseDelegate> responseDelegate;
 }

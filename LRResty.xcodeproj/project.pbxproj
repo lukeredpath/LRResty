@@ -36,8 +36,6 @@
 		A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
 		A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */; };
 		A33E50C612E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */; };
-		A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; };
-		A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
 		A34E8A6C13C47B2D006D5B76 /* RetryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A34E8A6B13C47B2D006D5B76 /* RetryTests.m */; };
 		A34E8A7313C5E58B006D5B76 /* LRRestyRequest+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A34E8A6D13C48981006D5B76 /* LRRestyRequest+Internal.h */; };
 		A34E8A7413C5E58C006D5B76 /* LRRestyRequest+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A34E8A6D13C48981006D5B76 /* LRRestyRequest+Internal.h */; };
@@ -115,7 +113,6 @@
 		A379180813A144030025AF1C /* NSString+QueryString.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFAF125380080006572D /* NSString+QueryString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180913A144030025AF1C /* NSURL+QueryInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = A389DFB1125380080006572D /* NSURL+QueryInspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180A13A144030025AF1C /* NSRunLoop+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A379180B13A144030025AF1C /* NSObject+SynchronousProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180C13A144030025AF1C /* LRRestyClient+GET.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E001125381700006572D /* LRRestyClient+GET.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180D13A144030025AF1C /* LRRestyClient+POST.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E003125381700006572D /* LRRestyClient+POST.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A379180E13A144030025AF1C /* LRRestyClient+PUT.h in Headers */ = {isa = PBXBuildFile; fileRef = A389E005125381700006572D /* LRRestyClient+PUT.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -189,7 +186,6 @@
 		A3F45A8713A12E4F00242E72 /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFB0125380080006572D /* NSString+QueryString.m */; };
 		A3F45A8813A12E4F00242E72 /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A389DFB2125380080006572D /* NSURL+QueryInspector.m */; };
 		A3F45A8913A12E4F00242E72 /* NSRunLoop+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */; };
-		A3F45A8A13A12E4F00242E72 /* NSObject+SynchronousProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */; };
 		A3F45A8B13A12E4F00242E72 /* LRRestyClient+GET.m in Sources */ = {isa = PBXBuildFile; fileRef = A389E002125381700006572D /* LRRestyClient+GET.m */; };
 		A3F45A8C13A12E4F00242E72 /* LRRestyClient+POST.m in Sources */ = {isa = PBXBuildFile; fileRef = A389E004125381700006572D /* LRRestyClient+POST.m */; };
 		A3F45A8D13A12E4F00242E72 /* LRRestyClient+PUT.m in Sources */ = {isa = PBXBuildFile; fileRef = A389E006125381700006572D /* LRRestyClient+PUT.m */; };
@@ -288,8 +284,6 @@
 		A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+Additions.m"; sourceTree = "<group>"; };
 		A33E50C312E8AC6F00746A2C /* LRSynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRSynchronousProxy.h; sourceTree = "<group>"; };
 		A33E50C412E8AC6F00746A2C /* LRSynchronousProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRSynchronousProxy.m; sourceTree = "<group>"; };
-		A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SynchronousProxy.h"; sourceTree = "<group>"; };
-		A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SynchronousProxy.m"; sourceTree = "<group>"; };
 		A34E8A6B13C47B2D006D5B76 /* RetryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetryTests.m; sourceTree = "<group>"; };
 		A34E8A6D13C48981006D5B76 /* LRRestyRequest+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LRRestyRequest+Internal.h"; sourceTree = "<group>"; };
 		A35D8777125A8E3200E5A8BD /* LRRestyFramework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "LRRestyFramework-Info.plist"; path = "Resources/LRRestyFramework-Info.plist"; sourceTree = "<group>"; };
@@ -720,8 +714,6 @@
 				A389DFB2125380080006572D /* NSURL+QueryInspector.m */,
 				A33E504D12E89EB900746A2C /* NSRunLoop+Additions.h */,
 				A33E504E12E89EB900746A2C /* NSRunLoop+Additions.m */,
-				A33E50CB12E8ACE800746A2C /* NSObject+SynchronousProxy.h */,
-				A33E50CC12E8ACE800746A2C /* NSObject+SynchronousProxy.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1025,7 +1017,6 @@
 				A379180813A144030025AF1C /* NSString+QueryString.h in Headers */,
 				A379180913A144030025AF1C /* NSURL+QueryInspector.h in Headers */,
 				A379180A13A144030025AF1C /* NSRunLoop+Additions.h in Headers */,
-				A379180B13A144030025AF1C /* NSObject+SynchronousProxy.h in Headers */,
 				A379180C13A144030025AF1C /* LRRestyClient+GET.h in Headers */,
 				A379180D13A144030025AF1C /* LRRestyClient+POST.h in Headers */,
 				A379180E13A144030025AF1C /* LRRestyClient+PUT.h in Headers */,
@@ -1065,7 +1056,6 @@
 				A389E030125381700006572D /* LRRestyTypes.h in Headers */,
 				A33E504F12E89EB900746A2C /* NSRunLoop+Additions.h in Headers */,
 				A33E50C512E8AC6F00746A2C /* LRSynchronousProxy.h in Headers */,
-				A33E50CD12E8ACE800746A2C /* NSObject+SynchronousProxy.h in Headers */,
 				0FB9786D13A20F050010A37C /* LRRestyClient+DELETE.h in Headers */,
 				A322549F13B6C93900F16A97 /* LRRestyResponse+Internal.h in Headers */,
 				A34E8A7313C5E58B006D5B76 /* LRRestyRequest+Internal.h in Headers */,
@@ -1347,7 +1337,6 @@
 				A3F45A8713A12E4F00242E72 /* NSString+QueryString.m in Sources */,
 				A3F45A8813A12E4F00242E72 /* NSURL+QueryInspector.m in Sources */,
 				A3F45A8913A12E4F00242E72 /* NSRunLoop+Additions.m in Sources */,
-				A3F45A8A13A12E4F00242E72 /* NSObject+SynchronousProxy.m in Sources */,
 				A3F45A8B13A12E4F00242E72 /* LRRestyClient+GET.m in Sources */,
 				A3F45A8C13A12E4F00242E72 /* LRRestyClient+POST.m in Sources */,
 				A3F45A8D13A12E4F00242E72 /* LRRestyClient+PUT.m in Sources */,
@@ -1433,7 +1422,6 @@
 				A35D8751125A8D8D00E5A8BD /* LRRestyClientProxyDelegate.m in Sources */,
 				A33E505012E89EB900746A2C /* NSRunLoop+Additions.m in Sources */,
 				A33E50C612E8AC6F00746A2C /* LRSynchronousProxy.m in Sources */,
-				A33E50CE12E8ACE800746A2C /* NSObject+SynchronousProxy.m in Sources */,
 				0FB9786E13A20F050010A37C /* LRRestyClient+DELETE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

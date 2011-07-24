@@ -65,4 +65,18 @@ RESTY_CLIENT_ACCEPTANCE_TEST(TimeoutTests)
   assertEventuallyThat(&timedOutRequest, is(notNilValue()));
 }
 
+- (void)testCanHandleTimeoutsUsingGlobalTimeoutHandlerWithSynchronousCalls
+{
+  __block LRRestyRequest *timedOutRequest = nil;
+  
+  [client setGlobalTimeout:1 handleWithBlock:^(LRRestyRequest *request) {
+    timedOutRequest = request;
+  }];
+  
+  [client post:resourceWithPath(@"/long/request") payload:[NSDictionary dictionaryWithObject:@"5" forKey:@"sleep"]];
+  
+  assertEventuallyThat(&timedOutRequest, is(notNilValue()));
+}
+
 END_ACCEPTANCE_TEST
+

@@ -13,6 +13,11 @@
 
 + (id)performAsynchronousBlockAndReturnResultWhenReady:(LRSynchronousProxyBlock)block;
 {
+  return [self performAsynchronousBlockWithTimeout:0 andReturnResultWhenReady:block];
+}
+
++ (id)performAsynchronousBlockWithTimeout:(NSTimeInterval)timeout andReturnResultWhenReady:(LRSynchronousProxyBlock)block
+{
   id result = nil;
   
   NSCondition *condition = [[NSCondition alloc] init];
@@ -20,12 +25,32 @@
   block(&result, condition);
   
   [condition lock];
-  [condition wait];
-  [condition unlock];
+  
+  if (timeout > 0) {
+    [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
+  }
+  else {
+    [condition wait];
+  }
 
+  [condition unlock];
   [condition release];
   
   return [result autorelease];
+}
+
+@end
+
+@implementation NSObject (SynchronousProxy)
+
+- (id)performAsynchronousBlockAndReturnResultWhenReady:(LRSynchronousProxyBlock)block;
+{
+  return [LRSynchronousProxy performAsynchronousBlockAndReturnResultWhenReady:block];
+}
+
+- (id)performAsynchronousBlockWithTimeout:(NSTimeInterval)timeout andReturnResultWhenReady:(LRSynchronousProxyBlock)block
+{
+  return [LRSynchronousProxy performAsynchronousBlockWithTimeout:timeout andReturnResultWhenReady:block];
 }
 
 @end

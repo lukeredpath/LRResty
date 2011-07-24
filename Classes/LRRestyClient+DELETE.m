@@ -10,7 +10,7 @@
 #import "LRRestyClientProxyDelegate.h"
 #import "LRRestyClientBlockDelegate.h"
 #import "LRRestyClientStreamingDelegate.h"
-#import "NSObject+SynchronousProxy.h"
+#import "LRSynchronousProxy.h"
 
 @implementation LRRestyClient (DELETE)
 
