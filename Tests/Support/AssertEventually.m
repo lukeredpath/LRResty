@@ -44,7 +44,13 @@
 #pragma mark -
 #pragma mark Core
 
+@interface LRProbePoller()
+@property (nonatomic, retain) id<LRProbe> currentProbe;
+@end
+
 @implementation LRProbePoller
+
+@synthesize currentProbe;
 
 - (id)initWithTimeout:(NSTimeInterval)theTimeout delay:(NSTimeInterval)theDelay;
 {
@@ -55,19 +61,34 @@
   return self;
 }
 
+- (void)dealloc 
+{
+  [currentProbe release];
+  [super dealloc];
+}
+
 - (BOOL)check:(id<LRProbe>)probe;
 {
   LRTimeout *timeout = [[LRTimeout alloc] initWithTimeout:timeoutInterval];
   
-  while (![probe isSatisfied]) {
+  self.currentProbe = probe;
+  
+  while (![self.currentProbe isSatisfied]) {
     if ([timeout hasTimedOut]) {
       [timeout release];
       return NO;
     }
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:delayInterval]];
-    [probe sample];
+    @try {
+      [self.currentProbe sample];
+    }
+    @catch (NSException *exception) {
+      NSLog(@"Caught exception %@", exception);
+    }
   }
   [timeout release];
+  
+  self.currentProbe = nil;
   
   return YES;
 }
