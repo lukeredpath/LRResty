@@ -15,7 +15,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "source ~/.profile&#10;cd ${PROJECT_DIR} &amp;&amp; bundle exec Scripts/mimicd restart">
+               scriptText = "source ~/.profile&#10;cd ${PROJECT_DIR} &amp;&amp; bundle exec Scripts/mimicd start">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -28,6 +28,24 @@
             </ActionContent>
          </ExecutionAction>
       </PreActions>
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "source ~/.profile&#10;cd ${PROJECT_DIR} &amp;&amp; bundle exec Scripts/mimicd stop">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "A3698EA5132A7F1D00A67C63"
+                     BuildableName = "Acceptance Tests.octest"
+                     BlueprintName = "Acceptance Tests"
+                     ReferencedContainer = "container:LRResty.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <Testables>
          <TestableReference
             skipped = "NO">
