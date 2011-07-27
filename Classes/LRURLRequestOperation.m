@@ -43,8 +43,11 @@
   [super dealloc];
 }
 
-- (void)start
-{
+- (void)start {
+  if (![NSThread isMainThread]) {
+    [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:NO];
+    return;
+  }
   NSAssert(URLRequest, @"Cannot start URLRequestOperation without a NSURLRequest.");
   
   [self setExecuting:YES];
@@ -55,12 +58,9 @@
     [self setFinished:YES]; 
   }
   
-  [URLConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+  // Common modes instead of default so it won't stall uiscrollview scrolling
+  [URLConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
   [URLConnection start];
-  
-  do {
-    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-  } while (!_isFinished);
 }
 
 - (void)finish;
