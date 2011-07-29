@@ -43,11 +43,8 @@
   [super dealloc];
 }
 
-- (void)start {
-  if (![NSThread isMainThread]) {
-    [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:NO];
-    return;
-  }
+- (void)start 
+{
   NSAssert(URLRequest, @"Cannot start URLRequestOperation without a NSURLRequest.");
   
   [self setExecuting:YES];
@@ -61,6 +58,10 @@
   // Common modes instead of default so it won't stall uiscrollview scrolling
   [URLConnection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
   [URLConnection start];
+  
+  do {
+    [[NSRunLoop currentRunLoop] run];
+  } while (!_isFinished);
 }
 
 - (void)finish;
