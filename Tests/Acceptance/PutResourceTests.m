@@ -130,6 +130,22 @@ RESTY_CLIENT_ACCEPTANCE_TEST(PutResourceTests)
   assertEventuallyThat(&receivedResponse, is(responseWithRequestEcho(@"params.number", @"123")));
 }
 
+- (void)testResponseBlockIsCalledOnMainThread
+{
+  __block BOOL wasCalledOnMainThread = NO;
+  
+  mimicPUT(@"/simple/resource", andEchoRequest(), ^{  
+    [client put:resourceWithPath(@"/simple/resource") 
+        payload:@"payload"
+      withBlock:^(LRRestyResponse *response) {
+         
+         wasCalledOnMainThread = [[NSThread currentThread] isMainThread];
+       }];
+  });
+  
+  assertEventuallyWithBlock(^{ return wasCalledOnMainThread; });
+}
+
 - (void)testCanPerformSynchronousPutRequest
 {
   LRRestyResponse *response = [client put:resourceWithPath(@"/synchronous/echo") payload:@"hello world"];

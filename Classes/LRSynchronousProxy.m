@@ -18,23 +18,33 @@
 
 + (id)performAsynchronousBlockWithTimeout:(NSTimeInterval)timeout andReturnResultWhenReady:(LRSynchronousProxyBlock)block
 {
-  id result = nil;
+  __block id result = nil;
   
-  NSCondition *condition = [[NSCondition alloc] init];
+  dispatch_queue_t synchronousProxyQueue = dispatch_queue_create("co.uk.lukeredpath.resty.synchronousProxy", NULL);
   
-  block(&result, condition);
+  dispatch_sync(synchronousProxyQueue, ^{
+    NSCondition *condition = [[NSCondition alloc] init];
+    
+    id blockResult = nil;
+    
+    block(&blockResult, condition);
+    
+    [condition lock];
+    
+    if (timeout > 0) {
+      [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
+    }
+    else {
+      [condition wait];
+    }
+    
+    [condition unlock];
+    [condition release];
+    
+    result = blockResult;
+  });
   
-  [condition lock];
-  
-  if (timeout > 0) {
-    [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
-  }
-  else {
-    [condition wait];
-  }
-
-  [condition unlock];
-  [condition release];
+  dispatch_release(synchronousProxyQueue);
   
   return [result autorelease];
 }
