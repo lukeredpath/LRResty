@@ -7,6 +7,7 @@
 //
 
 #import "RestyClientAcceptanceTestCase.h"
+#import "LRRestyClientBlockDelegate.h"
 
 @implementation RestyClientAcceptanceTestCase
 
@@ -16,6 +17,11 @@
 - (void)setUp
 {
   client = [LRResty newClient];
+  
+  /* we can't call our callbacks on the main queue as we 
+   have to block the main thread with assertEventually */
+
+  [LRRestyClientBlockDelegate setDispatchesOnMainQueue:NO];
 }
 
 - (void)tearDown

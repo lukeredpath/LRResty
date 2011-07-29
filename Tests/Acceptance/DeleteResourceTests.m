@@ -65,19 +65,6 @@ RESTY_CLIENT_ACCEPTANCE_TEST(DeleteResourceTests)
   [testLocalResponse release];
 }
 
-- (void)testResponseBlockIsCalledOnMainThread
-{
-  __block BOOL wasCalledOnMainThread = NO;
-  
-  mimicDELETE(@"/simple/resource", andReturnAnything(), ^{
-    [client delete:resourceWithPath(@"/simple/resource") withBlock:^(LRRestyResponse *response) {
-      wasCalledOnMainThread = [[NSThread currentThread] isMainThread];
-    }];
-  });
-  
-  assertEventuallyWithBlock(^{ return wasCalledOnMainThread; });
-}
-
 - (void)testCanPerformSynchronousDeleteRequest
 {
   LRRestyResponse *response = [client delete:resourceWithPath(@"/synchronous/echo")];

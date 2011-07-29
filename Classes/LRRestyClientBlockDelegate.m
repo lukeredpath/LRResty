@@ -11,6 +11,13 @@
 
 @implementation LRRestyClientBlockDelegate
 
+static BOOL _shouldDispatchOnMainQueue = YES;
+
++ (void)setDispatchesOnMainQueue:(BOOL)shouldDispatchOnMainQueue
+{
+  _shouldDispatchOnMainQueue = shouldDispatchOnMainQueue;
+}
+
 + (id)delegateWithBlock:(LRRestyResponseBlock)block;
 {
   return [[[self alloc] initWithBlock:block] autorelease];
@@ -33,7 +40,14 @@
 - (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response
 {
   if (block) {
-    block(response);
+    if (_shouldDispatchOnMainQueue) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        block(response);
+      });
+    }
+    else {
+      block(response);
+    }
   }
 }
 

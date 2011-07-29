@@ -136,9 +136,7 @@
   [super start];
 
   if ([delegate respondsToSelector:@selector(restyRequestDidStart:)]) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      [delegate restyRequestDidStart:self];
-    });
+    [delegate restyRequestDidStart:self];
   }
   [LRResty log:[NSString stringWithFormat:@"Performing %@ with headers %@", self, [URLRequest allHTTPHeaderFields]]];
 }
@@ -151,9 +149,7 @@
               headers:[(NSHTTPURLResponse *)self.URLResponse allHeaderFields]
        originalRequest:self];
   
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-    [delegate restyRequest:self didFinishWithResponse:restResponse];
-  });
+  [delegate restyRequest:self didFinishWithResponse:restResponse];
   
   [restResponse release];
   
@@ -176,9 +172,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
   if ([delegate respondsToSelector:@selector(restyRequest:didReceiveData:)]) {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      [delegate restyRequest:self didReceiveData:data];
-    });
+    [delegate restyRequest:self didReceiveData:data];
   }
   [super connection:connection didReceiveData:data];
 }

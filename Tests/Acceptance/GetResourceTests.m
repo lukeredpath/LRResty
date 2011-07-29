@@ -77,19 +77,6 @@ RESTY_CLIENT_ACCEPTANCE_TEST(GetResourceTests)
   [testLocalResponse release];
 }
 
-- (void)testResponseBlockIsCalledOnMainThread
-{
-  __block BOOL wasCalledOnMainThread = NO;
-  
-  mimicGET(@"/simple/resource", andReturnAnything(), ^{
-    [client get:resourceWithPath(@"/simple/resource") withBlock:^(LRRestyResponse *response) {
-      wasCalledOnMainThread = [[NSThread currentThread] isMainThread];
-    }];
-  });
-  
-  assertEventuallyWithBlock(^{ return wasCalledOnMainThread; });
-}
-
 - (void)testCanPerformSynchronousGetRequest
 {
   LRRestyResponse *response = [client get:resourceWithPath(@"/synchronous/echo")];

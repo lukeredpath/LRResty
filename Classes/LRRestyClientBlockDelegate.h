@@ -14,6 +14,7 @@
 {
   LRRestyResponseBlock block;
 }
++ (void)setDispatchesOnMainQueue:(BOOL)shouldDispatchOnMainQueue;
 + (id)delegateWithBlock:(LRRestyResponseBlock)block;
 - (id)initWithBlock:(LRRestyResponseBlock)theBlock;
 @end
