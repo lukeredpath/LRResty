@@ -50,5 +50,7 @@ id anyPayload()
 
 void waitForInterval(NSTimeInterval interval)
 {
-  [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
+  dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    sleep(interval);
+  });
 }
