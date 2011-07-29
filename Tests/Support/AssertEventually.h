@@ -14,7 +14,7 @@
 
 @protocol LRProbe <NSObject>
 - (BOOL)isSatisfied;
-- (void)sample;
+- (void)sampleWithCondition:(NSCondition *)condition;
 - (NSString *)describeToString:(NSString *)description;
 @end
 
@@ -22,6 +22,7 @@
 {
   NSTimeInterval timeoutInterval;
   NSTimeInterval delayInterval;
+  NSCondition *condition;
 }
 - (id)initWithTimeout:(NSTimeInterval)theTimeout delay:(NSTimeInterval)theDelay;
 - (BOOL)check:(id<LRProbe>)probe;

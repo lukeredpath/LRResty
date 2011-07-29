@@ -10,6 +10,21 @@
 #import <SenTestingKit/SenTestCase.h>
 #import "HCStringDescription.h"
 
+@interface NSCondition (BlockAdditions)
+- (void)withLock:(void (^)(void))block;
+@end
+
+@implementation NSCondition (BlockAdditions)
+
+- (void)withLock:(void (^)(void))block
+{
+  [self lock];
+  block();
+  [self unlock];
+}
+
+@end
+
 @interface LRTimeout : NSObject
 {
   NSDate *timeoutDate;
@@ -41,6 +56,22 @@
 
 @end
 
+//NSCondition *condition = [[NSCondition alloc] init];
+//
+//block(&result, condition);
+//
+//[condition lock];
+//
+//if (timeout > 0) {
+//  [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
+//}
+//else {
+//  [condition wait];
+//}
+//
+//[condition unlock];
+//[condition release];
+
 #pragma mark -
 #pragma mark Core
 
@@ -57,37 +88,38 @@
   if ((self = [super init])) {
     timeoutInterval = theTimeout;
     delayInterval = theDelay;
+    condition = [[NSCondition alloc] init];
   }
   return self;
 }
 
 - (void)dealloc 
 {
+  [condition release];
   [currentProbe release];
   [super dealloc];
 }
 
 - (BOOL)check:(id<LRProbe>)probe;
 {
-  LRTimeout *timeout = [[LRTimeout alloc] initWithTimeout:timeoutInterval];
-  
   self.currentProbe = probe;
+
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    while(![self.currentProbe isSatisfied]) {
+      @try {
+        [self.currentProbe sampleWithCondition:condition];
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:delayInterval]];
+      }
+      @catch (NSException *exception) {
+        NSLog(@"Caught exception whilst sampling probe: %@", exception);
+      }
+    }
+  });
   
-  while (![self.currentProbe isSatisfied]) {
-    if ([timeout hasTimedOut]) {
-      [timeout release];
-      return NO;
-    }
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:delayInterval]];
-    @try {
-      [self.currentProbe sample];
-    }
-    @catch (NSException *exception) {
-      NSLog(@"Caught exception %@", exception);
-    }
-  }
-  [timeout release];
-  
+  [condition withLock:^{
+    [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:timeoutInterval]];
+  }];
+    
   self.currentProbe = nil;
   
   return YES;
@@ -129,7 +161,6 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
   if ((self = [super init])) {
     block = [block copy];
     isSatisfied = NO;
-    [self sample];
   }
   return self;
 }
@@ -145,9 +176,15 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
   return isSatisfied;
 }
 
-- (void)sample;
+- (void)sampleWithCondition:(NSCondition *)condition
 {
   isSatisfied = block();
+  
+  NSLog(@"Sampling with condition %@", condition);
+  
+  if (isSatisfied) {
+    [condition withLock:^{ [condition signal]; }];
+  }
 }
             
 - (NSString *)describeToString:(NSString *)description;
@@ -173,7 +210,6 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
   if ((self = [super init])) {
     pointerToActualObject = objectPtr;
     matcher = [aMatcher retain];
-    [self sample];
   }
   return self;
 }
@@ -189,9 +225,13 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
   return didMatch;
 }
 
-- (void)sample;
+- (void)sampleWithCondition:(NSCondition *)condition
 {
   didMatch = [matcher matches:[self actualObject]];
+  
+  if (didMatch) {
+    [condition withLock:^{ [condition signal]; }];
+  }
 }
 
 - (NSString *)describeToString:(NSString *)description;
