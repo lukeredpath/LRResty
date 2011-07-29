@@ -14,7 +14,7 @@ RESTY_CLIENT_ACCEPTANCE_TEST(StreamingTests)
 
 - (void)testCanPerformGetRequestAndStreamResponse
 {
-  __block NSMutableData *responseData = [NSMutableData data];
+  __block NSMutableData *responseData = [[NSMutableData alloc] init];
   __block NSString *responseBody = nil;
   
   [client get:resourceWithPath(@"/streaming")
