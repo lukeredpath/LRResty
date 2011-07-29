@@ -79,7 +79,7 @@ static BOOL pingsWhenInitialized = YES;
 - (void)ping;
 {
   LRRestyResponse *response = [client get:[URL stringByAppendingPathComponent:@"/ping"]];
-  
+
   if (response.status != 200) {
     [[NSException exceptionWithName:@"MimicError" 
                              reason:[NSString stringWithFormat:@"Couldn't ping Mimic (response: %@)", response] 
@@ -153,7 +153,6 @@ static BOOL pingsWhenInitialized = YES;
   for (LRMimicRequestStub *stub in stubs) {
     [stubPayloads addObject:[stub toDictionary]];
   }
-  NSLog(@"STUBBING %@", stubPayloads);
   NSDictionary *payload = [NSDictionary dictionaryWithObject:stubPayloads forKey:@"stubs"];
   return [NSPropertyListSerialization dataFromPropertyList:(id)payload
                                                     format:NSPropertyListXMLFormat_v1_0 
