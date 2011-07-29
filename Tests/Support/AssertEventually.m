@@ -108,7 +108,7 @@
     while(![self.currentProbe isSatisfied]) {
       @try {
         [self.currentProbe sampleWithCondition:condition];
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:delayInterval]];
+        sleep(delayInterval);
       }
       @catch (NSException *exception) {
         NSLog(@"Caught exception whilst sampling probe: %@", exception);
@@ -129,16 +129,18 @@
 
 void LR_assertEventuallyWithLocationAndTimeout(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe, NSTimeInterval timeout)
 {
-  LRProbePoller *poller = [[LRProbePoller alloc] initWithTimeout:timeout delay:kDEFAULT_PROBE_DELAY];
-  if (![poller check:probe]) {
-    NSString *failureMessage = [probe describeToString:[NSString stringWithFormat:@"Probe failed after %d second(s). ", (int)timeout]];
-    
-    [testCase failWithException:
-      [NSException failureInFile:[NSString stringWithUTF8String:fileName] 
-                          atLine:lineNumber 
-                 withDescription:failureMessage]];
-  }
-  [poller release];
+  dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    LRProbePoller *poller = [[LRProbePoller alloc] initWithTimeout:timeout delay:kDEFAULT_PROBE_DELAY];
+    if (![poller check:probe]) {
+      NSString *failureMessage = [probe describeToString:[NSString stringWithFormat:@"Probe failed after %d second(s). ", (int)timeout]];
+      
+      [testCase failWithException:
+       [NSException failureInFile:[NSString stringWithUTF8String:fileName] 
+                           atLine:lineNumber 
+                  withDescription:failureMessage]];
+    }
+    [poller release];
+  });
 }
 
 void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName, int lineNumber, id<LRProbe>probe)
@@ -159,8 +161,10 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 - (id)initWithBlock:(LRBlockProbeBlock)aBlock;
 {
   if ((self = [super init])) {
-    block = [block copy];
+    block = [aBlock copy];
     isSatisfied = NO;
+    
+    NSAssert(block, @"Block probe requires a block!");
   }
   return self;
 }
@@ -179,8 +183,6 @@ void LR_assertEventuallyWithLocation(SenTestCase *testCase, const char* fileName
 - (void)sampleWithCondition:(NSCondition *)condition
 {
   isSatisfied = block();
-  
-  NSLog(@"Sampling with condition %@", condition);
   
   if (isSatisfied) {
     [condition withLock:^{ [condition signal]; }];
