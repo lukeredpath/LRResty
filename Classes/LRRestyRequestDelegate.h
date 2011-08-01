@@ -21,4 +21,5 @@
 @optional
 - (void)restyRequestDidStart:(LRRestyRequest *)request;
 - (void)restyRequest:(LRRestyRequest *)request didReceiveData:(NSData *)data;
+- (void)restyRequest:(LRRestyRequest *)request didFailWithError:(NSError *)error;
 @end

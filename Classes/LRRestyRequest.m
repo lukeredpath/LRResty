@@ -177,6 +177,15 @@
   [super connection:connection didReceiveData:data];
 }
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+  [super connection:connection didFailWithError:error];
+  
+  if ([delegate respondsToSelector:@selector(restyRequest:didFailWithError:)]) {
+    [delegate restyRequest:self didFailWithError:error];
+  }
+}
+
 @end
 
 #pragma mark -
