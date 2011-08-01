@@ -25,6 +25,7 @@
 }
 @property (nonatomic, readonly) NSURL *URL;
 @property (nonatomic, assign, readonly) NSUInteger numberOfRetries;
+@property (nonatomic, readonly) NSError *error;
 
 /// ---------------------------------
 /// @name Initializing

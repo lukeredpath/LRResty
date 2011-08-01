@@ -148,5 +148,17 @@
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
+- (void)repository:(RemoteResourceRepository *)repository didFailWithError:(NSError *)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:error.localizedFailureReason delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+  [alert show];
+  [alert release];
+  
+  NSIndexPath *selectedCellIndexPath = [self.tableView indexPathForSelectedRow];
+  [self.tableView deselectRowAtIndexPath:selectedCellIndexPath animated:YES];
+}
+
 @end
 

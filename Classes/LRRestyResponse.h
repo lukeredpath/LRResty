@@ -22,6 +22,11 @@
   NSDictionary *cookies;
 }
 /**
+ The original request that this is the response for.
+ */
+@property (nonatomic, readonly) LRRestyRequest *originalRequest;
+
+/**
  Returns the raw response data.
  */
 @property (nonatomic, readonly) NSData *responseData;
@@ -60,4 +65,11 @@
  Returns the value for the named cookie.
  */
 - (NSString *)valueForCookie:(NSString *)cookieName;
+
+/**
+ Indicates that a response was received without error.
+ */
+- (BOOL)wasSuccessful;
+
 @end
+

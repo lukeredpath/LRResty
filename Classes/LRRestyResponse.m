@@ -27,6 +27,7 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 @synthesize responseData;
 @synthesize headers;
 @synthesize status;
+@synthesize originalRequest = _originalRequest;
 
 - (id)initWithStatus:(NSInteger)statusCode responseData:(NSData *)data headers:(NSDictionary *)theHeaders originalRequest:(LRRestyRequest *)originalRequest;
 {
@@ -35,12 +36,14 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
     responseData = [data retain];
     headers = [theHeaders copy];
     cookies = [extractCookiesFromHeaders(headers, originalRequest.URL) copy];
+    _originalRequest = [originalRequest retain];
   }
   return self;
 }
 
 - (void)dealloc
 {
+  [_originalRequest release];
   [cookies release];
   [headers release];
   [responseData release];
@@ -76,6 +79,11 @@ NSDictionary *extractCookiesFromHeaders(NSDictionary *headers, NSURL *url)
 - (NSString *)valueForCookie:(NSString *)cookieNamed;
 {
   return [[self cookieNamed:cookieNamed] value];
+}
+
+- (BOOL)wasSuccessful
+{
+  return (status > 0) && !self.originalRequest.error;
 }
 
 @end

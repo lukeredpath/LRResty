@@ -90,6 +90,14 @@
   }
 }
 
+- (void)failWithError:(NSError *)error
+{
+  if ([self.delegate respondsToSelector:@selector(repository:didFailWithError:)]) {
+    [self.delegate repository:self didFailWithError:error];
+  }
+  [self finishRemoteOperation];
+}
+
 @end
 
 @implementation GithubUserRepository
@@ -108,12 +116,22 @@ GithubID userIDFromString(NSString *userIDString)
   [self startRemoteOperation];
   
   [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
+    if (![response wasSuccessful]) {
+      [self failWithError:response.originalRequest.error];
+      return;
+    }
+    
     NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
     
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
     user.fullName = [userData objectForKey:@"name"];
     
     [[userResource at:@"followers"] get:^(LRRestyResponse *response, LRRestyResource *followersResource) {
+      if (![response wasSuccessful]) {
+        [self failWithError:response.originalRequest.error];
+        return;
+      }
+      
       [user setFollowers:[[response asJSONObject] objectForKey:@"users"]];
       resultBlock(user);
 

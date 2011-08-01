@@ -19,6 +19,7 @@
 
 @synthesize numberOfRetries;
 @synthesize HTTPClient;
+@synthesize error = _error;
 
 - (id)initWithURL:(NSURL *)aURL method:(NSString *)httpMethod delegate:(id<LRRestyRequestDelegate>)theDelegate;
 {
@@ -32,6 +33,7 @@
 
 - (void)dealloc
 {
+  [_error release];
   [credential release];
   [delegate release];
   [_URLRequest release];
@@ -179,11 +181,19 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-  [super connection:connection didFailWithError:error];
+  _error = [error retain];
   
   if ([delegate respondsToSelector:@selector(restyRequest:didFailWithError:)]) {
-    [delegate restyRequest:self didFailWithError:error];
+    [delegate restyRequest:self didFailWithError:_error];
   }
+  
+  LRRestyResponse *restResponse = [[LRRestyResponse alloc] initWithStatus:0 responseData:nil headers:nil originalRequest:self];
+  [delegate restyRequest:self didFinishWithResponse:restResponse];
+  [restResponse release];
+  
+  [LRResty log:[NSString stringWithFormat:@"Failed with error %@", error]];
+  
+  [super connection:connection didFailWithError:error];
 }
 
 @end

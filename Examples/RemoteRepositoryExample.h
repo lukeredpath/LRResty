@@ -36,6 +36,7 @@ typedef void (^GithubUserRepositoryResultBlock)(GithubUser *user);
 @optional
 - (void)repositoryDidStartRemoteOperation:(RemoteResourceRepository *)repository;
 - (void)repositoryDidFinishRemoteOperation:(RemoteResourceRepository *)repository;
+- (void)repository:(RemoteResourceRepository *)repository didFailWithError:(NSError *)error;
 @end
 
 @class LRRestyResource;
