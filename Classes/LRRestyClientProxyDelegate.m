@@ -51,4 +51,11 @@
   [responseDelegate restClient:restyClient receivedResponse:response];
 }
 
+- (void)restyRequest:(LRRestyRequest *)request didFailWithError:(NSError *)error
+{
+  if ([responseDelegate respondsToSelector:@selector(restClient:request:didFailWithError:)]) {
+    [responseDelegate restClient:restyClient request:request didFailWithError:error];
+  }
+}
+
 @end
