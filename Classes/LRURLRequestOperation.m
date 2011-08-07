@@ -36,6 +36,7 @@
 
 - (void)dealloc
 {
+  [responseData release];
   [connectionError release];
   [URLConnection release];
   [URLResponse release];
