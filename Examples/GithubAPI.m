@@ -9,7 +9,7 @@
 #import "GithubAPI.h"
 #import "LRResty.h"
 
-#define kGITHUB_API_ROOT_URL @"http://sgithub.com/api/v2/json"
+#define kGITHUB_API_ROOT_URL @"https://api.github.com/"
 
 NSString *githubUsername(NSString *user);
 

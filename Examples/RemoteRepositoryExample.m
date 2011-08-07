@@ -115,13 +115,13 @@ GithubID userIDFromString(NSString *userIDString)
 {
   [self startRemoteOperation];
   
-  [[resource at:[NSString stringWithFormat:@"user/show/%@", username]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
+  [[resource at:[NSString stringWithFormat:@"users/%@", username]] get:^(LRRestyResponse *response, LRRestyResource *userResource) {
     if (![response wasSuccessful]) {
       [self failWithError:response.originalRequest.error];
       return;
     }
     
-    NSDictionary *userData = [[response asJSONObject] objectForKey:@"user"];
+    NSDictionary *userData = [response asJSONObject];
     
     GithubUser *user = [[GithubUser alloc] initWithUsername:[userData objectForKey:@"login"] remoteID:[[userData objectForKey:@"id"] integerValue]];
     user.fullName = [userData objectForKey:@"name"];
@@ -132,7 +132,7 @@ GithubID userIDFromString(NSString *userIDString)
         return;
       }
       
-      [user setFollowers:[[response asJSONObject] objectForKey:@"users"]];
+      [user setFollowers:[response asJSONObject]];
       resultBlock(user);
 
       [user release];
