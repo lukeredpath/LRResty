@@ -40,6 +40,7 @@
 
 - (void)dealloc
 {
+  NSLog(@"Dealloc resource %@", self);
   if (parentResource == nil) {
     restClient.delegate = nil;
   } else {
@@ -103,24 +104,39 @@
   return [[[LRRestyResource alloc] initWithRestClient:restClient URL:[URL URLByDeletingPathExtension]] autorelease];
 }
 
+/** 
+ The following methods create a retained __block reference to self.
+ 
+ This is to avoid a block retain cycle; the retain is because there is no guarantee that 
+ the resource will still be around when the request completes, due to the transient nature
+ of the resource API.
+ */
+
 - (LRRestyRequest *)get:(LRRestyResourceResponseBlock)responseBlock;
 {
-  return [restClient get:[URL absoluteString] parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
-    responseBlock(response, self);
+  __block LRRestyResource *blockResource = [self retain];
+  LRRestyRequest *request =  [restClient get:[URL absoluteString] parameters:nil headers:nil withBlock:^(LRRestyResponse *response){
+    responseBlock(response, blockResource);
+    [blockResource release];
   }];
+  return request;
 }
 
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 {
+  __block LRRestyResource *blockResource = [self retain];
   [restClient post:[URL absoluteString] payload:nil headers:nil withBlock:^(LRRestyResponse *response){
-    responseBlock(response, self);
+    responseBlock(response, blockResource);
+    [blockResource release];
   }];
 }
 
 - (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
 {
+  __block LRRestyResource *blockResource = [self retain];
   [restClient put:[URL absoluteString] payload:payload headers:nil withBlock:^(LRRestyResponse *response){
-    responseBlock(response, self);
+    responseBlock(response, blockResource);
+    [blockResource release];
   }];
 }
 
