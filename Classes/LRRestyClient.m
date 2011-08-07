@@ -90,9 +90,11 @@
   if ([clientDelegate respondsToSelector:@selector(restyClientWillPerformRequest:)] ){
     [clientDelegate restyClientWillPerformRequest:self];
   }
+  __block LRRestyClient *blockClient = self;
+  
   [request setCompletionBlock:^{
-    if ([clientDelegate respondsToSelector:@selector(restyClientDidPerformRequest:)]) {
-      [clientDelegate restyClientDidPerformRequest:self];
+    if ([blockClient.delegate respondsToSelector:@selector(restyClientDidPerformRequest:)]) {
+      [blockClient.delegate restyClientDidPerformRequest:blockClient];
     }
   }];
   for (LRRestyRequestBlock requestModifier in requestModifiers) {
