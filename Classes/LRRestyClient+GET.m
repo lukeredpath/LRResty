@@ -55,30 +55,30 @@
 
 - (LRRestyResponse *)get:(NSString *)urlString;
 {
-  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, NSCondition *condition) 
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore) 
   {
     [self get:urlString withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }
 
 - (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters;
 {
-  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, NSCondition *condition) 
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore) 
   {
     [self get:urlString parameters:parameters withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }
 
 - (LRRestyResponse *)get:(NSString *)urlString parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition) 
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore) 
   {
     [self get:urlString parameters:parameters headers:headers withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }

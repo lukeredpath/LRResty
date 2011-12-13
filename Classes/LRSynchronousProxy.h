@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(resultPtr, result, condition) \
-  *resultPtr = result; [condition lock]; [condition signal]; [condition unlock];
+#define LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(resultPtr, result, semaphore) \
+  *resultPtr = result; dispatch_semaphore_signal(semaphore);
 
-typedef void (^LRSynchronousProxyBlock)(id *, NSCondition *condition);
+typedef void (^LRSynchronousProxyBlock)(id *, dispatch_semaphore_t);
 
 @interface LRSynchronousProxy : NSObject {
 

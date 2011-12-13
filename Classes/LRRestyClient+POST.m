@@ -44,20 +44,20 @@
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload;
 {
-  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval + 1 andReturnResultWhenReady:^(id *result, NSCondition *condition)
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval + 1 andReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore)
   {
     [self post:urlString payload:payload withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }
 
 - (LRRestyResponse *)post:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
+  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore)
   {
     [self post:urlString payload:payload headers:headers withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }

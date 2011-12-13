@@ -20,33 +20,20 @@
 {
   __block id result = nil;
   
-  dispatch_queue_t synchronousProxyQueue = dispatch_queue_create("co.uk.lukeredpath.resty.synchronousProxy", NULL);
+  dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
   
-  dispatch_sync(synchronousProxyQueue, ^{
-    NSCondition *condition = [[NSCondition alloc] init];
-    
-    id blockResult = nil;
-    
-    block(&blockResult, condition);
-    
-    [condition lock];
-    
-    if (timeout > 0) {
-      [condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
-    }
-    else {
-      [condition wait];
-    }
-    
-    [condition unlock];
-    [condition release];
-    
-    result = blockResult;
-  });
+  block(&result, semaphore);
   
-  dispatch_release(synchronousProxyQueue);
+  if (timeout > 0) {
+    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * timeout));
+  }
+  else {
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+  }  
   
-  return [result autorelease];
+  dispatch_release(semaphore);
+  
+  return result;
 }
 
 @end

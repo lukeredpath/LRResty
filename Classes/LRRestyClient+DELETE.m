@@ -45,20 +45,20 @@
 
 - (LRRestyResponse *)delete:(NSString *)urlString;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore) 
   {
     [self delete:urlString withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }
 
 - (LRRestyResponse *)delete:(NSString *)urlString headers:(NSDictionary *)headers;
 {
-  return [self performAsynchronousBlockAndReturnResultWhenReady:^(id *result, NSCondition *condition)
+  return [self performAsynchronousBlockWithTimeout:globalTimeoutInterval andReturnResultWhenReady:^(id *result, dispatch_semaphore_t semaphore) 
   {
     [self delete:urlString headers:headers withBlock:^(LRRestyResponse *response) {
-      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], condition);
+      LRSYNCHRONOUS_PROXY_NOTIFY_CONDITION(result, [response retain], semaphore);
     }];
   }];
 }
