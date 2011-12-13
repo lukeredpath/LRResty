@@ -38,6 +38,20 @@ RESTY_CLIENT_ACCEPTANCE_TEST(TimeoutTests)
   assertEventuallyThat(&timedOutRequest, isCancelled());
 }
 
+- (void)testTimeoutBlockIsCalledWhenRequestingNonAvailableService
+{
+  __block LRRestyRequest *timedOutRequest = nil;
+  
+  [[client post:@"http://localhost:12345"
+        payload:[NSDictionary dictionaryWithObject:@"5" forKey:@"sleep"]
+      withBlock:nil] timeoutAfter:1 handleWithBlock:^(LRRestyRequest *request) {
+    
+    timedOutRequest = request;
+  }];
+  
+  assertEventuallyThat(&timedOutRequest, isCancelled());
+}
+
 - (void)testTimeoutBlockIsNeverCalledWhenRequestRespondsInTime
 {
   __block BOOL timeoutHandlerCalled = NO;
