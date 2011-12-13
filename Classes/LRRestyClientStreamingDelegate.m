@@ -14,14 +14,14 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
 
 @implementation LRRestyClientStreamingDelegate
 
-+ (id)delegateWithDataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock;
++ (id)delegateWithBlock:(LRRestyResponseBlock)theBlock dataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock
 {
-  return [[[self alloc] initWithDataHandler:dataBlock errorHandler:errorBlock] autorelease];
+  return [[[self alloc] initWithBlock:theBlock dataHandler:dataBlock errorHandler:errorBlock] autorelease];
 }
 
-- (id)initWithDataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock;
+- (id)initWithBlock:(LRRestyResponseBlock)theBlock dataHandler:(LRRestyStreamingDataBlock)dataBlock errorHandler:(LRRestyStreamingErrorBlock)errorBlock
 {
-  if ((self = [super init])) {
+  if ((self = [super initWithBlock:theBlock])) {
     dataHandler = [dataBlock copy];
     errorHandler = [errorBlock copy];
   }
@@ -47,12 +47,13 @@ NSString *const LRRestyClientStreamingErrorDomain = @"LRRestyClientStreamingErro
 
 - (void)restyRequest:(LRRestyRequest *)request didFinishWithResponse:(LRRestyResponse *)response
 {
-  if ([response status] > 200) {
+  if ([response status] > 200 && errorHandler != nil) {
     NSError *error = [NSError errorWithDomain:LRRestyClientStreamingErrorDomain 
                                          code:LRRestyStreamingErrorUnsuccessfulResponse 
                                      userInfo:[NSDictionary dictionaryWithObject:response forKey:@"response"]];
     errorHandler(error);
   }
+  [super restyRequest:request didFinishWithResponse:response];
 }
 
 @end

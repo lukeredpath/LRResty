@@ -92,7 +92,12 @@
 
 - (LRRestyRequest *)get:(NSString *)urlString onData:(LRRestyStreamingDataBlock)dataHandler onError:(LRRestyStreamingErrorBlock)errorHandler;
 {
-  return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:nil headers:nil delegate:[LRRestyClientStreamingDelegate delegateWithDataHandler:dataHandler errorHandler:errorHandler]];
+  return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:nil headers:nil delegate:[LRRestyClientStreamingDelegate delegateWithBlock:nil dataHandler:dataHandler errorHandler:errorHandler]];
+}
+
+- (LRRestyRequest *)get:(NSString *)urlString withBlock:(LRRestyResponseBlock)block onData:(LRRestyStreamingDataBlock)dataHandler;
+{
+  return [HTTPClient GET:[NSURL URLWithString:urlString] parameters:nil headers:nil delegate:[LRRestyClientStreamingDelegate delegateWithBlock:block dataHandler:dataHandler errorHandler:nil]];
 }
 
 @end

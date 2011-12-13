@@ -70,4 +70,21 @@ RESTY_CLIENT_ACCEPTANCE_TEST(StreamingTests)
   assertEventuallyThat(&streamError, isNot(nilValue()));
 }
 
+- (void)testDoesNotAccumulateResponseDataWhenPassingToOnDataHandler
+{
+  __block LRRestyResponse *theResponse = nil;
+  
+  [client get:resourceWithPath(@"/streaming")
+    withBlock:^(LRRestyResponse *response) {
+      theResponse = [response retain];
+    }
+       onData:^(NSData *chunk, BOOL *cancel) {}
+  ];
+  
+  assertEventuallyThat(&theResponse, isNot(nilValue()));
+  
+  assertThatInt(theResponse.status, equalToInt(200));
+  assertThatInt(theResponse.responseData.length, equalToInt(0));
+}
+
 END_ACCEPTANCE_TEST
