@@ -11,7 +11,7 @@
 
 @implementation NSRunLoop (Additions)
 
-- (void)runForTimeInterval:(NSTimeInterval)interval;
+- (void)LR_runForTimeInterval:(NSTimeInterval)interval;
 {
   [self runUntilDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
 }

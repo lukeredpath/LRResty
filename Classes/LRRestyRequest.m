@@ -57,7 +57,7 @@
 {
   if (parameters == nil) return;
   
-  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [_URLRequest.URL absoluteString], [parameters stringWithFormEncodedComponents]]];
+  NSURL *URLWithParameters = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", [_URLRequest.URL absoluteString], [parameters LR_stringWithFormEncodedComponents]]];
   [_URLRequest setURL:URLWithParameters];
 }
 
@@ -96,7 +96,7 @@
     credential = [[NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone] retain];
   } else {
     NSData *credentialData = [[NSString stringWithFormat:@"%@:%@", username, password] dataUsingEncoding:NSUTF8StringEncoding];
-    [self addHeader:@"Authorization" value:[NSString stringWithFormat:@"Basic %@", [credentialData base64EncodedString]]];
+    [self addHeader:@"Authorization" value:[NSString stringWithFormat:@"Basic %@", [credentialData LR_base64EncodedString]]];
   }
 }
 

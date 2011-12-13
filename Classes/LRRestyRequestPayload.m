@@ -115,7 +115,7 @@
 
 - (NSData *)dataForRequest
 {
-  return [[dictionary stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding];
+  return [[dictionary LR_stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (NSString *)contentTypeForRequest

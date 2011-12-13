@@ -11,7 +11,7 @@
 
 @implementation NSString (QueryString)
 
-- (NSString*)stringByEscapingForURLQuery
+- (NSString*)LR_stringByEscapingForURLQuery
 {
   NSString *result = self;
   
@@ -32,7 +32,7 @@
   return result;  
 }
 
-- (NSString*)stringByUnescapingFromURLQuery
+- (NSString*)LR_stringByUnescapingFromURLQuery
 {
   return [[self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByReplacingOccurrencesOfString:@"+" withString:@" "];
 }

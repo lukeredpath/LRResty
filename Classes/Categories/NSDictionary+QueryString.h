@@ -10,7 +10,7 @@
 
 @interface NSDictionary (QueryString)
 
-+ (NSDictionary *)dictionaryWithFormEncodedString:(NSString *)encodedString;
-- (NSString *)stringWithFormEncodedComponents;
++ (NSDictionary *)LR_dictionaryWithFormEncodedString:(NSString *)encodedString;
+- (NSString *)LR_stringWithFormEncodedComponents;
 
 @end

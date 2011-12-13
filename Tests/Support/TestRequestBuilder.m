@@ -50,7 +50,7 @@ void mimic(NSString *method, NSString *path, LRMimicRequestStubBuilder *stubBuil
   NSArray *pathComponents = [path componentsSeparatedByString:@"?"];
   if (pathComponents.count == 2) {
     stubBuilder.path = [pathComponents objectAtIndex:0];
-    stubBuilder.queryParameters = [NSDictionary dictionaryWithFormEncodedString:[pathComponents objectAtIndex:1]];
+    stubBuilder.queryParameters = [NSDictionary LR_dictionaryWithFormEncodedString:[pathComponents objectAtIndex:1]];
   } else {
     stubBuilder.path = path;
   }

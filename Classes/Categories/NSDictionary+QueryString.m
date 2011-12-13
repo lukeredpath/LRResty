@@ -16,7 +16,7 @@
 
 @implementation NSDictionary (QueryString)
 
-+ (NSDictionary *)dictionaryWithFormEncodedString:(NSString *)encodedString
++ (NSDictionary *)LR_dictionaryWithFormEncodedString:(NSString *)encodedString
 {
   NSMutableDictionary* result = [NSMutableDictionary dictionary];
   NSArray* pairs = [encodedString componentsSeparatedByString:@"&"];
@@ -32,13 +32,13 @@
 
     if (pos.location == NSNotFound) 
     {
-      key = [kvp stringByUnescapingFromURLQuery];
+      key = [kvp LR_stringByUnescapingFromURLQuery];
       val = @"";
     }
     else
     {
-      key = [[kvp substringToIndex:pos.location] stringByUnescapingFromURLQuery];
-      val = [[kvp substringFromIndex:pos.location + pos.length] stringByUnescapingFromURLQuery];
+      key = [[kvp substringToIndex:pos.location] LR_stringByUnescapingFromURLQuery];
+      val = [[kvp substringFromIndex:pos.location + pos.length] LR_stringByUnescapingFromURLQuery];
     }
 
     if (!key || !val)
@@ -49,7 +49,7 @@
   return result;
 }
 
-- (NSString *)stringWithFormEncodedComponents
+- (NSString *)LR_stringWithFormEncodedComponents
 {
   NSMutableArray *arguments = [NSMutableArray array];
   for (NSString *key in self)
@@ -64,20 +64,20 @@
   NSString *objectKey = nil;
   
   if (subKey) {
-    objectKey = [NSString stringWithFormat:@"%@[%@]", [key description], [[subKey description] stringByEscapingForURLQuery]];
+    objectKey = [NSString stringWithFormat:@"%@[%@]", [key description], [[subKey description] LR_stringByEscapingForURLQuery]];
   } else {
-    objectKey = [[key description] stringByEscapingForURLQuery];
+    objectKey = [[key description] LR_stringByEscapingForURLQuery];
   }
   
   if ([object respondsToSelector:@selector(stringByEscapingForURLQuery)]) {
-    [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [object stringByEscapingForURLQuery]]];
+    [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [object LR_stringByEscapingForURLQuery]]];
   } 
   else if ([object isKindOfClass:[self class]]) {
     for (NSString *nestedKey in object) {
       [self formEncodeObject:[object objectForKey:nestedKey] usingKey:objectKey subKey:nestedKey intoArray:array];
     } 
   } else {
-    [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [[object description] stringByEscapingForURLQuery]]];
+    [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [[object description] LR_stringByEscapingForURLQuery]]];
   }
 }
 

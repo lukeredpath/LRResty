@@ -10,5 +10,5 @@
 
 
 @interface NSObject (Tap)
-- (id)tap:(void (^)(id object))block;
+- (id)LR_tap:(void (^)(id object))block;
 @end

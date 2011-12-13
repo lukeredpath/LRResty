@@ -11,6 +11,6 @@
 
 @interface NSRunLoop (Additions)
 
-- (void)runForTimeInterval:(NSTimeInterval)interval;
+- (void)LR_runForTimeInterval:(NSTimeInterval)interval;
 
 @end

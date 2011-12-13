@@ -17,20 +17,20 @@
 
 - (void)testCanEncodeSimpleKeyPair
 {
-  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"foo=bar"));
 }
 
 - (void)testCanEncodeMultipleKeyPairs
 {
-  NSString *encodedString = [[NSDictionary dictionaryWithObjectsAndKeys:@"bar", @"foo", @"qux", @"baz", nil] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary dictionaryWithObjectsAndKeys:@"bar", @"foo", @"qux", @"baz", nil] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"foo=bar&baz=qux"));
 }
 
 - (void)testCanEncodeNestedKeyPairs
 {
   NSDictionary *nested = [NSDictionary dictionaryWithObject:@"baz" forKey:@"qux"];
-  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested"] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"nested[qux]=baz"));
 }
 
@@ -38,33 +38,33 @@
 {
   NSDictionary *bottom = [NSDictionary dictionaryWithObject:@"baz" forKey:@"qux"];
   NSDictionary *nested = [NSDictionary dictionaryWithObject:bottom forKey:@"bottom"];
-  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested"] LR_stringWithFormEncodedComponents];
 
   assertThat(encodedString, equalTo(@"nested[bottom][qux]=baz"));
 }
 
 - (void)testURLEncodesSpecialCharactersInValues
 {
-  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar baz" forKey:@"foo"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar baz" forKey:@"foo"] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"foo=bar+baz"));
 }
 
 - (void)testURLEncodesSpecialCharactersInKeys
 {
-  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo qux"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:@"bar" forKey:@"foo qux"] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"foo+qux=bar"));
 }
 
 - (void)testURLEncodesSpecialCharactersWithNestedKeyPairs
 {
   NSDictionary *nested = [NSDictionary dictionaryWithObject:@"baz foo" forKey:@"qux baz"];
-  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested object"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary  dictionaryWithObject:nested forKey:@"nested object"] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"nested+object[qux+baz]=baz+foo"));
 }
 
 - (void)testCanEncodeNonStringObjectsByEncodingTheirDescription
 {
-  NSString *encodedString = [[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"foo"] stringWithFormEncodedComponents];
+  NSString *encodedString = [[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:123] forKey:@"foo"] LR_stringWithFormEncodedComponents];
   assertThat(encodedString, equalTo(@"foo=123"));
 }
 

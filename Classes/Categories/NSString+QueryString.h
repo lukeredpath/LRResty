@@ -10,7 +10,7 @@
 
 @interface NSString (QueryString)
 
-- (NSString*)stringByEscapingForURLQuery;
-- (NSString*)stringByUnescapingFromURLQuery;
+- (NSString*)LR_stringByEscapingForURLQuery;
+- (NSString*)LR_stringByUnescapingFromURLQuery;
 
 @end

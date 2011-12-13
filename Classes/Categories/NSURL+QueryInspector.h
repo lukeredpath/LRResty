@@ -10,6 +10,6 @@
 
 @interface NSURL (QueryInspector)
 
-- (NSDictionary *)queryDictionary;
+- (NSDictionary *)LR_queryDictionary;
 
 @end

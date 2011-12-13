@@ -30,7 +30,7 @@ static LRRestyClient *__LR_SharedClient = nil;
 + (LRRestyClient *)authenticatedClientWithUsername:(NSString *)username password:(NSString *)password;
 {
   LRRestyClient *client = [[self newClient] autorelease];
-  return [client tap:^(id client) {
+  return [client LR_tap:^(id client) {
     [client setUsername:username password:password];
   }];
 }
