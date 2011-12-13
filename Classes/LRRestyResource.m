@@ -40,7 +40,6 @@
 
 - (void)dealloc
 {
-  NSLog(@"Dealloc resource %@", self);
   if (parentResource == nil) {
     restClient.delegate = nil;
   } else {
