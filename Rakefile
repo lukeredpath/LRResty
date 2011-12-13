@@ -1,4 +1,5 @@
-require "bundler/setup"
+require 'rubygems'
+require 'bundler/setup'
 require 'plist'
 require 'github/downloads'
 require 'highline/import'
