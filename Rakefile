@@ -51,7 +51,7 @@ namespace :build do
   CONFIG = "Release"
   LIB_NAME = "libLRResty.a"
   BUILD_DIR = "build"
-  BASE_SDK = 4.3
+  BASE_SDK = 5.0
   PACKAGE_SUFFIX = ENV["PACKAGE_SUFFIX"] || RESTY_VERSION
   
   desc "Build the static library for the simulator platform"
