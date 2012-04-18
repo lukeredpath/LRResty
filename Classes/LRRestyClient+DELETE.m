@@ -24,7 +24,7 @@
 
 - (LRRestyRequest *)delete:(NSString *)urlString headers:(NSDictionary *)headers delegate:(id<LRRestyClientResponseDelegate>)delegate;
 {
-  return [HTTPClient DELETE:[NSURL URLWithString:urlString] headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
+  return [HTTPClient DELETE:[NSURL URLWithString:urlString] payload:nil headers:headers delegate:[LRRestyClientProxyDelegate proxyForClient:self responseDelegate:delegate]];
 }
 
 #pragma mark -
@@ -37,7 +37,12 @@
 
 - (LRRestyRequest *)delete:(NSString *)urlString headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 {
-  return [HTTPClient DELETE:[NSURL URLWithString:urlString] headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+    return [HTTPClient DELETE:[NSURL URLWithString:urlString] payload:nil headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];
+}
+
+- (LRRestyRequest *)delete:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block 
+{
+    return [HTTPClient DELETE:[NSURL URLWithString:urlString] payload:payload headers:headers delegate:[LRRestyClientBlockDelegate delegateWithBlock:block]];    
 }
 
 #pragma mark -

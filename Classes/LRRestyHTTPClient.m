@@ -62,9 +62,9 @@
   return [self performRequest:[self requestForURL:url method:@"PUT" payload:payload headers:headers requestDelegate:requestDelegate]];
 }
 
-- (LRRestyRequest *)DELETE:(NSURL *)url headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
+- (LRRestyRequest *)DELETE:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 {
-    return [self performRequest:[self requestForURL:url method:@"DELETE" payload:nil headers:headers requestDelegate:requestDelegate]];
+    return [self performRequest:[self requestForURL:url method:@"DELETE" payload:payload headers:headers requestDelegate:requestDelegate]];
 }
 
 - (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
