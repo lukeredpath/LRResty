@@ -32,6 +32,7 @@ typedef void (^LRRestyResourceResponseBlock)(LRRestyResponse *response, LRRestyR
 - (LRRestyRequest *)get:(LRRestyResourceResponseBlock)responseBlock;
 - (void)post:(LRRestyResourceResponseBlock)responseBlock;
 - (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
+-(void)put:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
 @end
 
 @interface LRRestyResource (Streaming)
