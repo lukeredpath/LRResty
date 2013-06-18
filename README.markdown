@@ -1,3 +1,7 @@
+**NOTE: THIS PROJECT IS NO LONGER SUPPORTED**
+
+If you require an awesome HTTP framework for iOS or Mac, I highly recommend [AFNetworking](http://afnetworking.com).
+
 # Resty, an Objective-C HTTP framework
 
 Resty is a simple to use HTTP library for iOS and Mac apps, aimed at consuming RESTful web services and APIs. 
