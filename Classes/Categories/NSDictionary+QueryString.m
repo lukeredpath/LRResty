@@ -69,7 +69,7 @@
     objectKey = [[key description] LR_stringByEscapingForURLQuery];
   }
   
-  if ([object respondsToSelector:@selector(stringByEscapingForURLQuery)]) {
+  if ([object respondsToSelector:@selector(LR_stringByEscapingForURLQuery)]) {
     [array addObject:[NSString stringWithFormat:@"%@=%@", objectKey, [object LR_stringByEscapingForURLQuery]]];
   } 
   else if ([object isKindOfClass:[self class]]) {
