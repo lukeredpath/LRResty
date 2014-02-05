@@ -57,6 +57,16 @@
  */
 - (LRRestyRequest *)delete:(NSString *)urlString headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
 
+/**
+ Performs a DELETE request on URL resource with block response handling.
+ @param urlString   The URL resource to delete.
+ @param payload     The HTTP request body
+ @param headers     A dictionary of HTTP request headers.
+ @param block       The response handler.
+ @returns The request object.
+ */
+- (LRRestyRequest *)delete:(NSString *)urlString payload:(id)payload headers:(NSDictionary *)headers withBlock:(LRRestyResponseBlock)block;
+
 #pragma mark -
 #pragma mark Synchronous API
 

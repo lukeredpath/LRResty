@@ -18,7 +18,7 @@
 - (LRRestyRequest *)GET:(NSURL *)url parameters:(NSDictionary *)parameters headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)POST:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)PUT:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
-- (LRRestyRequest *)DELETE:(NSURL *)url headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
+- (LRRestyRequest *)DELETE:(NSURL *)url payload:(id)payload headers:(NSDictionary *)headers delegate:(id<LRRestyRequestDelegate>)requestDelegate;
 - (LRRestyRequest *)performRequest:(LRRestyRequest *)request;
 - (void)cancelAllRequests;
 @end

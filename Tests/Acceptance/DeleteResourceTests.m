@@ -39,6 +39,23 @@ RESTY_CLIENT_ACCEPTANCE_TEST(DeleteResourceTests)
   assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"env.HTTP_X_TEST_HEADER", @"Resty")));
 }
 
+- (void)testCanPerformDeleteRequestWithHTTPBody
+{
+  __block LRRestyResponse *testLocalResponse = nil;
+  NSString *payload = @"{\"foo\":\"bar\"}";
+  mimicDELETE(@"/simple/resource", andEchoRequest(), ^{  
+    [client delete:resourceWithPath(@"/simple/resource") 
+           payload:payload
+           headers:[NSDictionary dictionaryWithObject:@"Resty" forKey:@"X-Test-Header"]
+         withBlock:^(LRRestyResponse *response) {
+             testLocalResponse = [response retain];
+         }];
+  });
+
+  assertEventuallyThat(&lastResponse, is(responseWithRequestEcho(@"body", payload)));
+  [testLocalResponse release];
+}
+
 - (void)testCanModifyRequestsBeforeTheyAreSentUsingBlock
 {
   mimicDELETE(@"/simple/resource", andEchoRequest(), ^{  
