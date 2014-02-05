@@ -133,10 +133,19 @@
 - (void)post:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
 {
   __block LRRestyResource *blockResource = [self retain];
-  [restClient put:[URL absoluteString] payload:payload headers:nil withBlock:^(LRRestyResponse *response){
+  [restClient post:[URL absoluteString] payload:payload headers:nil withBlock:^(LRRestyResponse *response){
     responseBlock(response, blockResource);
     [blockResource release];
   }];
+}
+
+- (void)put:(id)payload callback:(LRRestyResourceResponseBlock)responseBlock;
+{
+    __block LRRestyResource *blockResource = [self retain];
+    [restClient put:[URL absoluteString] payload:payload headers:nil withBlock:^(LRRestyResponse *response){
+        responseBlock(response, blockResource);
+        [blockResource release];
+    }];
 }
 
 // forward other methods to the client
