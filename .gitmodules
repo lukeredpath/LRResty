@@ -1,6 +1,3 @@
-[submodule "Vendor/OCHamcrest"]
-	path = Vendor/OCHamcrest
-	url = http://github.com/pivotal/OCHamcrest.git
 [submodule "Vendor/TouchJSON"]
 	path = Vendor/TouchJSON
 	url = http://github.com/mrevilme/TouchJSON.git
